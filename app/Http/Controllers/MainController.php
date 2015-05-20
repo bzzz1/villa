@@ -189,4 +189,4 @@ class MainController extends Controller {
 // 		$str = trim($str);
 // 		return $str;
 // 	}
-// }
+}

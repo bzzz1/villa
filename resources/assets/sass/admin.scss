@@ -1,0 +1,77 @@
+// CORE
+$browser-prefixes: true !default;
+@import "juice";
+// MIXINS
+@import "mixins";
+// VAR
+$main_green: #9dcb20;
+$main_black: #222;
+$active_background: lighten($main_black, 20%);
+$text: #eee;
+$main_font: 'PT Sans', sans-serif;
+// GENERAL
+/*GENERAL*/
+html {
+	min-height: 100%;
+	padding-bottom: 65px;
+	height: auto;
+	position: relative;
+}
+body {
+	font-family: $main_font;
+	background-color: #ececec;
+}
+// HELPERS
+/*HEPLERS*/
+@import "admin_helpers";
+
+// BUTTONS
+/*BUTTONS*/
+@import "admin_buttons";
+
+// FLASH MESSAGES
+/*FLASH MESSAGES*/
+@import "flash_messages";
+
+// MODAL
+/*MODAL*/
+// FOR MODAL
+$admin_modal_width: auto;
+$admin_modal_height: auto;
+$admin_modal_background: #fff;
+$admin_modal_padding: 10px;
+$admin_font: $main_font;
+$admin_modal_font_size: 16px;
+$admin_modal_color: #cec;;
+$admin_modal_title_background: red;
+
+.jBox-container {
+	width: $admin_modal_width;
+	height: $admin_modal_height;
+	background: $admin_modal_background;
+	padding: $admin_modal_padding;
+	font-family: $admin_font;
+	.jBox-title {
+		font-size: $admin_modal_font_size;
+		color: $admin_modal_color;
+		background: $admin_modal_title_background;
+	}
+	.jBox-content {
+		display: table;
+		margin: auto;
+		width: auto!important;
+		height: auto!important;
+	}
+}
+// PARTIALS
+// HEADER
+/*HEADER*/
+@import "admin_header";
+
+// LEFT SIDEBAR
+/*LEFT SIDEBAR*/
+@import "admin_sidebar";
+
+// FOOTER
+/*FOOTER*/
+@import "admin_footer";

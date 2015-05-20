@@ -1,0 +1,241 @@
+/*GENERAL*/
+html {
+  min-height: 100%;
+  padding-bottom: 65px;
+  height: auto;
+  position: relative; }
+
+body {
+  font-family: "PT Sans", sans-serif;
+  background-color: #ececec; }
+
+/*HEPLERS*/
+.container_main {
+  padding-top: 0;
+  width: 70%;
+  min-width: 745px;
+  position: relative;
+  overflow: auto;
+  height: 100%;
+  display: table;
+  margin-left: 20%; }
+
+.admin_main_content {
+  width: 100%;
+  display: table;
+  margin: auto;
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 2px 3px 7px #757171;
+  padding: 25px 30px 30px 25px; }
+
+.admin_uni_heading {
+  font-size: 24px;
+  color: #9dcb20;
+  margin-left: 25px; }
+
+.admin_uni_label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222; }
+
+.admin_uni_label > i {
+  margin-right: 5px; }
+
+.hidden {
+  display: none; }
+
+/*HIDE STANDART UPLOAD*/
+.browse_img_admin {
+  visibility: hidden; }
+
+/*BUTTONS*/
+.admin_uni_button {
+  background-color: #9dcb20;
+  color: #fff;
+  font-size: 16px; }
+
+/*FLASH MESSAGES*/
+/*MESSAGE*/
+.message {
+  width: 1132px;
+  position: absolute;
+  top: 255px;
+  font-size: 21px;
+  margin-left: 19px;
+  z-index: 101; }
+
+.alert {
+  padding: 2px; }
+
+.message_text {
+  display: table;
+  margin: auto;
+  text-align: center; }
+
+.close {
+  margin-top: 6px;
+  margin-right: 30px; }
+
+.close_message {
+  position: absolute;
+  right: -5px; }
+
+/*MODAL*/
+.jBox-container {
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 10px;
+  font-family: "PT Sans", sans-serif; }
+  .jBox-container .jBox-title {
+    font-size: 16px;
+    color: #cec;
+    background: red; }
+  .jBox-container .jBox-content {
+    display: table;
+    margin: auto;
+    width: auto !important;
+    height: auto !important; }
+
+/*HEADER*/
+header {
+  background-color: #222;
+  color: #eee;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.header_top {
+  width: 960px;
+  display: table;
+  margin: auto; }
+
+.admin_header_btn_group button {
+  border: 0px; }
+
+.admin_to_site {
+  display: inline-block;
+  float: left; }
+
+.admin_exit {
+  display: inline-block;
+  float: right; }
+  .admin_exit .fa-user {
+    margin-right: 5px; }
+
+.admin_header_btn_group {
+  min-width: 163px; }
+  .admin_header_btn_group > button {
+    background-color: #222;
+    color: #eee;
+    min-width: 177px; }
+    .admin_header_btn_group > button:focus {
+      background-color: #222;
+      color: #eee; }
+    .admin_header_btn_group > button:hover, .admin_header_btn_group > button:active {
+      background-color: #555555;
+      color: #eee; }
+
+.admin_header_link {
+  font-weight: bold;
+  text-decoration: none;
+  color: #eee;
+  padding-right: 66px; }
+  .admin_header_link:hover {
+    background-color: #555555;
+    text-decoration: none;
+    color: #eee; }
+  .admin_header_link:focus {
+    font-weight: bold;
+    text-decoration: none;
+    color: #eee; }
+
+.btn-exit {
+  margin-left: 15px;
+  background-color: #555555;
+  margin-bottom: 0;
+  padding-bottom: 0; }
+  .btn-exit:hover {
+    color: #9dcb20; }
+
+.btn_link {
+  margin-left: 0; }
+
+.open > .dropdown-toggle.btn-default {
+  background-color: #555555;
+  color: #eee;
+  margin-bottom: 0;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px; }
+.open > .dropdown-menu {
+  background-color: #555555;
+  margin-top: 0;
+  border: 0px;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+  min-width: 177px; }
+  .open > .dropdown-menu > li {
+    display: inline-block; }
+    .open > .dropdown-menu > li > a {
+      padding: 2px 9px;
+      color: #eee; }
+      .open > .dropdown-menu > li > a:hover {
+        color: #9dcb20;
+        background-color: transparent; }
+
+/*LEFT SIDEBAR*/
+.admin_sidebar_container {
+  width: 15%;
+  min-width: 185px;
+  float: left;
+  overflow: auto;
+  position: fixed;
+  top: 42px;
+  bottom: 65px;
+  background-color: #222; }
+
+.admin_sidebar_button {
+  color: #eee;
+  font-size: 16px;
+  padding: 10px 7px 10px 15px;
+  display: block; }
+  .admin_sidebar_button:hover {
+    background-color: #555555;
+    text-decoration: none;
+    color: #eee; }
+  .admin_sidebar_button:focus {
+    background-color: #9dcb20;
+    text-decoration: none;
+    color: #eee;
+    outline: none; }
+  .admin_sidebar_button i {
+    margin-right: 10px; }
+
+.active_my {
+  background-color: #9dcb20;
+  text-decoration: none;
+  color: #eee; }
+  .active_my:hover {
+    background-color: #7b9f19;
+    text-decoration: none;
+    color: #eee; }
+
+/*FOOTER*/
+footer {
+  background-color: #9dcb20;
+  height: 65px;
+  padding-top: 20px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%; }
+
+.copy_footer_admin {
+  display: table;
+  margin: auto; }
+
+.copy_footer_admin a img {
+  float: right;
+  margin-left: 10px;
+  margin-top: 2px; }
+
+/*# sourceMappingURL=admin.css.map */

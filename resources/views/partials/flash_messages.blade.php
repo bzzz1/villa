@@ -7,7 +7,7 @@
 @if ($errors->has())
 	<div class="message alert alert-danger alert-dismissible" role="alert">
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><i aria-hidden="true" class="fa fa-times close_message"></i></button>
-		<p class="error_message">
+		<p class="message_text">
 			@foreach ($errors->all() as $error)
 				{{ $error }}<br>
 			@endforeach
