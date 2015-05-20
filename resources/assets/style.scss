@@ -1,0 +1,1236 @@
+// GENERAL
+$browser-prefixes: true !default;
+@import "juice";
+@import "cheat";
+// colors
+$font:'Roboto', sans-serif;
+$accent: #ffca2d;
+$green: #38893c;
+$l_green: #378d3b;
+$pros_green: #4bae4f;
+$cont_green: #dbf2dc;
+$grey: #212121;
+$l_grey: #727272;
+$pros_grey: #585858;
+// var
+$border: 7px;
+$padding: 70px 10px 0px 10px;
+$square: 130px;
+body {
+	font-family: $font;
+	color: $grey;
+	position: relative;
+}
+// HELPERS
+.uni_btn {
+	border-radius: $border;
+	text-transform: uppercase;
+}
+.mail_btn {
+	text-transform: uppercase;
+	@include hoverer(background-color, $grey, lighten($grey,10%));
+	@include hoverer(color, #fff, #fff);
+}
+.y_btn {
+	background-color: $accent;
+	color: #fff;
+	border: 2px solid #caa94a;
+	@include hoverer(background-color, $accent, lighten($accent,10%));
+}
+.uni_block_heading {
+	text-transform: uppercase;
+	font-size: 32px;
+	text-align: center;
+}
+.uni_block_hr {
+
+}
+.uni_block_subhead {
+	font-size: 18px;
+	font-style: italic;
+	color:$l_grey;
+	text-align: center;
+
+}
+// HEADER
+@import "header";
+.container-fluid {
+	.navbar-collapse {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}	
+.navbar-brand {
+	padding: 0;
+	img {
+		max-height: 66px;
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .navbar-header {
+    	min-height: 69px;
+    }
+    .navbar-toggle {
+		margin-top: 16px;
+    }
+}
+// MAIN_WRAP
+.main_wrap {
+	background-color: $green;
+	color: #fff;
+	padding: $padding;
+	padding-top: 70+65px;
+	.img {
+		position: relative;
+		top: 90px;
+	}
+	img {
+		float: left;
+		margin-top: -85px;
+	}
+	.form-control {
+		width: 56%;
+		display: inline-block;
+		margin-right: 3.66666%;
+		background-color: $pros_green;
+		border-color: #307834;
+		color: $grey;
+		height: 42px;
+		border-radius: 10px;
+		@include bp(iphone4) {
+			margin-right: 0;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .form-control {
+	    	width: 41%;
+	    }
+	}
+	@include placeholder($grey, $font);
+	.mail_btn {
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+}
+.company_name {
+	font-size: 32px;
+	text-transform: uppercase;
+}
+.company_descr {
+	font-size: 20px;
+	text-transform: lowercase;
+	margin-bottom: 42px;
+	float: none!important;
+	padding-left: 0;
+}
+.input_header {
+	font-size: 20px;
+	text-transform: uppercase;
+}
+.see_all {
+	font-size: 24px;
+	text-align: center;
+	display: table;
+	margin: auto;
+	width: 75%;
+	margin-top: 60px;
+	margin-bottom: 25px;
+	text-transform: uppercase;
+
+}
+/*------------------------------------------------
+| For SM (<= 991px):
+------------------------------------------------*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .see_all {
+    	margin-top: 0;
+    }
+    .form-control {
+    	width: 41%;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 890px) {
+    .see_all {
+    	margin-top: 40px;
+    }
+}
+.btn_div {
+	.y_btn {
+		font-size: 24px;
+		text-transform: uppercase;
+		padding-bottom: 0;
+		padding-right: 0;
+		padding-left: 0;
+		border-radius: 20px;
+		position: relative;
+		top: 32px;
+		@include bp(iphone4) {
+			font-size: 16px;
+		}
+	}
+	.fa {
+		font-size: 37px;
+		display: block;
+		margin: 0;
+	}
+	.last_a {
+		float: right;
+		margin-right: 60px;
+	}
+}
+/*------------------------------------------------
+|  For MD (<= 1199px):
+------------------------------------------------*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .btn_div {
+    	float: right;
+    }
+    .main_wrap {
+    	.img {
+    		top: 184px;
+    	}
+    }
+}
+/*------------------------------------------------
+| For SM (<= 991px):
+------------------------------------------------*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .btn_div {
+    	float: none;
+    	.last_a {
+    		margin-right: 0px;
+    	}
+    }
+    .main_wrap {
+    	.img {
+    		float: right;
+    		top: -22px;
+    		img {
+    			min-width: 250px;
+    			margin-top: -135px;
+    		}
+    	}
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 890px) {
+    .main_wrap {
+    	.img {
+    		display: none!important;
+    	}
+    }
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .btn_div {
+    	float: none;
+    	.last_a {
+    		margin-right: 0px;
+    	}
+    }
+}
+// PROS_WRAP
+.pros_wrap {
+	padding: $padding;
+}
+.one_pros {
+	margin-top: 4%;
+	margin-bottom: 4%;
+}
+.icon {
+	width: $square;
+	height: $square;
+	background-color: $pros_green;
+	padding-top: ($square - 112px)/2;
+	@include rotate (45deg);
+	border-radius: 10px;
+	float: left;
+	.fa {
+		color: #fff;
+		display: table;
+		margin: auto;
+		@include rotate (315deg);
+		font-size: 8em;
+	}
+}
+/*------------------------------------------------
+| For SM (<= 991px):
+------------------------------------------------*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .icon {
+		width: 80px;
+		height: 80px;
+		padding-top: 12px;
+		position: relative;
+		left: 13px;
+		top: 20px;
+		.fa {
+			font-size: 4em;
+		}
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .icon {
+		width: 80px;
+		height: 80px;
+		padding-top: 12px;
+		position: relative;
+		left: 10%;
+		.fa {
+			font-size: 4em;
+		}
+	}
+}
+.icon {
+	@include bp(iphone4) {
+		width: 80px;
+		height: 80px;
+		padding-top: 12px;
+		position: relative;
+		left: 0%;
+		.fa {
+			font-size: 4em;
+		}
+	}
+}
+.one_pros_descr {
+	float: right;
+	margin-right: 5%;
+	h4 {
+		text-transform: uppercase;
+		font-size: 20px;
+		font-weight: bold;
+		@include bp(iphone4) {
+			font-size: 16px;
+		}
+	}
+	p {
+		color: $pros_grey;
+		font-size: 12px;
+	}
+}
+/*------------------------------------------------
+|  For MD (<= 1199px):
+------------------------------------------------*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .icon {
+		width: 110px;
+		height: 110px;
+		padding-top: 14px;
+		.fa {
+			font-size: 6em;
+		}
+	}
+}
+// MAIL_WRAP
+.mail_wrap {
+	background-color: $accent;
+	color: #fff;
+	padding-top: 30px;
+	.img {
+		display: inline-block;
+		float: left;
+	}
+}
+/*------------------------------------------------
+	|  For MD (<= 1199px):
+	------------------------------------------------*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .mail_wrap {
+		.img {
+			max-width: 30%;
+		}
+	}
+}
+/*------------------------------------------------
+| For SM (<= 991px):
+------------------------------------------------*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .mail_wrap {
+		.img {
+			max-width: 30%;
+		}
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .mail_wrap {
+		.img {
+			max-width: 30%;
+		}
+	}
+}
+.mail_text {
+	border-left: 1px solid #fff;
+	padding-left: 40px;
+	margin-bottom: 60px;
+	.mail_heading {
+		font-size: 34px;
+		margin-top: 0;
+		@include bp(iphone4) {
+			font-size: 28px;
+		}
+	}
+	p {
+		font-size: 20px;
+		margin-bottom: 40px;
+		font-weight: 300;
+	}
+	.form-control {
+		width: 55%;
+		display: inline-block;
+		margin-right: 3.66666%;
+		background-color: #fbde89;
+		border-color: #ccab4a;
+		color: $grey;
+		height: 42px;
+		border-radius: 10px;
+		@include bp(iphone4) {
+			width: 100%;
+		}
+	}
+	@include placeholder($grey, $font);
+	.mail_btn {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		@include bp(iphone4) {
+			display: table;
+			margin: auto;
+			margin-top: 25px;
+		}
+	}
+}
+/*------------------------------------------------
+|  For MD (<= 1199px):
+------------------------------------------------*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .mail_text {
+		.form-control {
+			width: 45%;
+		}
+	}
+}
+// TECH_WRAP
+.tech_wrap {
+	padding: $padding;
+}
+.one_item {
+	background-color: #eee;
+	margin-bottom: 5%;
+	padding: 10px 15px 25px 15px;
+	margin-left: 6%;
+	.img {
+		background-color: #fff;
+		max-width: 265px;
+		max-height: 265px;
+		min-width: 265px;
+		min-height: 265px;
+		display: table;
+		margin: auto;
+		// margin-top: 10px;
+		position: relative;
+		@include clearfix();
+		.hover {
+			display: none;
+			.fa {
+				font-size: 10em;
+				font-weight: 100;
+				color: #fff;
+				display: table;
+				margin: auto;
+				margin-top: 23%;
+				cursor: pointer;
+			}
+			@media screen and (min-width: 992px) and (max-width: 1199px) {
+				.fa {
+					font-size: 9em;
+					margin-top: 18%;
+				}
+			}
+			&:hover {
+				display: block;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 100;
+				background-color: rgba(0,0,0,0.5);
+				min-width: 265px;
+				min-height: 265px;
+			}
+			@media screen and (min-width: 992px) and (max-width: 1199px) {
+				&:hover {
+					min-width: 200px;
+					min-height: 200px;
+				}
+			}
+		}
+	}
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+		.img {
+		 	max-width: 200px;
+			max-height: 200px;
+			min-width: 200px;
+			min-height: 200px;
+		}   
+	}
+	.item_img {
+		min-width: 265px;
+		max-width: 265px;
+		// min-height: 265px;
+		max-height: 265px;
+		display: table;
+		margin: auto;
+		&:hover+.hover {
+			display: block;
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			z-index: 100;
+			background-color: rgba(0,0,0,0.5);
+			min-width: 265px;
+			min-height: 265px;
+		}
+		@media screen and (min-width: 992px) and (max-width: 1199px) {
+			&:hover+.hover {
+				min-width: 200px;
+				min-height: 200px;
+			}
+		}
+	}	
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+		.item_img {
+		 	min-width: 200px;
+			max-width: 200px;
+			// min-height: 200px;
+			max-height: 200px;
+		}   
+	}
+	/*------------------------------------------------
+	| For SM (<= 991px):
+	------------------------------------------------*/
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .item_img {
+		 	min-width: 260px;
+			max-width: 260px;
+			// min-height: 260px;
+			max-height: 260px;
+		}  
+	}
+	.item_title {
+		text-align: center;
+		font-weight: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		min-height: 50px;
+		max-height: 50px;
+		overflow: hidden;
+		a {
+			color: inherit;
+			cursor: pointer;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		// .short_title {
+		// 	position: relative;
+
+		// 	.item_title{
+		// 		&:hover+.full {
+		// 			display: block;
+		// 			position: absolute;
+		// 			top: 0px;
+		// 			left: 0px;
+		// 			z-index: 10;
+		// 			background-color: #eeeeee;
+		// 			height: auto;
+		// 			width: auto;
+		// 			max-height: initial;
+		// 			}
+		// 		.full:hover {
+		// 			display: block;
+		// 			position: absolute;
+		// 			top: 0px;
+		// 			left: 0px;
+		// 			z-index: 10;
+		// 			background-color: #eee;
+		// 			height: auto;
+		// 			width: auto;
+		// 			max-height: initial;
+		// 		}
+		// 	}	
+		// }
+	}
+	.full {
+		display: none;
+	}
+	.short_descr {
+		position: relative;
+		@include height_overflow(item_descr, 100px, 20px, #eee, 75%, #eee);
+	}
+	.item_descr {
+		font-size: 14px;
+		color: #717171;
+	}
+	.price {
+		overflow: hidden;
+		display: table;
+		margin: auto;
+	}
+	.item_price {
+		color: $accent;
+		font-size: 30px;
+		font-weight: bold;
+		text-align: center;
+		float: left;
+	}
+	.item_currency {
+		color: $accent;
+		font-size: 18px;
+		font-weight: bold;
+		text-align: center;
+		float: right;
+		text-transform: uppercase;
+		margin-top: 12px;
+		margin-left: 10px;
+	}
+	.y_btn {
+		text-transform: uppercase;
+		display: table;
+		margin:auto;
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .one_item {
+    	margin-left: 0;
+    }	
+}
+.more_item {
+	// display: table;
+	// margin: auto;
+	margin-bottom: 5%;
+	font-size: 25px;
+	.fa {
+		margin-left: 5%;
+		margin-right: 5%;
+		display: none;
+	}
+}
+/*------------------------------------------------
+|  For MD (<= 1199px):
+------------------------------------------------*/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .more_item {
+    	margin-left: 39.666667%;
+    }
+}
+.item_img {
+	display: table;
+	margin: auto;
+}
+.gallery {
+		width: 60%;
+		display: table;
+		margin: auto;
+	.item_img {
+		max-width: 450px;
+	}
+}
+// COMMENTS_WRAP
+.comments_wrap {
+	background-color: $l_green;
+	color: #fff;
+	padding-top: 35px;
+	padding-bottom: 30px;
+	.img_name {
+		float: left;
+	}
+	.subscribe {
+		float: right;
+		font-size: 18px;
+		min-width: 36%;
+		// margin-right: 25%;
+		margin-top: 7%;
+	}
+	/*------------------------------------------------
+	|  For MD (<= 1199px):
+	------------------------------------------------*/
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+	    .subscribe {
+			margin-right: 7%;
+		}
+	}
+	/*------------------------------------------------
+	| For SM (<= 991px):
+	------------------------------------------------*/
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .subscribe {
+			margin-right: 0%;
+		}
+	}
+	/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+	@media screen and (max-width: 767px) {
+	    .subscribe {
+			margin-right: 0%;
+		}
+	}
+	.name {
+		display: block;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		font-weight: 300;
+	}
+	.small_d {
+		display: block;
+		font-style: italic;
+		font-weight: 300;
+	}
+	.comment {
+		float: right;
+		padding-top: 35px;
+		padding-bottom: 35px;
+	}
+	blockquote {
+		border-left: 2px solid #5aa15d;
+		font-weight: 100;
+	}
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .comment {
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+	}
+	@media screen and (max-width: 767px) {
+	    .comment {
+			padding-top: 0px;
+			padding-bottom: 0px;
+		}
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .comments_wrap {
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+}
+/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .comments_wrap {
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+}
+// SPARE_WRAP
+.sapre_wrap {
+	padding: $padding;
+}
+// RESULTS_WRAP
+.results_wrap {
+	background-color: $grey;
+	color: #fff;
+	padding-top: 50px;
+	padding-bottom: 60px;
+	font-weight: 300;
+	&:hover {
+		color: $green;
+	}
+	.one_res {
+		display: inline-block;
+		// margin-right: 4%;
+		// margin-left: 4%;
+		font-size: 16px;
+		text-align: center;
+	}
+	/*------------------------------------------------
+	|  For MD (<= 1199px):
+	------------------------------------------------*/
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+	    .one_res {
+			// margin-right: 2%;
+			// margin-left: 2%;
+		}
+	}
+	/*------------------------------------------------
+	| For SM (<= 991px):
+	------------------------------------------------*/
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .one_res {
+	    	font-size: 16px;
+	    	// margin-right: 0.4%;
+			// margin-left: 0.4%;
+		}
+	}
+	/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+	@media screen and (max-width: 767px) {
+	    .one_res {
+	    	text-align: center;
+	    	margin-right: 0;
+	    	margin-left: 0;
+	    }
+	    .results_wrap {
+	    	padding-left: 10%;
+	    }
+	}
+	.first {
+		margin-left: 0;
+	}
+	.last {
+		margin-right: 0;
+	}
+	.fa {
+		display: table;
+		margin: auto;
+		margin-bottom: 25px;
+	}
+}
+@media screen and (max-width: 767px) {
+    .results_wrap {
+    	padding-left: 10%;
+    }
+}
+// CONTACTS_WRAP
+.contacts_wrap {
+	padding: $padding;
+	padding-bottom: 85px;
+	background-color: $cont_green;
+	font-size: 18px;
+	iframe {
+		margin-top: 20px;
+	}
+}
+.icons {
+	.tel, .adr, .mail {
+		display: inline-block;
+		overflow: hidden;
+		p {
+			float: right;
+			margin-left: 2em;
+		}
+	}
+	.tel, .adr {
+		float: left;
+	}
+	.tel {
+		p{
+			// margin-top: 15px;
+		}
+	}
+	.adr {
+		margin-left: 17%;
+		p{
+			margin-top: 6px;
+			// margin-left: 10px;
+		}
+	}
+	/*------------------------------------------------
+	|  For MD (<= 1199px):
+	------------------------------------------------*/
+	@media screen and (min-width: 992px) and (max-width: 1199px) {
+	    .adr {
+			margin-left: 10%;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 991px) {
+	    .adr {
+			margin-left: 4%;
+		}
+	}
+	.mail {
+		float: right;
+		p{
+			margin-top: 13%;
+			// margin-top: 9px;
+			// margin-left: 10px;
+		}
+		a {
+			color: inherit;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+	@media screen and (max-width: 767px) {
+		.mail {
+			float: none;
+		}    
+	}
+
+	.fa {
+		color: $green;
+		vertical-align: middle;
+	}
+}
+/*------------------------------------------------
+| For SM (<= 991px):
+------------------------------------------------*/
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .icons {
+    	font-size: 16px;
+    }
+}
+/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .icons {
+    	font-size: 16px;
+        .adr {
+    		margin-left: 3%;
+	    }
+    }
+}
+// WRITE_WRAP
+.write_wrap {
+	padding: $padding;
+	padding-bottom: 50px;
+	background-color: $accent;
+	color: $grey;
+	.contacts_form_table {
+		td {
+			padding-top: 15px;
+			padding-bottom: 30px;
+			padding-right: 5px;
+		}
+		.area {
+			vertical-align: top;
+		}
+	}
+	.form-control {
+		width: 100%;
+		display: inline-block;
+		margin-right: 3.66666%;
+		background-color: #fbde89;
+		border-color: #ccab4a;
+		color: $grey;
+		height: 42px;
+		border-radius: 10px;
+	}
+	.contacts_form_body {
+		height: auto;
+	}
+	.mail_btn {
+		padding-top: 8px;
+		padding-bottom: 8px;
+		display: table;
+		margin: auto;
+	}
+	.main_label {
+		font-size: 18px;
+		font-family: $font;
+		color: $grey;
+		font-weight: 400;
+		@include bp(iphone4) {
+			font-size: 16px;
+		}
+	}
+}
+.req:after {
+	display: inline-block;
+	content: "*";
+	color: red;
+}
+/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+@media screen and (max-width: 767px) {
+	.req:after {
+		display: none;
+	}
+}
+// FOOTER_WRAP
+.footer_wrap {
+	background-color: $grey;
+	padding-top: 25px;
+	padding-bottom: 17px;
+	.copy, .nav_footer {
+		display: inline-block;
+	}
+	.copy {
+		color: $l_green;
+		font-size: 12px;
+		.fa {
+			margin-right: 3%;
+		}
+		a {
+			@include hoverer(color, $l_green, lighten($l_green, 10%));
+		}
+	}
+	.nav_footer {
+		float: right;
+		// display: table;
+		// margin: auto;
+		.navbar-default {
+			background-color: #fff;
+		}
+		.navbar-nav {
+			// margin: 7.5px 10px;
+		}	
+		.nav>li>a {
+			@include hoverer(color, $accent, #fbde89);
+		}
+		.nav>li>a:hover, .nav>li>a:focus{
+			background: transparent;
+		}
+	}
+	.logo {
+		min-width: 100px;
+		display: inline-block;
+		padding-left: 15px;
+		img {
+			max-width: 60px;
+		}
+	}	
+	/*------------------------------------------------
+	| For XS (<= 767px):
+	------------------------------------------------*/
+	@media screen and (max-width: 767px) {
+	    .nav_footer {
+	    	float: none;
+			display: table;
+			margin: auto;
+			.navbar-default {
+				background-color: #fff;
+			}
+			.navbar-nav {
+				margin: 7.5px 10px;
+			}	
+			.nav>li {
+				display: inline-block;
+			}
+			.nav>li>a {
+				padding-left: 10px;
+				padding-right: 10px;
+
+			}
+		}
+	}
+	.nav_footer {
+		@include bp(iphone4) {
+			.nav>li>a {
+				padding-left: 5px;
+				padding-right: 5px;
+
+			}
+		}
+	}
+}
+// MODAL_ITEM
+.item_m {
+	.modal-dialog {
+		border: 15px solid rgba($grey, 0.3);
+		border-radius: 20px;
+		width: 80%;
+	}
+	.modal-backdrop.in {
+		height: 220%;
+	}
+	.modal-content {
+		background-color: #eeeeee;
+		padding: 15px 42px 15px 42px;
+	}
+	.modal-header {
+		border-bottom: none;
+	}
+	.modal-title {
+		// padding-top: 45px;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.modal-body {
+		background-color: $accent;
+		.description {
+			margin-top: 20px;
+		}
+		.price {
+			overflow: hidden;
+			display: table;
+			margin: auto;
+		}
+		.item_price {
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+			float: left;
+		}
+		.item_currency {
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+			float: right;
+			text-transform: uppercase;
+			margin-top: 12px;
+			margin-left: 10px;
+		}
+		.uni_btn {
+			text-transform: uppercase;
+			display: table;
+			margin:auto;
+			font-size: 26px;
+		}
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+    .item_m {
+		.modal-dialog {
+			border: 0px solid rgba($grey, 0.3);
+			border-radius: 0px;
+			width: 100%;
+			margin: 0;
+		}
+		.modal-backdrop.in {
+			height: 220%;
+		}
+		.modal-content {
+			background-color: #eeeeee;
+			padding: 0px;
+		}
+		.modal-title {
+			// padding-top: 45px;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.modal-body {
+			background-color: $accent;
+			.description {
+				margin-top: 20px;
+			}
+			.price {
+				overflow: hidden;
+				display: table;
+				margin: auto;
+			}
+			.item_price {
+				font-size: 30px;
+				font-weight: bold;
+				text-align: center;
+				float: left;
+			}
+			.item_currency {
+				font-size: 18px;
+				font-weight: bold;
+				text-align: center;
+				float: right;
+				text-transform: uppercase;
+				margin-top: 12px;
+				margin-left: 10px;
+			}
+			.uni_btn {
+				text-transform: uppercase;
+				display: table;
+				margin:auto;
+				font-size: 26px;
+			}
+		}
+	}
+}
+// MODAL_ORDER
+.order_m {
+	.modal-content {
+		background-color: $accent;
+	}
+	.modal-header {
+		border-bottom: none;
+	}
+	.modal-body {
+		.order_form_table {
+			td {
+				padding-top: 10px;
+				padding-bottom: 10px;
+				padding-right: 5px;
+			}
+			.area {
+				vertical-align: top;
+			}
+		}
+		.form-control {
+			width: 90%;
+			display: inline-block;
+			margin-right: 3.66666%;
+			background-color: #fbde89;
+			border-color: #ccab4a;
+			color: $grey;
+			height: 42px;
+			border-radius: 10px;
+		}
+		.order_form_body {
+			height: auto;
+		}
+		.mail_btn {
+			padding-top: 8px;
+			padding-bottom: 8px;
+			display: table;
+			margin: auto;
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+		.main_label {
+			font-size: 18px;
+			font-family: $font;
+			color: $grey;
+			font-weight: 400;
+		}
+		input[readonly="readonly"] {
+			background-color: darken(#fbde89,20%);
+		}
+	}
+	.modal-backdrop.in {
+		height: 150%;
+	}
+}
+/*------------------------------------------------
+| For XS (<= 767px):
+------------------------------------------------*/
+@media screen and (max-width: 767px) {
+	.order_m {
+		.modal-body {
+			.main_label {
+				font-size: 14px;
+				font-family: $font;
+				color: $grey;
+				font-weight: 400;
+			}
+			.form-control {
+				width: 100%;
+			}
+		}
+		.modal-backdrop.in {
+			height: 250%;
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

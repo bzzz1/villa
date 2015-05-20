@@ -1,0 +1,11 @@
+// AUTH
+.exit_btn {
+	@include btn(red, blue, 18px,blue);
+}
+.auth_btn {
+	@include btn(red, blue, 18px,blue);
+}
+.submit_btn {
+	@include btn(yellow, green, 18px, green);
+	margin-top: 5%;
+}

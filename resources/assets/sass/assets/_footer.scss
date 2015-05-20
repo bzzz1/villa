@@ -1,0 +1,26 @@
+footer {
+	background-color: $footer_background;
+	padding: $footer_padding;
+}
+.copyright {
+	display: block;
+	.our_link {
+		float: right;
+		margin-right: 5%;
+		p {
+			color: $copyright_color;
+		}
+		a {
+			color: #9ccb49;
+			&:hover {
+				color: #13b4e6;
+				text-decoration: none;
+			}
+			&:active,
+			&:focus {
+				outline: none;
+				text-decoration: none;
+			}
+		}
+	}
+}
