@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSubsectorsTable extends Migration {
+class CreateImagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,12 @@ class CreateSubsectorsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('subsectors', function(Blueprint $table)
+		Schema::create('images', function(Blueprint $table)
 		{
-			$table->increments('subsector_id');
-		    $table->string('sector', 128);
-		    $table->string('subsector', 128);
+			$table->increments('image_id');
+			$table->string('image', 16);
+			$table->integer('estate_id')->unsigned()->index();
+			$table->boolean('preview');
 		});
 	}
 
@@ -27,7 +28,7 @@ class CreateSubsectorsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('subsectors');
+		Schema::drop('images');
 	}
 
 }

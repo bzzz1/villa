@@ -202,9 +202,12 @@ return [
 		/*------------------------------------------------
 		| MODELS
 		------------------------------------------------*/
-		'Stock' 	=> 'App\Stock',
-		'Price' 	=> 'App\Price',
-		'Subsector' => 'App\Subsector',
+		'Estate' 	=> 'App\Estate',
+		'Image' 	=> 'App\Image',
+		'District'  => 'App\District',
+		'Town'  	=> 'App\Town',
+		'Article'   => 'App\Article',
+		'User'		=> 'App\User'
 	],
 
 ];

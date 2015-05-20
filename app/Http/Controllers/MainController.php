@@ -19,7 +19,9 @@ class MainController extends Controller {
 	// }
 
 	public function estates() {
-		return 'Villa project';
+		return view('estates');
+		
+		// return 'Villa project';
 		// $stocks = Stock::orderBy('added_on', 'DESC')->get();
 		// return view('stock_list', compact('stocks'));
 	}

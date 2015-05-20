@@ -1,25 +1,116 @@
-interfaces
-named routes
-middlewares
-data types + filtering + sorting
++++ dependencies
++++ db structure
+migrations
+seed
++++ api + named routes
++++ forms
+data verify
+tests
+filters + sorting + pagination
+gmaps
+шаблон для полей бд
+
+
+
 
 /*------------------------------------------------
-| route_name => /route 	:: view
+role route_name => /route 	:: view
 ------------------------------------------------*/
-GET  estates			=> /										:: estates
-GET  estate 			=> /estates/{estate}/{estate_id}			:: estate
-GET  articles			=> /articles								:: articles
-GET  article 			=> /articles/{article}/{article_id}			:: article
-GET  how_to				=> /how_to									:: how_to
-GET  rent_sale			=> /rent_sale								:: rent_sale
-GET  selected			=> /selected								:: (selected or real_estate)?
-GET  admin				=> /admin									:: login and admin if auth
-POST add_town			=> /admin/add_town							:: (popup)
-POST add_estate 		=> /admin/add_estate						:: (popup)
-GET	 admin_real_estate	=> /admin/real_estate						:: real_estate++
-GET  admin_articles		=> /admin/articles 							:: articles++
-GET  create_article		=> /admin/cretate_article					:: article_change
-GET  create_estate 		=> /admin/create_estate						:: estate_change
-GET  update_article		=> /admin/update_article					:: article_change++
-GET  update_estate 		=> /admin/update_estate						:: estate_change++
-POST delete_article		=> /admin/delete_article/{article_id}		:: redirect->with 
+
+/*----------------------------------------------------------------------------------------------------------*/
+| ESTATE CRUD
+/*----------------------------------------------------------------------------------------------------------*/
+A	POST create_estate 		=> /admin/create_estate					:: add_estate
+/*----------------------------------------------------------------------------------------------------------*/
+A	GET	 admin_estates		=> /admin/estates						:: estates (with delete form + change link)
+U 	GET  estates			=> /									:: estates (get count(selected))
+U	GET  estate 			=> /estates/{estate}/{estate_id}		:: estate
+U 	GET  selected			=> /selected							:: estates (selected_estates)
+U 	POST select_estate		=> /select_estate/{estate_id}			:: redirect->back(estates)	(by session_id)
+/*----------------------------------------------------------------------------------------------------------*/
+A	POST update_estate 		=> /admin/update_estate/{estate_id}		:: estate_change++
+/*----------------------------------------------------------------------------------------------------------*/
+A	POST delete_estate		=> /admin/delete_estate/{estate_id}		:: redirect->with
+/*----------------------------------------------------------------------------------------------------------*/
+
+{{-- HOW TO SORT ESTATE DEPENDING ON SELECTED FEATURES(PRICE, AREA ETC?) --}}
+GET estate_by_town		=> /estates/{town_id}								:: estates
+GET estate_by_town_district	=> /estates/{town_id}/{district_id}				:: estates
+GET estate_by_house_area=> /estates&area_min=&area_max=						:: estates
+GET estate_by_yard_area	=> /estates&area_min=&area_max=						:: estates
+GET estate_by_type		=> /estates&type=									:: estates
+GET estate_by_period	=> /estates&period_min=&period_max=					:: estates 
+
+/*----------------------------------------------------------------------------------------------------------*/
+| ARTICLE CRUD
+/*----------------------------------------------------------------------------------------------------------*/
+A  POST  create_article		=> /admin/cretate_article				:: article_change
+/*----------------------------------------------------------------------------------------------------------*/
+A  GET  admin_articles		=> /admin/articles 						:: articles (with delete form + change link)
+U  GET  articles			=> /articles							:: articles
+U  GET  article 			=> /articles/{article}/{article_id}		:: article
+/*----------------------------------------------------------------------------------------------------------*/
+A  POST  update_article		=> /admin/update_article				:: article_change (links)
+/*----------------------------------------------------------------------------------------------------------*/
+A  POST delete_article		=> /admin/delete_article/{article_id}	:: redirect->with
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+| TOWN CRUD
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST create_town		=> /admin/towns/create_town				:: popup
+/*----------------------------------------------------------------------------------------------------------*/
+A   GET admin_towns			=> /admin/towns							:: towns
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST update_town		=> /admin/towns/update_town/{town_id} 	:: pop_up
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST delete_town		=> /admin/towns/delete_town/{town_id}	:: -
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+| DISTRICT CRUD
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST create_district		=> /admin/districts/create_district					:: popup
+/*----------------------------------------------------------------------------------------------------------*/
+A   GET admin_districts			=> /admin/districts									:: districts
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST update_district		=> /admin/districts/update_district/{district_id} 	:: pop_up
+/*----------------------------------------------------------------------------------------------------------*/
+A   POST delete_district		=> /admin/districts/delete_district/{district_id}	:: -
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------*/
+| STATIC PAGES
+/*----------------------------------------------------------------------------------------------------------*/
+U  GET  how_to				=> /how_to		:: how_to
+U  GET  rent_sale			=> /rent_sale	:: rent_sale
+U  GET  about				=> /about		:: about
+U  GET  contacts			=> /contacts	:: contacts
+A  GET  admin				=> /admin		:: login or admin
+/*----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+| CRUD
+/*----------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------*/

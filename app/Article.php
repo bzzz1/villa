@@ -1,21 +1,20 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
-class Price extends Model {
-	protected $guarded = ['price_id'];
-	protected $primaryKey = 'price_id';
+class Article extends Model {
+	protected $guarded = [];
+	protected $primaryKey = 'article_id';
 	public $timestamps = false;
 
 	// treat time column as Carbon instance
-	protected $dates = ['date'];
+	protected $dates = ['added_on'];
 
 	public function setTimeAttribute($date) {
-		$this->attributes['date'] = Carbon::parse($date);
+		$this->attributes['added_on'] = Carbon::parse($date);
 	}
 
 	public function getTimeAttribute($date) {
 		return new Carbon($date);
-	}
+	} 
 }
