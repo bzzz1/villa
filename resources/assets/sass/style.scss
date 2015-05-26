@@ -9,7 +9,9 @@ $browser-prefixes: true !default;
 @import "assets/variables";
 // GENERAL
 /*GENERAL*/
-
+body {
+	font-family: $main_font;
+}
 // HELPERS
 /*HEPLERS*/
 @import "assets/helpers";
@@ -38,6 +40,10 @@ $browser-prefixes: true !default;
 
 // RIGHT SIDEBAR
 /*RIGHT SIDEBAR*/
+
+//MAIN PAGE
+/*MAIN PAGE*/
+@import "assets/main_page";
 
 // CATALOG
 /*CATALOG*/
