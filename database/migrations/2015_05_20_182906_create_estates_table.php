@@ -21,10 +21,13 @@ class CreateEstatesTable extends Migration {
 			$table->integer('yard_area')->nullable();
 			$table->integer('rooms')->nullable();
 			$table->boolean('commercial');
+			$table->integer('sea_dist');
 			$table->string('type', 32);
-			$table->integer('period')->nullable;
+			$table->string('period', 64)->nullable;
 			$table->integer('price');
 			$table->string('address', 256);
+			$table->string('longitude', 32);
+			$table->string('latitude', 32);
 			$table->integer('district_id')->unsigned()->index();
 		});
 	}
