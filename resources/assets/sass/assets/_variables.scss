@@ -1,20 +1,25 @@
 // GENERAL
-	$main_font: Arial;//MAIN FONT
-	$main_width: 100%;//MAIN CONTENT WIDTH
+	$main_font: "Roboto", serif; //MAIN FONT
+	$main_width: 1203px;//MAIN CONTENT WIDTH
 	$main_black: #222222;
+	$containers_width: 1098px;
+	$main_blue: #073559;
+	$main_green: #729521;
+	$main_grey: #505050;
+	$main_black: #212121;
 
 // NAVIGATION
-	$navbar-default-bg: green;//NAV BACKGROUND
-	$navbar-default-border: yellow;//NAV BORGER
+	$navbar-default-bg: $main_blue;//NAV BACKGROUND
+	$navbar-default-border: $main_blue;//NAV BORGER
 	$navbar-default-brand-color: blue;//BRAND TEXT 
-	$navbar-default-brand-hover-color: vlack;//BRAND TEXT HOVER
+	$navbar-default-brand-hover-color: black;//BRAND TEXT HOVER
 	$navbar-default-brand-hover-bg: purple;//BRAND BACKGROUND HOVER
 	$navbar-default-color: white;//NAV TEXT COLOR
 	$navbar-default-link-color: white;//NAV LINK COLOR
-	$navbar-default-link-hover-color: purple; //NAV LINK HOVER
-	$navbar-default-link-hover-bg: yellow;//NAV BACKGROUND HOVER
-	$navbar-default-link-active-color: red;//NAV ACTIVE COLOR
-	$navbar-default-link-active-bg: grey;// NAV ACTIVE BACKGROUND
+	$navbar-default-link-hover-color: #fff; //NAV LINK HOVER
+	$navbar-default-link-hover-bg: lighten($main_blue, 20%);//NAV BACKGROUND HOVER
+	$navbar-default-link-active-color: #fff;//NAV ACTIVE COLOR
+	$navbar-default-link-active-bg: lighten($main_blue, 20%);// NAV ACTIVE BACKGROUND
 	
 	// for disabled
 	// $navbar-default-link-disabled-color;
@@ -37,9 +42,9 @@
 	$login_input_outline: red;//INPUT OUTLINE
 
 //FOOTER
-	$footer_background: yellow;//FULL SCREEN COLOR
-	$footer_padding: 10px 10px 10px 10px;
-	$copyright_color: red; //FOOTER COPYRIGHT COLOR
+	$footer_background: $main_grey;//FULL SCREEN COLOR
+	$footer_padding: 15px 5px 15px 6px;
+	$copyright_color: #fff; //FOOTER COPYRIGHT COLOR
 
 // LEFT_SIDEBAR
 	$left_sidebar_width: 20%;//SIDEBAR WIDTH

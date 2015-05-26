@@ -1,0 +1,32 @@
+.main {
+	background-color: $main_green;
+	margin-top: 1px;
+}
+#carousel_estate {
+	width: $main_width;
+	display: table;
+	margin: auto;
+	.carousel-inner {
+		.item {
+			img {
+				display: table;
+				margin: auto;
+			}
+			.carousel-caption {
+				text-align: right;
+				top: -1%;
+				right: 7%;
+				color: $main_black;
+				font-weight: 200;
+				text-shadow: none;
+				h3 {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+	.fa {
+		position: absolute;
+		top: 50%;
+	}
+}
