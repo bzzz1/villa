@@ -1,5 +1,6 @@
 .main {
-	background-color: $main_green;
+	// background-color: $main_green;
+	background-image: url(../img/layout/pattern007.png);
 	margin-top: 1px;
 }
 #carousel_estate {
@@ -28,5 +29,40 @@
 	.fa {
 		position: absolute;
 		top: 50%;
+	}
+}
+.map {
+	width: $main_width;
+	display: table;
+	margin: auto;
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	h3 {
+		font-size: 36px;
+		color: $main_black;
+		text-transform: uppercase;
+		font-weight: 300;
+	}
+	a {
+		color: $main_blue;
+		font-size: 24px;
+		font-weight: 300;
+		cursor: pointer;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+	i {
+		margin-right: 20px;
+	}
+}
+.pre_footer_full {
+	// background-image: url(../img/layout/pattern007.png);
+}
+.pre_footer {
+	img {
+		display: table;
+		margin: auto;
 	}
 }
