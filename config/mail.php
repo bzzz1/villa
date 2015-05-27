@@ -1,5 +1,24 @@
 <?php
 
+// .env restart server
+// MAIL_USERNAME=MyUsername@gmail.com
+// MAIL_PASSWORD=MyPassword
+
+return [
+  "driver" 	=> env('MAIL_DRIVER', 'smtp'),
+  "host" 	=> env('MAIL_HOST', 'smtp.gmail.com'),
+  "port" 	=> env('MAIL_PORT', 587),
+  'encryption' => 'tls',
+  "from" 	=> [
+      "address"		=> "from@exampe.com",
+      "name" 		=> "Example"
+  ],
+  "username" => env('MAIL_USERNAME'),
+  "password" => env('MAIL_PASSWORD'),
+  "sendmail" => "/usr/sbin/sendmail -bs",
+  "pretend"  => false
+];
+
 return [
 
 	/*

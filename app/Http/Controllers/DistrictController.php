@@ -10,16 +10,17 @@ class DistrictController extends Controller {
 		$data = Request::all();
 		unset($data['_token']);
 		District::create($data);
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', "Район \"{$district->district}\" #{$district->district_id} города {$district->town->town} добавлен успешно!");
 	}
 
 	public function admin_districts() {
-		return v();
+		$districts = District::all();
+		return v()->with(compact('districts')); 
 	}
 
 	public function update_district() {
 		$data = Request::all();
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', "Район \"{$district->district}\" #{$district->district_id} города {$district->town->town} изменен успешно!");
 	}
 
 	public function delete_district($district_id) {

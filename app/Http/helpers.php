@@ -29,7 +29,7 @@
 			'rent_sale'			=> 'rent_sale',
 			'contacts'			=> 'contacts',
 			'admin'				=> 'admin',
-			'login'				=> 'login',
+			'login'				=> 'partials/admin/admin_login',
 			'logging'			=> null,
 			'logout'			=> null,
 		];

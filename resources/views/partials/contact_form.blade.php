@@ -3,7 +3,7 @@
 	<i class="fa fa-times fa-lg"></i>
 	<hr class="form_hr">
 	<div class="form">
-		{{ Form::open(['url'=>'/question', 'method'=>'POST', 'class'=>'contact_form']) }}
+		{{ Form::open(['url'=>'/order', 'method'=>'POST', 'class'=>'contact_form']) }}
 			<div class="inner_form_block">
 				<div class="select">
 					{{ Form::select('activity', ['dfвыава'=>'dfавыаываs'], null, ['class'=>'form-control', 'placeholder'=>'выбирите действие', 'reaqired']) }}
@@ -15,7 +15,7 @@
 					{{ Form::email('email', null, ['class'=>'form-control', 'placeholder'=>'Email:'])}}
 				</div>
 				<div class="company">
-					{{ Form::text('company', null, ['class'=>'form-control', 'placeholder'=>'Компания:'])}}
+					{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Ваше имя:'])}}
 				</div>
 				<div class="subject">
 					{{ Form::text('subject', null, ['class'=>'form-control', 'placeholder'=>'Тема'])}}
