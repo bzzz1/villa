@@ -55,6 +55,17 @@
 		</div>
 	</div>
 	@include('partials/filters')
-	
+	<div class="map">
+		<h3>Результаты поиска</h3>
+		<a>
+			<i class="fa fa-map-marker fa-2x"></i>
+			Посмотреть на карте
+		</a>
+	</div>
 	{{-- @include('partials/catalog_estate') --}}
+	<div class="pre_footer_full">
+		<div class="pre_footer">
+			{{-- {{HTML::image('img/layout/footer.png', 'krim villa photo')}} --}}
+		</div>
+	</div>
 @stop
