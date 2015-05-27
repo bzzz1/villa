@@ -6,28 +6,41 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller {
 	public function create_article() {
-		return v();
+		$data = Request::all();
+		unset($data['_token']);
+		Article::create($data);
+		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} добавлена успешно!");
 	}
 
 	public function admin_articles() {
-		return v();
+		// ??? use view composer ???
+		$articles = Article::all();
+		return v()->with(compact('articles'));
 	}
 
 	public function articles() {
-		return v();
+		// ??? use view composer ???
+		$articles = Article::all();
+		return v()->with(compact('articles'));
 	}
 
-	public function article($article, $article_id) {
-		return v();
+	public function article($article_id) {
+		// ??? use view composer ???
+		$article = Article::find($article_id);
+		return v()->with(compact('article'));
 	}
 
 	public function change_article($article_id) {
-		return v();
+		// ??? use view composer ???
+		$article = Article::find($article_id);
+		return v()->with(compact('article'));
 	}
 
 	public function update_article() {
 		$data = Request::all();
-		return redirect()->back()->with('message', '');
+		unset($data['_token']);
+		$estate = Article::find($data['article_id'])->update($data);
+		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} изменена успешно!");
 	}
 
 	public function delete_article($article_id) {

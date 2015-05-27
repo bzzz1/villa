@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class TownController extends Controller {
 	public function create_town() {
-		return redirect()->back();
+		$data = Request::all();
+		unset($data['_token']);
+		Town::create($data);
+		return redirect()->back()->with('message', '');
 	}
 
 	public function admin_towns() {

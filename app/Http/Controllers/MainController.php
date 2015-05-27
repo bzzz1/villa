@@ -13,10 +13,6 @@ class MainController extends Controller {
 		return v();
 	}
 
-	public function about() {
-		return v();
-	}
-
 	public function contacts() {
 		return v();
 	}
@@ -39,8 +35,8 @@ class MainController extends Controller {
 
 	public function logging() {
 		$data = [
-			'password'	=> Input::get('password'),
-			'login' 	=> Input::get('login')
+			'password'	=> Request::input('password'),
+			'login' 	=> Request::input('login')
 		];
 
 		$pass = Auth::attempt($data, true);

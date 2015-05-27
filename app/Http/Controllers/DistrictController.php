@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class DistrictController extends Controller {
 	public function create_district() {
-		return redirect()->back();
+		$data = Request::all();
+		unset($data['_token']);
+		District::create($data);
+		return redirect()->back()->with('message', '');
 	}
 
 	public function admin_districts() {

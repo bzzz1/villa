@@ -2,7 +2,7 @@
 
 	function v() {
 		$route_views = [
-			'create_estate'		=> 'create_estate',
+			'create_estate'		=> null,
 			'admin_estates'		=> 'estates',
 			'estates'			=> 'estates',
 			'estate'			=> 'estate',
@@ -11,7 +11,7 @@
 			'chnage_estate' 	=> 'estate_change',
 			'update_estate' 	=> null,
 			'delete_estate' 	=> null,
-			'create_article'	=> 'article_change',
+			'create_article'	=> null,
 			'admin_articles'	=> 'articles',
 			'articles'			=> 'articles',
 			'article'			=> 'article',
@@ -34,12 +34,7 @@
 			'logout'			=> null,
 		];
 
-		$resource = $route_views[Route::currentRouteName()];
-		if (is_string($resource)) {
-			return view($resource);
-		} else {
-			return $resource;
-		}
+		return view($route_views[Route::currentRouteName()]);
 	}
 
 	function l($route_name, $params=[]) {

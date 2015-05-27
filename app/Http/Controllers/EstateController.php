@@ -1,37 +1,59 @@
 <?php namespace App\Http\Controllers;
 
+// refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
+
 class EstateController extends Controller {
 	public function create_estate() {
-		return v();
+		$data = Request::all();
+		unset($data['_token']);
+		$estate = Estate::create($data);
+		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
 	}
 
 	public function admin_estates() {
-		return v();
+		// ??? use view composer ???
+		$estates = Estate::all();
+		return v()->with(compact('estates'));
 	}
 
 	public function estates() {
-		return v(); 
+		// ??? use view composer ???
+		$estates = Estate::all();
+		return v()->with(compact('estates')); 
 	}
 
-	public function estate($estate, $estate_id) {
-		return v();
-	}
-
-	public function selected() {
-		return v();
-	}
-
-	public function select_estate($estate_id) {
-		return redirect()->back(); // redirect->back(estates) (by session_id);
+	public function estate($estate_id) {
+		// ??? use view composer ???
+		$estate = Estate::find($estate_id);
+		return v()->with(compact('estate'));
 	}
 
 	public function change_estate($estate_id) {
-		return v();
+		// ??? use view composer ???
+		$estate = Estate::find($estate_id);
+		return v()->with(compact('estate'));
+	}
+
+	public function selected() {
+		// get current session id
+		// get all selected for current user
+		// $ids = 
+		$estates = Estate::whereIn($ids)->get();
+		return v()->with(compact('estates')); 
+	}
+
+	public function select_estate($estate_id) {
+		// get current session id
+		// add $estate_id to current user $selected attribute
+		// refresh page
+		return redirect()->back();
 	}
 
 	public function update_estate() {
 		$data = Request::all();
-		return redirect()->back()->with('message', '');
+		unset($data['_token']);
+		$estate = Estate::find($data['estate_id'])->update($data);
+		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
 	}
 
 	public function delete_estate($estate_id) {

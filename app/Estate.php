@@ -14,4 +14,8 @@ class Estate extends Model {
 	public function images() {
 		return $this->hasMany('Image');
 	}
+
+	// public function scopeSelected($query) {
+	// 	return $query->where(DB::raw('RAND()'));
+	// }
 }
