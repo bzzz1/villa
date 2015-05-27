@@ -9,9 +9,11 @@ class ArticleSeeder extends Seeder {
 		$count = 15;
 
 		for ($i=0; $i<$count; $i++) {
-			'title' 	=> $faker->,
-			'body' 		=> $faker->,
-			'added_on' 	=> $faker->,
+			Article::create([
+				'title' 	=> $faker->sentence(),
+				'body' 		=> $faker->paragraph(40),
+				'added_on' 	=> $faker->dateTimeThisMonth(),
+			]);
 		}
 	}
 }

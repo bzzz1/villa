@@ -9,10 +9,10 @@ class DatabaseSeeder extends Seeder {
 
 		$this->call('TownSeeder');
 		$this->call('DistrictSeeder');
-		// $this->call('EstateSeeder');
-		// $this->call('ImageSeeder');
-		// $this->call('ArticleSeeder');
-		// $this->call('UserSeeder');
+		$this->call('EstateSeeder');
+		$this->call('ImageSeeder');
+		$this->call('ArticleSeeder');
+		$this->call('UserSeeder');
 	}
 }
 

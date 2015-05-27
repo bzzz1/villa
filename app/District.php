@@ -7,6 +7,14 @@ class District extends Model {
 	protected $primaryKey = 'district_id';
 	public $timestamps = false;
 
+	public function town() {
+		return $this->belongsTo('Town');
+	}
+
+	public function estates() {
+		return $this->hasMany('Estate');
+	}
+
 	// public static function boot() {
 	// 	parent::boot();
 
@@ -15,9 +23,6 @@ class District extends Model {
 	// 	});
 	// }
 
-	// public function pdfs() {
-	// 	return $this->belongsToMany('Pdf'); // optional second argument is pivot table name
-	// }
 
 	// public function producer() {
 	// 	return $this->hasOne('Producer', 'producer_id', 'producer_id');

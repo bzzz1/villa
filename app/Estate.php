@@ -6,4 +6,12 @@ class Estate extends Model {
 	protected $guarded = ['estate_id'];
 	protected $primaryKey = 'estate_id';
 	public $timestamps = false;
+
+	public function district() {
+		return $this->belongsTo('District');
+	}
+
+	public function images() {
+		return $this->hasMany('Image');
+	}
 }

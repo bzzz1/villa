@@ -4,6 +4,105 @@
 		return URL::route($route_name, $params);
 	}
 
+	function min_round($number, $dozens=2, $divide=1) {
+		if (0 == $divide) {
+			throw new Exception("Division by zero!");
+		}
+
+		$number = round($number/pow(10, $dozens))*pow(10, $dozens);
+		return $number/$divide;
+	}
+
+	function make_options($array, $key, $value) {
+		$options = [];
+
+		foreach ($array as $element) {
+			$options[$element->$key] = $element->$value;
+		}
+		return $options;
+	}
+
+	function log_sql($switch="on") {
+		if ('off' == $switch) {
+			DB::listen(function($sql) { return null; });
+			return 'Sql logging is OFF. BUT CURRENTLY NOT WORKING!';
+		} else {
+			DB::listen(function($sql) { var_dump($sql); });
+			return 'Sql logging is ON.';
+		}
+	}
+
+	function dir_path($path='root') {
+		if ('layout' == $path) {
+			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'layout';
+		} elseif ('icons' == $path) {
+			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'icons';
+		} elseif ('articles' == $path) {
+			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'articles';
+		} elseif ('estates' == $path) {
+			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates';
+		} else {
+			return public_path();
+		}
+	}
+
+	function dir_sep() {
+		return DIRECTORY_SEPARATOR;
+	}
+
+	function read_dir($dir='D:\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\projects\\villa\\public\\img\\photos') { 
+		$result = []; 
+
+		if (!file_exists($dir)) {
+			echo "<span style='color: red'>ERROR: no \"$dir\" directory found!</span></br>";
+			return;
+		}
+
+		$files = scandir($dir); 
+		foreach ($files as $key => $value) { 
+			if (!in_array($value, array(".",".."))) { 
+				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
+					$result[$value] = read_dir($dir.DIRECTORY_SEPARATOR.$value); 
+				} else {
+					$result[] = iconv('Windows-1251', "UTF-8", $value);
+				} 
+			} 
+		}
+
+		return $result; 
+	}
+
+	function columnize($array, $columns, $current) {
+		$current--; // set indexes from 1
+		$array = method_exists($array, 'all') ? $array->all() : $array;
+		$count = count($array);
+		$rest = $count % $columns;
+		$base = ($count - $rest)/$columns;
+		$borders = [];
+
+		for ($i=0; $i<$columns; $i++) {
+			if ($i > 0) {
+				$borders[$i] = $base + $borders[$i-1];
+			} else {
+				$borders[$i] = $base;
+			}
+			if ($rest > 0) {
+				$borders[$i]++;
+				$rest--;
+			}
+		}
+
+		if ($current > 0) {
+			$start = $borders[$current-1];
+			$length = $borders[$current]-$borders[$current-1];
+		} else {
+			$start = 0;
+			$length = $borders[$current];
+		}
+
+		return array_slice($array, $start, $length);
+	}
+
 	function en($str, $options = array()) {
 		// URL SLUG https://gist.github.com/sgmurphy/3098978
 		// Make sure string is in UTF-8 and strip invalid UTF-8 characters
@@ -112,99 +211,6 @@
 		$str = trim($str, $options['delimiter']);
 		
 		return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
-		
-	}
-
-	function make_options($array, $key, $value) {
-		$options = [];
-
-		foreach ($array as $element) {
-			$options[$element->$key] = $element->$value;
-		}
-		return $options;
-	}
-
-	function log_sql($switch="on") {
-		if ('off' == $switch) {
-			DB::listen(function($sql) { return null; });
-			return 'Sql logging is OFF. BUT CURRENTLY NOT WORKING!';
-		} else {
-			DB::listen(function($sql) { var_dump($sql); });
-			return 'Sql logging is ON.';
-		}
-	}
-
-	function dir_path($path='root') {
-		if ('prices' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'prices';
-		} elseif ('excel' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'excel';
-		} elseif ('icons' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'icons';
-		} elseif ('pdf' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'pdf';
-		} elseif ('photos' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos';
-		} else {
-			return public_path();
-		}
-	}
-
-	function dir_sep() {
-		return DIRECTORY_SEPARATOR;
-	}
-
-	function read_dir($dir='D:\\EasyPHP-DevServer-14.1VC11\\data\\localweb\\projects\\villa\\public\\img\\photos') { 
-		$result = []; 
-
-		if (!file_exists($dir)) {
-			echo "<span style='color: red'>ERROR: no \"$dir\" directory found!</span></br>";
-			return;
-		}
-
-		$files = scandir($dir); 
-		foreach ($files as $key => $value) { 
-			if (!in_array($value, array(".",".."))) { 
-				if (is_dir($dir.DIRECTORY_SEPARATOR.$value)) { 
-					$result[$value] = read_dir($dir.DIRECTORY_SEPARATOR.$value); 
-				} else {
-					$result[] = iconv('Windows-1251', "UTF-8", $value);
-				} 
-			} 
-		}
-
-		return $result; 
-	}
-
-	function columnize($array, $columns, $current) {
-		$current--; // set indexes from 1
-		$array = method_exists($array, 'all') ? $array->all() : $array;
-		$count = count($array);
-		$rest = $count % $columns;
-		$base = ($count - $rest)/$columns;
-		$borders = [];
-
-		for ($i=0; $i<$columns; $i++) {
-			if ($i > 0) {
-				$borders[$i] = $base + $borders[$i-1];
-			} else {
-				$borders[$i] = $base;
-			}
-			if ($rest > 0) {
-				$borders[$i]++;
-				$rest--;
-			}
-		}
-
-		if ($current > 0) {
-			$start = $borders[$current-1];
-			$length = $borders[$current]-$borders[$current-1];
-		} else {
-			$start = 0;
-			$length = $borders[$current];
-		}
-
-		return array_slice($array, $start, $length);
 	}
 
 
