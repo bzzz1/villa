@@ -6,32 +6,33 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller {
 	public function create_article() {
-		// article_change
-		return 'create_article';
+		return v();
 	}
 
 	public function admin_articles() {
-		// articles (with delete form + change link)
-		return 'admin_articles';
+		return v();
 	}
 
 	public function articles() {
-		// articles
-		return 'articles';
+		return v();
 	}
 
 	public function article($article, $article_id) {
-		// article
-		return 'article';
+		return v();
 	}
 
-	public function update_article($article_id) {
-		// article_change (links)
-		return 'update_article';
+	public function change_article($article_id) {
+		return v();
+	}
+
+	public function update_article() {
+		$data = Request::all();
+		return redirect()->back()->with('message', '');
 	}
 
 	public function delete_article($article_id) {
-		// redirect->with
-		return 'delete_article';
+		$article = Article::find($article_id);
+		$article->delete();
+		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} удалена успешно!");
 	}
 }

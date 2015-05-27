@@ -1,8 +1,5 @@
 <?php
 
-Blade::setRawTags('{{', '}}');
-Blade::setEscapedContentTags('{{{', '}}}');
-
 // ESTATE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/create_estate', 			['as'=>'create_estate', 'uses'=>'EstateController@create_estate', 'middleware'=>'auth']); // create_estate
@@ -11,7 +8,8 @@ Route::get('/', 								['as'=>'estates', 		'uses'=>'EstateController@estates'])
 Route::get('/estates/{estate}/{estate_id}',		['as'=>'estate', 		'uses'=>'EstateController@estate']); // estate
 Route::get('/selected', 						['as'=>'selected', 		'uses'=>'EstateController@selected']); // estates (selected_estates)
 Route::post('/select_estate/{estate_id}', 		['as'=>'select_estate', 'uses'=>'EstateController@select_estate']); // redirect->back(estates) (by session_id)
-Route::post('/admin/update_estate/{estate_id}', ['as'=>'update_estate', 'uses'=>'EstateController@update_estate', 'middleware'=>'auth']); // estate_change++
+Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 'uses'=>'EstateController@change_estate', 'middleware'=>'auth']); // estate_change++
+Route::post('/admin/update_estate', 			['as'=>'update_estate', 'uses'=>'EstateController@update_estate', 'middleware'=>'auth']); // redirect
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 'uses'=>'EstateController@delete_estate', 'middleware'=>'auth']); // redirect->with
 
 // ARTICLE
@@ -20,7 +18,8 @@ Route::post('/admin/cretate_article',				['as'=>'create_article', 'uses'=>'Artic
 Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
 Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles
 Route::get('/articles/{article}/{article_id}', 		['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
-Route::post('/admin/update_article/{article_id}', 	['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // article_change (links)
+Route::post('/admin/change_article/{article_id}', 	['as'=>'change_article', 'uses'=>'ArticleController@change_article', 'middleware'=>'auth']); // article_change (links)
+Route::post('/admin/update_article', 				['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // redirect
 Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth']); // redirect->with
 
 // TOWN
@@ -41,11 +40,16 @@ Route::post('/admin/districts/delete_district/{district_id}', 	['as'=>'delete_di
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::get('/how_to', 		['as'=>'how_to', 	'uses'=>'MainController@how_to']); // how_to
 Route::get('/rent_sale', 	['as'=>'rent_sale', 'uses'=>'MainController@rent_sale']); // rent_sale
-Route::get('/about', 	 	['as'=>'about', 	'uses'=>'MainController@about']); // about
 Route::get('/contacts',  	['as'=>'contacts', 	'uses'=>'MainController@contacts']); // contacts
-Route::get('/admin', 		['as'=>'admin', 	'uses'=>'MainController@admin']); // login or admin
 
-
+// INTERACTION
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+Route::get('/admin', 		['as'=>'admin', 	'uses'=>'MainController@admin']); // admin
+Route::get('/login', 		['as'=>'login', 	'uses'=>'MainController@login']); // login
+Route::post('/logging', 	['as'=>'logging', 	'uses'=>'MainController@logging']); // redirect
+Route::post('/logout', 		['as'=>'logout', 	'uses'=>'MainController@logout']); // redirect
+Route::post('/feedback',	['as'=>'feedback', 	'uses'=>'MainController@feedback']); // redirect with 
+Route::post('/order',		['as'=>'order', 	'uses'=>'MainController@order']); // redirect with 
 
 
 // App::missing(function($exception) {

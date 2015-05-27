@@ -2,42 +2,41 @@
 
 class EstateController extends Controller {
 	public function create_estate() {
-		// create_estate
-		return 'create_estate';
+		return v();
 	}
 
 	public function admin_estates() {
-		// estates (with delete form + change link)
-		return 'admin_estates';
+		return v();
 	}
 
 	public function estates() {
-		// estates (get count(selected))
-		return view('estates');
+		return v(); 
 	}
 
 	public function estate($estate, $estate_id) {
-		// estate
-		return 'estate';
+		return v();
 	}
 
 	public function selected() {
-		// estates (selected_estates)
-		return 'selected';
+		return v();
 	}
 
 	public function select_estate($estate_id) {
-		// redirect->back(estates) (by session_id)
-		return 'select_estate';
+		return redirect()->back(); // redirect->back(estates) (by session_id);
 	}
 
-	public function update_estate($estate_id) {
-		// estate_change++
-		return 'update_estate';
+	public function change_estate($estate_id) {
+		return v();
+	}
+
+	public function update_estate() {
+		$data = Request::all();
+		return redirect()->back()->with('message', '');
 	}
 
 	public function delete_estate($estate_id) {
-		// redirect->with
-		return 'delete_estate';
+		$estate = Estate::find($estate_id);
+		$estate->delete();
+		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
 }

@@ -6,22 +6,21 @@ use Illuminate\Http\Request;
 
 class TownController extends Controller {
 	public function create_town() {
-		// popup
-		return 'create_town';
+		return redirect()->back();
 	}
 
 	public function admin_towns() {
-		// towns
-		return 'admin_towns';
+		return v();
 	}
 
-	public function update_town($town_id) {
-		// popup
-		return 'update_town';
+	public function update_town() {
+		$data = Request::all();
+		return redirect()->back()->with('message', '');
 	}
 
 	public function delete_town($town_id) {
-		// redirect->with
-		return 'delete_town';
+		$town = Town::find($town_id);
+		$town->delete();
+		return redirect()->back()->with('message', "Город \"{$town->town}\" #{$town->town_id} удален успешно!");
 	}
 }

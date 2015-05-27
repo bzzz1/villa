@@ -1,6 +1,7 @@
 <?php namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Blade;
 
 class AppServiceProvider extends ServiceProvider {
 
@@ -9,9 +10,10 @@ class AppServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function boot()
-	{
-		//
+	public function boot() {
+		// global default custom settings
+		Blade::setRawTags('{{', '}}');
+		Blade::setEscapedContentTags('{{{', '}}}');
 	}
 
 	/**
@@ -23,12 +25,7 @@ class AppServiceProvider extends ServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
-		$this->app->bind(
-			'Illuminate\Contracts\Auth\Registrar',
-			'App\Services\Registrar'
-		);
+	public function register() {
+		$this->app->bind('Illuminate\Contracts\Auth\Registrar', 'App\Services\Registrar');
 	}
-
 }

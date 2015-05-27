@@ -1,7 +1,53 @@
 <?php
 
+	function v() {
+		$route_views = [
+			'create_estate'		=> 'create_estate',
+			'admin_estates'		=> 'estates',
+			'estates'			=> 'estates',
+			'estate'			=> 'estate',
+			'selected'			=> 'estates',
+			'select_estate' 	=> null,
+			'chnage_estate' 	=> 'estate_change',
+			'update_estate' 	=> null,
+			'delete_estate' 	=> null,
+			'create_article'	=> 'article_change',
+			'admin_articles'	=> 'articles',
+			'articles'			=> 'articles',
+			'article'			=> 'article',
+			'update_article'	=> 'article_change',
+			'delete_article'	=> null,
+			'create_town'		=> null,
+			'admin_towns'		=> 'towns',
+			'update_town'		=> null,
+			'delete_town'		=> null,
+			'create_district'	=> null,
+			'admin_districts'	=> 'districs',
+			'update_district'	=> null,
+			'delete_district'	=> null,
+			'how_to'			=> 'how_to',
+			'rent_sale'			=> 'rent_sale',
+			'contacts'			=> 'contacts',
+			'admin'				=> 'admin',
+			'login'				=> 'login',
+			'logging'			=> null,
+			'logout'			=> null,
+		];
+
+		$resource = $route_views[Route::currentRouteName()];
+		if (is_string($resource)) {
+			return view($resource);
+		} else {
+			return $resource;
+		}
+	}
+
 	function l($route_name, $params=[]) {
 		return URL::route($route_name, $params);
+	}
+
+	function r() {
+		return Route::currentRouteName();
 	}
 
 	function min_round($number, $dozens=2, $divide=1) {
@@ -103,7 +149,7 @@
 		return array_slice($array, $start, $length);
 	}
 
-	function en($str, $options = array()) {
+	function s($str, $options = array()) {
 		// URL SLUG https://gist.github.com/sgmurphy/3098978
 		// Make sure string is in UTF-8 and strip invalid UTF-8 characters
 		$str = mb_convert_encoding((string)$str, 'UTF-8', mb_list_encodings());

@@ -147,6 +147,7 @@ return [
 
 		/*----------------------------------------------*/
 		'Illuminate\Html\HtmlServiceProvider',
+		'App\Providers\ViewComposerServiceProvider',
 	],
 
 	/*
@@ -198,6 +199,7 @@ return [
 		'Form'		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 		'Carbon' 	=> 'Carbon\Carbon',
+		'Faker'		=> 'Faker\Factory',
 
 		/*------------------------------------------------
 		| MODELS
