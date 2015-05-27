@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Article;
 
 class ArticleController extends Controller {
 	public function create_article() {

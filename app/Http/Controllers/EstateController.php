@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Estate;
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
@@ -37,8 +38,8 @@ class EstateController extends Controller {
 	public function selected() {
 		// get current session id
 		// get all selected for current user
-		// $ids = 
-		$estates = Estate::whereIn($ids)->get();
+		$ids = [];
+		$estates = Estate::whereIn('estate_id', $ids)->get();
 		return v()->with(compact('estates')); 
 	}
 
