@@ -84,7 +84,6 @@ A   POST delete_district		=> /admin/districts/delete_district/{district_id}	:: -
 /*----------------------------------------------------------------------------------------------------------*/
 U  GET  how_to				=> /how_to		:: how_to
 U  GET  rent_sale			=> /rent_sale	:: rent_sale
-U  GET  about				=> /about		:: about
 U  GET  contacts			=> /contacts	:: contacts
 A  GET  admin				=> /admin		:: login or admin
 /*----------------------------------------------------------------------------------------------------------*/

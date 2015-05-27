@@ -9,3 +9,12 @@
 	@include btn(yellow, green, 18px, green);
 	margin-top: 5%;
 }
+$btn_col: lighten($main_blue, 10%);
+.more_btn {
+	@include btn(#fff, $btn_col, 24px, $btn_col);
+	display: table;
+	margin:auto;
+	margin-top: 20px;
+	padding-left: 40px;
+	padding-right: 40px;
+}

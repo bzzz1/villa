@@ -15,6 +15,7 @@ body {
 // HELPERS
 /*HEPLERS*/
 @import "assets/helpers";
+@import "assets/pagination";
 
 // BUTTONS
 /*BUTTONS*/
@@ -45,6 +46,10 @@ body {
 /*MAIN PAGE*/
 @import "assets/main_page";
 @import "assets/filters";
+
+//HOW TO
+/*HOW TO*/
+@import "assets/how_to";
 
 // CATALOG
 /*CATALOG*/

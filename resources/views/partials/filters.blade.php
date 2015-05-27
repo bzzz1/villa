@@ -16,6 +16,10 @@
 					{{ Form::select('district', ['dfвыава'=>'dfавыаываs'], null, ['class'=>'form-control select_place select_district']) }}	
 				</div>
 			</div>
+			<div class="type">
+				{{ Form::label('type', 'Выберите тип', ['class'=>'filters_label']) }}
+				{{ Form::select('type', ['авы'=>'ыва'], null, ['class'=>'form-control select_type', 'required']) }}
+			</div>
 		</div>
 		<div class="draggers">
 			<div class="area">

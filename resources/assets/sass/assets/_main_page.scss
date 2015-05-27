@@ -31,6 +31,9 @@
 		top: 50%;
 	}
 }
+.map_full {
+	background-image: url(../img/layout/pattern007.png);
+}
 .map {
 	width: $main_width;
 	display: table;
@@ -38,6 +41,7 @@
 	text-align: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
+	background-image: url(../img/layout/pattern007.png);
 	h3 {
 		font-size: 36px;
 		color: $main_black;
@@ -57,12 +61,21 @@
 		margin-right: 20px;
 	}
 }
+.full_blue {
+	width: 100%;
+	background-color: $main_blue;
+}
 .pre_footer_full {
-	// background-image: url(../img/layout/pattern007.png);
+	background-image: url(../img/layout/pattern007.png);
 }
 .pre_footer {
-	img {
-		display: table;
-		margin: auto;
-	}
+	// img {
+	// 	display: table;
+	// 	margin: auto;
+	// }
+	background-image: url(../img/layout/footer007.png);
+	background-repeat: repeat-x;
+	background-position: center top;
+	height: 300px;
 }
+

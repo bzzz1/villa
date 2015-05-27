@@ -1,5 +1,5 @@
 <div class="catalog_bottom_pages">
-	{{ $items->appends(Request::except('page'))->links('partials/zurb_presenter') }}
+	{{-- {{ $items->appends(Request::except('page'))->links('partials/zurb_presenter') }} --}}
 	<div class="items_sort_by_main">
 		<p class="items sort_by">Показать по: </p>
 		<?php $q = http_build_query(Input::except(['page', 'pages_by'])); ?>
