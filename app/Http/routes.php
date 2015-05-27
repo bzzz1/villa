@@ -1,4 +1,5 @@
 <?php
+
 Blade::setRawTags('{{', '}}');
 Blade::setEscapedContentTags('{{{', '}}}');
 
@@ -19,7 +20,7 @@ Route::post('/admin/cretate_article',				['as'=>'create_article', 'uses'=>'Artic
 Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
 Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles
 Route::get('/articles/{article}/{article_id}', 		['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
-Route::post('/admin/update_article', 				['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // article_change (links)
+Route::post('/admin/update_article/{article_id}', 	['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // article_change (links)
 Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth']); // redirect->with
 
 // TOWN

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	function l($route_name, $params=[]) {
 		return URL::route($route_name, $params);
