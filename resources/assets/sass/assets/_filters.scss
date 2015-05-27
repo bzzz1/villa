@@ -37,6 +37,13 @@
 .selects {
 	overflow: hidden;
 }
+.select_type {
+	width: 250px;
+	display: inline-block;
+	margin-left: 20px;
+	margin-top: 20px;
+	vertical-align: super;
+}
 .select_place {
 	width: 430px;
 }

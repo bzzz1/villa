@@ -10,20 +10,21 @@
 		{{ HTML::style('css/vendor/bootstrap.min.css') }}
 		{{ HTML::style('css/vendor/font-awesome.min.css') }}
 		{{ HTML::style('css/vendor/jquery.nouislider.min.css') }}
+		{{ HTML::style('css/vendor/fotorama.css') }}
+
 		{{ HTML::style('css/style.css') }}
 
 		{{ HTML::script('js/vendor/jquery.min.js') }}
 		{{ HTML::script('js/vendor/bootstrap.min.js') }}
 		{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
+		{{ HTML::script('js/vendor/fotorama.js') }}
 
 		@yield('css')
 	</head>
 
 	<body>
 		@yield('header')
-		{{-- <div class="main_content"> --}}
 			@yield('body')
-		{{-- </div> --}}
 		@yield('footer')
 
 		{{ HTML::script('js/script.js') }}
