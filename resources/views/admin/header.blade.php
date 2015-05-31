@@ -4,7 +4,7 @@
 			<div class="admin_to_site">
 				<div class="btn-group admin_header_btn_group">
 					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<a href="/" class="admin_header_link"><i class="fa fa-home"></i> Project title</a>{{-- INSERT ROJRCT NAME HERE--}}
+						<a href="/" class="admin_header_link"><i class="fa fa-home"></i> Крым-Вилла</a>{{-- INSERT ROJRCT NAME HERE--}}
 					</button>
 					<ul class="dropdown-menu" role="menu">
 						<li>
@@ -16,7 +16,7 @@
 			<div class="admin_exit">
 				<div class="btn-group admin_header_btn_group">
 					<button type="button" class="btn btn-default dropdown-toggle admin_header_btn" data-toggle="dropdown" aria-expanded="false">
-						<i class="fa fa-user"></i>Привет, %user_name<!--user_name--> <span class="caret"></span>
+						<i class="fa fa-user"></i>Привет, admin<!--user_name--> <span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" role="menu">
 						<li>

@@ -58,11 +58,11 @@ body {
 /*FLASH MESSAGES*/
 /*MESSAGE*/
 .message {
-  width: 1132px;
-  position: absolute;
-  top: 255px;
+  width: 1203px;
+  position: relative;
+  display: table;
+  margin: auto;
   font-size: 21px;
-  margin-left: 19px;
   z-index: 101; }
 
 .alert {
@@ -80,6 +80,37 @@ body {
 .close_message {
   position: absolute;
   right: -5px; }
+
+/*LOGIN*/
+.login_section {
+  height: 700px;
+  display: table;
+  margin: auto; }
+
+.login_section h2.admin_area {
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.login_section img.admin_warning {
+  display: block;
+  margin: auto;
+  margin-top: 50px; }
+
+.login_section input.admin_input {
+  width: 300px;
+  font-size: 24px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px; }
+
+.login_section input.login_button_1 {
+  width: 100px;
+  margin: auto;
+  margin-top: 40px;
+  font-weight: bold;
+  display: block; }
 
 /*MODAL*/
 .jBox-container {
@@ -140,7 +171,7 @@ header {
   font-weight: bold;
   text-decoration: none;
   color: #eee;
-  padding-right: 66px; }
+  padding-right: 57px; }
   .admin_header_link:hover {
     background-color: #555555;
     text-decoration: none;

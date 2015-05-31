@@ -1,8 +1,10 @@
 // CORE
 $browser-prefixes: true !default;
-@import "juice";
+@import "assets/juice";
 // MIXINS
-@import "mixins";
+@import "assets/mixins";
+// VARIABLES
+@import "assets/variables";
 // VAR
 $main_green: #9dcb20;
 $main_black: #222;
@@ -31,7 +33,11 @@ body {
 
 // FLASH MESSAGES
 /*FLASH MESSAGES*/
-@import "assets/admin/flash_messages";
+@import "assets/flash_messages";
+
+// LOGIN
+/*LOGIN*/
+@import "assets/admin/login";
 
 // MODAL
 /*MODAL*/

@@ -44,3 +44,12 @@ $('.price_slider').noUiSlider({
 });
 $('.price_slider').Link('lower').to($('#price_from'));
 $('.price_slider').Link('upper').to($('#price_to'));
+
+
+// Modal for contact form
+new jBox('Modal', {
+    width: 560,
+    height: 400,
+    attach: $('#js_contact_btn'),
+    content: $('#contact_form')
+});

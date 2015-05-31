@@ -1,10 +1,11 @@
 /*MESSAGE*/
 .message {
-	width: 1132px;
-	position: absolute;
-	top: 255px;
+	width: $main_width;
+	position: relative;
+	// top: 255px;
+	display: table;
+	margin: auto;
 	font-size: 21px;
-	margin-left: 19px;
 	z-index: 101;
 }
 .alert {

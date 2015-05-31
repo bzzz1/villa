@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*GENERAL*/
 body {
   font-family: "Roboto", serif; }
@@ -93,7 +94,7 @@ body {
   margin-bottom: 15px; }
 .form_block_on_page .form {
   padding: 0px 47px 40px 40px; }
-  .form_block_on_page .form .select,
+  .form_block_on_page .form .name,
   .form_block_on_page .form .phone,
   .form_block_on_page .form .email,
   .form_block_on_page .form .name,
@@ -101,9 +102,9 @@ body {
   .form_block_on_page .form .text_message {
     margin-bottom: 15px;
     position: relative; }
-    .form_block_on_page .form .select input,
-    .form_block_on_page .form .select select,
-    .form_block_on_page .form .select textarea,
+    .form_block_on_page .form .name input,
+    .form_block_on_page .form .name select,
+    .form_block_on_page .form .name textarea,
     .form_block_on_page .form .phone input,
     .form_block_on_page .form .phone select,
     .form_block_on_page .form .phone textarea,
@@ -125,14 +126,14 @@ body {
       color: #212121;
       font-weight: 200;
       padding-left: 20px; }
-    .form_block_on_page .form .select textarea,
+    .form_block_on_page .form .name textarea,
     .form_block_on_page .form .phone textarea,
     .form_block_on_page .form .email textarea,
     .form_block_on_page .form .name textarea,
     .form_block_on_page .form .subject textarea,
     .form_block_on_page .form .text_message textarea {
       height: 100px; }
-    .form_block_on_page .form .select .fa,
+    .form_block_on_page .form .name .fa,
     .form_block_on_page .form .phone .fa,
     .form_block_on_page .form .email .fa,
     .form_block_on_page .form .name .fa,
@@ -252,6 +253,104 @@ body {
     .form_block_small_on_page .send .fa:hover {
       color: #fff; }
 
+.form_block h3 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 200;
+  margin-top: 0; }
+.form_block .form_hr {
+  color: #dee6cc;
+  border: 1px solid #dee6cc;
+  margin-bottom: 15px; }
+.form_block .form {
+  padding: 0px 45px; }
+  .form_block .form .name,
+  .form_block .form .phone,
+  .form_block .form .email,
+  .form_block .form .company,
+  .form_block .form .subject,
+  .form_block .form .text_message {
+    margin-bottom: 15px;
+    position: relative; }
+    .form_block .form .name input,
+    .form_block .form .name textarea,
+    .form_block .form .phone input,
+    .form_block .form .phone textarea,
+    .form_block .form .email input,
+    .form_block .form .email textarea,
+    .form_block .form .company input,
+    .form_block .form .company textarea,
+    .form_block .form .subject input,
+    .form_block .form .subject textarea,
+    .form_block .form .text_message input,
+    .form_block .form .text_message textarea {
+      background-color: #dee6cc;
+      border-color: #dee6cc;
+      font-family: "Roboto", serif;
+      color: #212121;
+      font-weight: 200;
+      padding-left: 20px; }
+    .form_block .form .name textarea,
+    .form_block .form .phone textarea,
+    .form_block .form .email textarea,
+    .form_block .form .company textarea,
+    .form_block .form .subject textarea,
+    .form_block .form .text_message textarea {
+      height: 100px; }
+    .form_block .form .name .fa,
+    .form_block .form .phone .fa,
+    .form_block .form .email .fa,
+    .form_block .form .company .fa,
+    .form_block .form .subject .fa,
+    .form_block .form .text_message .fa {
+      color: #729521;
+      position: absolute;
+      font-size: 11px; }
+  .form_block .form .name,
+  .form_block .form .phone,
+  .form_block .form .email,
+  .form_block .form .company {
+    width: 48%;
+    display: inline-block; }
+    .form_block .form .name .fa,
+    .form_block .form .phone .fa,
+    .form_block .form .email .fa,
+    .form_block .form .company .fa {
+      top: 12px;
+      left: 8px; }
+  .form_block .form .name,
+  .form_block .form .email {
+    float: left; }
+  .form_block .form .phone,
+  .form_block .form .company {
+    float: right; }
+  .form_block .form .subject {
+    width: 100%;
+    overflow: auto; }
+    .form_block .form .subject .fa {
+      top: 13px;
+      left: 8px; }
+  .form_block .form .text_message {
+    margin-bottom: 0; }
+    .form_block .form .text_message .fa {
+      top: 12px;
+      left: 8px; }
+  .form_block .form .send {
+    background-color: #729521;
+    display: inline-block;
+    float: right;
+    padding: 5px 10px;
+    position: relative;
+    top: -48px;
+    right: 7px; }
+    .form_block .form .send:hover {
+      color: #fff;
+      background-color: #526b18; }
+    .form_block .form .send .fa {
+      color: #fff; }
+      .form_block .form .send .fa:hover {
+        color: #fff; }
+
 /*BUTTONS*/
 .exit_btn {
   color: red;
@@ -299,14 +398,41 @@ body {
     background: #073559;
     border-color: #062f50; }
 
+.contact_us_btn {
+  color: #fff;
+  background: #729521;
+  font-size: 16px;
+  border-color: #729521;
+  font-weight: 400;
+  padding: 3px 20px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  text-transform: uppercase;
+  /* Для Firefox */
+  -ms-transform: rotate(270deg);
+  /* Для IE */
+  -webkit-transform: rotate(270deg);
+  /* Для Safari, Chrome, iOS */
+  /* Для Opera */
+  transform: rotate(270deg);
+  position: fixed;
+  left: -90px;
+  top: 55%; }
+  .contact_us_btn:hover, .contact_us_btn:focus, .contact_us_btn.focus {
+    color: #fff;
+    background: #526b18;
+    border-color: #4c6316; }
+  .contact_us_btn .fa {
+    margin-left: 20px; }
+
 /*FLASH MESSAGES*/
 /*MESSAGE*/
 .message {
-  width: 1132px;
-  position: absolute;
-  top: 255px;
+  width: 1203px;
+  position: relative;
+  display: table;
+  margin: auto;
   font-size: 21px;
-  margin-left: 19px;
   z-index: 101; }
 
 .alert {
@@ -326,6 +452,20 @@ body {
   right: -5px; }
 
 /*MODAL*/
+.jBox-Modal .jBox-container {
+  background: #fff;
+  padding: 10px 0px 0px 0px;
+  font-family: "Roboto", serif; }
+  .jBox-Modal .jBox-container .jBox-title {
+    font-size: 16px;
+    color: #cec;
+    background: red; }
+  .jBox-Modal .jBox-container .jBox-content {
+    display: table;
+    margin: auto;
+    height: auto !important;
+    padding: 0; }
+
 /*HEADER*/
 .container_header {
   width: 1098px;

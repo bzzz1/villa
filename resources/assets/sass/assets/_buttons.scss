@@ -18,3 +18,18 @@ $btn_col: lighten($main_blue, 10%);
 	padding-left: 40px;
 	padding-right: 40px;
 }
+.contact_us_btn {
+	@include btn(#fff, $main_green, 16px, $main_green);
+	font-weight: 400;
+	padding: 3px 20px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	text-transform: uppercase;
+	.fa {
+		margin-left: 20px;
+	}
+	@include rotate(270deg);
+	position: fixed;
+	left: -90px;
+	top: 55%;
+}
