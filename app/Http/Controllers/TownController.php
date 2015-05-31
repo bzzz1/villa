@@ -10,16 +10,17 @@ class TownController extends Controller {
 		$data = Request::all();
 		unset($data['_token']);
 		Town::create($data);
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', "Город \"{$town->town}\" #{$town->town_id} добавлен успешно!");
 	}
 
 	public function admin_towns() {
-		return v();
+		$towns = Town::all();
+		return v()->with(compact('towns')); 
 	}
 
 	public function update_town() {
 		$data = Request::all();
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', "Город \"{$town->town}\" #{$town->town_id} изменен успешно!");
 	}
 
 	public function delete_town($town_id) {

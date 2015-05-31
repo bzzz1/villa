@@ -2,8 +2,9 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Auth;
+use Mail;
+use Request;
 
 class MainController extends Controller {
 	public function how_to() {
@@ -35,10 +36,8 @@ class MainController extends Controller {
 	}
 
 	public function logging() {
-		$data = [
-			'password'	=> Request::input('password'),
-			'login' 	=> Request::input('login')
-		];
+		$data = Request::all();
+		unset($data['_token']);
 
 		$pass = Auth::attempt($data, true);
 		if ($pass) {
@@ -55,13 +54,21 @@ class MainController extends Controller {
 
 	public function feedback() {
 		$data = Request::all();
-		// send Email
+
+		Mail::send('emails.feedback', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject('');
+		});
+
 		return redirect()->back()->with('message', '');
 	}
 
 	public function order() {
 		$data = Request::all();
-		// send Email
+
+		Mail::send('emails.order', $data, function ($mail) use ($data) {
+			$mail->to($data['email'], $data['name'])->subject('');
+		});
+
 		return redirect()->back()->with('message', '');
 	}
 }
