@@ -6,7 +6,8 @@
 
 @section('body')
 	<div class="main">
-		<div id="carousel_estate" class="carousel slide" data-ride="carousel">
+		@if (r() == 'estates')
+			<div id="carousel_estate" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#carousel_estate" data-slide-to="0" class="active"></li>
@@ -16,7 +17,9 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
 				<div class="item active">
-					<img src="../img/layout/krim_villa_image.png" alt="Кредиты под залог драгметаллов">
+					{{-- <a href=""> --}}
+						<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
+					{{-- </a> --}}
 					<div class="carousel-caption">
 						<div class="top_left">
 							<h1>Дома в аренду для Вас!</h1>
@@ -25,7 +28,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="../img/layout/krim_villa_image.png" alt="Кредиты под залог драгметаллов">
+					<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
 					<div class="carousel-caption">
 						<div class="top_left">
 							<h1>Дома в аренду для Вас!</h1>
@@ -34,7 +37,7 @@
 					</div>
 				</div>
 				<div class="item">
-					<img src="../img/layout/krim_villa_image.png" alt="Кредиты под залог драгметаллов">
+					<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
 					<div class="carousel-caption">
 						<div class="top_left">
 							<h1>Дома в аренду для Вас!</h1>
@@ -52,16 +55,26 @@
 				<span class="fa fa-chevron-right" aria-hidden="true"></span>
 				<span class="sr-only">Next</span>
 			</a>
-		</div>
+			</div>
+		@endif	
 	</div>
-	@include('partials/filters')
+	@if (r() == 'estates')
+		@include('partials/filters')
+	@endif	
 	<div class="map_full">
 		<div class="map">
-			<h3>Результаты поиска</h3>
+			@if (r() == 'estates')
+				<h3>Результаты поиска</h3>
+			@else 
+				<h3>Избранные</h3>
+			@endif		
 			<a>
 				<i class="fa fa-map-marker fa-2x"></i>
 				Посмотреть на карте
 			</a>
+			<div class="map_container">
+				
+			</div>
 		</div>
 	</div>
 	@include('partials/catalog_estate')

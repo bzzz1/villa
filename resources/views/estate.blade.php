@@ -5,62 +5,95 @@
 
 @section('body')
 	<div class="estate_block">
-		<div class="left_block">
-			<div class="fotorama">
+		<div class="photos_map">
+			<div class="fotorama"
+				 data-nav="thumbs"
+				 data-arrows="true"
+				 data-click="true"
+				 data-swipe="true"
+				 data-trackpad="true"
+				 >
+				{{-- @foreach ($photos as $photo) --}}
+					{{-- {{ HTML::image("img/photos/estates/$estate->image", "$estate->title", ['class'=>'item_img']) }} --}}
+				{{-- @endforeach	 --}}
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
 				<img src="http://s.fotorama.io/1.jpg">
 				<img src="http://s.fotorama.io/2.jpg">
 			</div>
-			<div class="map">
+			<div class="map_container_small">
 				{{-- insert map here --}}
 			</div>
 		</div>
 		<div class="text_block">
-			<div class="item_descr full">
+			<div class="item_descr">
+				<div class="heading">
+					<h1 class="estate_title">{{$estate->title}}</h1>
+					<div class="icon">
+						<i class="fa fa-heart fa-5x"></i>
+					</div>
+				</div>
 				<table>
 					<tbody>
 						<tr>
-							<td>Площадь дома</td>
-							<td>180 м<sup>2</sup></td>
+							<td>Площадь</td>
+							<td>{{$estate->house_area}} м<sup>2</sup></td>
 						</tr>
 						<tr>
 							<td>Площадь участка</td>
-							<td>2 соток</td>
+							<td>{{$estate->yard_area}} соток</td>
 						</tr>
 						<tr>
 							<td>Коллическтво комнат</td>
-							<td>4</td>
+							<td>{{$estate->rooms}}</td>
 						</tr>
 						<tr>
 							<td>Удаленность от моря</td>
-							<td>300 м.</td>
+							<td>{{$estate->sea_dist}} м.</td>
 						</tr>
 						<tr>
 							<td>Стоимость</td>
-							<td>5000000 рублей</td>
+							<td>{{$estate->price}} рублей</td>
 						</tr>
 						<tr>
 							<td>Тип аренды</td>
-							<td>помесячно</td>
+							<td>{{$estate->period}}</td>
 						</tr>
 						<tr>
 							<td>Адресс</td>
-							<td>ул Залупинская д.33</td>
+							<td>{{$estate->address}}</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>	
 			<div class="description">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta labore recusandae illum neque officiis quidem natus, voluptas beatae. Eos magnam culpa sapiente dolore repellendus minus dignissimos veniam consectetur iusto reprehenderit?</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quidem, eveniet voluptatibus, nesciunt neque accusantium similique saepe facilis consequatur, ratione deleniti illum magnam quas aut dolores molestiae eligendi beatae ullam.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem eveniet delectus vero, repellat sequi non ipsum libero beatae maiores iste quasi debitis itaque, perspiciatis rem fuga explicabo magnam harum. Necessitatibus!</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, magni, non! Voluptatem quas minima provident labore, ullam a cum earum ut aliquam, dignissimos sit molestiae eveniet asperiores tempora perspiciatis voluptates.</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto quibusdam, ad recusandae pariatur veritatis numquam, earum repellat totam laborum tenetur blanditiis praesentium voluptatibus itaque eaque error quo ut, officiis saepe.</p>
+				{{$estate->description}}
 			</div>
 		</div>
 		<div class="bottom">
-			<a class="btn">Добавить в избранные</a>
-			<p>Позвоните нам прямо сейчас</p>
-			<p>по телефону +7 (812) 954-11-09</p>
+			<a class="btn favourite_btn">Добавить в избранные</a>
+			<a class="btn favourite_btn_done">Удалить из избранных</a>
+			<div class="call">
+				<p>Позвоните нам прямо сейчас</p>
+				<p class="phone_title">по телефону</p> 
+				<p class="phone">+7 (812) 954-11-09</p>
+			</div>
 		</div>
 	</div>
 @stop

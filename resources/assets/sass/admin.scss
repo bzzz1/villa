@@ -23,15 +23,15 @@ body {
 }
 // HELPERS
 /*HEPLERS*/
-@import "admin_helpers";
+@import "assets/admin/admin_helpers";
 
 // BUTTONS
 /*BUTTONS*/
-@import "admin_buttons";
+@import "assets/admin/admin_buttons";
 
 // FLASH MESSAGES
 /*FLASH MESSAGES*/
-@import "flash_messages";
+@import "assets/admin/flash_messages";
 
 // MODAL
 /*MODAL*/
@@ -66,12 +66,12 @@ $admin_modal_title_background: red;
 // PARTIALS
 // HEADER
 /*HEADER*/
-@import "admin_header";
+@import "assets/admin/admin_header";
 
 // LEFT SIDEBAR
 /*LEFT SIDEBAR*/
-@import "admin_sidebar";
+@import "assets/admin/admin_sidebar";
 
 // FOOTER
 /*FOOTER*/
-@import "admin_footer";
+@import "assets/admin/admin_footer";

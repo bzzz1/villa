@@ -5,7 +5,7 @@
 Route::post('/admin/create_estate', 			['as'=>'create_estate', 'uses'=>'EstateController@create_estate', 'middleware'=>'auth']); // redirect
 Route::get('/admin/estates', 					['as'=>'admin_estates', 'uses'=>'EstateController@admin_estates', 'middleware'=>'auth']); // estates (with delete form + change link)
 Route::get('/', 								['as'=>'estates', 		'uses'=>'EstateController@estates']); // estates (get count(selected))
-Route::get('/estates/{estate}/{estate_id}',		['as'=>'estate', 		'uses'=>'EstateController@estate']); // estate
+Route::get('/estates/estate/{estate_id}',		['as'=>'estate', 		'uses'=>'EstateController@estate']); // estate
 Route::get('/selected', 						['as'=>'selected', 		'uses'=>'EstateController@selected']); // estates (selected_estates)
 Route::post('/select_estate/{estate_id}', 		['as'=>'select_estate', 'uses'=>'EstateController@select_estate']); // redirect->back(estates) (by session_id)
 Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 'uses'=>'EstateController@change_estate', 'middleware'=>'auth']); // estate_change++
@@ -17,7 +17,7 @@ Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 'uses'=>
 Route::post('/admin/cretate_article',				['as'=>'create_article', 'uses'=>'ArticleController@create_article', 'middleware'=>'auth']); // redirect
 Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
 Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles
-Route::get('/articles/{article}/{article_id}', 		['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
+Route::get('/articles/article/{article_id}', 		['as'=>'article', 		 'uses'=>'ArticleController@article']); // article
 Route::post('/admin/change_article/{article_id}', 	['as'=>'change_article', 'uses'=>'ArticleController@change_article', 'middleware'=>'auth']); // article_change (links)
 Route::post('/admin/update_article', 				['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth']); // redirect
 Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth']); // redirect->with

@@ -36,19 +36,26 @@ $item_img_height: 225px;
 		// margin-bottom: 45px;
 		padding-left: 10px;
 		padding-right: 10px;
-		.add_to {
+		.add_to,
+		.added_to {
 			// float: right;
 			margin-top: 3px;
 			font-size: 16px;
 			color: $main_blue;
-			p {
+			a {
 				display: inline-block;
 				vertical-align: top;
 				margin-top: 16px;
 				margin-bottom: 0;
+				color: $main_blue;
+				cursor: pointer;
+				&:hover {
+					color: $main_blue;
+					text-decoration: none;
+				}
 			}
 		}
-		.fa-heart-o {
+		.fa {
 			// color: $main_blue;
 			// position: absolute;
 			// top: 0px;
@@ -59,11 +66,14 @@ $item_img_height: 225px;
 			/* top: 0px; */
 			/* right: 20px; */
 			// text-shadow: 2px 2px 2px #073559;
-			margin-top: 7px;
+			margin-top: -6px;
 			// float: right;
-			vertical-align: top;
+			// vertical-align: top;
 			margin-right: 20px;
 			float: left;
+		}
+		.added_to {
+			display: none;
 		}
 	}
 	.item_img {

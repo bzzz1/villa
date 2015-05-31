@@ -1,722 +1,103 @@
-{{-- <div class="catalog_blocks">
-	@foreach ($items as $item)
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/$item->photo_1", "$item->title", ['class'=>'item_img']) }}
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">{{$item->title}}</a>
-				</h2>
-				<h2 class="item_title full">
-					<a href="#">{{$item->title}}</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<p class="item_descr">{{$item->short_description}}</p>
-				<p class="item_descr full">{{$item->short_description}}</p>
-			</div>
-			<div class="price">
-				<p class="item_price">{{$item->price}}</p>
-				<p class="item_currency" >руб.</p>
-			</div>
-		</div>
-	@endforeach
-</div> --}}
 <div class="catalog_full">
 	<div class="catalog_blocks">
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
+		@foreach ($estates as $estate)
+			<div class="one_item">
+				<div class="img">
+					@if ($estate->image)
+						<a href="{{l('estate', [$estate->estate_id])}}">
+							{{ HTML::image("img/photos/estates/$estate->image", "$estate->title", ['class'=>'item_img']) }}
+						</a> 
+					@else
+						<a href="{{l('estate', [$estate->estate_id])}}">
+							{{ HTML::image("img/photos/estates/alien.png", "$estate->title", ['class'=>'item_img']) }}
+						</a>
+					@endif	
+					<div class="add_to">
+						<a>
+							Добавить в избранные
+							<i class="fa fa-heart-o fa-2x"></i> 
+						</a> 
+					</div>
+					<div class="added_to">
+						<a>
+							Удалить из избранного
+							<i class="fa fa-heart fa-2x"></i>
+						</a>	 
+					</div>
 				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
+				<div class="short_title">
+					<h2 class="item_title">
+						<a href="{{l('estate', [$estate->estate_id])}}">{{$estate->title}}</a>
+					</h2>
+					{{-- <h2 class="item_title second">
+						<a href="#">Залупнинский район</a>
+					</h2> --}}
 				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
+				<div class="short_descr">
+					<div class="item_descr">
+						<table>
+							<tbody>
+								<tr>
+									<td>Площадь</td>
+									<td>{{$estate->house_area}} м<sup>2</sup></td>
+								</tr>
+								<tr>
+									<td>Площадь участка</td>
+									<td>{{$estate->yard_area}} соток</td>
+								</tr>
+								<tr>
+									<td>Коллическтво комнат</td>
+									<td>{{$estate->rooms}}</td>
+								</tr>
+								<tr>
+									<td>Удаленность от моря</td>
+									<td>{{$estate->sea_dist}} м.</td>
+								</tr>
+								<tr>
+									<td>Стоимость</td>
+									<td>{{$estate->price}} рублей</td>
+								</tr>
+							</tbody>           
+						</table>
+					</div>
+					<div class="item_descr full">
+						<table>
+							<tbody>
+								<tr>
+									<td>Площадь</td>
+									<td>{{$estate->house_area}} м<sup>2</sup></td>
+								</tr>
+								<tr>
+									<td>Площадь участка</td>
+									<td>{{$estate->yard_area}} соток</td>
+								</tr>
+								<tr>
+									<td>Коллическтво комнат</td>
+									<td>{{$estate->rooms}}</td>
+								</tr>
+								<tr>
+									<td>Удаленность от моря</td>
+									<td>{{$estate->sea_dist}} м.</td>
+								</tr>
+								<tr>
+									<td>Стоимость</td>
+									<td>{{$estate->price}} рублей</td>
+								</tr>
+								<tr>
+									<td>Тип аренды</td>
+									<td>{{$estate->period}}</td>
+								</tr>
+								<tr>
+									<td>Адресс</td>
+									<td>{{$estate->address}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<a class="btn more_btn" href="{{l('estate', [$estate->estate_id])}}">Подробнее</a>
+					</div>	
 				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
+				<a class="btn more_btn" href="{{l('estate', [$estate->estate_id])}}">Подробнее</a>
 			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
-		<div class="one_item">
-			<div class="img">
-				{{ HTML::image("img/photos/houses/villa.jpg", "photo", ['class'=>'item_img']) }}
-				<div class="add_to"><p>Добавить в избранные</p> <i class="fa fa-heart-o fa-2x"></i> </div>
-			</div>
-			<div class="short_title">
-				<h2 class="item_title">
-					<a href="#">Item title</a>
-				</h2>
-				<h2 class="item_title second">
-					<a href="#">Залупнинский район</a>
-				</h2>
-			</div>
-			<div class="short_descr">
-				<div class="item_descr">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-						</tbody>           
-					</table>
-				</div>
-				<div class="item_descr full">
-					<table>
-						<tbody>
-							<tr>
-								<td>Площадь дома</td>
-								<td>180 м<sup>2</sup></td>
-							</tr>
-							<tr>
-								<td>Площадь участка</td>
-								<td>2 соток</td>
-							</tr>
-							<tr>
-								<td>Коллическтво комнат</td>
-								<td>4</td>
-							</tr>
-							<tr>
-								<td>Удаленность от моря</td>
-								<td>300 м.</td>
-							</tr>
-							<tr>
-								<td>Стоимость</td>
-								<td>5000000 рублей</td>
-							</tr>
-							<tr>
-								<td>Тип аренды</td>
-								<td>помесячно</td>
-							</tr>
-							<tr>
-								<td>Адресс</td>
-								<td>ул Залупинская д.33</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>	
-			</div>
-			<a class="btn more_btn">Подробнее</a>
-		</div>
+		@endforeach	
 	</div>
 </div>

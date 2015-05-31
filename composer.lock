@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ba19e082c596e50ffafb310c531b66c",
+    "hash": "11dcd1441546a5c3269d50e039b53c08",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -442,7 +442,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/a0a43c0eb15ed66e71f8160b6bb25f4071ed22ca",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/9e7954694971a5fab6ebabb38f9ffeec49d0d2ad",
                 "reference": "9e7954694971a5fab6ebabb38f9ffeec49d0d2ad",
                 "shasum": ""
             },
@@ -1741,7 +1741,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/49c2007b90b8a619e2057785e8fbc331b7b760ff",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/510c153fb4a8b995e4ef8da8168870f1c987f7bf",
                 "reference": "510c153fb4a8b995e4ef8da8168870f1c987f7bf",
                 "shasum": ""
             },
