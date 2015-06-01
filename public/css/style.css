@@ -575,7 +575,10 @@ body {
   margin: auto; }
   #carousel_estate .carousel-inner .item img {
     display: table;
-    margin: auto; }
+    margin: auto;
+    min-height: 350px;
+    max-height: 350px;
+    min-width: 100%; }
   #carousel_estate .carousel-inner .item .carousel-caption {
     text-align: right;
     top: -1%;
@@ -687,12 +690,16 @@ body {
 
 .area,
 .yard_area,
-.price {
+.price,
+.rooms,
+.sea_dist {
   width: 28%;
   display: inline-block; }
   .area input[type='text'],
   .yard_area input[type='text'],
-  .price input[type='text'] {
+  .price input[type='text'],
+  .rooms input[type='text'],
+  .sea_dist input[type='text'] {
     width: 80px;
     display: inline-block;
     margin-left: 10px;
@@ -700,21 +707,37 @@ body {
     vertical-align: super; }
   .area span,
   .yard_area span,
-  .price span {
+  .price span,
+  .rooms span,
+  .sea_dist span {
     color: #fff; }
 
-.area {
+.area,
+.rooms {
   float: left; }
+
+.rooms {
+  margin-left: 20%; }
+
+.sea_dist {
+  margin-right: 16%; }
 
 .yard_area {
   margin-left: 8.5%; }
 
-.price {
+.price,
+.sea_dist {
   float: right; }
+
+.sea_dist,
+.rooms {
+  margin-top: 50px; }
 
 .area_slider,
 .yard_area_slider,
-.price_slider {
+.price_slider,
+.rooms_slider,
+.sea_dist_slider {
   margin-top: 30px; }
 
 .noUi-horizontal {

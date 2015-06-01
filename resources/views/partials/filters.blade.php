@@ -46,6 +46,23 @@
 				<span>рублей</span>
 				<div class="price_slider"></div>
 			</div>
+			<div class="rooms">
+				{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
+				{{ Form::text('rooms_from', null, ['class'=>'form-control', 'id'=>'rooms_from'])}}
+				{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
+				{{ Form::text('rooms_to', null, ['class'=>'form-control', 'id'=>'rooms_to'])}}
+				<span>комнат</span>
+				<div class="rooms_slider"></div>
+			</div>
+			<div class="sea_dist">
+				{{ Form::label('sea_dist_from', 'от', ['class'=>'filters_label']) }}
+				{{ Form::text('sea_dist_from', null, ['class'=>'form-control', 'id'=>'sea_dist_from'])}}
+				{{ Form::label('sea_dist_to', 'до', ['class'=>'filters_label']) }}
+				{{ Form::text('sea_dist_to', null, ['class'=>'form-control', 'id'=>'sea_dist_to'])}}
+				<span>метров</span>
+				<div class="sea_dist_slider"></div>
+			</div>
+
 		</div>
 	</div>
 </div>	

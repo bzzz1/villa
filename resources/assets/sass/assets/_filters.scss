@@ -63,7 +63,9 @@
 }
 .area,
 .yard_area,
-.price {
+.price,
+.rooms,
+.sea_dist {
 	width: 28%;
 	display: inline-block;
 	input[type='text'] {
@@ -78,18 +80,32 @@
 
 	}
 }
-.area {
+.area,
+.rooms {
 	float: left;
+}
+.rooms {
+	margin-left: 20%;
+}
+.sea_dist {
+	margin-right: 16%;
 }
 .yard_area {
 	margin-left: 8.5%;
 }
-.price {
+.price,
+.sea_dist {
 	float: right;
+}
+.sea_dist,
+.rooms {
+	margin-top: 50px;
 }
 .area_slider,
 .yard_area_slider,
-.price_slider {
+.price_slider,
+.rooms_slider,
+.sea_dist_slider {
 	margin-top: 30px;
 }
 .noUi-horizontal {

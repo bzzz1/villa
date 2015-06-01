@@ -44,6 +44,36 @@ $('.price_slider').noUiSlider({
 });
 $('.price_slider').Link('lower').to($('#price_from'));
 $('.price_slider').Link('upper').to($('#price_to'));
+// rooms
+$('.rooms_slider').noUiSlider({
+	start: [1, 10],
+	connect: true,
+	orientation: "horizontal",
+	range: {
+		'min': 1,
+		'max': 10
+	},
+	format: wNumb({
+		decimals: 0
+	})
+});
+$('.rooms_slider').Link('lower').to($('#rooms_from'));
+$('.rooms_slider').Link('upper').to($('#rooms_to'));
+// sea_dist
+$('.sea_dist_slider').noUiSlider({
+	start: [1, 50000],
+	connect: true,
+	orientation: "horizontal",
+	range: {
+		'min': 1,
+		'max': 50000
+	},
+	format: wNumb({
+		decimals: 0
+	})
+});
+$('.sea_dist_slider').Link('lower').to($('#sea_dist_from'));
+$('.sea_dist_slider').Link('upper').to($('#sea_dist_to'));
 
 
 // Modal for contact form
