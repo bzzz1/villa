@@ -9,7 +9,7 @@
 			<div class="city_and_district">
 				<div class="city">
 					{{ Form::label('city', 'Выберите город', ['class'=>'filters_label']) }}
-					{{ Form::select('city', ['df'=>'dfs'], null, ['class'=>'form-control select_place select_city', 'required']) }}
+					{{ Form::select('city', ['fd'=>'fd'], null, ['class'=>'form-control select_place select_city', 'required']) }}
 				</div>
 				<div class="district">
 					{{ Form::label('district', 'Выберите район', ['class'=>'filters_label']) }}

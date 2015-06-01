@@ -25,7 +25,7 @@ class ArticleController extends Controller {
 		return v()->with(compact('articles'));
 	}
 
-	public function article($article_id) {
+	public function article($article, $article_id) {
 		// ??? use view composer ???
 		$article = Article::find($article_id);
 		return v()->with(compact('article'));

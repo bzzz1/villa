@@ -4,11 +4,11 @@
 			<div class="one_item">
 				<div class="img">
 					@if ($estate->image)
-						<a href="{{l('estate', [$estate->estate_id])}}">
+						<a href="{{l('estate', [s($estate->title), $estate->estate_id])}}">
 							{{ HTML::image("img/photos/estates/$estate->image", "$estate->title", ['class'=>'item_img']) }}
 						</a> 
 					@else
-						<a href="{{l('estate', [$estate->estate_id])}}">
+						<a href="{{l('estate', [s($estate->title), $estate->estate_id])}}">
 							{{ HTML::image("img/photos/estates/alien.png", "$estate->title", ['class'=>'item_img']) }}
 						</a>
 					@endif	

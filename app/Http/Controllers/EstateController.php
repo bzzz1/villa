@@ -23,7 +23,7 @@ class EstateController extends Controller {
 		return v()->with(compact('estates')); 
 	}
 
-	public function estate($estate_id) {
+	public function estate($estate, $estate_id) {
 		// ??? use view composer ???
 		$estate = Estate::find($estate_id);
 		return v()->with(compact('estate'));
