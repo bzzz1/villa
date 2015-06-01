@@ -22,6 +22,7 @@
 		a {
 			font-size: 24px;
 			font-weight: 300;
+			padding: 0 50px 0 56px;
 		}
 		.active {
 			background-color: #e6e6e6;
@@ -41,7 +42,7 @@
 	width: 250px;
 	display: inline-block;
 	margin-left: 20px;
-	margin-top: 20px;
+	margin-top: 29px;
 	vertical-align: super;
 }
 .select_place {
@@ -66,8 +67,12 @@
 .period {
 	// float: left;
 	margin-left: 53px;
+	width: 649px;
+	margin-top: 30px;
 	.select_period {
 		width: 430px;
+		float: right;
+
 	}
 }
 .city {
@@ -105,9 +110,11 @@
 }
 .rooms {
 	margin-left: 20%;
+	margin-bottom: 30px;
 }
 .sea_dist {
 	margin-right: 16%;
+	margin-bottom: 30px;
 }
 .yard_area {
 	margin-left: 8.5%;
