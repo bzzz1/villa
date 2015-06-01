@@ -76,8 +76,8 @@
 	function dir_path($path='root') {
 		if ('layout' == $path) {
 			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'layout';
-		} elseif ('icons' == $path) {
-			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'icons';
+		} elseif ('carousel' == $path) {
+			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'carousel';
 		} elseif ('articles' == $path) {
 			return public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'articles';
 		} elseif ('estates' == $path) {
