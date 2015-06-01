@@ -20,7 +20,7 @@ $form_color: #dee6cc;
 		.name,
 		.phone,
 		.email,
-		.name,
+		.select,
 		.subject,
 		.text_message {
 			margin-bottom: 15px;
@@ -179,7 +179,7 @@ $form_color: #dee6cc;
 }
 
 // on pop up
-.form_block {
+.form_block_separate {
 	h3 {
 		text-align: center;
 		font-size: 30px;

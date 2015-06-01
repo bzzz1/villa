@@ -1,4 +1,4 @@
-<div class="form_block" id="contact_form" style="display:none">
+<div class="form_block_separate" id="contact_form" style="display:none">
 	<h3>Задать вопрос</h3>
 	{{-- <i class="fa fa-times fa-lg"></i> --}}
 	<div class="form">
