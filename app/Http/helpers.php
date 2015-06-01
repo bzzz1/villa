@@ -87,6 +87,20 @@
 		}
 	}
 
+	function url_path($path='root') {
+		if ('layout' == $path) {
+			return asset('img/layout');
+		} elseif ('carousel' == $path) {
+			return asset('img/carousel');
+		} elseif ('articles' == $path) {
+			return asset('img/photos/articles');
+		} elseif ('estates' == $path) {
+			return asset('img/photos/estates');
+		} else {
+			return asset('');
+		}
+	}
+
 	function dir_sep() {
 		return DIRECTORY_SEPARATOR;
 	}

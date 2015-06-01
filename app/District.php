@@ -1,8 +1,8 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class District extends Model {
+class District extends BaseModel {
 	protected $guarded = ['district_id'];
 	protected $primaryKey = 'district_id';
 	public $timestamps = false;

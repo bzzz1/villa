@@ -1,8 +1,8 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Town extends Model {
+class Town extends BaseModel {
 	protected $guarded = ['town_id'];
 	protected $primaryKey = 'town_id';
 	public $timestamps = false;

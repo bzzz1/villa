@@ -1,8 +1,8 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Image extends Model {
+class Image extends BaseModel {
 	protected $guarded = ['image_id'];
 	protected $primaryKey = 'image_id';
 	public $timestamps = false;

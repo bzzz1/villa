@@ -1,8 +1,8 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Estate extends Model {
+class Estate extends BaseModel {
 	protected $guarded = ['estate_id'];
 	protected $primaryKey = 'estate_id';
 	public $timestamps = false;
@@ -14,6 +14,10 @@ class Estate extends Model {
 	public function images() {
 		return $this->hasMany('Image');
 	}
+
+	// public function preview() {
+	// 	return $this->hasMany('Image')->where('preview', 1);
+	// }
 
 	// public function scopeSelected($query) {
 	// 	return $query->where(DB::raw('RAND()'));
