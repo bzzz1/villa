@@ -27,11 +27,8 @@
 				</div>
 				<div class="short_title">
 					<h2 class="item_title">
-						<a href="{{l('estate', [$estate->estate_id])}}">{{$estate->title}}</a>
+						<a href="{{l('estate', [s($estate->title), $estate->estate_id])}}">{{$estate->title}}</a>
 					</h2>
-					{{-- <h2 class="item_title second">
-						<a href="#">Залупнинский район</a>
-					</h2> --}}
 				</div>
 				<div class="short_descr">
 					<div class="item_descr">
@@ -93,10 +90,10 @@
 								</tr>
 							</tbody>
 						</table>
-						<a class="btn more_btn" href="{{l('estate', [$estate->estate_id])}}">Подробнее</a>
+						<a class="btn more_btn" href="{{l('estate', [s($estate->title), $estate->estate_id])}}">Подробнее</a>
 					</div>	
 				</div>
-				<a class="btn more_btn" href="{{l('estate', [$estate->estate_id])}}">Подробнее</a>
+				<a class="btn more_btn" href="{{l('estate', [s($estate->title), $estate->estate_id])}}">Подробнее</a>
 			</div>
 		@endforeach	
 	</div>
