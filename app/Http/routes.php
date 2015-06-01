@@ -230,6 +230,8 @@ function filters() {
 	// private $filter_types
 
 	// TODO
+	// return rent/sale default
+	// trim first &
 	// extract Estate->join to method on Estate joined()
 	// update seed period =  ['hourly', 'daily', 'monthly']
 	
@@ -314,14 +316,13 @@ function filters() {
 // href='{{ filter('pool', 'bool') }}'
 // href='{{ filter('price', '10000;160000') }}'
 /*----------------------------------------------*/
-function filter($filter, $value) {
-	$filters = 'house_area=120;380&district_id=2&town_id=3&pool=bool&producer=[asus;acer;lenovo;toshiba;sony]&price=10000;160000&yard_area=100;800&commercial=rent&period=daily&type=cottage&rooms=3;7';
+function filter($filter, $value, $filters='') {
 	parse_str($filters, $filters);
 
 	// resetting dependencies
-	if ('type'==$filter or 'commercial'==$filter) {
-		$filters = reset_dependencies($filters);
-	}
+	// if ('type'==$filter or 'commercial'==$filter) {
+	// 	$filters = reset_dependencies($filters);
+	// }
 
 	$type = detect_filter_type($value);
 

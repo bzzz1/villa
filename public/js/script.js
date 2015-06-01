@@ -37,24 +37,26 @@ function on_change() {
 /*------------------------------------------------
 | FILTER
 ------------------------------------------------*/
-$('.js_filter').on('change', function() {
+$('.js_submit_filters').on('click', function(evt) {
+	evt.preventDefault();
+
 	var $form = $('.js_filters_form');
-	var base_url = $form.prop('action');
+	var base_url = $form.prop('action'); // should have only commercial
 
 	var town_id 		= $form.find('.js_select_town').val();
 	var district_id 	= $form.find('.js_select_district').val();
 	var type 			= $form.find('.js_select_type').val();
 	var period 			= $form.find('.js_select_period').val();
-	var house_area_from = $form.find('.js_select_house_area_from').val();
-	var house_area_to 	= $form.find('.js_select_house_area_to').val();
-	var yard_area_from 	= $form.find('.js_select_yard_area_from').val();
-	var yard_area_to 	= $form.find('.js_select_yard_area_to').val();
-	var price_from 		= $form.find('.js_select_price_from').val();
-	var price_to 		= $form.find('.js_select_price_to').val();
-	var rooms_from 		= $form.find('.js_select_rooms_from').val();
-	var rooms_to 		= $form.find('.js_select_rooms_to').val();
-	var sea_dist_from 	= $form.find('.js_select_sea_dist_from').val();
-	var sea_dist_to 	= $form.find('.js_select_sea_dist_to').val();
+	var house_area_from = $form.find('.js_range_house_area_from').val();
+	var house_area_to 	= $form.find('.js_range_house_area_to').val();
+	var yard_area_from 	= $form.find('.js_range_yard_area_from').val();
+	var yard_area_to 	= $form.find('.js_range_yard_area_to').val();
+	var price_from 		= $form.find('.js_range_price_from').val();
+	var price_to 		= $form.find('.js_range_price_to').val();
+	var rooms_from 		= $form.find('.js_range_rooms_from').val();
+	var rooms_to 		= $form.find('.js_range_rooms_to').val();
+	var sea_dist_from 	= $form.find('.js_range_sea_dist_from').val();
+	var sea_dist_to 	= $form.find('.js_range_sea_dist_to').val();
 
 	var url = base_url+ '&town_id='+town_id+
 						'&district_id='+district_id+
