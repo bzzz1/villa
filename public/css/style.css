@@ -416,7 +416,7 @@ body {
   /* Для Opera */
   transform: rotate(270deg);
   position: fixed;
-  left: -90px;
+  left: -91px;
   top: 55%; }
   .contact_us_btn:hover, .contact_us_btn:focus, .contact_us_btn.focus {
     color: #fff;
@@ -424,6 +424,18 @@ body {
     border-color: #4c6316; }
   .contact_us_btn .fa {
     margin-left: 20px; }
+
+.sort_btn {
+  color: #fff;
+  background: #0b5188;
+  font-size: 24px;
+  border-color: #0b5188;
+  display: table;
+  margin: auto; }
+  .sort_btn:hover, .sort_btn:focus, .sort_btn.focus {
+    color: #fff;
+    background: #073559;
+    border-color: #062f50; }
 
 /*FLASH MESSAGES*/
 /*MESSAGE*/
@@ -651,7 +663,8 @@ body {
     margin-top: 0; }
   .filters .btn-group a {
     font-size: 24px;
-    font-weight: 300; }
+    font-weight: 300;
+    padding: 0 50px 0 56px; }
   .filters .btn-group .active {
     background-color: #e6e6e6;
     border-color: #adadad; }
@@ -668,7 +681,7 @@ body {
   width: 250px;
   display: inline-block;
   margin-left: 20px;
-  margin-top: 20px;
+  margin-top: 29px;
   vertical-align: super; }
 
 .select_place {
@@ -691,9 +704,12 @@ body {
   float: left; }
 
 .period {
-  margin-left: 53px; }
+  margin-left: 53px;
+  width: 649px;
+  margin-top: 30px; }
   .period .select_period {
-    width: 430px; }
+    width: 430px;
+    float: right; }
 
 .city {
   margin-bottom: 30px; }
@@ -734,10 +750,12 @@ body {
   float: left; }
 
 .rooms {
-  margin-left: 20%; }
+  margin-left: 20%;
+  margin-bottom: 30px; }
 
 .sea_dist {
-  margin-right: 16%; }
+  margin-right: 16%;
+  margin-bottom: 30px; }
 
 .yard_area {
   margin-left: 8.5%; }

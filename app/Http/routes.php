@@ -357,7 +357,7 @@ function filter($filter, $value) {
 		unset($filters[$filter]);
 		$filter_query = implode_assoc('&', $filters);
 		return $filter_query."&{$filter}={$value}";
-	} else if ('type'==$type) {
+	} else if ('type'==$type) { 
 		$is_on = (array_key_exists($filter, $filters) and ($filters[$filter] == $value)); // important parenthesis
 		unset($filters[$filter]);
 		$filter_query = implode_assoc('&', $filters);

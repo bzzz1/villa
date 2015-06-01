@@ -30,6 +30,12 @@ $btn_col: lighten($main_blue, 10%);
 	}
 	@include rotate(270deg);
 	position: fixed;
-	left: -90px;
+	left: -91px;
 	top: 55%;
+}
+.sort_btn {
+	@include btn(#fff, lighten($main_blue, 10%), 24px, lighten($main_blue, 10%));
+	display: table;
+	margin: auto;
+	// margin-top: 30px;
 }

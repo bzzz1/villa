@@ -33,9 +33,12 @@
 			@include('partials/contact_form')
 		@yield('footer')
 
-		{{ HTML::script('js/script.js') }}
-		{{ HTML::script('js/navigation.js') }}
+		{{-- {{ HTML::script('js/navigation.js') }} --}}
 
-		@yield('js')
+		<script>
+			@yield('js')
+		</script> 
+		{{ HTML::script('js/script.js') }}
+
 	</body>
 </html>
