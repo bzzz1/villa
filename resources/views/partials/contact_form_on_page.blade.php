@@ -28,7 +28,7 @@
 					{{ Form::textarea('text_message', null, ['class'=>'form-control form_input_area', 'placeholder'=>'Сообщение'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
-				<div class="send btn">
+				<div class="send btn js_send_contact_form">
 					<i class="fa fa-envelope-o fa-2x"></i>
 				</div>
 			</div>
