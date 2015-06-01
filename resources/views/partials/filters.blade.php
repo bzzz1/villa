@@ -23,7 +23,7 @@
 				</div>
 				<div class="period">
 					{{ Form::label('period', 'Выберите период', ['class'=>'filters_label']) }}
-					{{ Form::select('period', ['hourly'=>'Почасово', 'daily'=>'По дням', 'monthly'=> 'По месяцам'], null, ['class'=>'form-control select_type', 'required']) }}
+					{{ Form::select('period', ['hourly'=>'Почасово', 'daily'=>'По дням', 'monthly'=> 'По месяцам'], null, ['class'=>'form-control select_period', 'required']) }}
 				</div>
 			</div>
 		</div>

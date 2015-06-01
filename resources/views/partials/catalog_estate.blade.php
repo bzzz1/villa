@@ -3,7 +3,7 @@
 		@foreach ($estates as $estate)
 			<div class="one_item">
 				<div class="img">
-					@if ($estate->image)
+					@if (isset($estate->image))
 						<a href="{{l('estate', [s($estate->title), $estate->estate_id])}}">
 							{{ HTML::image("img/photos/estates/$estate->image", "$estate->title", ['class'=>'item_img']) }}
 						</a> 

@@ -61,10 +61,14 @@
 	display: inline-block;
 }
 .type {
-	float: right;
+	float: left;
 }
 .period {
-	float: left;
+	// float: left;
+	margin-left: 53px;
+	.select_period {
+		width: 430px;
+	}
 }
 .city {
 	margin-bottom: 30px;
