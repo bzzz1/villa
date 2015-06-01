@@ -22,4 +22,8 @@ class Estate extends BaseModel {
 	// public function scopeSelected($query) {
 	// 	return $query->where(DB::raw('RAND()'));
 	// }
+
+	public function scopeHasPreview($query) {
+		$query->whereHas('images', function($q){$q->where('preview',1);});
+	}
 }
