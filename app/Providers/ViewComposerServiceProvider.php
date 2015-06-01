@@ -31,7 +31,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		// ESTATE
 		view()->composer('estate', function($view) {
 			$data = $view->getData();
-			$estate = Estate::find($data['estate_id'])->with('images')->get();
+			$estate = Estate::where('estate_id', $data['estate_id'])->with('images')->get();
 
 			$view->with(compact('estate'));
 		});
