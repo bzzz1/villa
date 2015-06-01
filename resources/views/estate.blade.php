@@ -13,9 +13,29 @@
 				 data-swipe="true"
 				 data-trackpad="true"
 				 >
-				@foreach (read_dir(dir_path('carousel')) as $name)
+			{{-- 	@foreach (read_dir(dir_path('carousel')) as $name)
 					{{ HTML::image(dir_path('carousel').'/'.$name, "$estate->title", ['class'=>'item_img']) }}
-				@endforeach	
+				@endforeach	 --}}
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
+				<img src="http://s.fotorama.io/1.jpg">
+				<img src="http://s.fotorama.io/2.jpg">
 			</div>
 			<div class="map_container_small">
 				{{-- insert map here --}}

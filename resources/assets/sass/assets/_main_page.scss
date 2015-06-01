@@ -12,6 +12,9 @@
 			img {
 				display: table;
 				margin: auto;
+				min-height: 350px;
+				max-height: 350px;
+				min-width: 100%;
 			}
 			.carousel-caption {
 				text-align: right;

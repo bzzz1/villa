@@ -16,35 +16,21 @@
 			</ol>
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					{{-- <a href=""> --}}
-						<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
-					{{-- </a> --}}
-					<div class="carousel-caption">
-						<div class="top_left">
-							<h1>Дома в аренду для Вас!</h1>
-							<h3>Огромный выбор недвижимости для Вашего комфорта.</h3>
+				<?php $i = 0 ?>
+				@foreach (read_dir(dir_path('carousel')) as $name)
+					@if ($name != '.DS_Store')
+						<div class="item @if ($i == 1) active @endif">
+							{{ HTML::image('img/carousel/'.$name, "", ['class'=>'item_img']) }}
+							<div class="carousel-caption">
+								<div class="top_left">
+									<h1>Дома в аренду для Вас!</h1>
+									<h3>Огромный выбор недвижимости для Вашего комфорта.</h3>
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
-					<div class="carousel-caption">
-						<div class="top_left">
-							<h1>Дома в аренду для Вас!</h1>
-							<h3>Огромный выбор недвижимости для Вашего комфорта.</h3>
-						</div>
-					</div>
-				</div>
-				<div class="item">
-					<img src="../img/layout/krim_villa_image.png" alt="Crim Villa">
-					<div class="carousel-caption">
-						<div class="top_left">
-							<h1>Дома в аренду для Вас!</h1>
-							<h3>Огромный выбор недвижимости для Вашего комфорта.</h3>
-						</div>
-					</div>
-				</div>
+					@endif	
+					<?php $i++?>
+				@endforeach	
 			</div>
 			<!-- Controls -->
 			<a class="left carousel-control" href="#carousel_estate" role="button" data-slide="prev">
