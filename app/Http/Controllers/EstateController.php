@@ -12,11 +12,12 @@ class EstateController extends Controller {
 	}
 
 	public function admin_estates() {
+		// filters
 		return v();
 	}
 
-	public function estates() {
-		return v(); 
+	public function estates($filters='') {
+		return v()->with(compact('filters')); 
 	}
 
 	public function estate($estate, $estate_id) {
