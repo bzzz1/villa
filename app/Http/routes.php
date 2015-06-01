@@ -259,6 +259,22 @@ function filters() {
 	// 	'yard_area_max' 	=> Estate::max('yard_area'),
 	// ];
 
+	// js_filters_form
+
+	// js_select_town
+	// js_select_district
+	// js_select_type
+	// js_select_period
+	// js_range_house_area_from
+	// js_range_house_area_to
+	// js_range_yard_area_from
+	// js_range_yard_area_to
+	// js_range_price_from
+	// js_range_price_to
+
+	// js_range_sea_dist_from
+	// js_range_rooms_from
+
 	$filter_types = [
 		'type'			=> 'type', 	// ['flat', 'cottage', 'parcel', 'commercial']
 		'commercial'	=> 'type', 	// ['rent', 'sale']
@@ -346,7 +362,6 @@ function filter($filter, $value) {
 		unset($filters[$filter]);
 		$filter_query = implode_assoc('&', $filters);
 		if ($is_on) {
-			dd('as');
 			return $filter_query;
 		} else {
 			return $filter_query."&{$filter}={$value}";
