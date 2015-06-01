@@ -678,6 +678,21 @@ body {
   float: right;
   width: 650px; }
 
+.type_and_period {
+  display: inline-block;
+  overflow: hidden;
+  width: 100%; }
+
+.type,
+.period {
+  display: inline-block; }
+
+.type {
+  float: right; }
+
+.period {
+  float: left; }
+
 .city {
   margin-bottom: 30px; }
 

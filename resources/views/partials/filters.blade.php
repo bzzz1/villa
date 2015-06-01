@@ -16,28 +16,38 @@
 					{{ Form::select('district', ['dfвыава'=>'dfавыаываs'], null, ['class'=>'form-control select_place select_district']) }}	
 				</div>
 			</div>
-			<div class="type">
-				{{ Form::label('type', 'Выберите тип', ['class'=>'filters_label']) }}
-				{{ Form::select('type', ['авы'=>'ыва'], null, ['class'=>'form-control select_type', 'required']) }}
+			<div class="type_and_period">
+				<div class="type">
+					{{ Form::label('type', 'Выберите тип', ['class'=>'filters_label']) }}
+					{{ Form::select('type', ['flat'=>'Квартира', 'cottage'=>'Коттедж', 'parcel'=> 'Земельный участок', 'commercial'=>'Коммерческая' ], null, ['class'=>'form-control select_type', 'required']) }}
+				</div>
+				<div class="period">
+					{{ Form::label('period', 'Выберите период', ['class'=>'filters_label']) }}
+					{{ Form::select('period', ['hourly'=>'Почасово', 'daily'=>'По дням', 'monthly'=> 'По месяцам'], null, ['class'=>'form-control select_type', 'required']) }}
+				</div>
 			</div>
 		</div>
 		<div class="draggers">
-			<div class="area">
-				{{ Form::label('area_from', 'от', ['class'=>'filters_label']) }}
-				{{ Form::text('area_from', null, ['class'=>'form-control', 'id'=>'area_from'])}}
-				{{ Form::label('area_to', 'до', ['class'=>'filters_label']) }}
-				{{ Form::text('area_to', null, ['class'=>'form-control', 'id'=>'area_to'])}}
-				<span>м<sup>2</sup></span>
-				<div class="area_slider"></div>
-			</div>
-			<div class="yard_area">
-				{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
-				{{ Form::text('yard_area_from', null, ['class'=>'form-control', 'id'=>'yard_area_from'])}}
-				{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
-				{{ Form::text('yard_area_to', null, ['class'=>'form-control', 'id'=>'yard_area_to'])}}
-				<span>соток</span>
-				<div class="yard_area_slider"></div>
-			</div>
+			{{-- @if() --}}
+				<div class="area">
+					{{ Form::label('area_from', 'от', ['class'=>'filters_label']) }}
+					{{ Form::text('area_from', null, ['class'=>'form-control', 'id'=>'area_from'])}}
+					{{ Form::label('area_to', 'до', ['class'=>'filters_label']) }}
+					{{ Form::text('area_to', null, ['class'=>'form-control', 'id'=>'area_to'])}}
+					<span>м<sup>2</sup></span>
+					<div class="area_slider"></div>
+				</div>
+			{{-- @endif	 --}}
+			{{-- @if() --}}
+				<div class="yard_area">
+					{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
+					{{ Form::text('yard_area_from', null, ['class'=>'form-control', 'id'=>'yard_area_from'])}}
+					{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
+					{{ Form::text('yard_area_to', null, ['class'=>'form-control', 'id'=>'yard_area_to'])}}
+					<span>соток</span>
+					<div class="yard_area_slider"></div>
+				</div>
+			{{-- @endif	 --}}
 			<div class="price">
 				{{ Form::label('price_from', 'от', ['class'=>'filters_label']) }}
 				{{ Form::text('price_from', null, ['class'=>'form-control', 'id'=>'price_from'])}}
@@ -46,14 +56,16 @@
 				<span>рублей</span>
 				<div class="price_slider"></div>
 			</div>
-			<div class="rooms">
-				{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
-				{{ Form::text('rooms_from', null, ['class'=>'form-control', 'id'=>'rooms_from'])}}
-				{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
-				{{ Form::text('rooms_to', null, ['class'=>'form-control', 'id'=>'rooms_to'])}}
-				<span>комнат</span>
-				<div class="rooms_slider"></div>
-			</div>
+			{{-- @if() --}}
+				<div class="rooms">
+					{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
+					{{ Form::text('rooms_from', null, ['class'=>'form-control', 'id'=>'rooms_from'])}}
+					{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
+					{{ Form::text('rooms_to', null, ['class'=>'form-control', 'id'=>'rooms_to'])}}
+					<span>комнат</span>
+					<div class="rooms_slider"></div>
+				</div>
+			{{-- @endif	 --}}
 			<div class="sea_dist">
 				{{ Form::label('sea_dist_from', 'от', ['class'=>'filters_label']) }}
 				{{ Form::text('sea_dist_from', null, ['class'=>'form-control', 'id'=>'sea_dist_from'])}}
@@ -62,7 +74,7 @@
 				<span>метров</span>
 				<div class="sea_dist_slider"></div>
 			</div>
-
+			
 		</div>
 	</div>
 </div>	
