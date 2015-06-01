@@ -1,7 +1,8 @@
 <div class="filters_full">
 	<div class="filters">
 		<h3>поиск объекта</h3>
-		{{Form::open(['url'=>l('estates'), 'method'=>'GET', ['class'=>'js_filters_form']])}}
+		<?php $filters = 'house_area=120;380&district_id=2&town_id=3&pool=bool&producer=[asus;acer;lenovo;toshiba;sony]&price=10000;160000&yard_area=100;800&commercial=rent&period=daily&type=cottage&rooms=3;7'; ?>
+		{{Form::open(['url'=>l('estates', $filters), 'method'=>'GET', 'class'=>'js_filters_form'])}}
 			<div class="selects">
 				<div class="btn-group">
 				{{HTML::link(filter('commercial', 'sale'), 'Купить', ['class' => 'btn btn-default active'])}}

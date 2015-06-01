@@ -4,7 +4,7 @@
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/create_estate', 			['as'=>'create_estate', 'uses'=>'EstateController@create_estate', 'middleware'=>'auth']); // redirect
 Route::get('/admin/estates', 					['as'=>'admin_estates', 'uses'=>'EstateController@admin_estates', 'middleware'=>'auth']); // estates (with delete form + change link)
-Route::get('/', 								['as'=>'estates', 		'uses'=>'EstateController@estates']); // estates (get count(selected))
+Route::get('/{filters?}', 						['as'=>'estates', 		'uses'=>'EstateController@estates']); // estates (get count(selected))
 Route::get('/estates/{estate}/{estate_id}',		['as'=>'estate', 		'uses'=>'EstateController@estate']); // estate
 Route::get('/selected', 						['as'=>'selected', 		'uses'=>'EstateController@selected']); // estates (selected_estates)
 Route::post('/select_estate/{estate_id}', 		['as'=>'select_estate', 'uses'=>'EstateController@select_estate']); // redirect->back(estates) (by session_id)
