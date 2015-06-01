@@ -10,7 +10,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		// ESTATES
 		view()->composer('estates', function($view) {
 			$towns = Town::with('districts')->get();
-			$estates = Image::where('preview', 1)->with('estate')->get()->flate();
+			$estates = Estate::with(['images'=>function($q){$q->where('preview',1);}])->get()->flate();
 
 			$extremes = [
 				'price_min' 		=> Estate::min('price'),
