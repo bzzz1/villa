@@ -1,8 +1,8 @@
 <?php namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use App\BaseModel;
 
-class Article extends Model {
+class Article extends BaseModel {
 	protected $guarded = [];
 	protected $primaryKey = 'article_id';
 	public $timestamps = false;

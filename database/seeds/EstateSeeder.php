@@ -11,7 +11,7 @@ class EstateSeeder extends Seeder {
 		for ($i=0; $i<$count; $i++) {
 			$commercial = $faker->randomElement(['sale', 'rent']);
 			if ('rent'==$commercial) {
-				$period = $faker->randomElement(['посуточно', 'почасово', 'помесячно']);
+				$period = $faker->randomElement(['hourly', 'daily', 'monthly']);
 			} else {
 				$period = null;
 			}

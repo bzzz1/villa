@@ -12,35 +12,27 @@ class EstateController extends Controller {
 	}
 
 	public function admin_estates() {
-		// ??? use view composer ???
-		$estates = Estate::all();
-		return v()->with(compact('estates'));
+		return v();
 	}
 
 	public function estates() {
-		// ??? use view composer ???
-		$estates = Estate::all();
-		return v()->with(compact('estates')); 
+		return v(); 
 	}
 
 	public function estate($estate, $estate_id) {
-		// ??? use view composer ???
-		$estate = Estate::find($estate_id);
-		return v()->with(compact('estate'));
+		return v()->with(compact('estate_id'));
 	}
 
 	public function change_estate($estate_id) {
-		// ??? use view composer ???
-		$estate = Estate::find($estate_id);
-		return v()->with(compact('estate'));
+		return v()->with(compact('estate_id'));
 	}
 
 	public function selected() {
 		// get current session id
 		// get all selected for current user
-		$ids = [];
-		$estates = Estate::whereIn('estate_id', $ids)->get();
-		return v()->with(compact('estates')); 
+		// $ids = [];
+		// $estates = Estate::whereIn('estate_id', $ids)->get();
+		// return v()->with(compact('estates')); 
 	}
 
 	public function select_estate($estate_id) {

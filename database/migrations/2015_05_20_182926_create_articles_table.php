@@ -16,6 +16,7 @@ class CreateArticlesTable extends Migration {
 		{
 			$table->increments('article_id');
 			$table->string('title', 128);
+			$table->string('preview', 128);
 			$table->text('body');
 			$table->timestamp('added_on');	
 		});
