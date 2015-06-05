@@ -164,6 +164,12 @@ $('.js_filter_click').on('click', function () {
 // FILTER DEPENDENCIES
 // $('.js_commercial').on('click', function () {
 var $period = $('.period');
+var $yard_area = $('.yard_area');
+var $yard_area_par = $('.yard_area').parent();
+var $area = $('.area');
+var $area_par = $('.area').parent();
+var $rooms = $('.rooms');
+var $rooms_par = $('.rooms').parent();
 
 if ($('.js_commercial.active').data('commercial') == 'sale') {
 	$('.period').remove();
@@ -190,6 +196,9 @@ $('.js_commercial').on('click', function () {
 	});
 	}
 });
+$yard_area_par.append($yard_area);
+$area_par.append($area);
+$rooms_par.append($rooms);
 
 if ($('.js_select_type').val() == 'flat') {
 	$('.yard_area').remove();
@@ -197,22 +206,45 @@ if ($('.js_select_type').val() == 'flat') {
 else if ($('.js_select_type').val() == 'parcel') {
 	$('.area').remove();
 	$('.rooms').remove();
+	$yard_area_par.append($yard_area);
 }
 else if ($('.js_select_type').val() == 'flat') {
 	$('.area').remove();
 	$('.rooms').remove();
+	$yard_area_par.append($yard_area);
+
 };
 $('.js_select_type').on('change', function () {
 	if ($('.js_select_type').val() == 'flat') {
 		$('.yard_area').remove();
+		$area_par.append($area);
+		$rooms_par.append($rooms);
+
 	}
 	else if ($('.js_select_type').val() == 'parcel') {
 		$('.area').remove();
 		$('.rooms').remove();
+		$yard_area_par.append($yard_area);
+
+
 	}
 	else if ($('.js_select_type').val() == 'flat') {
 		$('.area').remove();
 		$('.rooms').remove();
+		$yard_area_par.append($yard_area);
+
+	}
+	else if ($('.js_select_type').val() == 'cottage') {
+		$yard_area_par.append($yard_area);
+		$area_par.append($area);
+		$rooms_par.append($rooms);
+
+	}
+	else if ($('.js_select_type').val() == 'commercial') {
+		$yard_area_par.append($yard_area);
+		$area_par.append($area);
+		$rooms_par.append($rooms);
+
 	}
 })
 

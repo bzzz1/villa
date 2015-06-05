@@ -91,12 +91,24 @@
 .draggers {
 	margin-top: 60px;
 }
+.first_line {
+	overflow: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
+.second_line {
+	overflow: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 20px;
+}
 .area,
 .yard_area,
 .price,
 .rooms,
 .sea_dist {
-	width: 28%;
+	width: 29%;
 	display: inline-block;
 	input[type='text'] {
 		width: 80px;
