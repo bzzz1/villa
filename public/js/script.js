@@ -23,7 +23,7 @@ if ('estates'==ROUTE) {
 
 	function on_change() {
 		var current = $('.js_select_town').val();
-		if ('null' == current) {
+		if ('' == current) {
 			$('.district').slideUp();
 			return false;
 		};
@@ -161,3 +161,58 @@ $('.js_filter_click').on('click', function () {
 	$(this).addClass('active');
 
 });
+// FILTER DEPENDENCIES
+// $('.js_commercial').on('click', function () {
+var $period = $('.period');
+
+if ($('.js_commercial.active').data('commercial') == 'sale') {
+	$('.period').remove();
+	$('.type').css({
+		'float' : 'right',
+		'margin-right' : '229px'
+	});
+};
+$('.js_commercial').on('click', function () {
+	if ($('.js_commercial.active').data('commercial') == 'rent') {
+		$('.type_and_period').append($period)
+		$('.period').slideDown();
+		$('.type').css({
+		'float' : 'left',
+		'margin-right' : '0'
+	});
+	}
+	else {
+		$('.period').slideUp();
+		$('.period').remove();
+		$('.type').css({
+		'float' : 'right',
+		'margin-right' : '229px'
+	});
+	}
+});
+
+if ($('.js_select_type').val() == 'flat') {
+	$('.yard_area').remove();
+}
+else if ($('.js_select_type').val() == 'parcel') {
+	$('.area').remove();
+	$('.rooms').remove();
+}
+else if ($('.js_select_type').val() == 'flat') {
+	$('.area').remove();
+	$('.rooms').remove();
+};
+$('.js_select_type').on('change', function () {
+	if ($('.js_select_type').val() == 'flat') {
+		$('.yard_area').remove();
+	}
+	else if ($('.js_select_type').val() == 'parcel') {
+		$('.area').remove();
+		$('.rooms').remove();
+	}
+	else if ($('.js_select_type').val() == 'flat') {
+		$('.area').remove();
+		$('.rooms').remove();
+	}
+})
+
