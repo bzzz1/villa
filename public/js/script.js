@@ -71,8 +71,8 @@ if ('estates'==ROUTE) {
 		var sea_dist_from 	= $filters.find('.js_range_sea_dist_from').val();
 		var sea_dist_to 	= $filters.find('.js_range_sea_dist_to').val();
 
-		var filters =	'commercial'	+commercial+
-						'type='			+type+
+		var filters =	'commercial='	+commercial+
+						'&type='			+type+
 						'&town_id='		+town_id+
 						'&district_id='	+district_id+
 						'&period='		+period+
