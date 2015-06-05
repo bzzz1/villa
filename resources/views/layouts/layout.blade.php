@@ -20,6 +20,7 @@
 		{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
 		{{ HTML::script('js/vendor/fotorama.js') }}
 		{{ HTML::script('js/vendor/jBox.min.js') }}
+		{{ HTML::script('js/vendor/translit.js') }}
 
 		@yield('css')
 	</head>
@@ -37,6 +38,13 @@
 
 		<script>
 			@yield('js')
+			/*------------------------------------------------
+			| GLOBALS
+			------------------------------------------------*/
+				URL_IMG = "{{ url_path('estates') }}";
+				URL_ESTATE = "{{ l('estate') }}";
+				URL_ESTATES = "{{ l('estates') }}";
+			/*----------------------------------------------*/
 		</script> 
 		{{ HTML::script('js/script.js') }}
 

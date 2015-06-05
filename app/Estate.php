@@ -26,4 +26,8 @@ class Estate extends BaseModel {
 	public function scopeHasPreview($query) {
 		$query->whereHas('images', function($q){$q->where('preview',1);});
 	}
+
+	public function scopeJoined($query) {
+		$query->join('districts', 'estates.district_id', '=', 'districts.district_id')->join('towns', 'towns.town_id', '=', 'districts.town_id'); // get Illuminate\Database\Eloquent\Builder
+	}
 }

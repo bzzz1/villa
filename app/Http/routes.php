@@ -302,12 +302,11 @@ function filters() {
 	$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
 	$query = $query->orderBy($sort, $order);
 	try {
-		$query->paginate($take);
+		$estates = $query->skip($skip)->take($take)->get();
 	} catch (Exception $e) {
 		return redirect()->back();
 	}
 }
-
 /*------------------------------------------------
 | FRONTEND
 ------------------------------------------------*/
@@ -389,37 +388,3 @@ function implode_assoc($glue, $array) {
 	return implode('&', array_map(function($v, $k) { return $k.'='.$v; }, $array, array_keys($array)));
 }
 
-function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters=[]) {
-	parse_str($filters, $filters);
-
-	foreach ($filters as $filter => $value) {
-		$type = detect_filter_type($value);
-		
-		if ('check'==$type) {
-			$query->where($filter, 1);
-		} else if ('list'==$type) {
-			$list = trim($value, '[]');
-			$items = explode(';', $list);
-			$query->whereIn($filter, $items);
-		} else if ('range'==$type) {
-			$range = explode(';', $value);
-			$query->where($filter, '>=', $range[0])->where($filter, '<=', $range[1]);
-		} else if ('type'==$type) {
-			$query->where($filter, $value);
-		}
-	}
-
-	return $query;
-}
-
-function detect_filter_type($value) {
-	if ('bool'==$value) {
-		return 'check';
-	} else if ('['==$value[0]) {
-		return 'list';
-	} else if (strpos($value, ';')) {
-		return 'range';
-	} else {
-		return 'type';
-	}
-}

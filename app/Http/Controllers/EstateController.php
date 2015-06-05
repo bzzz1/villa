@@ -17,7 +17,22 @@ class EstateController extends Controller {
 	}
 
 	public function estates($filters='') {
-		return v()->with(compact('filters')); 
+		return v()->with(compact('filters'));
+	}
+
+	public function ajax_estates($filters='') {
+		$take = Reques::input('take');
+		$page = Reques::input('page');
+		$sort = Reques::input('title');
+		$order = Reques::input('asc');
+		$skip = $take*($page-1);
+
+		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
+		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
+		$query = $query->orderBy($sort, $order);
+		$estates = $query->skip($skip)->take($take)->get();
+
+		return  response()->json($estates);
 	}
 
 	public function estate($estate, $estate_id) {

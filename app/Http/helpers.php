@@ -268,7 +268,43 @@
 		return $options['lowercase'] ? mb_strtolower($str, 'UTF-8') : $str;
 	}
 
+/*------------------------------------------------
+| FILTERS
+------------------------------------------------*/
+	function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters=[]) {
+		parse_str($filters, $filters);
 
+		foreach ($filters as $filter => $value) {
+			$type = detect_filter_type($value);
+			
+			if ('check'==$type) {
+				$query->where($filter, 1);
+			} else if ('list'==$type) {
+				$list = trim($value, '[]');
+				$items = explode(';', $list);
+				$query->whereIn($filter, $items);
+			} else if ('range'==$type) {
+				$range = explode(';', $value);
+				$query->where($filter, '>=', $range[0])->where($filter, '<=', $range[1]);
+			} else if ('type'==$type) {
+				$query->where($filter, $value);
+			}
+		}
+
+		return $query;
+	}
+
+	function detect_filter_type($value) {
+		if ('bool'==$value) {
+			return 'check';
+		} else if ('['==$value[0]) {
+			return 'list';
+		} else if (strpos($value, ';')) {
+			return 'range';
+		} else {
+			return 'type';
+		}
+	}
 
 	// function urlencode2($string) {
 	// 	$string = urlencode($string);
