@@ -77,7 +77,8 @@ $('.js_submit_filters').on('click', function(evt) {
 	$form.submit();
 });
 // TEMPLATE
-var	filters = '';
+// var	filters = '';
+function filter(filters) {
 	$.ajax({
 		url: URL_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc',
 		type: 'GET',
@@ -87,6 +88,8 @@ var	filters = '';
 		// }, 
 		success: estates_processing;
 	});
+};
+
 function estates_processing (data) {
 	for (var i = 0; i < data.length; i++) {
 		var estate = data[i];
