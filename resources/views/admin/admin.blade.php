@@ -12,25 +12,25 @@
 		</div> --}}
 		<div class="blocks">
 			<div class="icon">
-				<a href="{{l('admin')}}" class="@if (r() == 'admin') active_my @endif admin_icon_block"><i class="fa fa-wrench"></i>Панель управления</a>
+				<a href="{{l('admin')}}" class="@if (r() == 'admin') active_my @endif admin_icon_block"><i class="fa fa-wrench fa-5x"></i>Панель управления</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('create_estate')}}" class="@if (r() == 'create_estate' || r() == 'change_estate') active_my @endif admin_icon_block"><i class="fa fa-home"></i>Добавить объект</a>
+				<a href="{{l('create_estate')}}" class="@if (r() == 'create_estate' || r() == 'change_estate') active_my @endif admin_icon_block"><i class="fa fa-home fa-5x"></i>Добавить объект</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('admin_estates')}}" class="@if (r() == 'admin_estates') active_my @endif admin_icon_block"><i class="fa fa-list"></i>Все объекты</a>
+				<a href="{{l('admin_estates')}}" class="@if (r() == 'admin_estates') active_my @endif admin_icon_block"><i class="fa fa-list fa-5x"></i>Все объекты</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('create_article')}}" class="@if (r() == 'create_article' || r() == 'change_article') active_my @endif admin_icon_block"><i class="fa fa-bullhorn"></i>Добавить новость</a>
+				<a href="{{l('create_article')}}" class="@if (r() == 'create_article' || r() == 'change_article') active_my @endif admin_icon_block"><i class="fa fa-bullhorn fa-5x"></i>Добавить новость</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('admin_articles')}}" class="@if (r() == 'admin_articles') active_my @endif admin_icon_block"><i class="fa fa-list-alt"></i>Новости</a>
+				<a href="{{l('admin_articles')}}" class="@if (r() == 'admin_articles') active_my @endif admin_icon_block"><i class="fa fa-list-alt fa-5x"></i>Новости</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('admin_towns')}}" class="@if (r() == 'admin_towns') active_my @endif admin_icon_block"><i class="fa fa-book"></i>Список городов</a>
+				<a href="{{l('admin_towns')}}" class="@if (r() == 'admin_towns') active_my @endif admin_icon_block"><i class="fa fa-book fa-5x"></i>Список городов</a>
 			</div>
 			<div class="icon">
-				<a href="{{l('admin_districts')}}" class="@if (r() == 'admin_districts') active_my @endif admin_icon_block"><i class="fa fa-sitemap"></i>Список районов</a>
+				<a href="{{l('admin_districts')}}" class="@if (r() == 'admin_districts') active_my @endif admin_icon_block"><i class="fa fa-sitemap fa-5x"></i>Список районов</a>
 			</div>
 		</div>
 	</div>
