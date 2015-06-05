@@ -665,9 +665,12 @@ body {
     font-size: 24px;
     font-weight: 300;
     padding: 0 50px 0 56px; }
+    .filters .btn-group .buttons:active, .filters .btn-group .buttons:focus, .filters .btn-group .buttons:hover {
+      outline: none; }
   .filters .btn-group .active {
     background-color: #e6e6e6;
-    border-color: #adadad; }
+    border-color: #adadad;
+    outline: none; }
 
 .filters_label {
   color: #fff;
@@ -1339,5 +1342,3 @@ footer {
       .copyright .our_link a:active, .copyright .our_link a:focus {
         outline: none;
         text-decoration: none; }
-
-/*# sourceMappingURL=style.css.map */

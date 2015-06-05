@@ -130,4 +130,9 @@ function estates_processing (data) {
 	};
 }
 
+// FILTERS BUTTONS
+$('.js_filter_click').on('click', function () {
+	$('.btn-group').find('.active').removeClass('active');
+	$('.btn-group').find('.active').parent().addClass('active');
 
+})
