@@ -74,83 +74,87 @@
 	</div>
 @stop
 @section ('js')
-<?php echo '
-	// sliders
-	// area
-	$(".area_slider").noUiSlider({
-		start: ['.$extremes["house_area_min"].','.$extremes["house_area_max"].'],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": '.$extremes["house_area_min"].','.'
-			"max": '.$extremes["house_area_max"].'
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".area_slider").Link("lower").to($("#area_from"));
-	$(".area_slider").Link("upper").to($("#area_to"));
-	// yard_area
-	$(".yard_area_slider").noUiSlider({
-		start: ['.$extremes["yard_area_min"].','.$extremes["yard_area_max"].'],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": '.$extremes["yard_area_min"].','.'
-			"max": '.$extremes["yard_area_max"].'
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".yard_area_slider").Link("lower").to($("#yard_area_from"));
-	$(".yard_area_slider").Link("upper").to($("#yard_area_to"));
-	// price
-	$(".price_slider").noUiSlider({
-		start: ['.$extremes["price_min"].','.$extremes["price_max"].'],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": '.$extremes["price_min"].','.'
-			"max": '.$extremes["price_max"].'
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".price_slider").Link("lower").to($("#price_from"));
-	$(".price_slider").Link("upper").to($("#price_to"));
-	// rooms
-	$(".rooms_slider").noUiSlider({
-		start: ['.$extremes["rooms_min"].','.$extremes["rooms_max"].'],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": '.$extremes["rooms_min"].','.'
-			"max": '.$extremes["rooms_max"].'
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".rooms_slider").Link("lower").to($("#rooms_from"));
-	$(".rooms_slider").Link("upper").to($("#rooms_to"));
-	// sea_dist
-	$(".sea_dist_slider").noUiSlider({
-		start: ['.$extremes["sea_dist_min"].','.$extremes["sea_dist_max"].'],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": '.$extremes["sea_dist_min"].','.'
-			"max": '.$extremes["sea_dist_max"].'
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
-	$(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
-'; ?>
-	TOWNS = <?php echo json_encode($towns); ?>;
+		$(".area_slider").noUiSlider({
+			start: [EXTREMES.house_area_min,
+			EXTREMES.house_area_max],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": 0,
+				"max": 0
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
+		
+		$(".area_slider").Link("lower").to($("#area_from"));
+		$(".area_slider").Link("upper").to($("#area_to"));
+		// yard_area
+		$(".yard_area_slider").noUiSlider({
+			start: [EXTREMES.yard_area_min,
+			EXTREMES.yard_area_max],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": 0,
+				"max": 0
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
+		$(".yard_area_slider").Link("lower").to($("#yard_area_from"));
+		$(".yard_area_slider").Link("upper").to($("#yard_area_to"));
+		// price
+		$(".price_slider").noUiSlider({
+			start: [EXTREMES.price_min,
+			EXTREMES.price_max],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": 0,
+				"max": 0
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
+		$(".price_slider").Link("lower").to($("#price_from"));
+		$(".price_slider").Link("upper").to($("#price_to"));
+		// rooms
+		$(".rooms_slider").noUiSlider({
+			start: [EXTREMES.rooms_min,
+			EXTREMES.rooms_max],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": 0,
+				"max": 0
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
+		$(".rooms_slider").Link("lower").to($("#rooms_from"));
+		$(".rooms_slider").Link("upper").to($("#rooms_to"));
+		// sea_dist
+		$(".sea_dist_slider").noUiSlider({
+			start: [EXTREMES.sea_dist_min,
+			EXTREMES.sea_dist_max],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": 0,
+				"max": 0
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
+		$(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
+		$(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
+
+	TOWNS = <?php echo json_encode($towns) ?>;
+	EXTREMES = <?php echo json_encode($extremes) ?>;
 @stop

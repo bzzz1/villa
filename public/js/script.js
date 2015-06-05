@@ -104,6 +104,56 @@ if ('estates'==ROUTE) {
 		// ajax call					
 		filter(filters);
 	};
+
+	reset_extremes(['',EXTREMES]);
+	function reset_extremes(data) {
+		var EXTREMES = data[1];
+		// sliders
+		// area
+		$(".area_slider").noUiSlider({
+			range: {
+				"min": EXTREMES.house_area_min,
+				"max": EXTREMES.house_area_max
+			},
+		});
+		$(".area_slider").Link("lower").to($("#area_from"));
+		$(".area_slider").Link("upper").to($("#area_to"));
+		$(".yard_area_slider").noUiSlider({
+			range: {
+				"min": EXTREMES.yard_area_min,
+				"max": EXTREMES.yard_area_max
+			},
+		});
+		$(".yard_area_slider").Link("lower").to($("#yard_area_from"));
+		$(".yard_area_slider").Link("upper").to($("#yard_area_to"));
+		
+		$(".price_slider").noUiSlider({
+			range: {
+				"min": EXTREMES.price_min,
+				"max": EXTREMES.price_max
+			},
+		});
+		$(".price_slider").Link("lower").to($("#price_from"));
+		$(".price_slider").Link("upper").to($("#price_to"));
+
+		$(".rooms_slider").noUiSlider({
+			range: {
+				"min": EXTREMES.rooms_min,
+				"max": EXTREMES.rooms_max
+			},
+		});
+		$(".rooms_slider").Link("lower").to($("#rooms_from"));
+		$(".rooms_slider").Link("upper").to($("#rooms_to"));
+
+		$(".sea_dist_slider").noUiSlider({
+			range: {
+				"min": EXTREMES.sea_dist_min,
+				"max": EXTREMES.sea_dist_max
+			},
+		});
+		$(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
+		$(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
+	}
 }
 
 // TEMPLATE
@@ -116,7 +166,11 @@ function filter(filters) {
 		// data: {
 		// 	'category' : category
 		// }, 
-		success: estates_processing,
+		success: function(data) {
+			console.log(data);
+			estates_processing(data);
+			reset_extremes(data);
+		},
 		error: function(data, error, error_details){
 			console.log("err:", error, error_details);
 			console.log(data);
@@ -126,6 +180,7 @@ function filter(filters) {
 };
 
 function estates_processing (data) {
+	var data = data[0];
 	var estate_html = '';
 	console.log(data);
 	var $catalog_blocks = $('.catalog_blocks');
