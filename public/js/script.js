@@ -52,6 +52,10 @@ if ('estates'==ROUTE) {
 	$('.js_filter_change').on('change', touch_filter); 
 	$('.js_filter_click').on('click', touch_filter); 
 
+	function check_empty(element) {
+		return element = element ? element : '';
+	}
+
 	function touch_filter(e) {
 		console.log(e);
 
@@ -71,8 +75,24 @@ if ('estates'==ROUTE) {
 		var sea_dist_from 	= $filters.find('.js_range_sea_dist_from').val();
 		var sea_dist_to 	= $filters.find('.js_range_sea_dist_to').val();
 
+		commercial			= check_empty(commercial);
+		type				= check_empty(type);
+		town_id				= check_empty(town_id);
+		district_id			= check_empty(district_id);
+		period				= check_empty(period);
+		house_area_from		= check_empty(house_area_from);
+		house_area_to		= check_empty(house_area_to);
+		yard_area_from		= check_empty(yard_area_from);
+		yard_area_to		= check_empty(yard_area_to);
+		price_from			= check_empty(price_from);
+		price_to			= check_empty(price_to);
+		rooms_from			= check_empty(rooms_from);
+		rooms_to			= check_empty(rooms_to);
+		sea_dist_from		= check_empty(sea_dist_from);
+		sea_dist_to			= check_empty(sea_dist_to);
+
 		var filters =	'commercial='	+commercial+
-						'&type='			+type+
+						'&type='		+type+
 						'&town_id='		+town_id+
 						'&district_id='	+district_id+
 						'&period='		+period+
