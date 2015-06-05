@@ -220,10 +220,11 @@ header {
   min-width: 185px;
   float: left;
   overflow: auto;
-  position: fixed;
-  top: 42px;
-  bottom: 65px;
-  background-color: #222; }
+  position: absolute;
+  top: 0px;
+  background-color: #222;
+  height: 93%;
+  min-height: 500px; }
 
 .admin_sidebar_button {
   color: #eee;
@@ -254,7 +255,8 @@ header {
 /*FOOTER*/
 footer {
   background-color: #9dcb20;
-  height: 65px;
+  height: 7%;
+  min-height: 65px;
   padding-top: 20px;
   position: absolute;
   bottom: 0px;
@@ -269,4 +271,30 @@ footer {
   margin-left: 10px;
   margin-top: 2px; }
 
-/*# sourceMappingURL=admin.css.map */
+/*MAIN_PAGE*/
+.icon {
+  display: inline-block;
+  width: 20%;
+  margin-right: 2%;
+  margin-left: 2%;
+  background-color: #9dcb20;
+  color: #222;
+  margin-bottom: 50px;
+  font-size: 22px; }
+  .icon:hover {
+    background-color: #222; }
+  .icon a {
+    display: block;
+    color: #222;
+    text-align: center; }
+    .icon a:hover {
+      color: #fff;
+      text-decoration: none; }
+  .icon .active_my {
+    color: #fff; }
+
+.active_icon_block {
+  background-color: #222; }
+  .active_icon_block .active_my {
+    color: #fff;
+    background-color: #222; }

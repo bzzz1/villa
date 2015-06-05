@@ -3,10 +3,13 @@
 	min-width: 185px;
 	float: left;
 	overflow: auto;
-	position: fixed;
-	top: 42px;
-	bottom: 65px;
+	position: absolute;
+	top: 0px;
+	// bottom: 65px;
 	background-color: $main_black;
+	// z-index: 555;
+	height: 93%;
+	min-height: 500px;
 }
 .admin_sidebar_button {
 	color: $text;

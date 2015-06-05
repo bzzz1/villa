@@ -3,8 +3,8 @@
 		<h3>поиск объекта</h3>
 			<div class="selects">
 				<div class="btn-group">
-					<button class='btn btn-default active js_filter_click'>Купить</button>
-					<button class='btn btn-default js_filter_click'>Арендовать</button>
+					<button class='btn btn-default active js_filter_click buttons'>Купить</button>
+					<button class='btn btn-default js_filter_click buttons'>Арендовать</button>
 				</div>
 				<div class="city_and_district">
 					<div class="city">
