@@ -24,8 +24,8 @@ class EstateController extends Controller {
 	public function ajax_estates($filters='') {
 		$take = Request::input('take');
 		$page = Request::input('page');
-		$sort = Request::input('title');
-		$order = Request::input('asc');
+		$sort = Request::input('sort');
+		$order = Request::input('order');
 		$skip = $take*($page-1);
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder

@@ -4,29 +4,29 @@
 		{{Form::open(['url'=>l('estates', $filters), 'method'=>'GET', 'class'=>'js_filters_form'])}}
 			<div class="selects">
 				<div class="btn-group">
-				{{HTML::link(filter('commercial', 'sale', $filters), 'Купить', ['class' => 'btn btn-default active'])}}
-				{{HTML::link(filter('commercial', 'rent', $filters), 'Арендовать', ['class' => 'btn btn-default'])}}
-			</div>
-			<div class="city_and_district">
-				<div class="city">
-						{{ Form::label('city', 'Выберите город', ['class'=>'filters_label']) }}
-						{{ Form::select('city', array_merge(['null'=>'Любой город'], make_options($towns, 'town_id', 'town')), null, ['class'=>'js_filter form-control select_place select_city js_select_town', 'required', 'form'=>'other']) }}
+					<button class='btn btn-default active'>Купить</button>
+					<button class='btn btn-default'>Арендовать</button>
 				</div>
-				<div class="district">
-					{{ Form::label('district', 'Выберите район', ['class'=>'filters_label']) }}
-					{{ Form::select('district',[] , null, ['class'=>'js_filter form-control select_place select_district js_select_district', 'form'=>'other']) }}	
+				<div class="city_and_district">
+					<div class="city">
+							{{ Form::label('city', 'Выберите город', ['class'=>'filters_label']) }}
+							{{ Form::select('city', array_merge(['null'=>'Любой город'], make_options($towns, 'town_id', 'town')), null, ['class'=>'js_filter form-control select_place select_city js_select_town', 'required', 'form'=>'other']) }}
+					</div>
+					<div class="district">
+						{{ Form::label('district', 'Выберите район', ['class'=>'filters_label']) }}
+						{{ Form::select('district',[] , null, ['class'=>'js_filter form-control select_place select_district js_select_district', 'form'=>'other']) }}	
+					</div>
 				</div>
-			</div>
-			<div class="type_and_period">
-				<div class="type">
-					{{ Form::label('type', 'Выберите тип', ['class'=>'filters_label']) }}
-					{{ Form::select('type', ['flat'=>'Квартира', 'cottage'=>'Коттедж', 'parcel'=> 'Земельный участок', 'commercial'=>'Коммерческая' ], null, ['class'=>'js_filter form-control select_type js_select_type', 'required', 'form'=>'other']) }}
+				<div class="type_and_period">
+					<div class="type">
+						{{ Form::label('type', 'Выберите тип', ['class'=>'filters_label']) }}
+						{{ Form::select('type', ['flat'=>'Квартира', 'cottage'=>'Коттедж', 'parcel'=> 'Земельный участок', 'commercial'=>'Коммерческая' ], null, ['class'=>'js_filter form-control select_type js_select_type', 'required', 'form'=>'other']) }}
+					</div>
+					<div class="period">
+						{{ Form::label('period', 'Выберите период', ['class'=>'filters_label']) }}
+						{{ Form::select('period', ['hourly'=>'Почасово', 'daily'=>'По дням', 'monthly'=> 'По месяцам'], null, ['class'=>'js_filter form-control select_period js_select_period', 'required', 'form'=>'other']) }}
+					</div>
 				</div>
-				<div class="period">
-					{{ Form::label('period', 'Выберите период', ['class'=>'filters_label']) }}
-					{{ Form::select('period', ['hourly'=>'Почасово', 'daily'=>'По дням', 'monthly'=> 'По месяцам'], null, ['class'=>'js_filter form-control select_period js_select_period', 'required', 'form'=>'other']) }}
-				</div>
-			</div>
 			</div>
 			<div class="draggers">
 			{{-- @if() --}}
