@@ -12,7 +12,7 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-	// elixir.config.sourcemaps = false;
+	elixir.config.sourcemaps = false;
     // mix.rubySass(['style.scss'], 'public/css');
     mix.rubySass(['admin.scss'], 'public/css');
     // mix.sass(['admin.scss'], 'public/css/admin.css');

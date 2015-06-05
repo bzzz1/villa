@@ -4,8 +4,8 @@
 		{{Form::open(['url'=>l('estates', $filters), 'method'=>'GET', 'class'=>'js_filters_form'])}}
 			<div class="selects">
 				<div class="btn-group">
-					<button class='btn btn-default active'>Купить</button>
-					<button class='btn btn-default'>Арендовать</button>
+					<button class='btn btn-default active buttons'>Купить</button>
+					<button class='btn btn-default buttons'>Арендовать</button>
 				</div>
 				<div class="city_and_district">
 					<div class="city">

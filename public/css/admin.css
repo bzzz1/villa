@@ -220,10 +220,11 @@ header {
   min-width: 185px;
   float: left;
   overflow: auto;
+  position: absolute;
+  top: 0px;
   background-color: #222;
-  z-index: 555;
-  height: 100%;
-  min-height: 730px; }
+  height: 93%;
+  min-height: 500px; }
 
 .admin_sidebar_button {
   color: #eee;
@@ -254,7 +255,8 @@ header {
 /*FOOTER*/
 footer {
   background-color: #9dcb20;
-  height: 65px;
+  height: 7%;
+  min-height: 65px;
   padding-top: 20px;
   position: absolute;
   bottom: 0px;
@@ -296,5 +298,3 @@ footer {
   .active_icon_block .active_my {
     color: #fff;
     background-color: #222; }
-
-/*# sourceMappingURL=admin.css.map */
