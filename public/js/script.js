@@ -86,111 +86,33 @@ function filter(filters) {
 		// data: {
 		// 	'category' : category
 		// }, 
-		success: estates_processing;
+		success: estates_processing
 	});
 };
 
 function estates_processing (data) {
+	console.log(data);
+	console.log('aaa');
 	for (var i = 0; i < data.length; i++) {
+		var $catalog_blocks = $('.catalog_blocks');
 		var estate = data[i];
 		var src = URL_IMG+'/'+estate.image;
 		var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
-		var estate_html = '<div class="one_item">
-						<div class="img">';
+		var estate_html = '<div class="one_item"> <div class="img">';
 		if (estate.image.length) {
-			estate_html += 	'<a href="'+href +'">
-							<img src = "'+src+'" alt="'+estate.title+'", class="item_img">
+			estate_html += 	'<a href="'+href +' "> \
+							<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
 						</a>';
 		}
 		else  {
-			estate_html += 	'<a href="'+href+'">
-							<img src="'+src+'" alt="'+estate.title+'", class="item_img">
+			estate_html += 	'<a href="'+href+'"> \
+							<img src="'+src+'" alt="'+estate.title+'", class="item_img"> \
 						</a>';
-		}
-			estate_html += '<div class="add_to">
-							<a>
-								Добавить в избранные
-								<i class="fa fa-heart-o fa-2x"></i> 
-							</a> 
-						</div>
-						<div class="added_to">
-							<a>
-								Удалить из избранного
-								<i class="fa fa-heart fa-2x"></i>
-							</a>	 
-						</div>
-					</div>  
+		};
 
-					<div class="short_title">
-						<h2 class="item_title">
-							<a href="'+href+'">'+estate.title+'</a>
-						</h2>
-					</div>
-					<div class="short_descr">
-						<div class="item_descr">
-							<table>
-								<tbody>
-									<tr>
-										<td>Площадь</td>
-										<td>'+estate.house_area+' м<sup>2</sup></td>
-									</tr>
-									<tr>
-										<td>Площадь участка</td>
-										<td>'+estate.yard_area+' соток</td>
-									</tr>
-									<tr>
-										<td>Коллическтво комнат</td>
-										<td>'+estate.rooms+'</td>
-									</tr>
-									<tr>
-										<td>Удаленность от моря</td>
-										<td>'+estate.sea_dist+' м.</td>
-									</tr>
-									<tr>
-										<td>Стоимость</td>
-										<td>'+estate.price+' рублей</td>
-									</tr>
-								</tbody>           
-							</table>
-						</div>
-						<div class="item_descr full">
-							<table>
-								<tbody>
-									<tr>
-										<td>Площадь</td>
-										<td>'+estate.house_area+' м<sup>2</sup></td>
-									</tr>
-									<tr>
-										<td>Площадь участка</td>
-										<td>'+estate.yard_area+' соток</td>
-									</tr>
-									<tr>
-										<td>Коллическтво комнат</td>
-										<td>'+estate.rooms+'</td>
-									</tr>
-									<tr>
-										<td>Удаленность от моря</td>
-										<td>'+estate.sea_dist+' м.</td>
-									</tr>
-									<tr>
-										<td>Стоимость</td>
-										<td>'+estate.price+' рублей</td>
-									</tr>
-									<tr>
-										<td>Тип аренды</td>
-										<td>'+estate.period+'</td>
-									</tr>
-									<tr>
-										<td>Адресс</td>
-										<td>'+estate.address+'</td>
-									</tr>
-								</tbody>
-							</table>
-							<a class="btn more_btn" href="'+href+'">Подробнее</a>
-						</div>	
-					</div>
-					<a class="btn more_btn" href="'+href+'">Подробнее</a>
-				</div>'
+			estate_html += '<div class="add_to"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td>'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td>'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td>'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td>'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+			$catalog_blocks.html(estate_html);
+
 	};
 }
 

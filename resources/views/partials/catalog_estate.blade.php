@@ -1,7 +1,7 @@
 <div class="catalog_full">
 	<div class="catalog_blocks">
 		@foreach ($estates as $estate)
-			<div class="one_item">
+			{{-- <div class="one_item">
 				<div class="img">
 					@if (isset($estate->image))
 						<a href="{{l('estate', [s($estate->title), $estate->estate_id])}}">
@@ -94,7 +94,7 @@
 					</div>	
 				</div>
 				<a class="btn more_btn" href="{{l('estate', [s($estate->title), $estate->estate_id])}}">Подробнее</a>
-			</div>
+			</div> --}}
 		@endforeach	
 	</div>
 </div>
