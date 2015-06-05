@@ -32,8 +32,8 @@ class EstateController extends Controller {
 		$query = $query->orderBy($sort, $order);
 		$estates = $query->skip($skip)->take($take)->get();
 
-		return json_encode($estates);
-		// return response()->json($estates);
+		// return json_encode($estates);
+		return response()->json($estates);
 	}
 
 	public function estate($estate, $estate_id) {

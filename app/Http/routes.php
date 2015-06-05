@@ -11,6 +11,7 @@ Route::post('/select_estate/{estate_id}', 		['as'=>'select_estate', 'uses'=>'Est
 Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 'uses'=>'EstateController@change_estate', 'middleware'=>'auth']); // estate_change++
 Route::post('/admin/update_estate', 			['as'=>'update_estate', 'uses'=>'EstateController@update_estate', 'middleware'=>'auth']); // redirect
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 'uses'=>'EstateController@delete_estate', 'middleware'=>'auth']); // redirect->with
+Route::get('/ajax/{filters?}',					['as'=>'ajax_estates',  'uses'=>'EstateController@ajax_estates']); // ajax
 
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
