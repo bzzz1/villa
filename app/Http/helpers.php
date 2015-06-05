@@ -274,9 +274,15 @@
 	function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters='') {
 		parse_str($filters, $filters);
 
+
 		foreach ($filters as $filter => $value) {
 			if (empty($value)) {
 				continue;
+			}
+			
+			//resetting dependencies
+			if ('type'==$filter or 'commercial'==$filter) {
+				$filters = reset_dependencies($filters);
 			}
 
 			$type = detect_filter_type($value);
@@ -296,6 +302,21 @@
 		}
 
 		return $query;
+	}
+
+	function reset_dependencies($filters) {
+		if (!in_array($filters['type'], ['flat', 'cottage', 'commercial'])) {
+			unset($filters['house_area']);
+			unset($filters['rooms']);
+		}
+		if (!in_array($filters['type'], ['cottage', 'parcel', 'commercial'])) {
+			unset($filters['yard_area']);
+		}
+		if (!in_array($filters['commercial'], ['rent'])) {
+			unset($filters['period']);
+		}
+
+		return $filters;
 	}
 
 	function detect_filter_type($value) {
