@@ -80,13 +80,17 @@ $('.js_submit_filters').on('click', function(evt) {
 // var	filters = '';
 function filter(filters) {
 	$.ajax({
-		url: URL_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc',
+		url: URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc',
 		type: 'GET',
 		dataType: "json",
 		// data: {
 		// 	'category' : category
 		// }, 
-		success: estates_processing
+		success: estates_processing,
+		error: function(data, error, error_details){
+		console.log("err:",error, error_details);
+		console.log(data);
+		}
 	});
 };
 
