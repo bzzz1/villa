@@ -9,7 +9,8 @@ class ViewComposerServiceProvider extends ServiceProvider {
 	public function boot() {
 		// ESTATES
 		view()->composer('estates', function($view) {
-			$towns = Town::with('districts')->get();
+			// $towns = Town::with(['districts' => function($q) {$q->has('estates');}])->get();
+			$towns = Town::whereHas('districts', function ($q) {$q->has('estates');})->with('districts')->get();
 			$estates = Estate::with(['images'=>function($q){$q->where('preview',1);}])->take(30)->get()->flate();
 
 			$extremes = [

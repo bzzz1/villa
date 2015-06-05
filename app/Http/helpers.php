@@ -274,16 +274,15 @@
 	function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters='') {
 		parse_str($filters, $filters);
 
-
 		foreach ($filters as $filter => $value) {
 			if (empty($value)) {
 				continue;
 			}
-			
+
 			//resetting dependencies
-			if ('type'==$filter or 'commercial'==$filter) {
-				$filters = reset_dependencies($filters);
-			}
+			// if ('type'==$filter or 'commercial'==$filter) {
+			// 	$filters = reset_dependencies($filters);
+			// }
 
 			$type = detect_filter_type($value);
 			
@@ -296,7 +295,18 @@
 			} else if ('range'==$type) {
 				$range = explode(';', $value);
 				$query->where($filter, '>=', $range[0])->where($filter, '<=', $range[1]);
-			} else if ('type'==$type) {
+			} else if ('type'==$type) {	
+				/*------------------------------------------------
+				| JOIN DEPENDENCIES
+				------------------------------------------------*/
+				if ('town_id'==$filter) {
+					$filter = 'towns.town_id';
+				}
+				if ('district_id'==$filter) {
+					$filter = 'districts.district_id';
+				}
+				/*----------------------------------------------*/
+
 				$query->where($filter, $value);
 			}
 		}

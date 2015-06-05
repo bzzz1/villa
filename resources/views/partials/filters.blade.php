@@ -9,7 +9,7 @@
 				<div class="city_and_district">
 					<div class="city">
 						{{ Form::label('city', 'Выберите город', ['class'=>'filters_label']) }}
-						{{ Form::select('city', array_merge([''=>'Любой город'], make_options($towns, 'town_id', 'town')), null, ['class'=>'js_filter_change form-control select_place select_city js_select_town', 'required', 'form'=>'other']) }}
+						{{ Form::select('city', array_replace([''=>'Любой город'], make_options($towns, 'town_id', 'town')), null, ['class'=>'js_filter_change form-control select_place select_city js_select_town', 'required', 'form'=>'other']) }}
 					</div>
 					<div class="district">
 						{{ Form::label('district', 'Выберите район', ['class'=>'filters_label']) }}
