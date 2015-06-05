@@ -12,6 +12,7 @@
 				 data-click="true"
 				 data-swipe="true"
 				 data-trackpad="true"
+				 data-loop="true"
 				 >
 			{{-- 	@foreach (read_dir(dir_path('carousel')) as $name)
 					{{ HTML::image(dir_path('carousel').'/'.$name, "$estate->title", ['class'=>'item_img']) }}
