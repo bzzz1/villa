@@ -41,9 +41,13 @@
 			/*------------------------------------------------
 			| GLOBALS
 			------------------------------------------------*/
-				URL_IMG = "{{ url_path('estates') }}";
-				URL_ESTATE = "{{ l('estate') }}";
-				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}";
+				ROUTE = "{{ r() }}";
+
+				URL_IMG = "{{ url_path('estates') }}"; // resource
+
+				URL_ESTATE = "{{ URL::to('/estates') }}"; // partial
+
+				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
 			/*----------------------------------------------*/
 		</script> 
 		{{ HTML::script('js/script.js') }}
