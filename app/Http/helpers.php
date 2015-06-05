@@ -275,6 +275,10 @@
 		parse_str($filters, $filters);
 
 		foreach ($filters as $filter => $value) {
+			if (empty($value)) {
+				continue;
+			}
+
 			$type = detect_filter_type($value);
 			
 			if ('check'==$type) {

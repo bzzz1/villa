@@ -31,9 +31,11 @@ if ('estates'==ROUTE) {
 		var districts = $.grep(TOWNS, function (index) {
 			return index.town_id == current;
 		});
-		districts = districts[0].districts;
+		if (districts[0] !== undefined) {
+			districts = districts[0].districts;
+		}
 		var $options = [];
-		$options.push($("<option value='null'>Любой район</option>"));
+		$options.push($("<option value=''>Любой район</option>"));
 
 		for (i = 0; i<districts.length; i++) {
 			$options.push($("<option value="+districts[i].district_id+">"+districts[i].district+"</option>"));
@@ -46,75 +48,40 @@ if ('estates'==ROUTE) {
 	/*------------------------------------------------
 	| FILTERS
 	------------------------------------------------*/
-	$('.js_submit_filters').on('click', function(evt) {
-		evt.preventDefault();
+	var $filters = $('.js_filters');
+	$('.js_filter_change').on('change', touch_filter); 
+	$('.js_filter_click').on('click', touch_filter); 
 
-		var $form = $('.js_filters_form');
-		var base_url = $form.prop('action'); // should have only commercial
+	function touch_filter(e) {
+		console.log(e);
 
-		var town_id 		= $form.find('.js_select_town').val();
-		var district_id 	= $form.find('.js_select_district').val();
-		var type 			= $form.find('.js_select_type').val();
-		var period 			= $form.find('.js_select_period').val();
-		var house_area_from = $form.find('.js_range_house_area_from').val();
-		var house_area_to 	= $form.find('.js_range_house_area_to').val();
-		var yard_area_from 	= $form.find('.js_range_yard_area_from').val();
-		var yard_area_to 	= $form.find('.js_range_yard_area_to').val();
-		var price_from 		= $form.find('.js_range_price_from').val();
-		var price_to 		= $form.find('.js_range_price_to').val();
-		var rooms_from 		= $form.find('.js_range_rooms_from').val();
-		var rooms_to 		= $form.find('.js_range_rooms_to').val();
-		var sea_dist_from 	= $form.find('.js_range_sea_dist_from').val();
-		var sea_dist_to 	= $form.find('.js_range_sea_dist_to').val();
+		var town_id 		= $filters.find('.js_select_town').val();
+		var district_id 	= $filters.find('.js_select_district').val();
+		var type 			= $filters.find('.js_select_type').val();
+		var period 			= $filters.find('.js_select_period').val();
+		var house_area_from = $filters.find('.js_range_house_area_from').val();
+		var house_area_to 	= $filters.find('.js_range_house_area_to').val();
+		var yard_area_from 	= $filters.find('.js_range_yard_area_from').val();
+		var yard_area_to 	= $filters.find('.js_range_yard_area_to').val();
+		var price_from 		= $filters.find('.js_range_price_from').val();
+		var price_to 		= $filters.find('.js_range_price_to').val();
+		var rooms_from 		= $filters.find('.js_range_rooms_from').val();
+		var rooms_to 		= $filters.find('.js_range_rooms_to').val();
+		var sea_dist_from 	= $filters.find('.js_range_sea_dist_from').val();
+		var sea_dist_to 	= $filters.find('.js_range_sea_dist_to').val();
 
-		var url = base_url+ '&town_id='+town_id+
-							'&district_id='+district_id+
-							'&type='+type+
-							'&period='+period+
-							'&house_area='+house_area_from+';'+house_area_to+
-							'&yard_area='+yard_area_from+';'+yard_area_to+
-							'&price='+price_from+';'+price_to+
-							'&rooms='+rooms_from+';'+rooms_to+
-							'&sea_dist='+sea_dist_from+';'+sea_dist_to;
-
-		$form.prop('action', url);
-		$form.submit();
-	});
-
-	// $('.js_submit_filters').on('click', function(evt) {
-	// 	evt.preventDefault();
-
-	// 	var $form = $('.js_filters_form');
-	// 	var base_url = $form.prop('action'); // should have only commercial
-
-	// 	var town_id 		= $form.find('.js_select_town').val();
-	// 	var district_id 	= $form.find('.js_select_district').val();
-	// 	var type 			= $form.find('.js_select_type').val();
-	// 	var period 			= $form.find('.js_select_period').val();
-	// 	var house_area_from = $form.find('.js_range_house_area_from').val();
-	// 	var house_area_to 	= $form.find('.js_range_house_area_to').val();
-	// 	var yard_area_from 	= $form.find('.js_range_yard_area_from').val();
-	// 	var yard_area_to 	= $form.find('.js_range_yard_area_to').val();
-	// 	var price_from 		= $form.find('.js_range_price_from').val();
-	// 	var price_to 		= $form.find('.js_range_price_to').val();
-	// 	var rooms_from 		= $form.find('.js_range_rooms_from').val();
-	// 	var rooms_to 		= $form.find('.js_range_rooms_to').val();
-	// 	var sea_dist_from 	= $form.find('.js_range_sea_dist_from').val();
-	// 	var sea_dist_to 	= $form.find('.js_range_sea_dist_to').val();
-
-	// 	var url = base_url+ '&town_id='+town_id+
-	// 						'&district_id='+district_id+
-	// 						'&type='+type+
-	// 						'&period='+period+
-	// 						'&house_area='+house_area_from+';'+house_area_to+
-	// 						'&yard_area='+yard_area_from+';'+yard_area_to+
-	// 						'&price='+price_from+';'+price_to+
-	// 						'&rooms='+rooms_from+';'+rooms_to+
-	// 						'&sea_dist='+sea_dist_from+';'+sea_dist_to;
-
-	// 	$form.prop('action', url);
-	// 	$form.submit();
-	// });
+		var filters =	'type='			+type+
+						'&town_id='		+town_id+
+						'&district_id='	+district_id+
+						'&period='		+period+
+						'&house_area='	+house_area_from+';'+house_area_to+
+						'&yard_area='	+yard_area_from+';'+yard_area_to+
+						'&price='		+price_from+';'+price_to+
+						'&rooms='		+rooms_from+';'+rooms_to+
+						'&sea_dist='	+sea_dist_from+';'+sea_dist_to;
+		// ajax call					
+		filter(filters);
+	} ;
 }
 
 // TEMPLATE
