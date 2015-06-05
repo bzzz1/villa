@@ -43,7 +43,7 @@
 			------------------------------------------------*/
 				URL_IMG = "{{ url_path('estates') }}";
 				URL_ESTATE = "{{ l('estate') }}";
-				URL_AJAX_ESTATES = "{{ l('estates') }}";
+				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}";
 			/*----------------------------------------------*/
 		</script> 
 		{{ HTML::script('js/script.js') }}

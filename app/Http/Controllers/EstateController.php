@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use Estate;
+use Request;
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
@@ -21,10 +22,10 @@ class EstateController extends Controller {
 	}
 
 	public function ajax_estates($filters='') {
-		$take = Reques::input('take');
-		$page = Reques::input('page');
-		$sort = Reques::input('title');
-		$order = Reques::input('asc');
+		$take = Request::input('take');
+		$page = Request::input('page');
+		$sort = Request::input('title');
+		$order = Request::input('asc');
 		$skip = $take*($page-1);
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
@@ -32,7 +33,6 @@ class EstateController extends Controller {
 		$query = $query->orderBy($sort, $order);
 		$estates = $query->skip($skip)->take($take)->get();
 
-		// return json_encode($estates);
 		return response()->json($estates);
 	}
 

@@ -88,15 +88,13 @@ function filter(filters) {
 		// }, 
 		success: estates_processing,
 		error: function(data, error, error_details){
-		console.log("err:",error, error_details);
-		console.log(data);
+			console.log("err:", error, error_details);
+			console.log(data);
 		}
 	});
 };
 
 function estates_processing (data) {
-	console.log(data);
-	console.log('aaa');
 	for (var i = 0; i < data.length; i++) {
 		var $catalog_blocks = $('.catalog_blocks');
 		var estate = data[i];

@@ -271,7 +271,7 @@
 /*------------------------------------------------
 | FILTERS
 ------------------------------------------------*/
-	function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters=[]) {
+	function apply_filters(Illuminate\Database\Eloquent\Builder $query, $filters='') {
 		parse_str($filters, $filters);
 
 		foreach ($filters as $filter => $value) {
