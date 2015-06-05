@@ -55,9 +55,10 @@ if ('estates'==ROUTE) {
 	function touch_filter(e) {
 		console.log(e);
 
+		var commercial 		= $filters.find('.js_commercial.active').data('commercial');
+		var type 			= $filters.find('.js_select_type').val();
 		var town_id 		= $filters.find('.js_select_town').val();
 		var district_id 	= $filters.find('.js_select_district').val();
-		var type 			= $filters.find('.js_select_type').val();
 		var period 			= $filters.find('.js_select_period').val();
 		var house_area_from = $filters.find('.js_range_house_area_from').val();
 		var house_area_to 	= $filters.find('.js_range_house_area_to').val();
@@ -70,7 +71,8 @@ if ('estates'==ROUTE) {
 		var sea_dist_from 	= $filters.find('.js_range_sea_dist_from').val();
 		var sea_dist_to 	= $filters.find('.js_range_sea_dist_to').val();
 
-		var filters =	'type='			+type+
+		var filters =	'commercial'	+commercial+
+						'type='			+type+
 						'&town_id='		+town_id+
 						'&district_id='	+district_id+
 						'&period='		+period+
@@ -105,9 +107,11 @@ function filter(filters) {
 
 function estates_processing (data) {
 	var estate_html = '';
+	console.log(data);
+	var $catalog_blocks = $('.catalog_blocks');
+	$catalog_blocks.html('');
 
 	for (var i = 0; i < data.length; i++) {
-		var $catalog_blocks = $('.catalog_blocks');
 		var estate = data[i];
 		var src = URL_IMG+'/'+estate.image;
 		var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;

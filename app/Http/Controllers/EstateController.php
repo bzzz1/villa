@@ -28,6 +28,11 @@ class EstateController extends Controller {
 		$order = Request::input('order');
 		$skip = $take*($page-1);
 
+		// $take = '10';
+		// $skip = '0';
+		// $sort = 'title';
+		// $order = 'asc';
+		// $filters = 'type=flat&town_id=&district_id=&period=hourly&ho…9500;173000&rooms=2;12&sea_dist=50;750';
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
 		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
 		$query = $query->orderBy($sort, $order);

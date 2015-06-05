@@ -370,21 +370,6 @@ function filter($filter, $value, $filters='') {
 	}
 }
 
-function reset_dependencies($filters) {
-	if (!in_array($filters['type'], ['flat', 'cottage', 'commercial'])) {
-		unset($filters['house_area']);
-		unset($filters['rooms']);
-	}
-	if (!in_array($filters['type'], ['cottage', 'parcel', 'commercial'])) {
-		unset($filters['yard_area']);
-	}
-	if (!in_array($filters['commercial'], ['rent'])) {
-		unset($filters['period']);
-	}
-
-	return $filters;
-}
-
 function implode_assoc($glue, $array) {
 	return implode('&', array_map(function($v, $k) { return $k.'='.$v; }, $array, array_keys($array)));
 }
