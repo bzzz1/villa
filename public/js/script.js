@@ -103,7 +103,7 @@ if ('estates'==ROUTE) {
 						'&sea_dist='	+sea_dist_from+';'+sea_dist_to;
 		// ajax call					
 		filter(filters);
-	} ;
+	};
 }
 
 // TEMPLATE

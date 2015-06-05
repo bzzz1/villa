@@ -275,7 +275,7 @@
 		parse_str($filters, $filters);
 
 		foreach ($filters as $filter => $value) {
-			if (empty($value)) {
+			if (''==$value or ';'==$value or '[]'==$value) {
 				continue;
 			}
 

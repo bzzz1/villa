@@ -14,16 +14,16 @@ class ViewComposerServiceProvider extends ServiceProvider {
 			$estates = Estate::with(['images'=>function($q){$q->where('preview',1);}])->take(30)->get()->flate();
 
 			$extremes = [
-				'price_min' 		=> Estate::min('price'),
-				'price_max' 		=> Estate::max('price'),
-				'sea_dist_min' 		=> Estate::min('sea_dist'),
-				'sea_dist_max' 		=> Estate::max('sea_dist'),
-				'house_area_min' 	=> Estate::min('house_area'),
-				'house_area_max' 	=> Estate::max('house_area'),
-				'rooms_min'			=> Estate::min('rooms'),
-				'rooms_max'			=> Estate::max('rooms'),
-				'yard_area_min'	 	=> Estate::min('yard_area'),
-				'yard_area_max' 	=> Estate::max('yard_area'),
+				'price_min' 		=> $estates->min('price'),
+				'price_max' 		=> $estates->max('price'),
+				'sea_dist_min' 		=> $estates->min('sea_dist'),
+				'sea_dist_max' 		=> $estates->max('sea_dist'),
+				'house_area_min' 	=> $estates->min('house_area'),
+				'house_area_max' 	=> $estates->max('house_area'),
+				'rooms_min'			=> $estates->min('rooms'),
+				'rooms_max'			=> $estates->max('rooms'),
+				'yard_area_min'	 	=> $estates->min('yard_area'),
+				'yard_area_max' 	=> $estates->max('yard_area'),
 			];
 
 			$view->with(compact('extremes', 'towns', 'estates'));
