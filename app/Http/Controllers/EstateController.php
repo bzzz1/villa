@@ -28,30 +28,15 @@ class EstateController extends Controller {
 		$order = Request::input('order');
 		$skip = $take*($page-1);
 
-		// $take = '10';
-		// $skip = '0';
-		// $sort = 'title';
-		// $order = 'asc';
-		// $filters = 'type=flat&town_id=&district_id=&period=hourly&ho…9500;173000&rooms=2;12&sea_dist=50;750';
+		// improve mx and min for range filters
+		// if ('range' == get_filter_type($filter)) {}
+
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
 		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
 		$query = $query->orderBy($sort, $order);
 		$estates = $query->skip($skip)->take($take)->get();
 
-		$extremes = [
-			'price_min' 		=> $estates->min('price'),
-			'price_max' 		=> $estates->max('price'),
-			'sea_dist_min' 		=> $estates->min('sea_dist'),
-			'sea_dist_max' 		=> $estates->max('sea_dist'),
-			'house_area_min' 	=> $estates->min('house_area'),
-			'house_area_max' 	=> $estates->max('house_area'),
-			'rooms_min'			=> $estates->min('rooms'),
-			'rooms_max'			=> $estates->max('rooms'),
-			'yard_area_min'	 	=> $estates->min('yard_area'),
-			'yard_area_max' 	=> $estates->max('yard_area'),
-		];
-
-		return response()->json([$estates, $extremes]);
+		return response()->json($estates);
 	}
 
 	public function estate($estate, $estate_id) {

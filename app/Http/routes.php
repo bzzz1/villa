@@ -278,21 +278,6 @@ function filters() {
 	// js_range_sea_dist_from
 	// js_range_rooms_from
 
-	$filter_types = [
-		'type'			=> 'type', 	// ['flat', 'cottage', 'parcel', 'commercial']
-		'commercial'	=> 'type', 	// ['rent', 'sale']
-		'sea_dist'		=> 'range',
-		'price'			=> 'range',
-		'district_id'	=> 'type', 	// ['1', '2', '3']
-		'town_id'		=> 'type', 	// ['1', '2', '3']
-		'house_area'	=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-		'rooms'			=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-		'yard_area'		=> 'range', // if (in_array($type, ['cottage', 'parcel', 'commercial']))
-		'period'		=> 'type',  // if (in_array($commercial, ['rent'])) ['hourly', 'daily', 'monthly']
-		'pool'			=> 'check', 
-		'producer'		=> 'list',  // '[asus;acer;lenovo;toshiba;sony]'
-	];
-
 	$take = 10;
 	$sort = 'title';
 	$order = 'asc';

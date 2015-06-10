@@ -37,7 +37,6 @@
 		{{-- {{ HTML::script('js/navigation.js') }} --}}
 
 		<script>
-			@yield('js')
 			/*------------------------------------------------
 			| GLOBALS
 			------------------------------------------------*/
@@ -49,6 +48,7 @@
 
 				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
 			/*----------------------------------------------*/
+			@yield('js')
 		</script> 
 		{{ HTML::script('js/script.js') }}
 

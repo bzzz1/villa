@@ -48,7 +48,9 @@ if ('estates'==ROUTE) {
 	/*------------------------------------------------
 	| FILTERS
 	------------------------------------------------*/
+	// on load touch filter
 	var $filters = $('.js_filters');
+	touch_filter();
 	$('.js_filter_change').on('change', touch_filter); 
 	$('.js_filter_click').on('click', touch_filter); 
 
@@ -57,8 +59,6 @@ if ('estates'==ROUTE) {
 	}
 
 	function touch_filter(e) {
-		console.log(e);
-
 		var commercial 		= $filters.find('.js_commercial.active').data('commercial');
 		var type 			= $filters.find('.js_select_type').val();
 		var town_id 		= $filters.find('.js_select_town').val();
@@ -105,55 +105,59 @@ if ('estates'==ROUTE) {
 		filter(filters);
 	};
 
-	reset_extremes(['',EXTREMES]);
-	function reset_extremes(data) {
-		var EXTREMES = data[1];
-		// sliders
-		// area
-		$(".area_slider").noUiSlider({
-			range: {
-				"min": EXTREMES.house_area_min,
-				"max": EXTREMES.house_area_max
-			},
-		});
-		$(".area_slider").Link("lower").to($("#area_from"));
-		$(".area_slider").Link("upper").to($("#area_to"));
-		$(".yard_area_slider").noUiSlider({
-			range: {
-				"min": EXTREMES.yard_area_min,
-				"max": EXTREMES.yard_area_max
-			},
-		});
-		$(".yard_area_slider").Link("lower").to($("#yard_area_from"));
-		$(".yard_area_slider").Link("upper").to($("#yard_area_to"));
+	// var $area_slider 		= $(".area_slider");
+	// var $yard_area_slider 	= $(".yard_area_slider");
+	// var $price_slider 		= $(".price_slider");
+	// var $rooms_slider 		= $(".rooms_slider");
+	// var $sea_dist_slider 	= $("sea_dist_slider")
+
+	// function reset_extremes(data) {
+	// 	// var EXTREMES = [];
+
+	// 	$area_slider.noUiSlider({
+	// 		range: {
+	// 			"min": EXTREMES.house_area_min,
+	// 			"max": EXTREMES.house_area_max
+	// 		},
+	// 	}, true);
+	// 	$area_slider.Link("lower").to($("#area_from"));
+	// 	$area_slider.Link("upper").to($("#area_to"));
+	// 	$yard_area_slider.noUiSlider({
+	// 		range: {
+	// 			"min": EXTREMES.yard_area_min,
+	// 			"max": EXTREMES.yard_area_max
+	// 		},
+	// 	}, true);
+	// 	$yard_area_slider.Link("lower").to($("#yard_area_from"));
+	// 	$yard_area_slider.Link("upper").to($("#yard_area_to"));
 		
-		$(".price_slider").noUiSlider({
-			range: {
-				"min": EXTREMES.price_min,
-				"max": EXTREMES.price_max
-			},
-		});
-		$(".price_slider").Link("lower").to($("#price_from"));
-		$(".price_slider").Link("upper").to($("#price_to"));
+	// 	$price_slider.noUiSlider({
+	// 		range: {
+	// 			"min": EXTREMES.price_min,
+	// 			"max": EXTREMES.price_max
+	// 		},
+	// 	}, true);
+	// 	$price_slider.Link("lower").to($("#price_from"));
+	// 	$price_slider.Link("upper").to($("#price_to"));
 
-		$(".rooms_slider").noUiSlider({
-			range: {
-				"min": EXTREMES.rooms_min,
-				"max": EXTREMES.rooms_max
-			},
-		});
-		$(".rooms_slider").Link("lower").to($("#rooms_from"));
-		$(".rooms_slider").Link("upper").to($("#rooms_to"));
+	// 	$rooms_slider.noUiSlider({
+	// 		range: {
+	// 			"min": EXTREMES.rooms_min,
+	// 			"max": EXTREMES.rooms_max
+	// 		},
+	// 	}, true);
+	// 	$rooms_slider.Link("lower").to($("#rooms_from"));
+	// 	$rooms_slider.Link("upper").to($("#rooms_to"));
 
-		$(".sea_dist_slider").noUiSlider({
-			range: {
-				"min": EXTREMES.sea_dist_min,
-				"max": EXTREMES.sea_dist_max
-			},
-		});
-		$(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
-		$(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
-	}
+	// 	$sea_dist_slider.noUiSlider({
+	// 		range: {
+	// 			"min": EXTREMES.sea_dist_min,
+	// 			"max": EXTREMES.sea_dist_max
+	// 		},
+	// 	}, true);
+	// 	$sea_dist_slider.Link("lower").to($("#sea_dist_from"));
+	// 	$sea_dist_slider.Link("upper").to($("#sea_dist_to"));
+	// }
 }
 
 // TEMPLATE
@@ -167,9 +171,8 @@ function filter(filters) {
 		// 	'category' : category
 		// }, 
 		success: function(data) {
-			console.log(data);
 			estates_processing(data);
-			reset_extremes(data);
+			// reset_extremes(data);
 		},
 		error: function(data, error, error_details){
 			console.log("err:", error, error_details);
@@ -180,9 +183,7 @@ function filter(filters) {
 };
 
 function estates_processing (data) {
-	var data = data[0];
 	var estate_html = '';
-	console.log(data);
 	var $catalog_blocks = $('.catalog_blocks');
 	$catalog_blocks.html('');
 
