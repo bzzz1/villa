@@ -309,12 +309,17 @@ function pop_by_value(array, value) {
 }
 
 function draw_ranges(ranges) {
-	$('.draggers').html('');
+	$('.first_line').html('');
+	$('.second_line').html('');
 
 	for (var i=0; i<ranges.length; i++) {
 		range = ranges[i];
 		$range = window['$'+range];
-		$('.draggers').append($range);
+		if (i<3) {
+			$('.first_line').append($range);
+		} else {
+			$('.second_line').append($range);
+		}
 	}
 }
 /*------------------------------------------------
