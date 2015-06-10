@@ -83,8 +83,8 @@
 		connect: true,
 		orientation: "horizontal",
 		range: {
-			"min": EXTREMES.house_area_min,
-			"max": EXTREMES.house_area_max
+			"min": parseInt(EXTREMES.house_area_min),
+			"max": parseInt(EXTREMES.house_area_max)
 		},
 		format: wNumb({
 			decimals: 0
@@ -100,8 +100,8 @@
 		connect: true,
 		orientation: "horizontal",
 		range: {
-			"min": EXTREMES.yard_area_min,
-			"max": EXTREMES.yard_area_max
+			"min": parseInt(EXTREMES.yard_area_min),
+			"max": parseInt(EXTREMES.yard_area_max)
 		},
 		format: wNumb({
 			decimals: 0
@@ -116,8 +116,8 @@
 		connect: true,
 		orientation: "horizontal",
 		range: {
-			"min": EXTREMES.price_min,
-			"max": EXTREMES.price_max
+			"min": parseInt(EXTREMES.price_min),
+			"max": parseInt(EXTREMES.price_max)
 		},
 		format: wNumb({
 			decimals: 0
@@ -132,8 +132,8 @@
 		connect: true,
 		orientation: "horizontal",
 		range: {
-			"min": EXTREMES.rooms_min,
-			"max": EXTREMES.rooms_max
+			"min": parseInt(EXTREMES.rooms_min),
+			"max": parseInt(EXTREMES.rooms_max)
 		},
 		format: wNumb({
 			decimals: 0
@@ -148,8 +148,8 @@
 		connect: true,
 		orientation: "horizontal",
 		range: {
-			"min": EXTREMES.sea_dist_min,
-			"max": EXTREMES.sea_dist_max
+			"min": parseInt(EXTREMES.sea_dist_min),
+			"max": parseInt(EXTREMES.sea_dist_max)
 		},
 		format: wNumb({
 			decimals: 0
