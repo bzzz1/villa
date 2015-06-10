@@ -224,13 +224,21 @@ $('.js_filter_click').on('click', function () {
 /*------------------------------------------------
 | FILTER DEPENDENCIES
 ------------------------------------------------*/
-var $period = $('.period').detach();
-// var $yard_area = $('.yard_area');
-var $yard_area_par = $('.yard_area').parent();
-var $area = $('.area').detach();
-var $area_par = $('.area').parent();
-var $rooms = $('.rooms');
-var $rooms_par = $('.rooms').parent();
+var $yard_area_parent 	= $('.yard_area').parent();
+var $house_area_parent 	= $('.house_area').parent();
+var $rooms_parent 		= $('.rooms').parent();
+var $period_parent 		= $('.period').parent();
+
+var $yard_area 		= $('.yard_area').detach();
+var $house_area 	= $('.house_area').detach();
+var $rooms 			= $('.rooms').detach();
+var $period 		= $('.period').detach();
+
+
+// 'house_area'		=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
+// 'rooms'			=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
+// 'yard_area'		=> 'range', // if (in_array($type, ['cottage', 'parcel', 'commercial']))
+// 'period'			=> 'type',  // if (in_array($commercial, ['rent']))
 
 $('.js_commercial').on('click', function () {
 	var commercial = $('.js_commercial.active').data('commercial');
@@ -239,80 +247,36 @@ $('.js_commercial').on('click', function () {
 		$('.type_and_period').append($period)
 		$('.period').slideDown();
 		$('.type').css({
-			'float' : 'right',
-			'margin-right' : '229px'
-		});
-	} else if ('sale' == commercial) {
-		$('.type').css({
 			'float' : 'left',
 			'margin-right' : '0'
 		});
+	
+	} else if ('sale' == commercial) {
+		$period = $('.period').detach();
+		$('.type').css({
+			'float' : 'right',
+			'margin-right' : '229px'
+		});
 	}
 });
-
-// $yard_area_par.append($yard_area);
-// $area_par.append($area);
-// $rooms_par.append($rooms);
-
-// var span = $('span').detach();
-// span.appendTo('body');
-
-// if ('flat' == type) {
-// }
-// else if ($('.js_select_type').val() == 'parcel') {
-// 	$('.area').detach();
-// 	$('.rooms').detach();
-// 	$yard_area_par.append($yard_area);
-// }
-// else if ($('.js_select_type').val() == 'flat') {
-// 	$('.area').detach();
-// 	$('.rooms').detach();
-// 	$yard_area_par.append($yard_area);
-
-// };
-
-// 'house_area'		=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-// 'rooms'			=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-// 'yard_area'		=> 'range', // if (in_array($type, ['cottage', 'parcel', 'commercial']))
-// 'period'			=> 'type',  // if (in_array($commercial, ['rent']))
-
 
 $('.js_select_type').on('change', function () {
 	var type = $('.js_select_type').val();
 
 	if ('flat' == type || 'cottage' == type || 'commercial' == type) {
-		$area_par.append($area);
-	} else {
-		$area = $('.area').detach();
+		$house_area_parent.append($house_area);
+		$rooms_parent.append($rooms);
+	} else if ('parcel' == type) {
+		$house_area = $('.house_area').detach();
+		$rooms 		= $('.rooms').detach();
 	}
-	
-// 	else if ($('.js_select_type').val() == 'parcel') {
-// 		$('.area').detach();
-// 		$('.rooms').detach();
-// 		$yard_area_par.append($yard_area);
 
-
-// 	}
-// 	else if ($('.js_select_type').val() == 'flat') {
-// 		$('.area').detach();
-// 		$('.rooms').detach();
-// 		$yard_area_par.append($yard_area);
-
-// 	}
-// 	else if ($('.js_select_type').val() == 'cottage') {
-// 		$yard_area_par.append($yard_area);
-// 		$area_par.append($area);
-// 		$rooms_par.append($rooms);
-
-// 	}
-// 	else if ($('.js_select_type').val() == 'commercial') {
-// 		$yard_area_par.append($yard_area);
-// 		$area_par.append($area);
-// 		$rooms_par.append($rooms);
-
-// 	}
+	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
+		$yard_area_parent.append($yard_area);
+	} else if ('flat' == type) {
+		$yard_area = $('.yard_area').detach();
+	}
 })
-
 
 
 // MAPS
