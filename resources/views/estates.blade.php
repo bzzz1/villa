@@ -54,11 +54,11 @@
 			@else 
 				<h3>Избранные</h3>
 			@endif		
-			<a>
+			<a class="js_open_map">
 				<i class="fa fa-map-marker fa-2x"></i>
 				Посмотреть на карте
 			</a>
-			<div class="map_container">
+			<div class="map_container js_map_canvas">
 				
 			</div>
 		</div>
