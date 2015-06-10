@@ -305,9 +305,12 @@ $('.js_select_type').on('change', function () {
 })
 // MAPS
 $('.js_open_map').on('click', function(){
-	// $('.js_map_canvas').slideUp;
-	// $('.js_map_canvas').css('display','block')
-	$('.js_map_canvas').slideDown(700);
+	if ($('.map').find('.active')) {
+		$('.js_map_canvas').slideUp(700);
+	}
+	else{
+		$('.js_map_canvas').slideDown(700);
+	};
 	// $('.js_map_canvas').slideUp();
 });
 // 	var map;
