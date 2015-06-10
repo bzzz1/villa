@@ -224,6 +224,8 @@ $('.js_filter_click').on('click', function () {
 /*------------------------------------------------
 | FILTER DEPENDENCIES
 ------------------------------------------------*/
+var ranges = [];
+
 var $yard_area_parent 	= $('.yard_area').parent();
 var $house_area_parent 	= $('.house_area').parent();
 var $rooms_parent 		= $('.rooms').parent();
@@ -234,6 +236,11 @@ var $house_area 	= $('.house_area');
 var $rooms 			= $('.rooms');
 var $period 		= $('.period').detach();
 
+var $price 			= $('.price');
+var $sea_dist 		= $('.sea_dist');
+
+
+ranges.push('house_area', 'price', 'rooms', 'sea_dist');
 
 // 'house_area'		=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
 // 'rooms'			=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
@@ -244,13 +251,12 @@ $('.js_commercial').on('click', function () {
 	var commercial = $('.js_commercial.active').data('commercial');
 
 	if ('rent' == commercial) {
-		$period_parent.append($period)
+		$period_parent.append($period);
 		$('.period').slideDown();
 		$('.type').css({
 			'float' : 'left',
 			'margin-right' : '0'
 		});
-	
 	} else if ('sale' == commercial) {
 		$period = $('.period').detach();
 		$('.type').css({
@@ -258,28 +264,57 @@ $('.js_commercial').on('click', function () {
 			'margin-right' : '229px'
 		});
 	}
+
+	draw_ranges(ranges);
 });
 
 $('.js_select_type').on('change', function () {
 	var type = $('.js_select_type').val();
 
 	if ('flat' == type || 'cottage' == type || 'commercial' == type) {
-		$house_area_parent.append($house_area);
-		$rooms_parent.append($rooms);
+		ranges.push('house_area');
+		ranges.push('rooms');
 	} else if ('parcel' == type) {
 		$house_area = $('.house_area').detach();
 		$rooms 		= $('.rooms').detach();
+		ranges = pop_by_value(ranges, 'house_area');
+		ranges = pop_by_value(ranges, 'rooms');
 	}
 
 	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
-		$yard_area_parent.append($yard_area);
+		ranges.push('yard_area');
 	} else if ('flat' == type) {
 		$yard_area = $('.yard_area').detach();
+		ranges = pop_by_value(ranges, 'yard_area');
 	}
+
+	draw_ranges(ranges);
 })
 
+function pop_by_value(array, value) {
+	var index = array.indexOf(value);
+	if (index > -1) {
+		array.splice(index, 1);
+	}
+	return array;
+}
 
-// MAPS
+function draw_ranges(ranges) {
+	for (var i=0; i<ranges.length; i++) {
+		range = ranges[i];
+		$range = window['$'+range];
+		$('.draggers').append($range);
+	}
+}
+/*------------------------------------------------
+| END FILTERS DEPENDENCIES
+------------------------------------------------*/
+
+
+
+/*------------------------------------------------
+| MAPS
+------------------------------------------------*/
 $('.js_open_map').on('click', function(){
 	if ($('.js_map_canvas').css('display') == 'none') {
 		$('.js_map_canvas').slideDown(700);
