@@ -730,6 +730,12 @@ body {
 .draggers {
   margin-top: 60px; }
 
+.filter_heading {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200;
+  text-align: center; }
+
 .first_line {
   overflow: auto;
   padding-left: 20px;
@@ -777,6 +783,9 @@ body {
 .sea_dist {
   margin-right: 16%;
   margin-bottom: 30px; }
+  .sea_dist .filter_heading {
+    text-align: left;
+    margin-left: 43px; }
 
 .yard_area {
   margin-left: 7.5%; }
@@ -784,6 +793,10 @@ body {
 .price,
 .sea_dist {
   float: right; }
+
+.price .filter_heading {
+  text-align: left;
+  margin-left: 115px; }
 
 .sea_dist,
 .rooms {

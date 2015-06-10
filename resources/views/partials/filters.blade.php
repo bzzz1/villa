@@ -31,6 +31,7 @@
 			{{-- @if() --}}
 				<div class="first_line">
 					<div class="house_area">
+						<p class="filter_heading">Площадь дома:</p>
 						{{ Form::label('house_area_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('house_area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'house_area_from', 'form'=>'other'])}}
 						{{ Form::label('house_area_to', 'до', ['class'=>'filters_label']) }}
@@ -41,6 +42,7 @@
 				{{-- @endif	 --}}
 				{{-- @if() --}}
 					<div class="yard_area">
+						<p class="filter_heading">Площадь участка:</p>
 						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('yard_area_from', null, ['class'=>' form-control js_range_yard_area_from', 'id'=>'yard_area_from', 'form'=>'other'])}}
 						{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
@@ -50,6 +52,7 @@
 					</div>
 				{{-- @endif	 --}}
 					<div class="price">
+						<p class="filter_heading">Цена:</p>
 						{{ Form::label('price_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('price_from', null, ['class'=>'form-control js_range_price_from', 'id'=>'price_from', 'form'=>'other'])}}
 						{{ Form::label('price_to', 'до', ['class'=>'filters_label']) }}
@@ -61,6 +64,7 @@
 				</div>
 				<div class="second_line">
 					<div class="rooms">
+						<p class="filter_heading">Количесвто комнат:</p>
 						{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('rooms_from', null, ['class'=>'form-control js_range_rooms_from', 'id'=>'rooms_from', 'form'=>'other'])}}
 						{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
@@ -70,6 +74,7 @@
 					</div>
 				{{-- @endif	 --}}
 					<div class="sea_dist">
+						<p class="filter_heading">Удаленность от моря:</p>
 						{{ Form::label('sea_dist_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('sea_dist_from', null, ['class'=>'form-control js_range_sea_dist_from', 'id'=>'sea_dist_from', 'form'=>'other'])}}
 						{{ Form::label('sea_dist_to', 'до', ['class'=>'filters_label']) }}
