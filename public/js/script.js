@@ -12,8 +12,6 @@ new jBox('Modal', {
     content: $('#contact_form')
 });
 
-
-
 if ('estates'==ROUTE) {
 	/*------------------------------------------------
 	| DISTRICTS FILTERS
@@ -50,7 +48,6 @@ if ('estates'==ROUTE) {
 	------------------------------------------------*/
 	// on load touch filter
 	var $filters = $('.js_filters');
-	touch_filter();
 	$('.js_filter_change').on('change', touch_filter); 
 	$('.js_filter_click').on('click', touch_filter); 
 
@@ -336,6 +333,8 @@ function initialize_ranges(ranges) {
 		$("."+range+"_slider").Link("lower").to($("#"+range+"_from"));
 		$("."+range+"_slider").Link("upper").to($("#"+range+"_to"));
 	}
+
+	$('.js_filter_change').on('change', touch_filter); 
 }	
 /*------------------------------------------------
 | END FILTERS DEPENDENCIES
