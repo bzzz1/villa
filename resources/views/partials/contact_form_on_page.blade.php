@@ -1,3 +1,14 @@
+<?php 
+	$options = ['Сдать в аренду дом' => 'Сдать в аренду дом',
+				'Сдать в аренду квартиру'=>'Сдать в аренду квартиру',
+				'Сдать в аренду участок' => 'Сдать в аренду участок',
+				'Сдать в аренду комменрческую недвижимость'=>'Сдать в аренду коммерческую недвижимость',
+				'Продать дом' => 'Продать дом',
+				'Продать квартиру' => 'Продать квартиру',
+				'Продать участок' => 'Продать участок',
+				'Продать коммерческую недвижимость' => 'Продать коммерческую недвижимость',
+				];
+ ?>
 <div class="form_block_on_page">
 	<h3>Подать заявку</h3>
 	{{-- <i class="fa fa-times fa-lg"></i> --}}
@@ -6,7 +17,7 @@
 		{{ Form::open(['url'=>'/order', 'method'=>'POST', 'class'=>'contact_form']) }}
 			<div class="inner_form_block">
 				<div class="select">
-					{{ Form::select('activity', ['dfвыава'=>'dfавыаываs'], null, ['class'=>'form-control form_select', 'placeholder'=>'выбирите действие', 'reaqired']) }}
+					{{ Form::select('activity', $options, null, ['class'=>'form-control form_select', 'placeholder'=>'выбирите действие', 'reaqired']) }}
 				</div>
 				<div class="phone">
 					{{ Form::text('phone', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Телефон:'])}}
