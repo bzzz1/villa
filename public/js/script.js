@@ -320,4 +320,5 @@ $('.js_open_map').on('click', function(){
 // 	      mapOptions);
 // 	}
 
+
 // google.maps.event.addDomListener(window, 'load', initialize);
