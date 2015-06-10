@@ -9,6 +9,7 @@
 	display: table;
 	margin: auto;
 	padding: 50px 40px 53px 40px;
+	min-height: 651px;
 	h3 {
 		text-transform: uppercase;
 		color: #fff;
@@ -70,7 +71,10 @@
 .type {
 	// float: left;
 	float: right;
-	margin-right: 229px;
+	margin-right: 181px;
+	.select_type {
+		margin-left: 65px;
+	}
 }
 .period {
 	// float: left;
@@ -97,19 +101,23 @@
 	color: #fff;
 	font-size: 20px;
 	font-weight: 200;
-	text-align: center;
+	// text-align: center;
 }
-.first_line {
+.first_line,
+.second_line {
 	overflow: auto;
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-bottom: 20px;
 }
 .second_line {
-	overflow: auto;
-	padding-left: 20px;
-	padding-right: 20px;
-	padding-bottom: 20px;
+	// overflow: auto;
+	// padding-left: 30%;
+	// padding-right: 15%;
+	// padding-bottom: 20px;
+	// display: table;
+	// margin: auto;
+	// min-width: 80%;
 }
 .house_area,
 .yard_area,
@@ -117,6 +125,8 @@
 .rooms,
 .sea_dist {
 	width: 29%;
+	margin-left: 2%;
+	margin-right: 2%;
 	display: inline-block;
 	input[type='text'] {
 		width: 80px;
@@ -132,42 +142,42 @@
 }
 .house_area,
 .rooms {
-	float: left;
+	// float: left;
 }
 .rooms {
-	margin-left: 20%;
-	margin-bottom: 30px;
+	// margin-left: 20%;
+	// margin-bottom: 30px;
 }
 .sea_dist {
-	margin-right: 16%;
-	margin-bottom: 30px;
+	// margin-right: 16%;
+	// margin-bottom: 30px;
 	.filter_heading {
 		text-align: left;
-		margin-left: 43px;
+		// margin-left: 43px;
 	}
 }
 .yard_area {
-	margin-left: 7.5%;
+	// margin-left: 7.5%;
 }
 .price,
 .sea_dist {
-	float: right;
+	// float: right;
 }
 .price {
 	.filter_heading {
 		text-align: left;
-		margin-left: 115px;
+		// margin-left: 115px;
 	}
 }
 .rooms {
 	.filter_heading {
 		text-align: left;
-		margin-left: 52px;
+		// margin-left: 52px;
 	}
 }
 .sea_dist,
 .rooms {
-	margin-top: 50px;
+	// margin-top: 50px;
 }
 .house_area_slider,
 .yard_area_slider,
