@@ -265,7 +265,7 @@ $('.js_commercial').on('click', function () {
 		});
 	}
 
-	draw_ranges(ranges);
+	draw_ranges($.unique(ranges));
 });
 
 $('.js_select_type').on('change', function () {
@@ -297,7 +297,7 @@ $('.js_select_type').on('change', function () {
 		ranges = pop_by_value(ranges, 'yard_area');
 	}
 
-	draw_ranges(ranges);
+	draw_ranges($.unique(ranges));
 })
 
 function pop_by_value(array, value) {
@@ -309,6 +309,8 @@ function pop_by_value(array, value) {
 }
 
 function draw_ranges(ranges) {
+	$('.draggers').html('');
+
 	for (var i=0; i<ranges.length; i++) {
 		range = ranges[i];
 		$range = window['$'+range];
