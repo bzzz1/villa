@@ -260,7 +260,7 @@ if ($('.js_select_type').val() == 'flat') {
 	$('.yard_area').remove();
 }
 else if ($('.js_select_type').val() == 'parcel') {
-	$('.area').remove();
+	$('.house_area').remove();
 	$('.rooms').remove();
 	$yard_area_par.append($yard_area);
 }
