@@ -16,7 +16,7 @@
 				<ul class="footer_nav left">
 					<li class="active"><a href="/">поиск объектов</a></li>
 					<li class=""><a href="/articles">новости</a></li>
-					<li class=""><a href="/how_to">как орендовать</a></li>
+					<li class=""><a href="/how_to">как арендовать</a></li>
 				</ul>
 				<ul class="footer_nav right">
 					<li class=""><a href="/rent_sale">сдать/продать</a></li>
