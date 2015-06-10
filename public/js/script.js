@@ -353,5 +353,4 @@ $('.js_open_map').on('click', function(){
 	else{
 		$('.js_map_canvas').slideUp(700);
 	};
-	// $('.js_map_canvas').slideUp();
 });
