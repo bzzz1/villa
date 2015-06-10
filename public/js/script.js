@@ -230,8 +230,8 @@ var $rooms_parent 		= $('.rooms').parent();
 var $period_parent 		= $('.period').parent();
 
 var $yard_area 		= $('.yard_area').detach();
-var $house_area 	= $('.house_area').detach();
-var $rooms 			= $('.rooms').detach();
+var $house_area 	= $('.house_area');
+var $rooms 			= $('.rooms');
 var $period 		= $('.period').detach();
 
 
@@ -244,7 +244,7 @@ $('.js_commercial').on('click', function () {
 	var commercial = $('.js_commercial.active').data('commercial');
 
 	if ('rent' == commercial) {
-		$('.type_and_period').append($period)
+		$period_parent.append($period)
 		$('.period').slideDown();
 		$('.type').css({
 			'float' : 'left',
