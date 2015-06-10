@@ -2,6 +2,7 @@
 
 	function v() {
 		$route_views = [
+			'add_estate'		=> 'admin/estate_add',
 			'create_estate'		=> null,
 			'admin_estates'		=> 'admin/estates',
 			'estates'			=> 'estates',
@@ -13,6 +14,7 @@
 			'delete_estate' 	=> null,
 			'create_article'	=> null,
 			'admin_articles'	=> 'admin/articles',
+			'add_article'		=> 'admin/article_add',
 			'articles'			=> 'articles',
 			'article'			=> 'article',
 			'update_article'	=> 'admin/article_change',

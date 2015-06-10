@@ -5,6 +5,10 @@ use Request;
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
+	public function add_estate() {
+		return v();
+	}
+	
 	public function create_estate() {
 		$data = Request::all();
 		unset($data['_token']);

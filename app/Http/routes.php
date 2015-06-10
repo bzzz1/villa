@@ -2,6 +2,7 @@
 
 // ESTATE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+Route::get('/admin/add_estate', 				['as'=>'add_estate', 	'uses'=>'EstateController@add_estate', 'middleware'=>'auth']); // add_estate
 Route::post('/admin/create_estate', 			['as'=>'create_estate', 'uses'=>'EstateController@create_estate', 'middleware'=>'auth']); // redirect
 Route::get('/admin/estates', 					['as'=>'admin_estates', 'uses'=>'EstateController@admin_estates', 'middleware'=>'auth']); // estates (with delete form + change link)
 Route::get('/ajax/{filters?}',					['as'=>'ajax_estates',  'uses'=>'EstateController@ajax_estates']); // ajax
@@ -15,6 +16,7 @@ Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 'uses'=>
 
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+Route::post('/admin/add_article',					['as'=>'add_article', 	'uses'=>'ArticleController@add_article', 'middleware'=>'auth']); // redirect
 Route::post('/admin/cretate_article',				['as'=>'create_article', 'uses'=>'ArticleController@create_article', 'middleware'=>'auth']); // redirect
 Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
 Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles

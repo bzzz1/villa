@@ -222,7 +222,7 @@ $('.js_filter_click').on('click', function () {
 
 
 /*------------------------------------------------
-| FILTER DEPENDENCIES
+| FILTER DEPENDENCIES + DRAW and RUN RANGES
 ------------------------------------------------*/
 var ranges = [];
 
