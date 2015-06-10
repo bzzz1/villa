@@ -239,13 +239,8 @@ var $period 		= $('.period').detach();
 var $price 			= $('.price');
 var $sea_dist 		= $('.sea_dist');
 
-
 ranges.push('house_area', 'price', 'rooms', 'sea_dist');
-
-// 'house_area'		=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-// 'rooms'			=> 'range', // if (in_array($type, ['flat', 'cottage', 'commercial']))
-// 'yard_area'		=> 'range', // if (in_array($type, ['cottage', 'parcel', 'commercial']))
-// 'period'			=> 'type',  // if (in_array($commercial, ['rent']))
+initialize_ranges(ranges);
 
 $('.js_commercial').on('click', function () {
 	var commercial = $('.js_commercial.active').data('commercial');
@@ -279,15 +274,6 @@ $('.js_select_type').on('change', function () {
 		$rooms 		= $('.rooms').detach();
 		ranges = pop_by_value(ranges, 'house_area');
 		ranges = pop_by_value(ranges, 'rooms');
-	// 	$house_area_parent.append($house_area);
-	// 	$yard_area.css('margin-left', '7.5%');
-	// 	$('.sea_dist').css('margin-right', '16%');
-	// 	$rooms_parent.append($rooms);
-	// } else if ('parcel' == type) {
-	// 	$house_area = $('.house_area').detach();
-	// 	$rooms 		= $('.rooms').detach();
-	// 	$yard_area.css('margin-left', '0px');
-	// 	$('.sea_dist').css('margin-right', '34%');
 	}
 
 	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
@@ -321,7 +307,34 @@ function draw_ranges(ranges) {
 			$('.second_line').append($range);
 		}
 	}
+
+	initialize_ranges(ranges);
 }
+
+function initialize_ranges(ranges) {
+	for (var i=0; i<ranges.length; i++) {
+		var range = ranges[i];
+		var $range = window['$'+range];
+
+		$("."+range+"_slider").noUiSlider({
+			start: [
+				EXTREMES[range+'_min'],
+				EXTREMES[range+'_max']
+			],
+			connect: true,
+			orientation: "horizontal",
+			range: {
+				"min": parseInt(EXTREMES[range+'_min']),
+				"max": parseInt(EXTREMES[range+'_max'])
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		}, true);
+		$("."+range+"_slider").Link("lower").to($("#"+range+"_from"));
+		$("."+range+"_slider").Link("upper").to($("#"+range+"_to"));
+	}
+}	
 /*------------------------------------------------
 | END FILTERS DEPENDENCIES
 ------------------------------------------------*/

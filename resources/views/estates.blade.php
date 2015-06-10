@@ -77,84 +77,84 @@
 	TOWNS = <?php echo json_encode($towns) ?>;
 	EXTREMES = <?php echo json_encode($extremes) ?>;
 
-	$(".house_area_slider").noUiSlider({
-		start: [EXTREMES.house_area_min,
-		EXTREMES.house_area_max],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": parseInt(EXTREMES.house_area_min),
-			"max": parseInt(EXTREMES.house_area_max)
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	
-	$(".house_area_slider").Link("lower").to($("#house_area_from"));
-	$(".house_area_slider").Link("upper").to($("#house_area_to"));
-	// yard_area
-	$(".yard_area_slider").noUiSlider({
-		start: [EXTREMES.yard_area_min,
-		EXTREMES.yard_area_max],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": parseInt(EXTREMES.yard_area_min),
-			"max": parseInt(EXTREMES.yard_area_max)
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".yard_area_slider").Link("lower").to($("#yard_area_from"));
-	$(".yard_area_slider").Link("upper").to($("#yard_area_to"));
-	// price
-	$(".price_slider").noUiSlider({
-		start: [EXTREMES.price_min,
-		EXTREMES.price_max],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": parseInt(EXTREMES.price_min),
-			"max": parseInt(EXTREMES.price_max)
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".price_slider").Link("lower").to($("#price_from"));
-	$(".price_slider").Link("upper").to($("#price_to"));
-	// rooms
-	$(".rooms_slider").noUiSlider({
-		start: [EXTREMES.rooms_min,
-		EXTREMES.rooms_max],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": parseInt(EXTREMES.rooms_min),
-			"max": parseInt(EXTREMES.rooms_max)
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".rooms_slider").Link("lower").to($("#rooms_from"));
-	$(".rooms_slider").Link("upper").to($("#rooms_to"));
-	// sea_dist
-	$(".sea_dist_slider").noUiSlider({
-		start: [EXTREMES.sea_dist_min,
-		EXTREMES.sea_dist_max],
-		connect: true,
-		orientation: "horizontal",
-		range: {
-			"min": parseInt(EXTREMES.sea_dist_min),
-			"max": parseInt(EXTREMES.sea_dist_max)
-		},
-		format: wNumb({
-			decimals: 0
-		})
-	});
-	$(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
-	$(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
+	// $(".house_area_slider").noUiSlider({
+	// 	start: [EXTREMES.house_area_min,
+	// 	EXTREMES.house_area_max],
+	// 	connect: true,
+	// 	orientation: "horizontal",
+	// 	range: {
+	// 		"min": parseInt(EXTREMES.house_area_min),
+	// 		"max": parseInt(EXTREMES.house_area_max)
+	// 	},
+	// 	format: wNumb({
+	// 		decimals: 0
+	// 	})
+	// });
+	// 
+	// $(".house_area_slider").Link("lower").to($("#house_area_from"));
+	// $(".house_area_slider").Link("upper").to($("#house_area_to"));
+	// // yard_area
+	// $(".yard_area_slider").noUiSlider({
+	// 	start: [EXTREMES.yard_area_min,
+	// 	EXTREMES.yard_area_max],
+	// 	connect: true,
+	// 	orientation: "horizontal",
+	// 	range: {
+	// 		"min": parseInt(EXTREMES.yard_area_min),
+	// 		"max": parseInt(EXTREMES.yard_area_max)
+	// 	},
+	// 	format: wNumb({
+	// 		decimals: 0
+	// 	})
+	// });
+	// $(".yard_area_slider").Link("lower").to($("#yard_area_from"));
+	// $(".yard_area_slider").Link("upper").to($("#yard_area_to"));
+	// // price
+	// $(".price_slider").noUiSlider({
+	// 	start: [EXTREMES.price_min,
+	// 	EXTREMES.price_max],
+	// 	connect: true,
+	// 	orientation: "horizontal",
+	// 	range: {
+	// 		"min": parseInt(EXTREMES.price_min),
+	// 		"max": parseInt(EXTREMES.price_max)
+	// 	},
+	// 	format: wNumb({
+	// 		decimals: 0
+	// 	})
+	// });
+	// $(".price_slider").Link("lower").to($("#price_from"));
+	// $(".price_slider").Link("upper").to($("#price_to"));
+	// // rooms
+	// $(".rooms_slider").noUiSlider({
+	// 	start: [EXTREMES.rooms_min,
+	// 	EXTREMES.rooms_max],
+	// 	connect: true,
+	// 	orientation: "horizontal",
+	// 	range: {
+	// 		"min": parseInt(EXTREMES.rooms_min),
+	// 		"max": parseInt(EXTREMES.rooms_max)
+	// 	},
+	// 	format: wNumb({
+	// 		decimals: 0
+	// 	})
+	// });
+	// $(".rooms_slider").Link("lower").to($("#rooms_from"));
+	// $(".rooms_slider").Link("upper").to($("#rooms_to"));
+	// // sea_dist
+	// $(".sea_dist_slider").noUiSlider({
+	// 	start: [EXTREMES.sea_dist_min,
+	// 	EXTREMES.sea_dist_max],
+	// 	connect: true,
+	// 	orientation: "horizontal",
+	// 	range: {
+	// 		"min": parseInt(EXTREMES.sea_dist_min),
+	// 		"max": parseInt(EXTREMES.sea_dist_max)
+	// 	},
+	// 	format: wNumb({
+	// 		decimals: 0
+	// 	})
+	// });
+	// $(".sea_dist_slider").Link("lower").to($("#sea_dist_from"));
+	// $(".sea_dist_slider").Link("upper").to($("#sea_dist_to"));
 @stop
