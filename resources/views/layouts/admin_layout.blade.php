@@ -16,7 +16,7 @@
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
-	{{ HTML::script('ckeditor/ckeditor.js') }}
+	{{-- {{ HTML::script('ckeditor/ckeditor.js') }} --}}
 
 	@yield('css')
 </head>
