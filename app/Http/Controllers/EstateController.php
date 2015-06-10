@@ -13,12 +13,11 @@ class EstateController extends Controller {
 	}
 
 	public function admin_estates() {
-		// filters
 		return v();
 	}
 
-	public function estates($filters='') {
-		return v()->with(compact('filters'));
+	public function estates() {
+		return v();
 	}
 
 	public function ajax_estates($filters='') {
@@ -28,7 +27,7 @@ class EstateController extends Controller {
 		$order = Request::input('order');
 		$skip = $take*($page-1);
 
-		// improve mx and min for range filters
+		// improve max and min for range filters
 		// if ('range' == get_filter_type($filter)) {}
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
