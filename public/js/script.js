@@ -302,5 +302,5 @@ $('.js_select_type').on('change', function () {
 		$rooms_par.append($rooms);
 
 	}
-})
+}) 
 
