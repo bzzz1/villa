@@ -58,7 +58,7 @@
 				<i class="fa fa-map-marker fa-2x"></i>
 				Посмотреть на карте
 			</a>
-			<div class="map_container js_map_canvas">
+			<div class="map_container js_map_canvas" id="js_map">
 				
 			</div>
 		</div>
