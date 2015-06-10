@@ -77,7 +77,7 @@
 	TOWNS = <?php echo json_encode($towns) ?>;
 	EXTREMES = <?php echo json_encode($extremes) ?>;
 
-	$(".area_slider").noUiSlider({
+	$(".house_area_slider").noUiSlider({
 		start: [EXTREMES.house_area_min,
 		EXTREMES.house_area_max],
 		connect: true,
@@ -91,8 +91,8 @@
 		})
 	});
 	
-	$(".area_slider").Link("lower").to($("#area_from"));
-	$(".area_slider").Link("upper").to($("#area_to"));
+	$(".house_area_slider").Link("lower").to($("#house_area_from"));
+	$(".house_area_slider").Link("upper").to($("#house_area_to"));
 	// yard_area
 	$(".yard_area_slider").noUiSlider({
 		start: [EXTREMES.yard_area_min,

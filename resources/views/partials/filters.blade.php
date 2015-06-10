@@ -30,13 +30,13 @@
 			<div class="draggers">
 			{{-- @if() --}}
 				<div class="first_line">
-					<div class="area">
-						{{ Form::label('area_from', 'от', ['class'=>'filters_label']) }}
-						{{ Form::text('area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'area_from', 'form'=>'other'])}}
+					<div class="house_area">
+						{{ Form::label('house_area_from', 'от', ['class'=>'filters_label']) }}
+						{{ Form::text('house_area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'house_area_from', 'form'=>'other'])}}
 						{{ Form::label('area_to', 'до', ['class'=>'filters_label']) }}
-						{{ Form::text('area_to', null, ['class'=>' form-control js_range_house_area_to', 'id'=>'area_to', 'form'=>'other'])}}
+						{{ Form::text('area_to', null, ['class'=>' form-control js_range_house_area_to', 'id'=>'house_area_to', 'form'=>'other'])}}
 						<span>м<sup>2</sup></span>
-						<div class="area_slider js_filter_change"></div>
+						<div class="house_area_slider js_filter_change"></div>
 					</div>
 				{{-- @endif	 --}}
 				{{-- @if() --}}

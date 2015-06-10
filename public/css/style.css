@@ -742,14 +742,14 @@ body {
   padding-right: 20px;
   padding-bottom: 20px; }
 
-.area,
+.house_area,
 .yard_area,
 .price,
 .rooms,
 .sea_dist {
   width: 29%;
   display: inline-block; }
-  .area input[type='text'],
+  .house_area input[type='text'],
   .yard_area input[type='text'],
   .price input[type='text'],
   .rooms input[type='text'],
@@ -759,14 +759,14 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     vertical-align: super; }
-  .area span,
+  .house_area span,
   .yard_area span,
   .price span,
   .rooms span,
   .sea_dist span {
     color: #fff; }
 
-.area,
+.house_area,
 .rooms {
   float: left; }
 
@@ -789,7 +789,7 @@ body {
 .rooms {
   margin-top: 50px; }
 
-.area_slider,
+.house_area_slider,
 .yard_area_slider,
 .price_slider,
 .rooms_slider,
