@@ -16,7 +16,7 @@ Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 'uses'=>
 
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-Route::post('/admin/add_article',					['as'=>'add_article', 	'uses'=>'ArticleController@add_article', 'middleware'=>'auth']); // redirect
+Route::get('/admin/add_article',					['as'=>'add_article', 	 'uses'=>'ArticleController@add_article', 'middleware'=>'auth']); // redirect
 Route::post('/admin/cretate_article',				['as'=>'create_article', 'uses'=>'ArticleController@create_article', 'middleware'=>'auth']); // redirect
 Route::get('/admin/articles', 						['as'=>'admin_articles', 'uses'=>'ArticleController@admin_articles', 'middleware'=>'auth']); // articles (with delete form + change link)
 Route::get('/articles', 							['as'=>'articles', 		 'uses'=>'ArticleController@articles']); // articles

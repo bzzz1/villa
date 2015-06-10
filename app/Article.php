@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use App\BaseModel;
+use Carbon\Carbon;
 
 class Article extends BaseModel {
 	protected $guarded = [];

@@ -24,7 +24,7 @@
 				<div class="admin_one_cat_subcats_block">
 					<div class="admin_subcats_list">
 						<ul>	
-							@foreach ($HELP::columnize($towns) as $key => $town)
+{{-- 							@foreach ($HELP::columnize($towns) as $key => $town)
 								<li>
 									<p class="admin_subcategory">
 										{{ $subcat->subcat }}
@@ -50,7 +50,7 @@
 										{{ Form::close() }}
 									</div> <!--admin_add_subcategory_div-->
 								</li>
-							@endforeach
+							@endforeach --}}
 						</ul>	
 					</div><!-- admin_subcats_list -->
 				</div><!--admin_one_cat_subcats_block-->
