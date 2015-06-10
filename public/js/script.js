@@ -279,6 +279,15 @@ $('.js_select_type').on('change', function () {
 		$rooms 		= $('.rooms').detach();
 		ranges = pop_by_value(ranges, 'house_area');
 		ranges = pop_by_value(ranges, 'rooms');
+	// 	$house_area_parent.append($house_area);
+	// 	$yard_area.css('margin-left', '7.5%');
+	// 	$('.sea_dist').css('margin-right', '16%');
+	// 	$rooms_parent.append($rooms);
+	// } else if ('parcel' == type) {
+	// 	$house_area = $('.house_area').detach();
+	// 	$rooms 		= $('.rooms').detach();
+	// 	$yard_area.css('margin-left', '0px');
+	// 	$('.sea_dist').css('margin-right', '34%');
 	}
 
 	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
