@@ -32,6 +32,8 @@
 
 	{{ HTML::script('js/admin.js') }}
 	{{ HTML::script('js/admin_modals.js') }}
-	@yield('js')
+	<script>
+		@yield('js')
+	</script>
 </body>
 </html>

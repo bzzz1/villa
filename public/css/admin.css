@@ -448,8 +448,12 @@ header {
   position: absolute;
   top: 0px;
   background-color: #222;
-  height: 93%;
+  height: 97%;
   min-height: 500px; }
+
+.sidebar_fix {
+  position: fixed;
+  top: 0; }
 
 .admin_sidebar_button {
   color: #eee;
@@ -480,7 +484,7 @@ header {
 /*FOOTER*/
 footer {
   background-color: #9dcb20;
-  height: 7%;
+  height: 3%;
   min-height: 65px;
   padding-top: 20px;
   position: absolute;

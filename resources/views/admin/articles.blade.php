@@ -1,7 +1,7 @@
-@extends('partials/admin_layout')
-@extends('partials/admin_header')
-@extends('partials/admin_sidebar')
-@extends('partials/admin_footer')
+@extends('layouts/admin_layout')
+@extends('admin/header')
+@extends('admin/sidebar')
+@extends('admin/footer')
 
 @section('body')
 	@include('partials/flash_messages')
