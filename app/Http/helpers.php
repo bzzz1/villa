@@ -24,7 +24,7 @@
 			'update_town'		=> null,
 			'delete_town'		=> null,
 			'create_district'	=> null,
-			'admin_districts'	=> 'admin/districs',
+			'admin_districts'	=> 'admin/districts',
 			'update_district'	=> null,
 			'delete_district'	=> null,
 			'how_to'			=> 'how_to',

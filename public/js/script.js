@@ -252,12 +252,14 @@ $('.js_commercial').on('click', function () {
 			'float' : 'left',
 			'margin-right' : '0'
 		});
+		$('.select_type').css('margin-left', '20px');
 	} else if ('sale' == commercial) {
 		$period = $('.period').detach();
 		$('.type').css({
 			'float' : 'right',
-			'margin-right' : '229px'
+			'margin-right' : '181px'
 		});
+		$('.select_type').css('margin-left', '65px');
 	}
 
 	draw_ranges($.unique(ranges));
