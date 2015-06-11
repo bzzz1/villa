@@ -33,5 +33,8 @@
 				<a href="{{l('admin_districts')}}" class="@if (r() == 'admin_districts') active_my @endif admin_icon_block ico"><i class="fa fa-sitemap fa-5x"></i><br /> Список районов</a>
 			</div>
 		</div>
+		<p class="contact_support_heading">Нужна помощь?</p>
+		<a href="mailto:support@bzzz.biz.ua" class="btn admin_panel_btn">Связаться с нами</a>
+		<p class="alt_variant">или просто напишите нам на support@bzzz.biz.ua</p>
 	</div>
 @stop
