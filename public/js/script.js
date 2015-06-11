@@ -14,12 +14,12 @@ new jBox('Modal', {
 
 if ('estates'==ROUTE) {
 	/*------------------------------------------------
-	| DISTRICTS FILTERS
+	| TOWNS
 	------------------------------------------------*/
-	on_change();
-	$('.js_select_town').on('change', on_change);
+	on_change_towns();
+	$('.js_select_town').on('change', on_change_towns);
 
-	function on_change() {
+	function on_change_towns() {
 		var current = $('.js_select_town').val();
 		if ('' == current) {
 			$('.district').slideUp();
@@ -40,22 +40,27 @@ if ('estates'==ROUTE) {
 		};
 		$('.js_select_district').html($options);
 	}
+
 	/*------------------------------------------------
-	| DISTRICTS END
+	| RUN FILTERS
 	------------------------------------------------*/
-	/*------------------------------------------------
-	| FILTERS
-	------------------------------------------------*/
-	// on load touch filter
-	var $filters = $('.js_filters');
 	$('.js_filter_change').on('change', touch_filter); 
-	$('.js_filter_click').on('click', touch_filter); 
+	$('.js_filter_click').on('click', filter_click_callback);
 
-	function check_empty(element) {
-		return element = element ? element : '';
+	function filter_click_callback() {
+		$('.js_filter_click').removeClass('active');
+		$(this).addClass('active');
+		touch_filter();
 	}
+	
+	function touch_filter() {
+		var filters = collect_filters();
+		filter(filters);
+	};
 
-	function touch_filter(e) {
+	function collect_filters() {
+		var $filters = $('.js_filters');
+
 		var commercial 		= $filters.find('.js_commercial.active').data('commercial');
 		var type 			= $filters.find('.js_select_type').val();
 		var town_id 		= $filters.find('.js_select_town').val();
@@ -98,192 +103,187 @@ if ('estates'==ROUTE) {
 						'&price='		+price_from+';'+price_to+
 						'&rooms='		+rooms_from+';'+rooms_to+
 						'&sea_dist='	+sea_dist_from+';'+sea_dist_to;
-		// ajax call					
-		filter(filters);
-	};
+		return filters;
+	}
 
-	// var $area_slider 		= $(".area_slider");
-	// var $yard_area_slider 	= $(".yard_area_slider");
-	// var $price_slider 		= $(".price_slider");
-	// var $rooms_slider 		= $(".rooms_slider");
-	// var $sea_dist_slider 	= $("sea_dist_slider")
+	function filter(filters) {
+		var url = URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc';
+		ajax('GET', url, {}, filter_callback);
+	}
 
-	// function reset_extremes(data) {
-	// 	// var EXTREMES = [];
+	function filter_callback(data) {
+		estates_processing(data);
+		listen_favorites();
+	}
 
-	// 	$area_slider.noUiSlider({
-	// 		range: {
-	// 			"min": EXTREMES.house_area_min,
-	// 			"max": EXTREMES.house_area_max
-	// 		},
-	// 	}, true);
-	// 	$area_slider.Link("lower").to($("#area_from"));
-	// 	$area_slider.Link("upper").to($("#area_to"));
-	// 	$yard_area_slider.noUiSlider({
-	// 		range: {
-	// 			"min": EXTREMES.yard_area_min,
-	// 			"max": EXTREMES.yard_area_max
-	// 		},
-	// 	}, true);
-	// 	$yard_area_slider.Link("lower").to($("#yard_area_from"));
-	// 	$yard_area_slider.Link("upper").to($("#yard_area_to"));
-		
-	// 	$price_slider.noUiSlider({
-	// 		range: {
-	// 			"min": EXTREMES.price_min,
-	// 			"max": EXTREMES.price_max
-	// 		},
-	// 	}, true);
-	// 	$price_slider.Link("lower").to($("#price_from"));
-	// 	$price_slider.Link("upper").to($("#price_to"));
+	function estates_processing(data) {
+		var estate_html = '';
+		var $catalog_blocks = $('.catalog_blocks');
+		$catalog_blocks.html('');
 
-	// 	$rooms_slider.noUiSlider({
-	// 		range: {
-	// 			"min": EXTREMES.rooms_min,
-	// 			"max": EXTREMES.rooms_max
-	// 		},
-	// 	}, true);
-	// 	$rooms_slider.Link("lower").to($("#rooms_from"));
-	// 	$rooms_slider.Link("upper").to($("#rooms_to"));
+		for (var i = 0; i < data.length; i++) {
+			var estate = data[i];
+			var src = URL_IMG+'/'+estate.image;
+			var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
+			estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
+			
+			if (estate.image !== undefined) {
+				estate_html += 	'<a href="'+href+'"> \
+								<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
+							</a>';
+			}
+			else  {
+				estate_html += 	'<a href="'+href+'"> \
+								<img src="img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+							</a>';
+			};
 
-	// 	$sea_dist_slider.noUiSlider({
-	// 		range: {
-	// 			"min": EXTREMES.sea_dist_min,
-	// 			"max": EXTREMES.sea_dist_max
-	// 		},
-	// 	}, true);
-	// 	$sea_dist_slider.Link("lower").to($("#sea_dist_from"));
-	// 	$sea_dist_slider.Link("upper").to($("#sea_dist_to"));
-	// }
-}
+				estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td>'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td>'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td>'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td>'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+				$catalog_blocks.html(estate_html);
 
-// TEMPLATE
-// var	filters = '';
-function filter(filters) {
-	$.ajax({
-		url: URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc',
-		type: 'GET',
-		dataType: "json",
-		// data: {
-		// 	'category' : category
-		// }, 
-		success: function(data) {
-			estates_processing(data);
-			// reset_extremes(data);
-		},
-		error: function(data, error, error_details){
-			console.log("err:", error, error_details);
-			console.log(data);
-			console.log(data.responseText);
-		}
-	});
-};
-
-function estates_processing (data) {
-	var estate_html = '';
-	var $catalog_blocks = $('.catalog_blocks');
-	$catalog_blocks.html('');
-
-	for (var i = 0; i < data.length; i++) {
-		var estate = data[i];
-		var src = URL_IMG+'/'+estate.image;
-		var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
-		estate_html += '<div class="one_item"> <div class="img">';
-		
-		if (estate.image !== undefined) {
-			estate_html += 	'<a href="'+href+'"> \
-							<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
-						</a>';
-		}
-		else  {
-			estate_html += 	'<a href="'+href+'"> \
-							<img src="img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
-						</a>';
 		};
+	}
 
-			estate_html += '<div class="add_to"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td>'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td>'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td>'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td>'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
-			$catalog_blocks.html(estate_html);
+	function listen_favorites() {
+		$('.js_select').on('click', function() {
+			var estate_id = $(this).closest('.one_item').data('id');
+			var url = URL_AJAX_SELECT+'/'+estate_id;
+			ajax('POST', url, {}, function(){
+				$(this).parent().find('.js_select').show();
+				$(this).hide();
+			});
+		});
+	}
+/*----------------------------------------------*/
 
-	};
-}
+	/*------------------------------------------------
+	| FILTER DEPENDENCIES + DRAW and RUN RANGES
+	------------------------------------------------*/
+	var ranges = [];
 
-// FILTERS BUTTONS
-$('.js_filter_click').on('click', function () {
-	$('.js_filter_click').removeClass('active');
-	// $('.btn-group').find('.active').removeClass('active');
-	$(this).addClass('active');
+	var $yard_area_parent 	= $('.yard_area').parent();
+	var $house_area_parent 	= $('.house_area').parent();
+	var $rooms_parent 		= $('.rooms').parent();
+	var $period_parent 		= $('.period').parent();
 
-});
+	var $yard_area 		= $('.yard_area').detach();
+	var $house_area 	= $('.house_area');
+	var $rooms 			= $('.rooms');
+	var $period 		= $('.period').detach();
+
+	var $price 			= $('.price');
+	var $sea_dist 		= $('.sea_dist');
+
+	ranges.push('house_area', 'price', 'rooms', 'sea_dist');
+	initialize_ranges(ranges);
+
+	$('.js_commercial').on('click', function () {
+		var commercial = $('.js_commercial.active').data('commercial');
+
+		if ('rent' == commercial) {
+			$period_parent.append($period);
+			$('.period').slideDown();
+			$('.type').css({
+				'float' : 'left',
+				'margin-right' : '0'
+			});
+			$('.select_type').css('margin-left', '20px');
+		} else if ('sale' == commercial) {
+			if ($('.period').length) {
+				$period = $('.period').detach();
+			}
+			$('.type').css({
+				'float' : 'right',
+				'margin-right' : '181px'
+			});
+			$('.select_type').css('margin-left', '65px');
+		}
+
+		draw_ranges($.unique(ranges));
+	});
+
+	$('.js_select_type').on('change', function () {
+		var type = $('.js_select_type').val();
+
+		if ('flat' == type || 'cottage' == type || 'commercial' == type) {
+			ranges.push('house_area');
+			ranges.push('rooms');
+		} else if ('parcel' == type) {
+			$house_area = $('.house_area').detach();
+			$rooms 		= $('.rooms').detach();
+			ranges = pop_by_value(ranges, 'house_area');
+			ranges = pop_by_value(ranges, 'rooms');
+		}
+
+		if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
+			ranges.push('yard_area');
+		} else if ('flat' == type) {
+			$yard_area = $('.yard_area').detach();
+			ranges = pop_by_value(ranges, 'yard_area');
+		}
+
+		draw_ranges($.unique(ranges));
+	})
+
+	function draw_ranges(ranges) {
+		$('.first_line').html('');
+		$('.second_line').html('');
+
+		for (var i=0; i<ranges.length; i++) {
+			range = ranges[i];
+			$range = window['$'+range];
+			if (i<3) {
+				$('.first_line').append($range);
+			} else {
+				$('.second_line').append($range);
+			}
+		}
+
+		initialize_ranges(ranges);
+	}
+
+	function initialize_ranges(ranges) {
+		for (var i=0; i<ranges.length; i++) {
+			var range = ranges[i];
+			var $range = window['$'+range];
+
+			$("."+range+"_slider").noUiSlider({
+				start: [
+					EXTREMES[range+'_min'],
+					EXTREMES[range+'_max']
+				],
+				connect: true,
+				orientation: "horizontal",
+				range: {
+					"min": parseInt(EXTREMES[range+'_min']),
+					"max": parseInt(EXTREMES[range+'_max'])
+				},
+				format: wNumb({
+					decimals: 0
+				})
+			}, true);
+			$("."+range+"_slider").Link("lower").to($("#"+range+"_from"));
+			$("."+range+"_slider").Link("upper").to($("#"+range+"_to"));
+		}
+
+		$('.js_filter_change').on('change', touch_filter);
+	}
+}	
+/*------------------------------------------------
+| END FILTERS DEPENDENCIES
+------------------------------------------------*/
+
+
 
 
 
 
 /*------------------------------------------------
-| FILTER DEPENDENCIES + DRAW and RUN RANGES
+| HELPERS
 ------------------------------------------------*/
-var ranges = [];
-
-var $yard_area_parent 	= $('.yard_area').parent();
-var $house_area_parent 	= $('.house_area').parent();
-var $rooms_parent 		= $('.rooms').parent();
-var $period_parent 		= $('.period').parent();
-
-var $yard_area 		= $('.yard_area').detach();
-var $house_area 	= $('.house_area');
-var $rooms 			= $('.rooms');
-var $period 		= $('.period').detach();
-
-var $price 			= $('.price');
-var $sea_dist 		= $('.sea_dist');
-
-ranges.push('house_area', 'price', 'rooms', 'sea_dist');
-initialize_ranges(ranges);
-
-$('.js_commercial').on('click', function () {
-	var commercial = $('.js_commercial.active').data('commercial');
-
-	if ('rent' == commercial) {
-		$period_parent.append($period);
-		$('.period').slideDown();
-		$('.type').css({
-			'float' : 'left',
-			'margin-right' : '0'
-		});
-		$('.select_type').css('margin-left', '20px');
-	} else if ('sale' == commercial) {
-		$period = $('.period').detach();
-		$('.type').css({
-			'float' : 'right',
-			'margin-right' : '181px'
-		});
-		$('.select_type').css('margin-left', '65px');
-	}
-
-	draw_ranges($.unique(ranges));
-});
-
-$('.js_select_type').on('change', function () {
-	var type = $('.js_select_type').val();
-
-	if ('flat' == type || 'cottage' == type || 'commercial' == type) {
-		ranges.push('house_area');
-		ranges.push('rooms');
-	} else if ('parcel' == type) {
-		$house_area = $('.house_area').detach();
-		$rooms 		= $('.rooms').detach();
-		ranges = pop_by_value(ranges, 'house_area');
-		ranges = pop_by_value(ranges, 'rooms');
-	}
-
-	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
-		ranges.push('yard_area');
-	} else if ('flat' == type) {
-		$yard_area = $('.yard_area').detach();
-		ranges = pop_by_value(ranges, 'yard_area');
-	}
-
-	draw_ranges($.unique(ranges));
-})
+function check_empty(element) {
+	return element = element ? element : '';
+}
 
 function pop_by_value(array, value) {
 	var index = array.indexOf(value);
@@ -293,54 +293,23 @@ function pop_by_value(array, value) {
 	return array;
 }
 
-function draw_ranges(ranges) {
-	$('.first_line').html('');
-	$('.second_line').html('');
-
-	for (var i=0; i<ranges.length; i++) {
-		range = ranges[i];
-		$range = window['$'+range];
-		if (i<3) {
-			$('.first_line').append($range);
-		} else {
-			$('.second_line').append($range);
+function ajax(type, url, data, callback) {
+	$.ajax({
+		url: url,
+		type: type,
+		dataType: "json",
+		data: data,
+		success: callback,
+		error: function(data, error, error_details){
+			console.log("err:", error, error_details);
+			console.log(data);
+			console.log(data.responseText);
 		}
-	}
-
-	initialize_ranges(ranges);
+	});
 }
-
-function initialize_ranges(ranges) {
-	for (var i=0; i<ranges.length; i++) {
-		var range = ranges[i];
-		var $range = window['$'+range];
-
-		$("."+range+"_slider").noUiSlider({
-			start: [
-				EXTREMES[range+'_min'],
-				EXTREMES[range+'_max']
-			],
-			connect: true,
-			orientation: "horizontal",
-			range: {
-				"min": parseInt(EXTREMES[range+'_min']),
-				"max": parseInt(EXTREMES[range+'_max'])
-			},
-			format: wNumb({
-				decimals: 0
-			})
-		}, true);
-		$("."+range+"_slider").Link("lower").to($("#"+range+"_from"));
-		$("."+range+"_slider").Link("upper").to($("#"+range+"_to"));
-	}
-
-	$('.js_filter_change').on('change', touch_filter); 
-}	
 /*------------------------------------------------
-| END FILTERS DEPENDENCIES
+| END HELPERS
 ------------------------------------------------*/
-
-
 
 /*------------------------------------------------
 | MAPS

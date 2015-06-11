@@ -2,6 +2,8 @@
 
 use Estate;
 use Request;
+use Session;
+
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
@@ -51,18 +53,26 @@ class EstateController extends Controller {
 	}
 
 	public function selected() {
-		// get current session id
-		// get all selected for current user
-		// $ids = [];
-		// $estates = Estate::whereIn('estate_id', $ids)->get();
-		// return v()->with(compact('estates')); 
+		$selected = Session::get('selected');
+		$estates = Estate::whereIn('estate_id', $selected)->orderBy('price', 'desc')->get();
+		return v()->with(compact('estates')); 
 	}
 
-	public function select_estate($estate_id) {
-		// get current session id
-		// add $estate_id to current user $selected attribute
-		// refresh page
-		return redirect()->back();
+	public function ajax_select_estate($estate_id) {
+		return $estate_id;
+		if (Session::has('selected')) {
+			$selected = Session::get('selected');
+			if (! in_array($estate_id, $selected)) {
+				$selected[] = $estate_id;
+			} else {
+				array_diff($selected, [$estate_id]);
+			}
+		} else {
+			$selected[] = $estate_id;
+		}
+
+ 		Session::put('selected', $selected);
+ 		return response()->json([]);
 	}
 
 	public function update_estate() {

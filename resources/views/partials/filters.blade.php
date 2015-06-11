@@ -47,17 +47,6 @@
 						<span>метров</span>
 						<div class="sea_dist_slider js_filter_change"></div>
 					</div>
-					<div class="yard_area">
-						<p class="filter_heading">Площадь участка:</p>
-						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
-						{{ Form::text('yard_area_from', null, ['class'=>' form-control js_range_yard_area_from', 'id'=>'yard_area_from', 'form'=>'other'])}}
-						{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
-						{{ Form::text('yard_area_to', null, ['class'=>' form-control js_range_yard_area_to', 'id'=>'yard_area_to', 'form'=>'other'])}}
-						<span>соток</span>
-						<div class="yard_area_slider js_filter_change"></div>
-					</div>
-				</div>
-				<div class="second_line">
 					<div class="house_area">
 						<p class="filter_heading">Площадь дома:</p>
 						{{ Form::label('house_area_from', 'от', ['class'=>'filters_label']) }}
@@ -66,6 +55,17 @@
 						{{ Form::text('house_area_to', null, ['class'=>' form-control js_range_house_area_to', 'id'=>'house_area_to', 'form'=>'other'])}}
 						<span>м<sup>2</sup></span>
 						<div class="house_area_slider js_filter_change"></div>
+					</div>
+				</div>
+				<div class="second_line">
+					<div class="yard_area">
+						<p class="filter_heading">Площадь участка:</p>
+						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
+						{{ Form::text('yard_area_from', null, ['class'=>' form-control js_range_yard_area_from', 'id'=>'yard_area_from', 'form'=>'other'])}}
+						{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
+						{{ Form::text('yard_area_to', null, ['class'=>' form-control js_range_yard_area_to', 'id'=>'yard_area_to', 'form'=>'other'])}}
+						<span>соток</span>
+						<div class="yard_area_slider js_filter_change"></div>
 					</div>
 					<div class="rooms">
 						<p class="filter_heading">Количесвто комнат:</p>

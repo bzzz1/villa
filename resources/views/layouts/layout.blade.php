@@ -46,8 +46,10 @@
 				URL_IMG = "{{ url_path('estates') }}"; // resource
 
 				URL_ESTATE = "{{ URL::to('/estates') }}"; // partial
+				URL_AJAX_SELECT = "{{ URL::to('/ajax_select_estate') }}";
 
 				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
+
 			/*----------------------------------------------*/
 			@yield('js')
 		</script> 
