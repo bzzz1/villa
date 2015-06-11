@@ -204,7 +204,7 @@ function estates_processing (data) {
 			estate_html += '<div class="add_to"><a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td class="dep_price">'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td class="dep_period">'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
 			$catalog_blocks.html(estate_html);
 
-			var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
+			var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period'];
 			// 	'house_area'	: '<td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td>',
 			// 	'yard_area'		: '<td class="dep_yard_area">'+estate.yard_area+' соток</td>',
 			// 	'rooms'			: '<td class="dep_rooms">'+estate.rooms+'</td>',
@@ -216,11 +216,9 @@ function estates_processing (data) {
 
 			for (var j = 0; j < dep.length; j++) {
 				var elem = dep[j];
-				// if (estate.elem) {
-				// }
 				if (estate[elem] == null) {
-					$('.dep_'+elem).parent();
-					// console.log($('.dep_'+elem).closest('tr'));
+					$('.dep_'+elem).parent().hide();
+					// console.log($('$('.dep_'+elem).parent()));
 				};
 			};
 
