@@ -416,7 +416,7 @@ body {
   /* ╨Ф╨╗╤П Opera */
   transform: rotate(270deg);
   position: fixed;
-  left: -91px;
+  left: -92px;
   top: 55%; }
   .contact_us_btn:hover, .contact_us_btn:focus, .contact_us_btn.focus {
     color: #fff;
@@ -615,7 +615,7 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   background-image: url(../img/layout/pattern007.png); }
-  .map h3 {
+  .map .results_heading {
     font-size: 36px;
     color: #212121;
     text-transform: uppercase;
@@ -657,7 +657,8 @@ body {
   width: 1203px;
   display: table;
   margin: auto;
-  padding: 50px 40px 53px 40px; }
+  padding: 50px 40px 53px 40px;
+  min-height: 651px; }
   .filters h3 {
     text-transform: uppercase;
     color: #fff;
@@ -710,7 +711,9 @@ body {
 
 .type {
   float: right;
-  margin-right: 229px; }
+  margin-right: 181px; }
+  .type .select_type {
+    margin-left: 65px; }
 
 .period {
   margin-left: 49px;
@@ -730,26 +733,28 @@ body {
 .draggers {
   margin-top: 60px; }
 
-.first_line {
-  overflow: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px; }
+.filter_heading {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 200; }
 
+.first_line,
 .second_line {
   overflow: auto;
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px; }
 
-.area,
+.house_area,
 .yard_area,
 .price,
 .rooms,
 .sea_dist {
   width: 29%;
+  margin-left: 2%;
+  margin-right: 2%;
   display: inline-block; }
-  .area input[type='text'],
+  .house_area input[type='text'],
   .yard_area input[type='text'],
   .price input[type='text'],
   .rooms input[type='text'],
@@ -759,37 +764,23 @@ body {
     margin-left: 10px;
     margin-right: 10px;
     vertical-align: super; }
-  .area span,
+  .house_area span,
   .yard_area span,
   .price span,
   .rooms span,
   .sea_dist span {
     color: #fff; }
 
-.area,
-.rooms {
-  float: left; }
+.sea_dist .filter_heading {
+  text-align: left; }
 
-.rooms {
-  margin-left: 20%;
-  margin-bottom: 30px; }
+.price .filter_heading {
+  text-align: left; }
 
-.sea_dist {
-  margin-right: 16%;
-  margin-bottom: 30px; }
+.rooms .filter_heading {
+  text-align: left; }
 
-.yard_area {
-  margin-left: 7.5%; }
-
-.price,
-.sea_dist {
-  float: right; }
-
-.sea_dist,
-.rooms {
-  margin-top: 50px; }
-
-.area_slider,
+.house_area_slider,
 .yard_area_slider,
 .price_slider,
 .rooms_slider,

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Article;
 
 class ArticleController extends Controller {
+	public function add_article() {
+		return v();
+	}
+	
 	public function create_article() {
 		$data = Request::all();
 		unset($data['_token']);

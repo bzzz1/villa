@@ -28,28 +28,9 @@
 				</div>
 			</div>
 			<div class="draggers">
-			{{-- @if() --}}
 				<div class="first_line">
-					<div class="area">
-						{{ Form::label('area_from', 'от', ['class'=>'filters_label']) }}
-						{{ Form::text('area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'area_from', 'form'=>'other'])}}
-						{{ Form::label('area_to', 'до', ['class'=>'filters_label']) }}
-						{{ Form::text('area_to', null, ['class'=>' form-control js_range_house_area_to', 'id'=>'area_to', 'form'=>'other'])}}
-						<span>м<sup>2</sup></span>
-						<div class="area_slider js_filter_change"></div>
-					</div>
-				{{-- @endif	 --}}
-				{{-- @if() --}}
-					<div class="yard_area">
-						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
-						{{ Form::text('yard_area_from', null, ['class'=>' form-control js_range_yard_area_from', 'id'=>'yard_area_from', 'form'=>'other'])}}
-						{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
-						{{ Form::text('yard_area_to', null, ['class'=>' form-control js_range_yard_area_to', 'id'=>'yard_area_to', 'form'=>'other'])}}
-						<span>соток</span>
-						<div class="yard_area_slider js_filter_change"></div>
-					</div>
-				{{-- @endif	 --}}
 					<div class="price">
+						<p class="filter_heading">Цена:</p>
 						{{ Form::label('price_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('price_from', null, ['class'=>'form-control js_range_price_from', 'id'=>'price_from', 'form'=>'other'])}}
 						{{ Form::label('price_to', 'до', ['class'=>'filters_label']) }}
@@ -57,25 +38,43 @@
 						<span>рублей</span>
 						<div class="price_slider js_filter_change"></div>
 					</div>
-				{{-- @if() --}}
-				</div>
-				<div class="second_line">
-					<div class="rooms">
-						{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
-						{{ Form::text('rooms_from', null, ['class'=>'form-control js_range_rooms_from', 'id'=>'rooms_from', 'form'=>'other'])}}
-						{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
-						{{ Form::text('rooms_to', null, ['class'=>'form-control js_range_rooms_to', 'id'=>'rooms_to', 'form'=>'other'])}}
-						<span>комнат</span>
-						<div class="rooms_slider js_filter_change"></div>
-					</div>
-				{{-- @endif	 --}}
 					<div class="sea_dist">
+						<p class="filter_heading">Удаленность от моря:</p>
 						{{ Form::label('sea_dist_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('sea_dist_from', null, ['class'=>'form-control js_range_sea_dist_from', 'id'=>'sea_dist_from', 'form'=>'other'])}}
 						{{ Form::label('sea_dist_to', 'до', ['class'=>'filters_label']) }}
 						{{ Form::text('sea_dist_to', null, ['class'=>' form-control js_range_sea_dist_to', 'id'=>'sea_dist_to', 'form'=>'other'])}}
 						<span>метров</span>
 						<div class="sea_dist_slider js_filter_change"></div>
+					</div>
+					<div class="house_area">
+						<p class="filter_heading">Площадь дома:</p>
+						{{ Form::label('house_area_from', 'от', ['class'=>'filters_label']) }}
+						{{ Form::text('house_area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'house_area_from', 'form'=>'other'])}}
+						{{ Form::label('house_area_to', 'до', ['class'=>'filters_label']) }}
+						{{ Form::text('house_area_to', null, ['class'=>' form-control js_range_house_area_to', 'id'=>'house_area_to', 'form'=>'other'])}}
+						<span>м<sup>2</sup></span>
+						<div class="house_area_slider js_filter_change"></div>
+					</div>
+				</div>
+				<div class="second_line">
+					<div class="yard_area">
+						<p class="filter_heading">Площадь участка:</p>
+						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
+						{{ Form::text('yard_area_from', null, ['class'=>' form-control js_range_yard_area_from', 'id'=>'yard_area_from', 'form'=>'other'])}}
+						{{ Form::label('yard_area_to', 'до', ['class'=>'filters_label']) }}
+						{{ Form::text('yard_area_to', null, ['class'=>' form-control js_range_yard_area_to', 'id'=>'yard_area_to', 'form'=>'other'])}}
+						<span>соток</span>
+						<div class="yard_area_slider js_filter_change"></div>
+					</div>
+					<div class="rooms">
+						<p class="filter_heading">Количесвто комнат:</p>
+						{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
+						{{ Form::text('rooms_from', null, ['class'=>'form-control js_range_rooms_from', 'id'=>'rooms_from', 'form'=>'other'])}}
+						{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
+						{{ Form::text('rooms_to', null, ['class'=>'form-control js_range_rooms_to', 'id'=>'rooms_to', 'form'=>'other'])}}
+						<span>комнат</span>
+						<div class="rooms_slider js_filter_change"></div>
 					</div>
 				</div>
 		</div>

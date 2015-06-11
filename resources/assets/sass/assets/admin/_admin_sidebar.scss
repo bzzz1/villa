@@ -8,8 +8,13 @@
 	// bottom: 65px;
 	background-color: $main_black;
 	// z-index: 555;
-	height: 93%;
+	height: 97%;
 	min-height: 500px;
+}
+.sidebar_fix {
+	position: fixed;
+	top: 0;
+	width: 15%;
 }
 .admin_sidebar_button {
 	color: $text;

@@ -16,7 +16,8 @@
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
-	{{ HTML::script('ckeditor/ckeditor.js') }}
+	{{-- {{ HTML::script('ckeditor/ckeditor.js') }} --}}
+	{{ HTML::script('js/vendor/translit.js') }}
 
 	@yield('css')
 </head>
@@ -32,6 +33,20 @@
 
 	{{ HTML::script('js/admin.js') }}
 	{{ HTML::script('js/admin_modals.js') }}
-	@yield('js')
+	<script>
+		/*------------------------------------------------
+		| GLOBALS
+		------------------------------------------------*/
+			ROUTE = "{{ r() }}";
+
+			URL_IMG = "{{ url_path('estates') }}"; // resource
+
+			URL_ESTATE = "{{ URL::to('/estates') }}"; // partial
+
+			URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
+		/*----------------------------------------------*/
+		@yield('js')
+	</script> 
+	{{ HTML::script('js/script.js') }}
 </body>
 </html>

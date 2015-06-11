@@ -2,9 +2,15 @@
 
 use Estate;
 use Request;
+use Session;
+
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
+	public function add_estate() {
+		return v();
+	}
+	
 	public function create_estate() {
 		$data = Request::all();
 		unset($data['_token']);
@@ -13,12 +19,11 @@ class EstateController extends Controller {
 	}
 
 	public function admin_estates() {
-		// filters
 		return v();
 	}
 
-	public function estates($filters='') {
-		return v()->with(compact('filters'));
+	public function estates() {
+		return v();
 	}
 
 	public function ajax_estates($filters='') {
@@ -28,7 +33,7 @@ class EstateController extends Controller {
 		$order = Request::input('order');
 		$skip = $take*($page-1);
 
-		// improve mx and min for range filters
+		// improve max and min for range filters
 		// if ('range' == get_filter_type($filter)) {}
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
@@ -48,18 +53,26 @@ class EstateController extends Controller {
 	}
 
 	public function selected() {
-		// get current session id
-		// get all selected for current user
-		// $ids = [];
-		// $estates = Estate::whereIn('estate_id', $ids)->get();
-		// return v()->with(compact('estates')); 
+		$selected = Session::get('selected');
+		$estates = Estate::whereIn('estate_id', $selected)->orderBy('price', 'desc')->get();
+		return v()->with(compact('estates')); 
 	}
 
-	public function select_estate($estate_id) {
-		// get current session id
-		// add $estate_id to current user $selected attribute
-		// refresh page
-		return redirect()->back();
+	public function ajax_select_estate($estate_id) {
+		return $estate_id;
+		if (Session::has('selected')) {
+			$selected = Session::get('selected');
+			if (! in_array($estate_id, $selected)) {
+				$selected[] = $estate_id;
+			} else {
+				array_diff($selected, [$estate_id]);
+			}
+		} else {
+			$selected[] = $estate_id;
+		}
+
+ 		Session::put('selected', $selected);
+ 		return response()->json([]);
 	}
 
 	public function update_estate() {
