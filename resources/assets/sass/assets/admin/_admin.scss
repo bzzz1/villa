@@ -31,3 +31,18 @@
 		background-color: $main_black;
 	}
 }
+.admin_panel_btn {
+	@include btn(#fff, $main_green, 24px, darken($main_green, 10%));
+	display: table;
+	margin: auto;
+}
+.alt_variant,
+.contact_support_heading {
+	text-align: center;
+	color: $main_green;
+	font-size: 15px;
+	margin-top: 15px;
+}
+.contact_support_heading {
+	font-size: 24px;
+}

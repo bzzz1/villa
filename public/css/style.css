@@ -416,7 +416,7 @@ body {
   /* Для Opera */
   transform: rotate(270deg);
   position: fixed;
-  left: -91px;
+  left: -92px;
   top: 55%; }
   .contact_us_btn:hover, .contact_us_btn:focus, .contact_us_btn.focus {
     color: #fff;
@@ -615,7 +615,7 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
   background-image: url(../img/layout/pattern007.png); }
-  .map h3 {
+  .map .results_heading {
     font-size: 36px;
     color: #212121;
     text-transform: uppercase;

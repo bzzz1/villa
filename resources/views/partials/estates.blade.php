@@ -1,6 +1,6 @@
 @section('body')
-	<div class="main">
-		@if (r() == 'estates')
+	@if (r() == 'estates')
+		<div class="main">
 			<div id="carousel_estate" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
@@ -36,8 +36,12 @@
 				<span class="sr-only">Next</span>
 			</a>
 			</div>
-		@endif	
-	</div>
+		</div>
+	@endif
+	@if(r() == 'admin_estates')	
+		<h1 class="admin_uni_heading">Все объекты</h1>
+		<div class="admin_main_content">
+	@endif
 	@if (r() == 'estates' || r() == 'admin_estates')
 		@include('partials/filters')
 	@endif
@@ -45,9 +49,9 @@
 		<div class="map_full">
 			<div class="map">
 				@if (r() == 'estates')
-					<h3>Результаты поиска</h3>
+					<h3 class="results_heading">Результаты поиска</h3>
 				@else 
-					<h3>Избранные</h3>
+					<h3 class="results_heading">Избранные</h3>
 				@endif		
 				<a class="js_open_map">
 					<i class="fa fa-map-marker fa-2x"></i>
@@ -59,14 +63,18 @@
 			</div>
 		</div>
 	@else
-		<h3>Результаты поиска</h3>
+		<h3 class="results_heading">Результаты поиска</h3>
 	@endif
 
 
 	@include('partials/catalog_estate')
+	@if(r() != 'admin_estates')
 	<div class="full_blue">
 		@include('partials/pagination')
 	</div>
+	@else 
+		@include('partials/pagination')
+	@endif
 	@if(r() != 'admin_estates')
 		<div class="pre_footer_full">
 			<div class="pre_footer">
@@ -74,6 +82,9 @@
 			</div>
 		</div>
 	@endif
+	@if(r() == 'admin_estates')
+		</div>
+	@endif	
 @stop
 @section ('js')
 	TOWNS = <?php echo json_encode($towns) ?>;

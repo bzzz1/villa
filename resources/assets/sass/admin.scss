@@ -76,9 +76,13 @@ $admin_modal_title_background: red;
 
 // HEADER
 /*HEADER*/
-@import "assets/admin/admin_estates";
 @import "assets/main_page";
 @import "assets/catalog_estate";
+@import "assets/filters";
+@import "assets/pagination";
+@import "assets/admin/admin_estates";
+
+
 
 
 // LEFT SIDEBAR

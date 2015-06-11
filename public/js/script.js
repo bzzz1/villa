@@ -12,7 +12,8 @@ new jBox('Modal', {
     content: $('#contact_form')
 });
 
-if ('estates'==ROUTE) {
+
+if ('estates'==ROUTE || 'admin_estates'==ROUTE) {
 	/*------------------------------------------------
 	| TOWNS
 	------------------------------------------------*/
@@ -138,11 +139,89 @@ if ('estates'==ROUTE) {
 							</a>';
 			};
 
-				estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td>'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td>'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td>'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td>'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
-				$catalog_blocks.html(estate_html);
+			estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td>'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td>'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td>'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td>'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td>'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td>'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td>'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td>'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+			$catalog_blocks.html(estate_html);
 
+			var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
+
+			for (var j = 0; j < dep.length; j++) {
+				var elem = dep[j];
+				if (estate[elem] == null) {
+					$('.dep_'+elem).parent();
+				};
+			}
 		};
 	}
+// =======
+// // TEMPLATE
+// // var	filters = '';
+// function filter(filters) {
+// 	$.ajax({
+// 		url: URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc',
+// 		type: 'GET',
+// 		dataType: "json",
+// 		// data: {
+// 		// 	'category' : category
+// 		// }, 
+// 		success: function(data) {
+// 			estates_processing(data);
+// 			// reset_extremes(data);
+// 		},
+// 		error: function(data, error, error_details){
+// 			console.log("err:", error, error_details);
+// 			console.log(data);
+// 			console.log(data.responseText);
+// 		}
+// 	});
+// };
+
+// function estates_processing (data) {
+// 	var estate_html = '';
+// 	var $catalog_blocks = $('.catalog_blocks');
+// 	$catalog_blocks.html('');
+
+// 	for (var i = 0; i < data.length; i++) {
+// 		var estate = data[i];
+// 		var src = URL_IMG+'/'+estate.image;
+// 		var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
+// 		estate_html += '<div class="one_item"> <div class="img">';
+		
+// 		if (estate.image !== undefined) {
+// 			estate_html += 	'<a href="'+href+'"> \
+// 							<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
+// 						</a>';
+// 		}
+// 		else  {
+// 			estate_html += 	'<a href="'+href+'"> \
+// 							<img src="img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+// 						</a>';
+// 		};
+// 			estate_html += '<div class="add_to"><a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div></div><div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div><div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Коллическтво комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td class="dep_price">'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td> \ <td class="dep_period">'+estate.period+'</td> \ </tr> \ <tr> \ <td>Адресс</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+// 			$catalog_blocks.html(estate_html);
+
+// 			var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
+// 			// 	'house_area'	: '<td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td>',
+// 			// 	'yard_area'		: '<td class="dep_yard_area">'+estate.yard_area+' соток</td>',
+// 			// 	'rooms'			: '<td class="dep_rooms">'+estate.rooms+'</td>',
+// 			// 	'price'			: '<td class="dep_price">'+estate.price+' рублей</td>',
+// 			// 	'adress'		: '<td class="dep_address">'+estate.address+'</td> ',
+// 			// 	'sea_dist'		: '<td class="dep_sea_dist">'+estate.sea_dist+' м.</td>',
+// 			// 	'period'		: '<td class="dep_period">'+estate.period+'</td>'
+// 			// };
+
+// 			for (var j = 0; j < dep.length; j++) {
+// 				var elem = dep[j];
+// 				// if (estate.elem) {
+// 				// }
+// 				if (estate[elem] == null) {
+// 					$('.dep_'+elem).parent();
+// 					// console.log($('.dep_'+elem).closest('tr'));
+// 				};
+// 			};
+
+// 	};
+// }
+// >>>>>>> 9b3a1c066cf281876754f40eb9f9711fe5c42562
 
 	function listen_favorites() {
 		$('.js_select').on('click', function() {
