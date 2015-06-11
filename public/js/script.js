@@ -147,7 +147,7 @@ if ('estates'==ROUTE || 'admin_estates'==ROUTE) {
 			for (var j = 0; j < dep.length; j++) {
 				var elem = dep[j];
 				if (estate[elem] == null) {
-					$('.dep_'+elem).parent();
+					$('.dep_'+elem).parent().hide();
 				};
 			}
 		};
