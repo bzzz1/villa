@@ -44,7 +44,8 @@ class EstateSeeder extends Seeder {
 				'price' 		=> min_round($faker->numberBetween(6000, 365000), 3, 2),		
 				'address' 		=> $faker->address,		
 				'longitude' 	=> $faker->longitude,		
-				'latitude' 		=> $faker->latitude,		
+				'latitude' 		=> $faker->latitude,
+				'present'		=> $faker->boolean(80),	
 				'district_id' 	=> $faker->randomElement($ids),		
 			]);
 		}

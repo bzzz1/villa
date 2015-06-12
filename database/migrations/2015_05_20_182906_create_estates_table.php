@@ -28,6 +28,7 @@ class CreateEstatesTable extends Migration {
 			$table->string('address', 256);
 			$table->string('longitude', 32);
 			$table->string('latitude', 32);
+			$table->boolean('present');
 			$table->integer('district_id')->unsigned()->index();
 		});
 	}
