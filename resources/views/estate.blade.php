@@ -61,11 +61,11 @@
 							<td>{{$estate->yard_area}} соток</td>
 						</tr>
 						<tr>
-							<td>Коллическтво комнат</td>
+							<td>Количество комнат</td>
 							<td>{{$estate->rooms}}</td>
 						</tr>
 						<tr>
-							<td>Удаленность от моря</td>
+							<td>Удалённость от моря</td>
 							<td>{{$estate->sea_dist}} м.</td>
 						</tr>
 						<tr>
@@ -77,7 +77,7 @@
 							<td>{{$estate->period}}</td>
 						</tr>
 						<tr>
-							<td>Адресс</td>
+							<td>Адрес</td>
 							<td>{{$estate->address}}</td>
 						</tr>
 					</tbody>

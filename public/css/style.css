@@ -408,12 +408,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* Для Firefox */
+  /* ╨Ф╨╗╤П Firefox */
   -ms-transform: rotate(270deg);
-  /* Для IE */
+  /* ╨Ф╨╗╤П IE */
   -webkit-transform: rotate(270deg);
-  /* Для Safari, Chrome, iOS */
-  /* Для Opera */
+  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
+  /* ╨Ф╨╗╤П Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;

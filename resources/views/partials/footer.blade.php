@@ -7,9 +7,9 @@
 				</a>	
 			</div>
 			<div class="footer_descript left">
-				<p>Агентсво недвижимости</p>
+				<p>Агентство недвижимости</p>
 				<p>"Крым Вилла" предлагает частные</p>
-				<p>дома, котеджы и земельные участи для продажи в Крыму.</p>
+				<p>дома, коттеджы и земельные участки для продажи в Крыму.</p>
 			</div>
 			{{-- UNKOMMENT FOR A SIMPLE NAVBAR IN FOOTER --}}
 			<div class="footer_nav_block">
@@ -27,7 +27,7 @@
 			<div class="copyright">
 				<div class="client_copy">
 					<p>
-						<i class="fa fa-copyright"></i>2015. Krim Villa&nbsp All rights reserved
+						<i class="fa fa-copyright"></i> 2015 Krim Villa&nbsp All rights reserved
 					</p>
 					{{-- <p></p> --}}
 				</div>
