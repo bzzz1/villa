@@ -10,12 +10,16 @@
 	{{ HTML::style('css/vendor/bootstrap.min.css') }}
 	{{ HTML::style('css/vendor/font-awesome.min.css') }}
 	{{ HTML::style('css/vendor/jBox/jBox.css') }}
+	{{ HTML::style('css/vendor/jquery.nouislider.min.css') }}
+
 	
 	{{ HTML::style('css/admin.css') }}
 
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
+	{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
+
 	{{-- {{ HTML::script('ckeditor/ckeditor.js') }} --}}
 	{{ HTML::script('js/vendor/translit.js') }}
 
