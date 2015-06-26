@@ -9,15 +9,16 @@
 			'estate'			=> 'estate',
 			'selected'			=> 'estates',
 			'select_estate' 	=> null,
-			'chnage_estate' 	=> 'admin/estate_change',
+			'change_estate' 	=> 'admin/estate_change',
 			'update_estate' 	=> null,
 			'delete_estate' 	=> null,
 			'create_article'	=> null,
 			'admin_articles'	=> 'admin/articles',
 			'add_article'		=> 'admin/article_add',
 			'articles'			=> 'articles',
-			'article'			=> 'article',
-			'update_article'	=> 'admin/article_change',
+			'article'			=> 'article', 
+			'change_article'	=> 'admin/article_change',
+			'update_article'	=> null,
 			'delete_article'	=> null,
 			'create_town'		=> null,
 			'admin_towns'		=> 'admin/towns',
@@ -157,6 +158,9 @@
 			$length = $borders[$current];
 		}
 
+		if (empty($array)) {
+			$array = [];
+		}
 		return array_slice($array, $start, $length);
 	}
 

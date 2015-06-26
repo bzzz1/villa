@@ -10,14 +10,21 @@
 	{{ HTML::style('css/vendor/bootstrap.min.css') }}
 	{{ HTML::style('css/vendor/font-awesome.min.css') }}
 	{{ HTML::style('css/vendor/jBox/jBox.css') }}
+	{{ HTML::style('css/vendor/dropzone.css') }}
+	{{ HTML::style('css/vendor/jquery.nouislider.min.css') }}
 	
 	{{ HTML::style('css/admin.css') }}
 
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
-	{{-- {{ HTML::script('ckeditor/ckeditor.js') }} --}}
+
+	{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
+
 	{{ HTML::script('js/vendor/translit.js') }}
+	{{ HTML::script('js/vendor/dropzone.js') }}
+	{{ HTML::script('packages/ckeditor/ckeditor.js') }}
+	{{ HTML::script('packages/ckfinder/ckfinder.js') }}
 
 	@yield('css')
 </head>
@@ -34,17 +41,7 @@
 	{{ HTML::script('js/admin.js') }}
 	{{ HTML::script('js/admin_modals.js') }}
 	<script>
-		/*------------------------------------------------
-		| GLOBALS
-		------------------------------------------------*/
-			ROUTE = "{{ r() }}";
-
-			URL_IMG = "{{ url_path('estates') }}"; // resource
-
-			URL_ESTATE = "{{ URL::to('/estates') }}"; // partial
-
-			URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
-		/*----------------------------------------------*/
+		@include('partials/js_globals')
 		@yield('js')
 	</script> 
 	{{ HTML::script('js/script.js') }}

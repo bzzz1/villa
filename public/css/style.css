@@ -408,12 +408,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* ╨Ф╨╗╤П Firefox */
+  /* Для Firefox */
   -ms-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П IE */
+  /* Для IE */
   -webkit-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
-  /* ╨Ф╨╗╤П Opera */
+  /* Для Safari, Chrome, iOS */
+  /* Для Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;
@@ -440,8 +440,9 @@ body {
 /*FLASH MESSAGES*/
 /*MESSAGE*/
 .message {
-  width: 1203px;
+  width: 1012px;
   position: relative;
+  top: 15px;
   display: table;
   margin: auto;
   font-size: 21px;
@@ -1070,6 +1071,16 @@ body {
   overflow: auto;
   background-color: #fff;
   background-image: url(../img/layout/pattern007.png); }
+
+.load_more {
+  padding-bottom: 10px; }
+  .load_more .loader {
+    display: inline-block;
+    display: none;
+    margin: auto; }
+  .load_more .loader_img {
+    display: table;
+    margin: auto; }
 
 .one_item {
   width: 27%;

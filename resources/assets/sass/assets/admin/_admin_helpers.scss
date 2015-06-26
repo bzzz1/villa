@@ -41,3 +41,77 @@
 .browse_img_admin {
 	visibility: hidden;
 }
+
+/* FORM ESTATE & ARTICLE */
+.label_form {
+	font-size: 15px;
+	vertical-align: $align;
+	margin-bottom: 20px;
+	width: 175px; 
+}
+.univers {
+	width: 71%;
+}
+.input_form {
+	line-height: 1.42857143;
+  	color: #555;
+  	background-color: #fff;
+  	background-image: none;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	padding: 2px 5px 2px 5px;	
+}
+.form_block_marg {
+	margin-bottom: $margin;
+}
+.general_float_left {
+	float: left;
+}
+.general_float_right {
+	float: right;
+}
+
+/* ADD FORM DISTRICTS & TOWNS */
+.uni_display {
+  display: $display;
+}
+.uni_title {
+	font-size: 18px;
+	font-weight: bold;
+}
+.uni_block_main {
+	width: 100%;
+	background: $bg;
+	padding: 10px;
+}
+.uni_description_block {
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	font-size: 16px;
+
+	li {
+		text-decoration: none;
+		display: block;
+		overflow: hidden;
+	}
+
+	p {
+		text-decoration: underline;
+	}
+
+	i {
+		color: $color;
+		cursor: pointer;
+	}
+}
+.uni_popup_block {
+	display: none;
+}
+.uni_title_popup {
+	margin-bottom: 20px;
+  	margin-top: 0;
+  	font-size: 20px;
+  	color: #9dcb20;
+}
