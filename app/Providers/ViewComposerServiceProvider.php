@@ -29,7 +29,7 @@ class ViewComposerServiceProvider extends ServiceProvider {
 		});
 
 		// ESTATE
-		view()->composer('estate', function($view) {
+		view()->composer(['estate', 'admin/estate_change'], function($view) {
 			$data = $view->getData();
 			$estate = Estate::where('estate_id', $data['estate_id'])->with('images')->first();
 

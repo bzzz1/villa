@@ -3,12 +3,14 @@
 use Estate;
 use Request;
 use Session;
+use Town;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
 class EstateController extends Controller {
 	public function add_estate() {
-		return v();
+		$towns = Town::with('districts')->get();
+		return v()->with(compact('towns'));
 	}
 	
 	public function create_estate() {
@@ -82,9 +84,10 @@ class EstateController extends Controller {
 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
 	}
 
-	public function delete_estate($estate_id) {
+	public function delete_estate() {
+		$estate_id = Request::input('estate_id');
 		$estate = Estate::find($estate_id);
 		$estate->delete();
-		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
+		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
 }

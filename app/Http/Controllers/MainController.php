@@ -56,10 +56,10 @@ class MainController extends Controller {
 		$data = Request::all();
 
 		Mail::send('emails.feedback', $data, function ($mail) use ($data) {
-			$mail->to($data['email'], $data['name'])->subject('');
+			$mail->to($data['email'], $data['name'])->subject('Feedback');
 		});
 
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', 'Ваше сообщение доставленно!');
 	}
 
 	public function order() {
@@ -69,6 +69,6 @@ class MainController extends Controller {
 			$mail->to($data['email'], $data['name'])->subject('');
 		});
 
-		return redirect()->back()->with('message', '');
+		return redirect()->back()->with('message', 'Заказ оформелн успешно!');
 	}
 }

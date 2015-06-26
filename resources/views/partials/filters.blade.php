@@ -68,7 +68,7 @@
 						<div class="yard_area_slider js_filter_change"></div>
 					</div>
 					<div class="rooms">
-						<p class="filter_heading">Количесвто комнат:</p>
+						<p class="filter_heading">Количество комнат:</p>
 						{{ Form::label('rooms_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('rooms_from', null, ['class'=>'form-control js_range_rooms_from', 'id'=>'rooms_from', 'form'=>'other'])}}
 						{{ Form::label('rooms_to', 'до', ['class'=>'filters_label']) }}
