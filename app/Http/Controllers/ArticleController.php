@@ -2,7 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Request;
 use Article;
 
 class ArticleController extends Controller {
@@ -13,7 +13,7 @@ class ArticleController extends Controller {
 	public function create_article() {
 		$data = Request::all();
 		unset($data['_token']);
-		Article::create($data);
+		$article = Article::create($data);
 		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} добавлена успешно!");
 	}
 
@@ -44,11 +44,13 @@ class ArticleController extends Controller {
 	public function update_article() {
 		$data = Request::all();
 		unset($data['_token']);
-		$estate = Article::find($data['article_id'])->update($data);
+		$article = Article::find($data['article_id']);
+		$article->update($data);
 		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} изменена успешно!");
 	}
 
-	public function delete_article($article_id) {
+	public function delete_article() {
+		$article_id = Request::input('article_id');
 		$article = Article::find($article_id);
 		$article->delete();
 		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} удалена успешно!");

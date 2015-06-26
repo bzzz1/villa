@@ -1,0 +1,77 @@
+.main_block {
+	overflow: auto;
+}
+.label_estate_width {
+	width: 67px;
+}
+.label_class_form {
+	width: 140px;
+  	margin-left: 25px;
+}
+.commercial_estate {  
+	width: 115px;
+}
+.input_number_form_estate {
+	width: 101px;
+}
+.input_form_description {
+	width: 530px;
+}
+.form_dropzone {
+	height: 100px;
+	width: 100%;
+	border: 1px solid #000;
+}
+.title_dropzone {
+	font-weight: bold;
+	color: #333;
+}
+.select_place_uni {
+	width: 72%;
+}
+.admin_article_style {
+  	font-size: 17px;
+  	color: $color;
+  	cursor: pointer;
+  	&:hover {
+  		text-decoration: none;
+  		color: $color;
+  		cursor: pointer;
+  	}
+}
+.article_image {
+  	max-width: 300px;
+  	max-height: 225px;
+}
+.article_one_block {
+	width: 300px;
+}
+.first_colum_article {
+	margin-left: 15px;
+}
+.article_one_block {
+	margin-bottom: 25px;
+	height: 311px;
+}
+// .admin_article_title {
+// 	width: 300px;
+// 	white-space: normal;
+// 	overflow: hidden; 
+// 	text-overflow: ellipsis;
+// 	margin: 10px 0 10px 0;
+// }
+.article_image {
+	display: table;
+	margin: auto;
+}
+.block_img {
+	background-color: #ececec;
+	max-width: 300px;
+	max-height: 225px;
+	min-width: 300px;
+	min-height: 225px;
+}
+
+.period_block {
+	display: none;
+}

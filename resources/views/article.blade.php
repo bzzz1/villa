@@ -16,9 +16,9 @@
 		</div>
 		<div class="article">
 			{{$article->body}}
-		<div class="to_all">
-			<a href="{{l('articles')}}">Перейти к списку новостей <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
-		</div>
+			<div class="to_all">
+				<a href="{{l('articles')}}">Перейти к списку новостей <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
+			</div>
 		</div>
 	</div>
 @stop

@@ -19,6 +19,9 @@
 		{{ HTML::script('js/vendor/bootstrap.min.js') }}
 		{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
 		{{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp') }}
+		{{ HTML::script('js/vendor/parsley.min.js') }}
+		{{ HTML::script('js/vendor/parsley_i18n_ru.js') }}
+		
 		{{ HTML::script('js/vendor/fotorama.js') }}
 		{{ HTML::script('js/vendor/jBox.min.js') }}
 		{{ HTML::script('js/vendor/translit.js') }}
@@ -38,28 +41,7 @@
 		{{-- {{ HTML::script('js/navigation.js') }} --}}
 
 		<script>
-			/*------------------------------------------------
-			| GLOBALS
-			------------------------------------------------*/
-				ROUTE = "{{ r() }}";
-
-				URL_IMG = "{{ url_path('estates') }}"; // resource
-
-				URL_ESTATE = "{{ URL::to('/estates') }}"; // partial
-
-				URL_ESTATE_ADMIN = "{{ URL::to('/admin/change_estate/') }}"; // admin
-
-				URL_AJAX_SELECT = "{{ URL::to('/ajax_select_estate') }}";
-				// PUBLIC = "{{public_path()}}"
-
-				URL_ESTATE_ADMIN = "{{ URL::to('/admin/change_estate') }}"; // admin
-
-				URL_ESTATE_ADMIN_DELETE = "{{ URL::to('/admin/delete_estate') }}"; // delete
-				
-
-				URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
-
-			/*----------------------------------------------*/
+			@include('partials/js_globals')
 			@yield('js')
 		</script> 
 		{{ HTML::script('js/script.js') }}

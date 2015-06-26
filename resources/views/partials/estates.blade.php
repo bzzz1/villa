@@ -86,7 +86,3 @@
 		</div>
 	@endif	
 @stop
-@section ('js')
-	TOWNS = <?php echo json_encode($towns) ?>;
-	EXTREMES = <?php echo json_encode($extremes) ?>;
-@stop

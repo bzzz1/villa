@@ -25,6 +25,7 @@ class CreateEstatesTable extends Migration {
 			$table->string('type', 32);
 			$table->string('period', 64)->nullable();
 			$table->integer('price');
+			$table->boolean('present');
 			$table->string('address', 256);
 			$table->string('longitude', 32);
 			$table->string('latitude', 32);
