@@ -1,8 +1,14 @@
 <div class="article_one_block">
-	<div class="block_img">
-		<img src="{{ url_path('articles')."/$article->preview" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">		
-	</div>
-	<div class="admin_article_title">
+	@if (true == $article->preview ) 
+		<div class="block_img">
+			<img src="{{ url_path('articles')."/$article->preview" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">		
+		</div>
+	@else 
+		<div class="block_img">
+			<img src="{{ url_path('articles')."/alien.png" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">		
+		</div>
+	@endif	
+	<div class="admin_article_title height_overflow">
 		<a href='{{URL::to("admin/change_article/$article->article_id")}}' class="admin_article_title_1">{{$article->title}}
 		</a>
 	</div> 						

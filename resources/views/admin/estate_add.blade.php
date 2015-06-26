@@ -56,22 +56,22 @@
 						{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form']) }}
 						<input type="text" id="price" name="price" value="" class="input_form input_number_form_estate">
 					</div>
-					<div class="general_float_right">
+					<div class="general_float_right js_period period_block">
 						{{ Form::label('period', 'Период аренды', ['class' => 'label_form']) }}
 						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form_estate input_number_form_estate', 'required']) }}
 					</div>
 				</div>
 
 				<div class="general_float_right">
-					<div>
+					<div class="js_house_area">
 						<label for="house_area" name="house_area" class="label_form">Площадь помещения (м<sup>2</sup>)</label>
 						<input type="number" required id="house_area" name="house_area" class="input_form input_number_form_estate">				
 					</div>
-					<div>
-						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form']) }}
-						<input type="number" required id="rooms" name="rooms" class="input_form input_number_form_estate">
+					<div class="js_rooms">
+						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form js_rooms']) }}
+						<input type="number" required id="rooms" name="rooms" class="input_form input_number_form_estate js_rooms">
 					</div>
-					<div>
+					<div class="js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form">Площадь участка (соток)</label>
 						<input type="number" required id="yard_area" name="yard_area" class="input_form input_number_form_estate">
 					</div>

@@ -10,7 +10,7 @@ class Face {
 	 * @param  string  $id
 	 * @param  boolean $confirm
 	 * @param  array   $attributes
-	 * @retrurn DeleteForm
+	 * @return DeleteForm
 	 */
 	public static function delete($entity, $id, $confirm, $attributes=[]) {
 		if (isset($attributes['class'])) {
@@ -32,7 +32,38 @@ class Face {
 		$html .= Form::close();
 
 		return $html;
-	}
+	}	
+
+	/**
+	 * Build a changing form with icon.
+	 *
+	 * @param  string  $entity
+	 * @param  string  $id
+	 * @param  boolean $confirm
+	 * @param  array   $attributes
+	 * @return ChangeForm
+	 */
+	public static function change($entity, $id, $confirm, $attributes=[]) {
+		if (isset($attributes['class'])) {
+			$attributes['class'] .= ' fa fa-times js_delete';
+		} else {
+			$attributes['class'] = ' fa fa-times js_delete';
+		}
+
+		if ($confirm) {
+			$attributes['data-confirm'] = 'Вы действительно хотите это сделать?';
+		}
+
+		$attr = static::attributes($attributes);
+
+		$html = '';
+		$html .= Form::open(['url' => l('delete_'.$entity), 'method' => 'POST', 'class'=>'js_delete_form', 'data-id'=>$id]);
+		$html .= Form::hidden($entity.'_id', $id);
+		$html .= "<i {$attr}></i>";
+		$html .= Form::close();
+
+		return $html;
+	}	
 
 	private static function attributes($attributes) {
 		$html = array();

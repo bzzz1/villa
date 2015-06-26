@@ -17,7 +17,7 @@
 
 <div id="change_district_town" class="uni_popup_block">
 	{{ Form::open(['url'=>l('update_town'), 'method' => 'post']) }}
-		{{ Form::hidden('town') }}
+		{{ Form::hidden('town_id', null, ['class' => 'js_town_id'] ) }}
 		<h2 class="uni_title_popup">
 			Изменить город
 		</h2>

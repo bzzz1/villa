@@ -44,7 +44,8 @@ class ArticleController extends Controller {
 	public function update_article() {
 		$data = Request::all();
 		unset($data['_token']);
-		$article = Article::find($data['article_id'])->update($data);
+		$article = Article::find($data['article_id']);
+		$article->update($data);
 		return redirect()->back()->with('message', "Новость \"{$article->title}\" #{$article->article_id} изменена успешно!");
 	}
 

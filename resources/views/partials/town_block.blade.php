@@ -1,4 +1,4 @@
-<li class="oneitem" data-id = {{ $town->town_id }}>
+<li class="oneitem">
 	<div class="li_div">
 		<div>
 			<p class="general_float_left js_item_title">
@@ -7,7 +7,7 @@
 		</div>
 	 	<div class="general_float_right">
 			<span  class="town_districtModal">
-				<i class="fa fa-pencil js_change">
+				<i class="fa fa-pencil js_change" data-town-id = "{{ $town->town_id }}">
 				</i>
 			</span>
 			<div class="uni_display">

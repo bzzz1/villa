@@ -21,7 +21,8 @@ class DistrictController extends Controller {
 		return v()->with(compact('towns')); 
 	}
 
-	public function update_district($district_id) {
+	public function update_district() {
+		$district_id = Request::input('district_id');
 		$data = Request::all();
 		unset($data['_token']);
 		$district = District::with('town')->find($district_id);

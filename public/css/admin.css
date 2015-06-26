@@ -887,13 +887,6 @@ footer {
   margin-bottom: 25px;
   height: 311px; }
 
-.admin_article_title {
-  width: 300px;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 10px 0 10px 0; }
-
 .article_image {
   display: table;
   margin: auto; }
@@ -904,6 +897,9 @@ footer {
   max-height: 225px;
   min-width: 300px;
   min-height: 225px; }
+
+.period_block {
+  display: none; }
 
 /* ADD_DISTRICTS & ADD TOWNS */
 .block_marg {
