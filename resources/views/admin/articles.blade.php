@@ -11,20 +11,22 @@
 			<h4 class="admin_one_cat_heading uni_title">Новости</h4>
 		</div>
 		<div class="uni_block_main">
-			<div class="first_column first_colum_article uni_description_block">
-				@foreach (columnize($articles, 3, 1) as $article)
-					@include('partials/article_block')
-				@endforeach
-			</div>
-			<div class="second_column uni_description_block">
-				@foreach (columnize($articles, 3, 2) as $article)
-					@include('partials/article_block')
-				@endforeach
-			</div>
-			<div class="third_column uni_description_block">
-				@foreach (columnize($articles, 3, 3) as $article)
-					@include('partials/article_block')
-				@endforeach
+			<div class="article_center">
+				<div class="article_columns uni_description_block">
+					@foreach (columnize($articles, 3, 1) as $article)
+						@include('partials/article_block')
+					@endforeach
+				</div>
+				<div class="article_columns uni_description_block">
+					@foreach (columnize($articles, 3, 2) as $article)
+						@include('partials/article_block')
+					@endforeach
+				</div>
+				<div class="article_columns uni_description_block">
+					@foreach (columnize($articles, 3, 3) as $article)
+						@include('partials/article_block')
+					@endforeach
+				</div>	
 			</div>
 		</div>
 	</div>

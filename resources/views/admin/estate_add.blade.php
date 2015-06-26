@@ -58,7 +58,7 @@
 					</div>
 					<div class="general_float_right js_period period_block">
 						{{ Form::label('period', 'Период аренды', ['class' => 'label_form']) }}
-						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form_estate input_number_form_estate', 'required']) }}
+						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form input_number_form_estate', 'required']) }}
 					</div>
 				</div>
 
@@ -105,7 +105,7 @@
 			<h4 class="title_dropzone">
 				Поле для загрузки картинок. Кликните на поле или перетащите картинку.
 			</h4>
-			<form action="upload.php" class="dropzone form_dropzone" id="my-awesome-dropzone">
+			<form action="upload.php" class="dropzone dz-clickable form_dropzone" id="my-awesome-dropzone">
 			</form>
 		</div>
 	</div>

@@ -1,3 +1,5 @@
+$color_black: #333;
+
 .main_block {
 	overflow: auto;
 }
@@ -18,9 +20,8 @@
 	width: 530px;
 }
 .form_dropzone {
-	height: 100px;
-	width: 100%;
-	border: 1px solid #000;
+	border: 2px dashed #0087F7;
+  	border-radius: 5px;
 }
 .title_dropzone {
 	font-weight: bold;
@@ -46,20 +47,22 @@
 .article_one_block {
 	width: 300px;
 }
-.first_colum_article {
-	margin-left: 15px;
-}
 .article_one_block {
 	margin-bottom: 25px;
 	height: 311px;
 }
-// .admin_article_title {
-// 	width: 300px;
-// 	white-space: normal;
-// 	overflow: hidden; 
-// 	text-overflow: ellipsis;
-// 	margin: 10px 0 10px 0;
-// }
+.article_block_title {
+	width: 300px;
+    padding: 5px; 
+
+}
+.admin_article_title {
+	font-size: 20px;
+	color: $color_black; 	
+	&:hover {
+		color: $color_black;
+	}
+}
 .article_image {
 	display: table;
 	margin: auto;
@@ -71,11 +74,14 @@
 	min-width: 300px;
 	min-height: 225px;
 }
-
 .period_block {
 	display: none;
 }
-
-.admin_article_title {
-	@include height_overflow(item_descr, 100px, 20px, $item_background, 75%, $item_background);
+.article_columns {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.article_center {
+	display: table;
+	margin: auto;
 }
