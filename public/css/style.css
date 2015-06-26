@@ -1072,6 +1072,16 @@ body {
   background-color: #fff;
   background-image: url(../img/layout/pattern007.png); }
 
+.load_more {
+  padding-bottom: 10px; }
+  .load_more .loader {
+    display: inline-block;
+    display: none;
+    margin: auto; }
+  .load_more .loader_img {
+    display: table;
+    margin: auto; }
+
 .one_item {
   width: 27%;
   background-color: #d9e7f1;

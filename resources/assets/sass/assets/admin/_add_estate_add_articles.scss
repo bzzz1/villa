@@ -75,3 +75,7 @@
 .period_block {
 	display: none;
 }
+
+.admin_article_title {
+	@include height_overflow(item_descr, 100px, 20px, $item_background, 75%, $item_background);
+}

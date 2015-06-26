@@ -507,6 +507,16 @@ header {
   background-color: #fff;
   background-image: url(../img/layout/pattern007.png); }
 
+.load_more {
+  padding-bottom: 10px; }
+  .load_more .loader {
+    display: inline-block;
+    display: none;
+    margin: auto; }
+  .load_more .loader_img {
+    display: table;
+    margin: auto; }
+
 .one_item {
   width: 27%;
   background-color: #d9e7f1;
@@ -1046,6 +1056,43 @@ footer {
 
 .period_block {
   display: none; }
+
+.admin_article_title .item_descr {
+  overflow: hidden;
+  max-height: 100px;
+  min-height: 100px; }
+  .admin_article_title .item_descr:before {
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 2;
+    height: 20px;
+    top: 80px;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #d9e7f1 75%); }
+  .admin_article_title .item_descr:hover + .full {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    background-color: #d9e7f1;
+    height: auto;
+    width: auto;
+    max-height: initial; }
+    .admin_article_title .item_descr:hover + .full:before {
+      visibility: hidden; }
+.admin_article_title .full:hover {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  background-color: #d9e7f1;
+  height: auto;
+  width: auto;
+  max-height: initial; }
+  .admin_article_title .full:hover:before {
+    visibility: hidden; }
 
 /* ADD_DISTRICTS & ADD TOWNS */
 .block_marg {

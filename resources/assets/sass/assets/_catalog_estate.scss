@@ -15,7 +15,18 @@ $item_img_height: 225px;
 	background-color: $catalog_background;
 	background-image: url(../img/layout/pattern007.png);
 }
-
+.load_more {
+	padding-bottom: 10px;
+	.loader {
+		display: inline-block;
+		display: none;
+		margin: auto;
+	}
+	.loader_img {
+		display: table;
+		margin: auto;
+	}
+}
 .one_item {
 	width: 27%;
 	background-color: $item_background;
