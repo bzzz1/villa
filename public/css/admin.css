@@ -536,7 +536,7 @@ header {
   float: left; }
   .one_item .img {
     background-color: #d9e7f1;
-    max-width: 300px;
+    max-width: 100%;
     max-height: 225px;
     min-width: 100%;
     min-height: 225px;
@@ -578,7 +578,7 @@ header {
     .one_item .img .added_to {
       display: none; }
   .one_item .item_img {
-    max-width: 300px;
+    max-width: 100%;
     max-height: 225px;
     display: table;
     margin: auto; }
