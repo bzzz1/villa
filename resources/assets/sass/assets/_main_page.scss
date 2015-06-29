@@ -74,6 +74,18 @@
 .full_blue {
 	width: 100%;
 	background-color: $main_blue;
+	// height: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	.more_btn {
+		margin-top: 0;
+		background-color: $main_green;
+		// color: $main_black;
+		&:hover {
+			background-color: darken($main_green, 10%);
+			// color: #fff;
+		}
+	}
 }
 .pre_footer_full {
 	background-image: url(../img/layout/pattern007.png);
