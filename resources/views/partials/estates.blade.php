@@ -70,7 +70,13 @@
 	@include('partials/catalog_estate')
 	@if(r() != 'admin_estates')
 	<div class="full_blue">
-		@include('partials/pagination')
+		<div class="load_more">
+			<a class="btn more_btn js_load_more">Загрузить еще</a>
+			<div class="loader js_loader">
+				{{HTML::image('img/layout/loader.gif', 'loader_img')}}
+			</div>
+		</div>
+		{{-- @include('partials/pagination') --}}
 	</div>
 	@else 
 		@include('partials/pagination')

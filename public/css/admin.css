@@ -107,7 +107,6 @@ body {
 .browse_img_admin {
   visibility: hidden; }
 
-/* DISPLAY */
 .uni_display {
   display: inline-block; }
 
@@ -374,38 +373,36 @@ header {
   background-image: url(../img/layout/pattern007.png);
   margin-top: 1px; }
 
-#carousel_estate {
-  width: 1203px;
+#carousel_estate .carousel-inner .item img {
   display: table;
-  margin: auto; }
-  #carousel_estate .carousel-inner .item img {
-    display: table;
-    margin: auto;
-    min-height: 350px;
-    max-height: 350px;
-    min-width: 100%; }
-  #carousel_estate .carousel-inner .item .carousel-caption {
-    text-align: right;
-    top: -1%;
-    right: 7%;
-    color: #222;
-    font-weight: 200;
-    text-shadow: none; }
-    #carousel_estate .carousel-inner .item .carousel-caption h3 {
-      margin-top: 10px; }
-  #carousel_estate .fa {
-    position: absolute;
-    top: 50%; }
+  margin: auto;
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 100%; }
+#carousel_estate .carousel-inner .item .carousel-caption {
+  text-align: right;
+  top: -1%;
+  right: 7%;
+  color: #fff;
+  font-weight: 200;
+  text-shadow: none; }
+  #carousel_estate .carousel-inner .item .carousel-caption h3 {
+    margin-top: 10px; }
+#carousel_estate .fa {
+  position: absolute;
+  top: 50%; }
 
 .map_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .map {
   width: 1203px;
   display: table;
   margin: auto;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 50px;
   background-image: url(../img/layout/pattern007.png); }
   .map .results_heading {
@@ -430,10 +427,20 @@ header {
 
 .full_blue {
   width: 100%;
-  background-color: #073559; }
+  background-color: #073559;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  float: left; }
+  .full_blue .more_btn {
+    margin-top: 0;
+    background-color: #9dcb20; }
+    .full_blue .more_btn:hover {
+      background-color: #7b9f19; }
 
 .pre_footer_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .pre_footer {
   background-image: url(../img/layout/footer007.png);
@@ -442,7 +449,9 @@ header {
   height: 300px; }
 
 .catalog_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .catalog_blocks {
   width: 1203px;
@@ -613,8 +622,8 @@ header {
   width: 1203px;
   display: table;
   margin: auto;
-  padding: 50px 40px 53px 40px;
-  min-height: 651px; }
+  padding: 50px 40px 13px 40px;
+  min-height: 477px; }
   .filters h3 {
     text-transform: uppercase;
     color: #fff;
@@ -679,20 +688,32 @@ header {
     width: 430px;
     float: right; }
 
-.city {
-  margin-bottom: 30px; }
+.district {
+  margin-top: 30px; }
 
 .select_city,
 .select_district {
   float: right; }
 
 .draggers {
-  margin-top: 60px; }
+  margin-top: 25px; }
 
 .filter_heading {
   color: #fff;
   font-size: 20px;
   font-weight: 200; }
+
+.more_filters, .less_filters {
+  text-decoration: underline;
+  color: #073559;
+  font-size: 24px;
+  font-weight: 200;
+  cursor: pointer;
+  display: table;
+  margin: auto; }
+
+.less_filters {
+  opacity: 0; }
 
 .first_line,
 .second_line {
@@ -700,6 +721,10 @@ header {
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px; }
+
+.second_line {
+  height: 0;
+  padding: 0; }
 
 .house_area,
 .yard_area,

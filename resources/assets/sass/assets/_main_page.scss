@@ -4,9 +4,9 @@
 	margin-top: 1px;
 }
 #carousel_estate {
-	width: $main_width;
-	display: table;
-	margin: auto;
+	// width: $main_width;
+	// display: table;
+	// margin: auto;
 	.carousel-inner {
 		.item {
 			img {
@@ -20,7 +20,7 @@
 				text-align: right;
 				top: -1%;
 				right: 7%;
-				color: $main_black;
+				color: #fff;
 				font-weight: 200;
 				text-shadow: none;
 				h3 {
@@ -36,13 +36,15 @@
 }
 .map_full {
 	background-image: url(../img/layout/pattern007.png);
+	width: 100%;
+	float: left;
 }
 .map {
 	width: $main_width;
 	display: table;
 	margin: auto;
 	text-align: center;
-	padding-top: 50px;
+	padding-top: 30px;
 	padding-bottom: 50px;
 	background-image: url(../img/layout/pattern007.png);
 	.results_heading {
@@ -74,9 +76,24 @@
 .full_blue {
 	width: 100%;
 	background-color: $main_blue;
+	// height: 10px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	float: left;
+	.more_btn {
+		margin-top: 0;
+		background-color: $main_green;
+		// color: $main_black;
+		&:hover {
+			background-color: darken($main_green, 10%);
+			// color: #fff;
+		}
+	}
 }
 .pre_footer_full {
 	background-image: url(../img/layout/pattern007.png);
+	width: 100%;
+	float: left;
 }
 .pre_footer {
 	// img {

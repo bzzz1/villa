@@ -48,7 +48,7 @@
 						<div class="sea_dist_slider js_filter_change"></div>
 					</div>
 					<div class="house_area">
-						<p class="filter_heading">Площадь дома:</p>
+						<p class="filter_heading">Площадь:</p>
 						{{ Form::label('house_area_from', 'от', ['class'=>'filters_label']) }}
 						{{ Form::text('house_area_from', null, ['class'=>'form-control js_range_house_area_from', 'id'=>'house_area_from', 'form'=>'other'])}}
 						{{ Form::label('house_area_to', 'до', ['class'=>'filters_label']) }}
@@ -57,7 +57,7 @@
 						<div class="house_area_slider js_filter_change"></div>
 					</div>
 				</div>
-				<div class="second_line">
+				<div class="second_line js_second_line">
 					<div class="yard_area">
 						<p class="filter_heading">Площадь участка:</p>
 						{{ Form::label('yard_area_from', 'от', ['class'=>'filters_label']) }}
@@ -77,6 +77,8 @@
 						<div class="rooms_slider js_filter_change"></div>
 					</div>
 				</div>
+				<a class="more_filters js_show_filters">Показать больше фильтров</a>
+				<a class="less_filters js_hide_filters">Скрыть фильтры</a>
 		</div>
 	</div>
 </div>	
