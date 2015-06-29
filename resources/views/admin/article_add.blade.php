@@ -14,7 +14,7 @@
 		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
 			<div>
 				{{ Form::label('title', 'Заголовок', ['class' => 'label_form']) }}
-				{{ Form::text('title', null, ['class' => 'input_form univers', 'required']) }}
+				{{ Form::text('title', null, ['class' => 'input_form uni_input_select_width', 'required']) }}
 			</div>
 			<div class="form_block_marg">
 				{{ Form::label('body', 'Описание', ['class' => 'label_form']) }}
@@ -31,10 +31,15 @@
 			</div>
 		{{ Form::close() }}
 		<div>
-			<h4 class="title_dropzone">
-				Поле для загрузки картинок. Кликните на поле или перетащите картинку.
+			<h4 class="title_dropzone_form">
+				Добавление файлов 
 			</h4>
-			<form action="upload.php" class="dropzone form_dropzone" id="my-awesome-dropzone">
+			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
+				<div class="dz-default dz-message" data-dz-message>
+					<p class="title_dropzone">						
+						Перетащите файлы или кликните для загрузки здесь.
+					</p>
+				</div>
 			</form>
 		</div>
 	</div>

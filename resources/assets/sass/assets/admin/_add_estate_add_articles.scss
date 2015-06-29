@@ -9,6 +9,7 @@ $color_black: #333;
 .label_class_form {
 	width: 140px;
   	margin-left: 25px;
+  	margin-right: 51px;
 }
 .commercial_estate {  
 	width: 115px;
@@ -18,17 +19,6 @@ $color_black: #333;
 }
 .input_form_description {
 	width: 530px;
-}
-.form_dropzone {
-	border: 2px dashed #0087F7;
-  	border-radius: 5px;
-}
-.title_dropzone {
-	font-weight: bold;
-	color: #333;
-}
-.select_place_uni {
-	width: 72%;
 }
 .admin_article_style {
   	font-size: 17px;
@@ -46,6 +36,18 @@ $color_black: #333;
 }
 .article_one_block {
 	width: 300px;
+}
+.commercial_block_marg {
+	margin-right: 199px;
+}
+.longitude_block_marg {
+	margin-right: 227px;
+}
+.uni_select_period_width {
+	width: 165px;
+}
+.select_block_marg {
+	margin-right: 225px;
 }
 .article_one_block {
 	margin-bottom: 25px;
@@ -84,4 +86,33 @@ $color_black: #333;
 .article_center {
 	display: table;
 	margin: auto;
+}
+.label_form_present {
+	font-weight: 400;
+	font-size: 15px;
+	margin: 0 23px 15px 0;
+	vertical-align: -webkit-baseline-middle;	
+}
+
+// Dropzone style
+.dropzone_form_block {
+	min-height: 200px;
+}
+.title_dropzone {
+	text-align: center;
+  	margin: 1em 0;
+  	font-weight: bold;
+  	font-size: 25px;
+  	color: #646C7F;
+  	cursor: pointer;
+}
+.form_dropzone {
+	border: 2px dashed #0087F7;
+  	border-radius: 5px;
+}
+.title_dropzone_form {
+	margin: 20px 0 20px 0;
+	font-weight: bold;
+	color: $color_black;
+	font-size: 15px;
 }

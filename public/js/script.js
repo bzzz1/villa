@@ -272,6 +272,8 @@ DependenciesAdmin = {
 			}
 			if ('rent'==commercial) {
 				$('.js_period').css('display', 'block');
+			} else {
+				$('.js_period').css('display', 'none');
 			}
 		});
 
@@ -284,10 +286,9 @@ DependenciesAdmin = {
 			else if ('parcel'==type) {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
-				$('.js_period').hide();
 				$('.js_house_area').attr('form', 'other');
 				$('.js_rooms').attr('form', 'other');
-			} 
+			}
 			else {
 				$('.js_yard_area').slideDown();
 				$('.js_house_area').slideDown();
