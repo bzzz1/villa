@@ -38,7 +38,7 @@ $item_img_height: 225px;
 		background-color: #d9e7f1;
 		max-width: $item_img_width;
 		max-height: $item_img_height;
-		min-width: $item_img_width;
+		min-width: 100%;
 		min-height: $item_img_height;
 		display: table;
 		margin: auto;

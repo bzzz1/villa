@@ -112,10 +112,16 @@ body {
   font-size: 15px;
   vertical-align: top;
   margin-bottom: 20px;
-  width: 175px; }
+  width: 190px; }
 
-.univers {
-  width: 71%; }
+.uni_input_select_width {
+  width: 79%; }
+
+.uni_select_commercial_type {
+  width: 165px; }
+
+.uni_select_width {
+  width: 165px; }
 
 .input_form {
   line-height: 1.42857143;
@@ -230,12 +236,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* Для Firefox */
+  /* ╨Ф╨╗╤П Firefox */
   -ms-transform: rotate(270deg);
-  /* Для IE */
+  /* ╨Ф╨╗╤П IE */
   -webkit-transform: rotate(270deg);
-  /* Для Safari, Chrome, iOS */
-  /* Для Opera */
+  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
+  /* ╨Ф╨╗╤П Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;
@@ -997,7 +1003,8 @@ footer {
 
 .label_class_form {
   width: 140px;
-  margin-left: 25px; }
+  margin-left: 25px;
+  margin-right: 51px; }
 
 .commercial_estate {
   width: 115px; }
@@ -1007,18 +1014,6 @@ footer {
 
 .input_form_description {
   width: 530px; }
-
-.form_dropzone {
-  height: 100px;
-  width: 100%;
-  border: 1px solid #000; }
-
-.title_dropzone {
-  font-weight: bold;
-  color: #333; }
-
-.select_place_uni {
-  width: 72%; }
 
 .admin_article_style {
   font-size: 17px;
@@ -1036,12 +1031,31 @@ footer {
 .article_one_block {
   width: 300px; }
 
-.first_colum_article {
-  margin-left: 15px; }
+.commercial_block_marg {
+  margin-right: 199px; }
+
+.longitude_block_marg {
+  margin-right: 227px; }
+
+.uni_select_period_width {
+  width: 165px; }
+
+.select_block_marg {
+  margin-right: 225px; }
 
 .article_one_block {
   margin-bottom: 25px;
   height: 311px; }
+
+.article_block_title {
+  width: 300px;
+  padding: 5px; }
+
+.admin_article_title {
+  font-size: 20px;
+  color: #333; }
+  .admin_article_title:hover {
+    color: #333; }
 
 .article_image {
   display: table;
@@ -1056,6 +1070,41 @@ footer {
 
 .period_block {
   display: none; }
+
+.article_columns {
+  margin-right: 4px;
+  margin-left: 4px; }
+
+.article_center {
+  display: table;
+  margin: auto; }
+
+.label_form_present {
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0 23px 15px 0;
+  vertical-align: -webkit-baseline-middle; }
+
+.dropzone_form_block {
+  min-height: 200px; }
+
+.title_dropzone {
+  text-align: center;
+  margin: 1em 0;
+  font-weight: bold;
+  font-size: 25px;
+  color: #646C7F;
+  cursor: pointer; }
+
+.form_dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px; }
+
+.title_dropzone_form {
+  margin: 20px 0 20px 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 15px; }
 
 /* ADD_DISTRICTS & ADD TOWNS */
 .block_marg {

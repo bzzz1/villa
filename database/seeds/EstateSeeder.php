@@ -45,7 +45,8 @@ class EstateSeeder extends Seeder {
 				'address' 		=> $faker->address,
 				'present'		=> $faker->boolean(70),
 				'longitude' 	=> $faker->longitude,		
-				'latitude' 		=> $faker->latitude,		
+				'latitude' 		=> $faker->latitude,
+				'present'		=> $faker->boolean(80),	
 				'district_id' 	=> $faker->randomElement($ids),		
 			]);
 		}
