@@ -11,13 +11,9 @@ $main_black: #222;
 $active_background: lighten($main_black, 20%);
 $text: #eee;
 $main_font: 'PT Sans', sans-serif;
-$align: top;
 $color: #212121;
 $display: inline-block;
-$margin: 20px;
-$display: inline-block;
 $bg: #ececec;
-$color: #9dcb20;
 
 // GENERAL
 /*GENERAL*/
@@ -109,10 +105,19 @@ $admin_modal_title_background: red;
 @import "assets/admin/admin";
 
 
-//ADD_ESTATE & ADD_ARTICLE
-/* ADD_ESTATE & ADD_ARTICLE */
-@import "assets/admin/add_estate_add_articles";
+//ADD_ESTATE & CHANGE_ESTATE
+/* ADD_ESTATE & ADD_ESTATE */
+@import "assets/admin/add_estate_change_estate";
+
+
+//ADD_ARTICLE & CHANGE_ARTICLE
+/* ADD_ARTICLE & CHANGE_ARTICLE */
+@import "assets/admin/add_article_change_article";
 
 //ADD_DISTRICTS & ADD TOWNS
 /* ADD_DISTRICTS & ADD TOWNS */
-@import "assets/admin/add_districts_add_towns"
+@import "assets/admin/add_districts_add_towns";
+
+//POPUP STYLE
+/* POPUP Style */
+@import "assets/admin/popup_style";

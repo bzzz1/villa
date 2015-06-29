@@ -1,11 +1,11 @@
 <li class="oneitem">
 	<div class="li_div">
 		<div>
-			<p class="general_float_left js_item_title">
+			<p class="fl js_item_title">
 				{{ $town->town }}
 			</p>
 		</div>
-	 	<div class="general_float_right">
+	 	<div class="fr">
 			<span  class="town_districtModal">
 				<i class="fa fa-pencil js_change" data-town-id = "{{ $town->town_id }}">
 				</i>

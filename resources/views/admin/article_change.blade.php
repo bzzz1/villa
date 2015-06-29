@@ -32,10 +32,15 @@
 			</div>
 		{{ Form::close() }}
 		<div>
-			<h4 class="title_dropzone">
-				Поле для загрузки картинок. Кликните на поле или перетащите картинку.
+			<h4 class="title_dropzone_form">
+				Добавление файлов 
 			</h4>
-			<form action="upload.php" class="dropzone form_dropzone" id="my-awesome-dropzone">
+			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
+				<div class="dz-default dz-message" data-dz-message>
+					<p class="title_dropzone">						
+						Перетащите файлы или кликните для загрузки здесь.
+					</p>
+				</div>
 			</form>
 		</div>
 	</div>

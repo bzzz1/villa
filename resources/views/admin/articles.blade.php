@@ -12,17 +12,17 @@
 		</div>
 		<div class="uni_block_main">
 			<div class="article_center">
-				<div class="article_columns uni_description_block">
+				<div class="article_columns description_block_uni">
 					@foreach (columnize($articles, 3, 1) as $article)
 						@include('partials/article_block')
 					@endforeach
 				</div>
-				<div class="article_columns uni_description_block">
+				<div class="article_columns description_block_uni">
 					@foreach (columnize($articles, 3, 2) as $article)
 						@include('partials/article_block')
 					@endforeach
 				</div>
-				<div class="article_columns uni_description_block">
+				<div class="article_columns description_block_uni">
 					@foreach (columnize($articles, 3, 3) as $article)
 						@include('partials/article_block')
 					@endforeach

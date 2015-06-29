@@ -1,0 +1,67 @@
+/* Articles & Change_article */
+.form_block_marg {
+	margin-bottom: 20px;
+} 
+.admin_article_style {
+  	font-size: 17px;
+  	color: $main-green;
+  	cursor: pointer;
+  	&:hover {
+  		text-decoration: none;
+  		color: $color;
+  		cursor: pointer;
+  	}
+}
+.article_image {
+  	max-width: 300px;
+  	max-height: 225px;
+}
+.article_one_block {
+	width: 300px;
+}
+.article_one_block {
+	margin-bottom: 25px;
+	height: 311px;
+}
+.article_block_title {
+	width: 300px;
+    padding: 5px; 
+
+}
+.admin_article_title {
+	font-size: 20px;
+	color: #333; 	
+	&:hover {
+		color: #333;
+	}
+}
+.article_image {
+	display: table;
+	margin: auto;
+}
+.block_img {
+	background-color: $bg;
+	max-width: 300px;
+	max-height: 225px;
+	min-width: 300px;
+	min-height: 225px;
+}
+.article_columns {
+	margin-right: 4px;
+	margin-left: 4px;
+}
+.article_center {
+	display: table;
+	margin: auto;
+}
+.description_block_uni {
+	width: 300px;
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+	font-size: 16px;
+	i {
+		color: $main-green;
+		cursor: pointer;
+	}
+}

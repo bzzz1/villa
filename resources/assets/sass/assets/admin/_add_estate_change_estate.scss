@@ -1,0 +1,67 @@
+/* Add_Estate & Change_Estate */
+
+.display_block_width {
+	display: inline-block;
+	width: 61%;
+}
+.label_form {
+	font-size: 15px;
+	vertical-align: top;
+	margin-bottom: 20px;
+	width: 190px; 
+}
+.input_form {
+	line-height: 1.42857143;
+  	color: #555;
+  	background-color: #fff;
+  	background-image: none;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+  	padding: 2px 5px 2px 5px;	
+}
+.input_select_width {
+	width: 79%;
+}
+.estate_blocks {
+	overflow: hidden;
+}
+.estate_block_width {
+	width: 49%;
+}
+.estate_select_width {
+	width: 156px;
+}
+.period_block {
+	display: none;
+}
+.estate_present {
+	margin: 15px 0 15px 0;
+}
+.label_form_present {
+	font-weight: 400;
+	font-size: 15px;
+	margin-right: 23px;
+	vertical-align: top;	
+}
+
+.dropzone_form_block {
+	min-height: 200px;
+}
+.title_dropzone {
+	text-align: center;
+  	margin: 1em 0;
+  	font-weight: bold;
+  	font-size: 25px;
+  	color: #646C7F;
+  	cursor: pointer;
+}
+.form_dropzone {
+	border: 2px dashed #0087F7;
+  	border-radius: 5px;
+}
+.title_dropzone_form {
+	margin: 20px 0 20px 0;
+	font-weight: bold;
+	color: #333;
+	font-size: 15px;
+}

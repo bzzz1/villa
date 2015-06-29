@@ -13,7 +13,7 @@
 			@foreach ($towns as $town)
 				<?php $districts = $town->districts; ?>
 				<div class="uni_display">
-					<h4 class="admin_one_cat_heading uni_title">Районы города {{ $town->town }}</h4>
+					<h4 class="admin_one_cat_heading title_uni">Районы города {{ $town->town }}</h4>
 				</div>
 				<div class="block_marg uni_display">
 					<span class="admin_one_town_add admin_town_style district_townModal" data-town-id ="{{ $town-> town_id }}">
@@ -21,18 +21,18 @@
 						Добавить район
 					</span>
 				</div>
-				<div class="uni_block_main">
-					<ul class="first_column uni_description_block">
+				<div class="block_main_uni">
+					<ul class="first_column description_block_uni">
 					@foreach (columnize($districts, 3, 1) as $district)
 						@include('partials/district_block')
 				 	@endforeach
 				 	</ul>
-				 	<ul class="second_column uni_description_block">
+				 	<ul class="second_column description_block_uni">
 					@foreach (columnize($districts, 3, 2) as $district)
 						@include('partials/district_block')
 				 	@endforeach
 				 	</ul>
-					<ul class="Tthird_column uni_description_block">
+					<ul class="Tthird_column description_block_uni">
 					@foreach (columnize($districts, 3, 3) as $district)
 						@include('partials/district_block')
 				 	@endforeach

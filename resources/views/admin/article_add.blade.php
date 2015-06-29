@@ -12,9 +12,9 @@
 	</h1>
 	<div class="admin_main_content">
 		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
-			<div>
-				{{ Form::label('title', 'Заголовок', ['class' => 'label_form']) }}
-				{{ Form::text('title', null, ['class' => 'input_form uni_input_select_width', 'required']) }}
+			<div class="estate_blocks">
+				{{ Form::label('title', 'Название', ['class' => 'label_form fl']) }}
+				{{ Form::text('title', null, ['required', 'class' => 'input_form input_select_width fr']) }}
 			</div>
 			<div class="form_block_marg">
 				{{ Form::label('body', 'Описание', ['class' => 'label_form']) }}

@@ -107,81 +107,16 @@ body {
 .browse_img_admin {
   visibility: hidden; }
 
-/* FORM ESTATE & ARTICLE */
-.uni_display_block_width {
-  display: inline-block;
-  width: 61%; }
-
-.label_form {
-  font-size: 15px;
-  vertical-align: top;
-  margin-bottom: 20px;
-  width: 190px; }
-
-.uni_input_select_width {
-  width: 79%; }
-
-.uni_select_commercial_type {
-  width: 165px; }
-
-.uni_select_width {
-  width: 165px; }
-
-.input_form {
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 2px 5px 2px 5px; }
-
-.form_block_marg {
-  margin-bottom: 20px; }
-
-.general_float_left {
-  float: left; }
-
-.general_float_right {
-  float: right; }
-
-/* ADD FORM DISTRICTS & TOWNS */
+/* DISPLAY */
 .uni_display {
   display: inline-block; }
 
-.uni_title {
-  font-size: 18px;
-  font-weight: bold; }
+/* FLOATS */
+.fl {
+  float: left; }
 
-.uni_block_main {
-  width: 100%;
-  background: #ececec;
-  padding: 10px; }
-
-.uni_description_block {
-  width: 300px;
-  display: inline-block;
-  vertical-align: top;
-  overflow: hidden;
-  font-size: 16px; }
-  .uni_description_block li {
-    text-decoration: none;
-    display: block;
-    overflow: hidden; }
-  .uni_description_block p {
-    text-decoration: underline; }
-  .uni_description_block i {
-    color: #9dcb20;
-    cursor: pointer; }
-
-.uni_popup_block {
-  display: none; }
-
-.uni_title_popup {
-  margin-bottom: 20px;
-  margin-top: 0;
-  font-size: 20px;
-  color: #9dcb20; }
+.fr {
+  float: right; }
 
 /*BUTTONS*/
 .exit_btn {
@@ -860,11 +795,23 @@ header {
   display: inline-block; }
   .filters_full .filters {
     margin: 0;
-    width: 100%; }
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px; }
     .filters_full .filters select {
       width: 66%; }
     .filters_full .filters .select_type {
       width: 250px; }
+    .filters_full .filters .btn-group {
+      margin-bottom: 30px; }
+    .filters_full .filters .city_and_district {
+      float: left; }
+    .filters_full .filters .type {
+      float: left !important; }
+      .filters_full .filters .type .select_type {
+        margin-left: 73px !important; }
+    .filters_full .filters .period {
+      margin-left: 0; }
   .filters_full .draggers .filters_label {
     font-size: 14px; }
   .filters_full .house_area input[type='text'], .filters_full .yard_area input[type='text'], .filters_full .price input[type='text'], .filters_full .rooms input[type='text'], .filters_full .sea_dist input[type='text'] {
@@ -998,25 +945,76 @@ footer {
 .contact_support_heading {
   font-size: 24px; }
 
-/* ADD_ESTATE & ADD_ARTICLE */
-.main_block {
-  overflow: auto; }
+/* ADD_ESTATE & ADD_ESTATE */
+/* Add_Estate & Change_Estate */
+.display_block_width {
+  display: inline-block;
+  width: 61%; }
 
-.label_estate_width {
-  width: 67px; }
+.label_form {
+  font-size: 15px;
+  vertical-align: top;
+  margin-bottom: 20px;
+  width: 190px; }
 
-.label_class_form {
-  width: 140px;
-  margin-right: 51px; }
+.input_form {
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 5px 2px 5px; }
 
-.commercial_estate {
-  width: 115px; }
+.input_select_width {
+  width: 79%; }
 
-.input_number_form_estate {
-  width: 101px; }
+.estate_blocks {
+  overflow: hidden; }
 
-.input_form_description {
-  width: 530px; }
+.estate_block_width {
+  width: 49%; }
+
+.estate_select_width {
+  width: 156px; }
+
+.period_block {
+  display: none; }
+
+.estate_present {
+  margin: 15px 0 15px 0; }
+
+.label_form_present {
+  font-weight: 400;
+  font-size: 15px;
+  margin-right: 23px;
+  vertical-align: top; }
+
+.dropzone_form_block {
+  min-height: 200px; }
+
+.title_dropzone {
+  text-align: center;
+  margin: 1em 0;
+  font-weight: bold;
+  font-size: 25px;
+  color: #646C7F;
+  cursor: pointer; }
+
+.form_dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px; }
+
+.title_dropzone_form {
+  margin: 20px 0 20px 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 15px; }
+
+/* ADD_ARTICLE & CHANGE_ARTICLE */
+/* Articles & Change_article */
+.form_block_marg {
+  margin-bottom: 20px; }
 
 .admin_article_style {
   font-size: 17px;
@@ -1024,7 +1022,7 @@ footer {
   cursor: pointer; }
   .admin_article_style:hover {
     text-decoration: none;
-    color: #9dcb20;
+    color: #212121;
     cursor: pointer; }
 
 .article_image {
@@ -1033,9 +1031,6 @@ footer {
 
 .article_one_block {
   width: 300px; }
-
-.uni_select_period_width {
-  width: 165px; }
 
 .article_one_block {
   margin-bottom: 25px;
@@ -1062,9 +1057,6 @@ footer {
   min-width: 300px;
   min-height: 225px; }
 
-.period_block {
-  display: none; }
-
 .article_columns {
   margin-right: 4px;
   margin-left: 4px; }
@@ -1073,61 +1065,79 @@ footer {
   display: table;
   margin: auto; }
 
-.label_form_present {
-  font-weight: 400;
-  font-size: 15px;
-  margin: 0 23px 15px 0;
-  vertical-align: -webkit-baseline-middle; }
-
-.dropzone_form_block {
-  min-height: 200px; }
-
-.title_dropzone {
-  text-align: center;
-  margin: 1em 0;
-  font-weight: bold;
-  font-size: 25px;
-  color: #646C7F;
-  cursor: pointer; }
-
-.form_dropzone {
-  border: 2px dashed #0087F7;
-  border-radius: 5px; }
-
-.title_dropzone_form {
-  margin: 20px 0 20px 0;
-  font-weight: bold;
-  color: #333;
-  font-size: 15px; }
+.description_block_uni {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  font-size: 16px; }
+  .description_block_uni i {
+    color: #9dcb20;
+    cursor: pointer; }
 
 /* ADD_DISTRICTS & ADD TOWNS */
+/* TOWNS & DISTRICT */
+/* For all */
 .block_marg {
   margin: 10px 0 0 15px; }
 
-.class_form {
-  float: right;
-  margin-left: 5px; }
-
-.popup_input {
-  width: 325px; }
-
-.popup_label {
-  width: 120px; }
-
-.select_town {
-  height: 34px; }
-
 .block_bottom_marg {
   margin-bottom: 20px; }
+
+.title_uni {
+  font-size: 18px;
+  font-weight: bold; }
+
+.block_main_uni {
+  width: 100%;
+  background: #ececec;
+  padding: 10px; }
+
+/* Town */
+.block_size {
+  width: 215px; }
 
 .admin_town_style {
   font-size: 17px;
   color: #9dcb20;
   cursor: pointer; }
 
-.block_size {
-  width: 215px; }
+.description_block_uni {
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+  font-size: 16px; }
+  .description_block_uni li {
+    text-decoration: none;
+    display: block;
+    overflow: hidden; }
+  .description_block_uni p {
+    text-decoration: underline; }
+  .description_block_uni i {
+    color: #9dcb20;
+    cursor: pointer; }
 
-.district_block_aling {
+.select_town {
+  height: 34px; }
+
+/* district */
+.districts_block {
   margin-top: 15px;
   vertical-align: middle; }
+
+/* POPUP Style */
+.popup_input {
+  width: 325px; }
+
+.popup_label {
+  width: 120px; }
+
+.uni_popup_block {
+  display: none; }
+
+.uni_title_popup {
+  margin-bottom: 20px;
+  margin-top: 0;
+  font-size: 20px;
+  color: #9dcb20; }

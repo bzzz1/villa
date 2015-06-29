@@ -42,86 +42,17 @@
 	visibility: hidden;
 }
 
-/* FORM ESTATE & ARTICLE */
-.uni_display_block_width {
-	display: inline-block;
-	width: 62.3%;
+/* DISPLAY */
+.uni_display {
+	display: $display;
 }
-.label_form {
-	font-size: 15px;
-	vertical-align: $align;
-	margin-bottom: 20px;
-	width: 190px; 
-}
-.uni_input_select_width {
-	width: 79%;
-}
-.uni_select_commercial_type {
-	width: 165px;
-}
-.uni_select_width {
-	width: 165px;
-}
-.input_form {
-	line-height: 1.42857143;
-  	color: #555;
-  	background-color: #fff;
-  	background-image: none;
-  	border: 1px solid #ccc;
-  	border-radius: 4px;
-  	padding: 2px 5px 2px 5px;	
-}
-.form_block_marg {
-	margin-bottom: $margin;
-}
-.general_float_left {
+
+/* FLOATS */
+
+.fl {
 	float: left;
 }
-.general_float_right {
+
+.fr {
 	float: right;
-}
-
-/* ADD FORM DISTRICTS & TOWNS */
-.uni_display {
-  display: $display;
-}
-.uni_title {
-	font-size: 18px;
-	font-weight: bold;
-}
-.uni_block_main {
-	width: 100%;
-	background: $bg;
-	padding: 10px;
-}
-.uni_description_block {
-	width: 300px;
-	display: inline-block;
-	vertical-align: top;
-	overflow: hidden;
-	font-size: 16px;
-
-	li {
-		text-decoration: none;
-		display: block;
-		overflow: hidden;
-	}
-
-	p {
-		text-decoration: underline;
-	}
-
-	i {
-		color: $color;
-		cursor: pointer;
-	}
-}
-.uni_popup_block {
-	display: none;
-}
-.uni_title_popup {
-	margin-bottom: 20px;
-  	margin-top: 0;
-  	font-size: 20px;
-  	color: #9dcb20;
 }

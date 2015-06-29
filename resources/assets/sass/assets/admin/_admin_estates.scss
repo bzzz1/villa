@@ -5,18 +5,37 @@
 	.filters {
 		margin: 0;
 		width: 100%;
+		padding-left: 10px;
+		padding-right: 10px;
 		select {
 			width: 66%;
 		}
 		.select_type {
 			width: 250px;
 		}
+		.btn-group {
+			margin-bottom: 30px;
+		}
+		.city_and_district {
+			float: left;
+		}
+		.type {
+			float: left!important;
+			.select_type {
+				margin-left: 73px!important;
+			}
+		}
+		.period {
+			margin-left: 0;
+		}
+
 	}
 	.draggers {
 		.filters_label {
 			font-size: 14px;
 		}
 	}
+	
 	.house_area input[type='text'], .yard_area input[type='text'], .price input[type='text'], .rooms input[type='text'], .sea_dist input[type='text'] {
 			width: 65px;
 	}
