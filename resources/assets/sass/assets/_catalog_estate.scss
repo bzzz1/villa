@@ -6,6 +6,8 @@ $item_img_width: 100%;
 $item_img_height: 225px;
 .catalog_full {
 	background-image: url(../img/layout/pattern007.png);
+	width: 100%;
+	float: left;
 }
 .catalog_blocks {
 	width: $catalog_width;

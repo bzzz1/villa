@@ -582,38 +582,36 @@ body {
   background-image: url(../img/layout/pattern007.png);
   margin-top: 1px; }
 
-#carousel_estate {
-  width: 1203px;
+#carousel_estate .carousel-inner .item img {
   display: table;
-  margin: auto; }
-  #carousel_estate .carousel-inner .item img {
-    display: table;
-    margin: auto;
-    min-height: 350px;
-    max-height: 350px;
-    min-width: 100%; }
-  #carousel_estate .carousel-inner .item .carousel-caption {
-    text-align: right;
-    top: -1%;
-    right: 7%;
-    color: #212121;
-    font-weight: 200;
-    text-shadow: none; }
-    #carousel_estate .carousel-inner .item .carousel-caption h3 {
-      margin-top: 10px; }
-  #carousel_estate .fa {
-    position: absolute;
-    top: 50%; }
+  margin: auto;
+  min-height: 350px;
+  max-height: 350px;
+  min-width: 100%; }
+#carousel_estate .carousel-inner .item .carousel-caption {
+  text-align: right;
+  top: -1%;
+  right: 7%;
+  color: #fff;
+  font-weight: 200;
+  text-shadow: none; }
+  #carousel_estate .carousel-inner .item .carousel-caption h3 {
+    margin-top: 10px; }
+#carousel_estate .fa {
+  position: absolute;
+  top: 50%; }
 
 .map_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .map {
   width: 1203px;
   display: table;
   margin: auto;
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
   padding-bottom: 50px;
   background-image: url(../img/layout/pattern007.png); }
   .map .results_heading {
@@ -640,7 +638,8 @@ body {
   width: 100%;
   background-color: #073559;
   padding-top: 30px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  float: left; }
   .full_blue .more_btn {
     margin-top: 0;
     background-color: #729521; }
@@ -648,7 +647,9 @@ body {
       background-color: #526b18; }
 
 .pre_footer_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .pre_footer {
   background-image: url(../img/layout/footer007.png);
@@ -1085,7 +1086,9 @@ body {
 
 /*CATALOG*/
 .catalog_full {
-  background-image: url(../img/layout/pattern007.png); }
+  background-image: url(../img/layout/pattern007.png);
+  width: 100%;
+  float: left; }
 
 .catalog_blocks {
   width: 1203px;

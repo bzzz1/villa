@@ -489,18 +489,8 @@ if ('estates'==ROUTE || 'admin_estates'==ROUTE) {
 	$('.js_select_type').on('change', Dependencies.type_change);	
 }
 // ANIMATION
-// $('.js_show_filters').on('click', function () {
-// 	$('.js_second_line').animate({
-// 			'height':'138px',
-// 			'padding': 'auto 20px 20px 20px'
-// 		}, 1000);
-// 	$(this).hide('slow')
-// 	$('.js_hide_filters').delay(1003)
-// 		.queue(function (next) { 
-// 		    $(this).css('visibility','initial'); 
-// 		    next();
-// 		});
-// });
+
+// SHOW MORE FILTERS
 $('.js_show_filters').on('click', function () {
 	$('.js_second_line').animate({
 			'height':'138px',
@@ -508,13 +498,9 @@ $('.js_show_filters').on('click', function () {
 			'easing': 'linear'
 		}, 1000);
 	$(this).animate({opacity:0}, 1003)
-	// $('.js_hide_filters').delay(1003)
-		// .queue(function (next) { 
-		    $('.js_hide_filters').animate({
-		    	'opacity':'1'
-		    }, 1003); 
-		    // next();
-		// });
+	    $('.js_hide_filters').animate({
+	    	'opacity':'1'
+	    }, 1003); 
 });
 $('.js_hide_filters').on('click', function () {
 	$('.js_second_line').animate({
@@ -523,12 +509,13 @@ $('.js_hide_filters').on('click', function () {
 			'easing': 'linear'
 		}, 1000);
 	$(this).animate({opacity:0}, 1003)
-	// $('.js_show_filters').delay(1003)
-		// .queue(function (next) { 
-		    $('.js_show_filters').animate({
-		    	'opacity':'1'
-		    }, 1003); 
-		    // next();
-		// });
-	});
+	    $('.js_show_filters').animate({
+	    	'opacity':'1'
+	    }, 1003); 
+});
 
+// LOAD MORE
+$('.js_load_more').on('click', function () {
+	$(this).hide();
+	$('.js_loader').show();
+})
