@@ -108,6 +108,10 @@ body {
   visibility: hidden; }
 
 /* FORM ESTATE & ARTICLE */
+.uni_display_block_width {
+  display: inline-block;
+  width: 61%; }
+
 .label_form {
   font-size: 15px;
   vertical-align: top;
@@ -1003,7 +1007,6 @@ footer {
 
 .label_class_form {
   width: 140px;
-  margin-left: 25px;
   margin-right: 51px; }
 
 .commercial_estate {
@@ -1031,17 +1034,8 @@ footer {
 .article_one_block {
   width: 300px; }
 
-.commercial_block_marg {
-  margin-right: 199px; }
-
-.longitude_block_marg {
-  margin-right: 227px; }
-
 .uni_select_period_width {
   width: 165px; }
-
-.select_block_marg {
-  margin-right: 225px; }
 
 .article_one_block {
   margin-bottom: 25px;

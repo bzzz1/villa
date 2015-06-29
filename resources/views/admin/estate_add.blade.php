@@ -25,7 +25,7 @@
 					{{ Form::label('district_id', 'Выберите район', ['class'=>'label_form']) }}
 					{{ Form::select('district_id', [] , null, ['class'=>'js_filter_change input_form uni_input_select_width js_select_district', 'required']) }}	
 				</div>
-				<div class="uni_display commercial_block_marg">
+				<div class="uni_display_block_width">
 					{{ Form::label('commercial', 'Выбрать действие', ['class' => 'label_form']) }}
 					{{ Form::select('commercial', ['sale' => 'Купля', 'rent' => 'Аренда'], null, ['class' => 'input_form uni_select_commercial_type active', 'required']) }}
 				</div>
@@ -33,11 +33,11 @@
 					{{ Form::label('type', 'Тип недвижимости', ['class' => 'label_form label_class_form']) }}
 					{{ Form::select('type', ['flat' => 'Квартира', 'cottage' => 'Коттедж', 'parcel' => 'Земельный участок', 'commercial' => 'Коммерческая'], null, ['class' => 'input_form uni_select_width', 'required']) }}
 				</div>
-				<div class="uni_display js_period period_block">
+				<div class="uni_display_block_width js_period period_block">
 					{{ Form::label('period', 'Период аренды', ['class' => 'label_form']) }}
 					{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form uni_select_period_width', 'required']) }}
 				</div>
-				<div class="uni_display js_house_area select_block_marg">
+				<div class="uni_display_block_width js_house_area">
 					<label for="house_area" name="house_area" class="label_form">Площадь помещения (м<sup>2</sup>)</label>
 					<input type="number" required id="house_area" name="house_area" class="input_form">				
 				</div>
@@ -45,7 +45,7 @@
 					{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form js_rooms']) }}
 					<input type="number" required id="rooms" name="rooms" class="input_form js_rooms">
 				</div>
-				<div class="uni_display js_yard_area select_block_marg">
+				<div class="uni_display_block_width js_yard_area">
 					<label for="yard_area" name="yard_area" class="label_form">Площадь участка (соток)</label>
 					<input type="number" required id="yard_area" name="yard_area" class="input_form">
 				</div>
@@ -57,7 +57,7 @@
 					{{ Form::label('address', 'Адрес', ['class' => 'label_form']) }}
 					{{ Form::text('address', null, ['class' => 'input_form uni_input_select_width', 'placeholder' => 'Московская обл., с. Калиновка, ул. Радужная 26', 'required']) }}
 				</div>
-				<div class="uni_display longitude_block_marg">
+				<div class="uni_display_block_width">
 					{{ Form::label('longitude', 'Долгота', ['class' => 'label_form']) }}
 					{{ Form::text('longitude', null, ['class' => 'input_form', 'placeholder' => '50.058734', 'required'])}}
 				</div>
@@ -65,7 +65,7 @@
 					{{ Form::label('latitude', 'Широта', ['class' => 'label_form']) }}
 					{{ Form::text('latitude', null, ['class' => 'input_form', 'placeholder' => '36.758734', 'required']) }}
 				</div>
-				<div class="uni_display commercial_block_marg">
+				<div class="uni_display_block_width commercial_block_marg">
 					{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form']) }}
 					<input type="text" id="price" name="price" class="input_form">
 				</div>
