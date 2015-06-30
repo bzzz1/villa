@@ -23,7 +23,6 @@
 }
 .article_one_block {
 	margin-bottom: 25px;
-	height: 311px;
 }
 .article_block_title {
 	width: 300px;
@@ -62,8 +61,35 @@
 	vertical-align: top;
 	overflow: hidden;
 	font-size: 16px;
+	.admin_article_date {
+		font-size: 14px;
+	}
+
 	i {
+
 		color: $main-green;
 		cursor: pointer;
 	}
+}
+.article_text {
+	.article_heading {
+		position: relative;
+		@include height_overflow(title_link, 100px, 30px, #fff, 75%, #fff);
+	}
+	.title_link {
+		display: block;
+		text-decoration: none;
+		overflow: hidden;
+		color: #333;
+		text-align: left;
+		font-size: 20px;
+		font-weight: 400;
+		&:hover {
+			text-decoration: underline;
+			color: #333;
+		}
+	}
+	.full {
+		display: none;
+	}	
 }

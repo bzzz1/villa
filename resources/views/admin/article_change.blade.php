@@ -13,9 +13,9 @@
 	<div class="admin_main_content">
 		{{ Form::model($article, ['url'=>l('update_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
 			{{ Form::hidden('article_id', $article->article_id) }}
-			<div>
-				{{ Form::label('title', 'Заголовок', ['class' => 'label_form']) }}
-				{{ Form::text('title', null, ['class' => 'input_form univers', 'required']) }}
+			<div class="estate_blocks">
+				{{ Form::label('title', 'Название', ['class' => 'label_form fl label_estate_width']) }}
+				{{ Form::text('title', null, ['required', 'class' => 'input_form input_select_width fr']) }}
 			</div>
 			<div class="form_block_marg">
 				{{ Form::label('body', 'Описание', ['class' => 'label_form']) }}

@@ -11,12 +11,14 @@
 		</div>
 	@endif	
 	<div class="article_text">
-		<div class="article_heading article_block_title">
-			<a href='{{URL::to("admin/change_article/$article->article_id")}}' class="admin_article_title title_link">{{$article->title}}
-			</a>
-			<a href='{{URL::to("admin/change_article/$article->article_id")}}' class="admin_article_title title_link full">{{$article->title}}
-			</a>
-		</div> 						
+		<div class="article_heading">
+			<a href="{{l('article', [$article->title, $article->article_id])}}" class="title_link">
+				{{$article->title}}
+			</a> 
+			<a href="{{l('article', [$article->title, $article->article_id])}}" class="title_link full">
+				{{$article->title}}
+			</a> 
+		</div> 	
 		<div class="admin_article_date">
 			{{$article->time}}&nbsp&nbsp&nbsp
 			<div class="uni_display">
@@ -27,6 +29,6 @@
 			<div class="uni_display">
 				{{  Face::delete('article', $article->article_id, true, ['class'=>'delete_items_group_icon description_icon']) }}
 			</div>
-		</div>
+		</div>					
 	</div>	
 </div>

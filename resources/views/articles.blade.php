@@ -23,10 +23,10 @@
 				</div>
 				<div class="article_text">
 					<div class="article_heading">
-						<a href="{{l('article', [$article->title, $article->article_id])}}" class="title_link">
+						<a href="{{l('article', [$article->title, $article->article_id])}}" class="admin_article_title  title_link">
 							{{$article->title}}
 						</a> 
-						<a href="{{l('article', [$article->title, $article->article_id])}}" class="title_link full">
+						<a href="{{l('article', [$article->title, $article->article_id])}}" class="admin_article_title  title_link full">
 							{{$article->title}}
 						</a> 
 					</div>
