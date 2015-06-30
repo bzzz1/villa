@@ -40,12 +40,11 @@
 		@yield('footer')
 
 		{{-- {{ HTML::script('js/navigation.js') }} --}}
-
 		<script>
 			@include('partials/js_globals')
 			@yield('js')
 		</script> 
 		{{ HTML::script('js/script.js') }}
-
+		
 	</body>
 </html>

@@ -25,6 +25,8 @@
 	{{ HTML::script('js/vendor/dropzone.js') }}
 	{{ HTML::script('packages/ckeditor/ckeditor.js') }}
 	{{ HTML::script('packages/ckfinder/ckfinder.js') }}
+	{{ HTML::script('js/vendor/jquery.scrollUp.min.js') }}
+
 
 	@yield('css')
 </head>
