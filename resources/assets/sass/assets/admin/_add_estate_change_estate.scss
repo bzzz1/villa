@@ -26,13 +26,16 @@
 	overflow: hidden;
 }
 .estate_block_width {
-	width: 49%;
+	width: 37.3%;
 }
 .estate_select_width {
 	width: 156px;
 }
 .period_block {
 	display: none;
+}
+.label_uni_marg {
+	margin-right: 6px; 
 }
 .estate_present {
 	margin: 15px 0 15px 0;
@@ -43,6 +46,11 @@
 	margin-right: 23px;
 	vertical-align: top;	
 }
+.district {
+	margin-top: 0;
+}
+
+/* DROPZONE */
 
 .dropzone_form_block {
 	min-height: 200px;

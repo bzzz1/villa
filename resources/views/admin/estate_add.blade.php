@@ -28,54 +28,54 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl">
 						{{ Form::label('commercial', 'Выбрать действие', ['class' => 'label_form fl']) }}
-						{{ Form::select('commercial', ['sale' => 'Купля', 'rent' => 'Аренда'], null, ['class' => 'input_form estate_select_width', 'required']) }}
+						{{ Form::select('commercial', ['sale' => 'Купля', 'rent' => 'Аренда'], null, ['class' => 'input_form estate_select_width fr', 'required']) }}
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('type', 'Тип недвижимости', ['class' => 'label_form label_class_form']) }}
-						{{ Form::select('type', ['flat' => 'Квартира', 'cottage' => 'Коттедж', 'parcel' => 'Земельный участок', 'commercial' => 'Коммерческая'], null, ['class' => 'input_form estate_select_width', 'required']) }}
+						{{ Form::select('type', ['flat' => 'Квартира', 'cottage' => 'Коттедж', 'parcel' => 'Земельный участок', 'commercial' => 'Коммерческая'], null, ['class' => 'input_form estate_select_width fr', 'required']) }}
 					</div>
 				</div>
-				<div class="fl js_period period_block">
-					{{ Form::label('period', 'Период аренды', ['class' => 'label_form']) }}
+				<div class="js_period period_block">
+					{{ Form::label('period', 'Период аренды', ['class' => 'label_form label_uni_marg']) }}
 					{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width', 'required']) }}
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_house_area">
 						<label for="house_area" name="house_area" class="label_form">Площадь помещения (м<sup>2</sup>)</label>
-						<input type="number" required id="house_area" name="house_area" class="input_form estate_select_width">
+						<input type="number" required id="house_area" name="house_area" class="input_form estate_select_width fr">
 					</div>
 					<div class="estate_block_width fr js_rooms">
 						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form js_rooms']) }}
-						<input type="number" required id="rooms" name="rooms" class="input_form estate_select_width js_rooms">
+						<input type="number" required id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width">
+						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form']) }}
-						<input type="number" required id="sea_dist" name="sea_dist" class=" input_form estate_select_width">
+						<input type="number" required id="sea_dist" name="sea_dist" class=" input_form estate_select_width fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
-					{{ Form::label('address', 'Адрес', ['class' => 'label_form']) }}
-					{{ Form::text('address', null, ['class' => 'input_form input_select_width', 'placeholder' => 'Московская обл., с. Калиновка, ул. Радужная 26', 'required']) }}
+					{{ Form::label('address', 'Адрес', ['class' => 'label_form fl']) }}
+					{{ Form::text('address', null, ['class' => 'input_form input_select_width fr', 'placeholder' => 'Московская обл., с. Калиновка, ул. Радужная 26', 'required']) }}
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl">
-						{{ Form::label('longitude', 'Долгота', ['class' => 'label_form']) }}
-						{{ Form::text('longitude', null, ['class' => 'input_form', 'placeholder' => '50.058734', 'required'])}}
+						{{ Form::label('longitude', 'Долгота', ['class' => 'label_form fl']) }}
+						{{ Form::text('longitude', null, ['class' => 'input_form estate_select_width fr', 'placeholder' => '50.058734', 'required'])}}
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('latitude', 'Широта', ['class' => 'label_form']) }}
-						{{ Form::text('latitude', null, ['class' => 'input_form', 'placeholder' => '36.758734', 'required']) }}
+						{{ Form::text('latitude', null, ['class' => 'input_form estate_select_width fr', 'placeholder' => '36.758734', 'required']) }}
 					</div>
 				</div>
 				<div class="estate_blocks">
-					{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form']) }}
-					<input type="text" id="price" name="price" class="input_form">
+					{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form label_uni_marg']) }}
+					<input type="text" id="price" name="price" class="input_form estate_select_width">
 				</div>
 			</div>
 			<div class="CKEditor">
