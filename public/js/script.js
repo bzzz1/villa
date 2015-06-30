@@ -294,60 +294,11 @@ DependenciesAdmin = {
 				$('.js_house_area').slideDown();
 				$('.js_rooms').slideDown();
 				$('.js_yard_area').removeAttr('form');
+				$('.js_yard_area input').removeAttr('required');
 				$('.js_rooms').removeAttr('form');
 				$('.js_house_area').removeAttr('form');
 			}
 		});
-
-	// 	// !!!!!!!!!!!!! FUCK !!!!!!!!!!!!!!!!!! REFACTOR NEEDED !!!!!!!!
-	// 	$('.js_filter_click').removeClass('active');
-	// 	$(this).addClass('active');
-	// 	// !!!!!!! NEED IT MORE THAN LIFE !!!!!!!!! FUCK YEAH !!!!!!!!!!
-
-	// 	var commercial = $('.js_commercial.active').data('commercial');
-	// 	if ('rent' == commercial) {
-	// 		HTML.$period_parent.append(HTML.$period);
-	// 		$('.period').slideDown();
-	// 		$('.type').css({
-	// 			'float' : 'left',
-	// 			'margin-right' : '0'
-	// 		});
-	// 		$('.select_type').css('margin-left', '20px');
-	// 	} else if ('sale' == commercial) {
-	// 		if ($('.period').length) {
-	// 			HTML.$period.detach();
-	// 		}
-	// 		$('.type').css({
-	// 			'float' : 'right',
-	// 			'margin-right' : '181px'
-	// 		});
-	// 		$('.select_type').css('margin-left', '65px');
-	// 	}
-
-	// 	Ranges.draw();
-	// 	Filter.send();
-	// },
-	// type_change : function () {
-	// 	var type = $('.js_select_type').val();
-
-	// 	if ('flat' == type || 'cottage' == type || 'commercial' == type) {
-	// 		Ranges.items.push('house_area');
-	// 		Ranges.items.push('rooms');
-	// 	} else if ('parcel' == type) {
-	// 		HTML.$house_area.detach();
-	// 		HTML.$rooms.detach();
-	// 		ranges = Help.pop_by_value(Ranges.items, 'house_area');
-	// 		ranges = Help.pop_by_value(Ranges.items, 'rooms');
-	// 	}
-
-	// 	if ('parcel' == type || 'cottage' == type || 'commercial' == type) {
-	// 		Ranges.items.push('yard_area');
-	// 	} else if ('flat' == type) {
-	// 		HTML.$yard_area = $('.yard_area').detach();
-	// 		ranges = Help.pop_by_value(Ranges.items, 'yard_area');
-	// 	}
-
-	// 	Ranges.draw();
 	}
 }
 

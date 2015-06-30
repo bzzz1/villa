@@ -1,3 +1,5 @@
+{{-- Page to changing article --}}
+
 @extends('layouts/admin_layout')
 @extends('admin/header')
 @extends('admin/sidebar')
