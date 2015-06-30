@@ -174,12 +174,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* ╨Ф╨╗╤П Firefox */
+  /* Для Firefox */
   -ms-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П IE */
+  /* Для IE */
   -webkit-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
-  /* ╨Ф╨╗╤П Opera */
+  /* Для Safari, Chrome, iOS */
+  /* Для Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;
@@ -1006,7 +1006,7 @@ footer {
   width: 34%; }
 
 .estate_select_width {
-  width: 45%; }
+  width: 44%; }
 
 .period_block {
   display: none; }

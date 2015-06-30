@@ -351,6 +351,19 @@ body {
       .form_block_separate .form .send .fa:hover {
         color: #fff; }
 
+#scrollUp {
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 15px;
+  background-color: #92bf2a;
+  color: #fff;
+  border-radius: 30px; }
+  #scrollUp:hover {
+    background-color: #729521; }
+  #scrollUp .fa {
+    position: relative;
+    top: -1px; }
+
 /*BUTTONS*/
 .exit_btn {
   color: red;
@@ -408,12 +421,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* ╨Ф╨╗╤П Firefox */
+  /* Для Firefox */
   -ms-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П IE */
+  /* Для IE */
   -webkit-transform: rotate(270deg);
-  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
-  /* ╨Ф╨╗╤П Opera */
+  /* Для Safari, Chrome, iOS */
+  /* Для Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;

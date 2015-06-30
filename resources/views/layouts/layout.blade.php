@@ -21,7 +21,8 @@
 		{{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp') }}
 		{{ HTML::script('js/vendor/parsley.min.js') }}
 		{{ HTML::script('js/vendor/parsley_i18n_ru.js') }}
-		
+		{{ HTML::script('js/vendor/jquery.scrollUp.min.js') }}
+
 		{{ HTML::script('js/vendor/fotorama.js') }}
 		{{ HTML::script('js/vendor/jBox.min.js') }}
 		{{ HTML::script('js/vendor/translit.js') }}
