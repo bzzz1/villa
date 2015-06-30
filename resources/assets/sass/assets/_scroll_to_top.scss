@@ -1,0 +1,17 @@
+#scrollUp {
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 15px;
+    background-color: lighten($main_green, 10%);
+    color: #fff;
+    // height: 30px;
+    // width: 30px;
+    border-radius: 30px;
+	&:hover {
+		background-color: $main_green;
+	}
+    .fa {
+    	position: relative;
+    	top: -1px;
+    }
+}
