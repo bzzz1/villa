@@ -54,7 +54,7 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr">
+						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
@@ -68,17 +68,17 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl">
 						{{ Form::label('longitude', 'Долгота', ['class' => 'label_form fl width_label_uni']) }}
-						{{ Form::text('longitude', null, ['class' => 'input_form estate_select_width fr', 'placeholder' => '50.058734', 'required'])}}
+						<input type="number" id="longituide" required name="longitude" placeholder="50.058734" step="0.00001" class="input_form estate_select_width fr">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('latitude', 'Широта', ['class' => 'label_form width_label_uni']) }}
-						{{ Form::text('latitude', null, ['class' => 'input_form estate_select_width fr', 'placeholder' => '36.758734', 'required']) }}
+						<input type="number" id="latitude" required name="latitude" placeholder="36.758734" step="0.00001" class="input_form estate_select_width fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="price_form">
 						{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form label_uni_marg']) }}
-						<input type="text" id="price" name="price" class="input_form estate_select_width">
+						<input type="number" id="price" required name="price" class="input_form estate_select_width">
 					</div>
 				</div>
 			</div>
@@ -100,8 +100,8 @@
 			<div class="uni_display">
 				{{ Form::submit('Добавить', ['class' => 'btn admin_uni_button']) }}
 		{{ Form::close() }}
-				{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
-			</div>
+			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
+		</div>
 		<div>
 			<h4 class="title_dropzone_form">
 				Добавление файлов 

@@ -25,7 +25,7 @@
 	width: 19%;
 }
 .width_label_uni {
-	width: 44%;
+	width: 55%;
 }
 .estate_blocks {
 	overflow: hidden;
@@ -34,23 +34,19 @@
 	width: 34%;
 }
 .estate_select_width {
-	width: 45%;
+	width: 44%;
 }
 .period_block {
 	display: none;
 }
 .period_form,
 .price_form {
-	// width: 36%;
 	width: 34%;
 	overflow: hidden;
 	.label_uni_marg {
 		float: left;
 		margin-right: 0;
 	}
-	// select {
-		// float: right;
-	// }
 	.estate_select_width {
 		float: right;
 	}

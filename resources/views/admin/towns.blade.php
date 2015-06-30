@@ -1,3 +1,5 @@
+{{-- Page for adding new town --}}
+
 @extends('layouts/admin_layout')
 @extends('admin/header')
 @extends('admin/sidebar')

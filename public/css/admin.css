@@ -997,7 +997,7 @@ footer {
   width: 19%; }
 
 .width_label_uni {
-  width: 44%; }
+  width: 55%; }
 
 .estate_blocks {
   overflow: hidden; }
@@ -1006,7 +1006,7 @@ footer {
   width: 34%; }
 
 .estate_select_width {
-  width: 45%; }
+  width: 44%; }
 
 .period_block {
   display: none; }
@@ -1062,6 +1062,7 @@ footer {
 
 /* ADD_ARTICLE & CHANGE_ARTICLE */
 /* Articles & Change_article */
+/* Add_article have style in add_estate.scss */
 .form_block_marg {
   margin-bottom: 20px; }
 
