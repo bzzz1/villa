@@ -174,12 +174,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* Для Firefox */
+  /* ╨Ф╨╗╤П Firefox */
   -ms-transform: rotate(270deg);
-  /* Для IE */
+  /* ╨Ф╨╗╤П IE */
   -webkit-transform: rotate(270deg);
-  /* Для Safari, Chrome, iOS */
-  /* Для Opera */
+  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
+  /* ╨Ф╨╗╤П Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;
@@ -979,8 +979,7 @@ footer {
 .label_form {
   font-size: 15px;
   vertical-align: top;
-  margin-bottom: 20px;
-  width: 190px; }
+  margin-bottom: 20px; }
 
 .input_form {
   line-height: 1.42857143;
@@ -994,6 +993,12 @@ footer {
 .input_select_width {
   width: 81%; }
 
+.label_estate_width {
+  width: 19%; }
+
+.width_label_uni {
+  width: 44%; }
+
 .estate_blocks {
   overflow: hidden; }
 
@@ -1001,7 +1006,7 @@ footer {
   width: 34%; }
 
 .estate_select_width {
-  width: 156px; }
+  width: 45%; }
 
 .period_block {
   display: none; }

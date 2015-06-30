@@ -8,7 +8,6 @@
 	font-size: 15px;
 	vertical-align: top;
 	margin-bottom: 20px;
-	width: 190px; 
 }
 .input_form {
 	line-height: 1.42857143;
@@ -20,18 +19,22 @@
   	padding: 2px 5px 2px 5px;	
 }
 .input_select_width {
-	// width: 79%;
 	width: 81%;
+}
+.label_estate_width {
+	width: 19%;
+}
+.width_label_uni {
+	width: 44%;
 }
 .estate_blocks {
 	overflow: hidden;
 }
 .estate_block_width {
-	// width: 36%;
 	width: 34%;
 }
 .estate_select_width {
-	width: 156px;
+	width: 45%;
 }
 .period_block {
 	display: none;
