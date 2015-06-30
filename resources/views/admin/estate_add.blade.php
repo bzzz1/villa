@@ -36,8 +36,10 @@
 					</div>
 				</div>
 				<div class="js_period period_block">
-					{{ Form::label('period', 'Период аренды', ['class' => 'label_form label_uni_marg']) }}
-					{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width', 'required']) }}
+					<div class="period_form">
+						{{ Form::label('period', 'Период аренды', ['class' => 'label_form label_uni_marg']) }}
+						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width', 'required']) }}
+					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_house_area">
@@ -74,8 +76,10 @@
 					</div>
 				</div>
 				<div class="estate_blocks">
-					{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form label_uni_marg']) }}
-					<input type="text" id="price" name="price" class="input_form estate_select_width">
+					<div class="price_form">
+						{{ Form::label('price', 'Цена (руб.)', ['class' => 'label_form label_uni_marg']) }}
+						<input type="text" id="price" name="price" class="input_form estate_select_width">
+					</div>
 				</div>
 			</div>
 			<div class="CKEditor">

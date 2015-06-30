@@ -20,19 +20,37 @@
   	padding: 2px 5px 2px 5px;	
 }
 .input_select_width {
-	width: 79%;
+	// width: 79%;
+	width: 81%;
 }
 .estate_blocks {
 	overflow: hidden;
 }
 .estate_block_width {
-	width: 37.3%;
+	// width: 36%;
+	width: 34%;
 }
 .estate_select_width {
 	width: 156px;
 }
 .period_block {
 	display: none;
+}
+.period_form,
+.price_form {
+	// width: 36%;
+	width: 34%;
+	overflow: hidden;
+	.label_uni_marg {
+		float: left;
+		margin-right: 0;
+	}
+	// select {
+		// float: right;
+	// }
+	.estate_select_width {
+		float: right;
+	}
 }
 .label_uni_marg {
 	margin-right: 6px; 
