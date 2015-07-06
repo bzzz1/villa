@@ -97,7 +97,8 @@ Estate = {
 			var src = URL_IMG+'/'+estate.image;
 			var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
 			var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
-			var href_delete = URL_ESTATE_ADMIN_DELETE+'/'+estate.estate_id;
+			var href_delete = URL_ESTATE_ADMIN_DELETE+'/%7Bestate_id%7D';
+			var csrf_token = $("input[name = '_token']").val();
 			estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
 			if (ROUTE == 'admin_estates') {
 				if (estate.image !== undefined) {
@@ -139,7 +140,7 @@ Estate = {
 			};
 			estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table>'; 
 			if (ROUTE == 'admin_estates') {
-				estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"><input type="hidden" name="_token" value="JmA5HAKria1IyFieTZh01MQItIyw2kBHeMyuKF2Y"><input type="submit" class="btn more_btn" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"><input type="hidden" name="_token" value="JmA5HAKria1IyFieTZh01MQItIyw2kBHeMyuKF2Y"><input type="submit" class="btn more_btn" value="Удалить"></form> \ </div>';
+				estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>';
 			} else {
 				estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
 			};

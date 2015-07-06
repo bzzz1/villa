@@ -1,3 +1,4 @@
+@extends('partials/flash_messages')
 <div class="form_block_small_on_page">
 	<h3>Написать нам</h3>
 	<hr class="form_hr">
