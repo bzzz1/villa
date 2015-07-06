@@ -14,29 +14,29 @@
 	{{-- <i class="fa fa-times fa-lg"></i> --}}
 	<div class="form">
 		<hr class="form_hr">
-		{{ Form::open(['url'=>'/order', 'method'=>'POST', 'class'=>'contact_form']) }}
+		{{ Form::open(['url'=>'/order', 'method'=>'POST', 'class'=>'contact_form', 'data-parsley-validate']) }}
 			<div class="inner_form_block">
 				<div class="select">
-					{{ Form::select('activity', $options, null, ['class'=>'form-control form_select', 'placeholder'=>'выбирите действие', 'reaqired']) }}
+					{{ Form::select('activity', $options, null, ['class'=>'form-control form_select', 'placeholder'=>'выбирите действие', 'required']) }}
 				</div>
 				<div class="phone">
-					{{ Form::text('phone', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Телефон:'])}}
+					{{ Form::text('phone', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Телефон:', 'required'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="email">
-					{{ Form::email('email', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Email:'])}}
+					{{ Form::email('email', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Email:', 'required'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="name">
-					{{ Form::text('name', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Имя:'])}}
+					{{ Form::text('name', null, ['class'=>'form-control form_input_small', 'placeholder'=>'Имя:', 'required'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="subject">
-					{{ Form::text('subject', null, ['class'=>'form-control form_input_big', 'placeholder'=>'Тема'])}}
+					{{ Form::text('subject', null, ['class'=>'form-control form_input_big', 'placeholder'=>'Тема', 'required'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="text_message">
-					{{ Form::textarea('text_message', null, ['class'=>'form-control form_input_area', 'placeholder'=>'Сообщение'])}}
+					{{ Form::textarea('text_message', null, ['class'=>'form-control form_input_area', 'placeholder'=>'Сообщение', 'required'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="send btn js_send_contact_form">
