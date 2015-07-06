@@ -38,6 +38,7 @@
 		@yield('body')
 	</div>	
 	@yield('footer')
+	{{Form::token()}}
 
 
 	{{ HTML::script('js/admin.js') }}

@@ -1,4 +1,5 @@
 @section('body')
+	@include('partials/flash_messages')
 	@if (r() == 'estates')
 		<div class="main">
 			<div id="carousel_estate" class="carousel slide" data-ride="carousel">
