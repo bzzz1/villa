@@ -359,9 +359,6 @@ body {
   .parsley-errors-list li {
     list-style-type: none; }
 
-.form-control:hover {
-  border-color: red; }
-
 #scrollUp {
   bottom: 20px;
   right: 20px;
