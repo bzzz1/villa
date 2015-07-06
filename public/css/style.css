@@ -351,6 +351,17 @@ body {
       .form_block_separate .form .send .fa:hover {
         color: #fff; }
 
+.parsley-errors-list {
+  position: absolute;
+  color: red;
+  padding: 0;
+  width: 240px; }
+  .parsley-errors-list li {
+    list-style-type: none; }
+
+.form-control:hover {
+  border-color: red; }
+
 #scrollUp {
   bottom: 20px;
   right: 20px;
