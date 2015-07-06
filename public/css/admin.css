@@ -858,6 +858,11 @@ header {
   width: 30%;
   margin-left: 1%; }
 
+.first_line,
+.second_line {
+  overflow: auto;
+  padding-bottom: 20px; }
+
 /*LEFT SIDEBAR*/
 .admin_sidebar_container {
   width: 15%;
