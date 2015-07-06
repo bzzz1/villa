@@ -275,3 +275,20 @@ $form_color: #dee6cc;
 		}
 	}
 }
+
+// parsley input errors
+
+.parsley-errors-list {
+	position: absolute;
+	color: red;
+	padding: 0;
+	width: 240px;
+	li {
+		list-style-type: none;
+	}
+}
+.form-control {
+	&:hover {
+		border-color: red;	
+	}
+}
