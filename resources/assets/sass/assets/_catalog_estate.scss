@@ -130,9 +130,12 @@ $item_img_height: 225px;
 		font-size: 14px;
 		color: $main_black;
 		padding-bottom: 10px;
+		width: 100%;
 		table {
 			margin-left: 15px;
+			width: 93%;
 			td {
+				width: 50%;
 				padding-right: 20px;
 			}
 		}

@@ -1033,7 +1033,7 @@ body {
         z-index: 10;
         background-color: #fff;
         height: auto;
-        width: auto;
+        width: 100%;
         max-height: initial; }
         .one_article .article_text .article_heading .title_link:hover + .full:before {
           visibility: hidden; }
@@ -1045,7 +1045,7 @@ body {
       z-index: 10;
       background-color: #fff;
       height: auto;
-      width: auto;
+      width: 100%;
       max-height: initial; }
       .one_article .article_text .article_heading .full:hover:before {
         visibility: hidden; }
@@ -1238,7 +1238,7 @@ body {
         z-index: 10;
         background-color: #d9e7f1;
         height: auto;
-        width: auto;
+        width: 100%;
         max-height: initial; }
         .one_item .short_descr .item_descr:hover + .full:before {
           visibility: hidden; }
@@ -1250,17 +1250,20 @@ body {
       z-index: 10;
       background-color: #d9e7f1;
       height: auto;
-      width: auto;
+      width: 100%;
       max-height: initial; }
       .one_item .short_descr .full:hover:before {
         visibility: hidden; }
   .one_item .item_descr {
     font-size: 14px;
     color: #212121;
-    padding-bottom: 10px; }
+    padding-bottom: 10px;
+    width: 100%; }
     .one_item .item_descr table {
-      margin-left: 15px; }
+      margin-left: 15px;
+      width: 93%; }
       .one_item .item_descr table td {
+        width: 50%;
         padding-right: 20px; }
   .one_item .price {
     overflow: hidden;
