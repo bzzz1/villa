@@ -126,6 +126,14 @@ body {
       color: #212121;
       font-weight: 200;
       padding-left: 20px; }
+    .form_block_on_page .form .name .parsley-error,
+    .form_block_on_page .form .phone .parsley-error,
+    .form_block_on_page .form .email .parsley-error,
+    .form_block_on_page .form .select .parsley-error,
+    .form_block_on_page .form .subject .parsley-error,
+    .form_block_on_page .form .text_message .parsley-error {
+      border-color: red;
+      background-color: #ffcccc; }
     .form_block_on_page .form .name textarea,
     .form_block_on_page .form .phone textarea,
     .form_block_on_page .form .email textarea,

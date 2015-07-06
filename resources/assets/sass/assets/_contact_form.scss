@@ -36,6 +36,10 @@ $form_color: #dee6cc;
 				font-weight: 200;
 				padding-left: 20px;
 			}
+			.parsley-error {
+				border-color: red;
+				background-color: lighten(red, 40%);
+			}
 			textarea {
 				height: 100px;
 			}

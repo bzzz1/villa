@@ -9,7 +9,7 @@
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="phone">
-					{{ Form::text('phone', null, ['class'=>'form-control', 'placeholder'=>'Телефон:', 'required'])}}
+					{{ Form::text('phone', null, ['class'=>'form-control', 'placeholder'=>'Телефон:'])}}
 					<i class="fa fa-chevron-right"></i>
 				</div>
 				<div class="email">
@@ -23,6 +23,9 @@
 				<div class="send btn js_send_contact_form">
 					<i class="fa fa-envelope-o fa-lg"></i>
 				</div>
+				{{ Form::text('company', null, ['class'=>'', 'placeholder'=>'Телефон:', 'hidden'])}}
+				{{ Form::text('subject', null, ['class'=>'', 'placeholder'=>'Телефон:', 'hidden'])}}
+				
 			</div>
 			{{ Form::submit('Отправить', ['class'=>'btn contact_form_submit']) }} 
 		{{ Form::close() }}
