@@ -139,7 +139,7 @@ Estate = {
 			};
 			estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table>'; 
 			if (ROUTE == 'admin_estates') {
-				estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form  class="btn more_btn" href="'+href_delete+'">Удалить</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><a class="btn more_btn" href="'+href_delete+'">Удалить</a> \ </div>';
+				estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form method="post" action="'+href_delete+'"><input type="hidden" name="_token"/><input type="submit" class="btn more_btn" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form method="post" action="'+href_delete+'"><input type="hidden" name="_token"/><input type="submit" class="btn more_btn" value="Удалить"></form> \ </div>';
 			} else {
 				estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
 			};
