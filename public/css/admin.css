@@ -860,8 +860,7 @@ header {
 
 .first_line,
 .second_line {
-  overflow: auto;
-  padding-bottom: 20px; }
+  overflow: auto; }
 
 /*LEFT SIDEBAR*/
 .admin_sidebar_container {
