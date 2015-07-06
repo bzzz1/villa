@@ -25,6 +25,7 @@ $form_color: #dee6cc;
 		.text_message {
 			margin-bottom: 15px;
 			position: relative;
+
 			input,
 			select,
 			textarea {
@@ -130,6 +131,10 @@ $form_color: #dee6cc;
 			font-weight: 200;
 			padding-left: 20px;
 		}
+		.parsley-error {
+			border-color: red;
+			background-color: lighten(red, 40%);
+		}
 		textarea {
 			height: 150px;
 		}
@@ -210,6 +215,10 @@ $form_color: #dee6cc;
 				font-weight: 200;
 				padding-left: 20px;
 			}
+			.parsley-error {
+				border-color: red;
+				background-color: lighten(red, 40%);
+			}
 			textarea {
 				height: 100px;
 			}
@@ -287,8 +296,6 @@ $form_color: #dee6cc;
 		list-style-type: none;
 	}
 }
-.form-control {
-	&:hover {
-		border-color: red;	
-	}
+.parsley-errors-list.filled {
+  opacity: 0;
 }
