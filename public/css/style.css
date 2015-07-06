@@ -216,6 +216,12 @@ body {
       color: #212121;
       font-weight: 200;
       padding-left: 20px; }
+    .form_block_small_on_page .phone .parsley-error,
+    .form_block_small_on_page .email .parsley-error,
+    .form_block_small_on_page .name .parsley-error,
+    .form_block_small_on_page .text_message .parsley-error {
+      border-color: red;
+      background-color: #ffcccc; }
     .form_block_small_on_page .phone textarea,
     .form_block_small_on_page .email textarea,
     .form_block_small_on_page .name textarea,
@@ -290,6 +296,14 @@ body {
       color: #212121;
       font-weight: 200;
       padding-left: 20px; }
+    .form_block_separate .form .name .parsley-error,
+    .form_block_separate .form .phone .parsley-error,
+    .form_block_separate .form .email .parsley-error,
+    .form_block_separate .form .company .parsley-error,
+    .form_block_separate .form .subject .parsley-error,
+    .form_block_separate .form .text_message .parsley-error {
+      border-color: red;
+      background-color: #ffcccc; }
     .form_block_separate .form .name textarea,
     .form_block_separate .form .phone textarea,
     .form_block_separate .form .email textarea,
@@ -351,13 +365,9 @@ body {
       .form_block_separate .form .send .fa:hover {
         color: #fff; }
 
-.parsley-errors-list {
-  position: absolute;
-  color: red;
-  padding: 0;
-  width: 240px; }
-  .parsley-errors-list li {
-    list-style-type: none; }
+.parsley-errors-list.filled {
+  opacity: 0;
+  display: none; }
 
 #scrollUp {
   bottom: 20px;
