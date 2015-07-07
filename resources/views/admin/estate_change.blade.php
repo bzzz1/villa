@@ -82,7 +82,7 @@
 	        		<script>                
 	            		var editor = CKEDITOR.replace( 'description');
 	                	CKFinder.setupCKEditor(editor, '/packages/ckfinder/');
-	                	var data = "<?php echo trim($article->description); ?>";
+	                	var data = "<?php echo trim($estate->description); ?>";
 						CKEDITOR.instances['description'].setData(data);
 	       	 		</script>
 				</div>
