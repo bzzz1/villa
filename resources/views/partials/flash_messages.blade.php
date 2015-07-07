@@ -1,5 +1,5 @@
 @if (Session::get('message'))
-	<div id="js_flash_message">
+	<div id="js_flash_message" onclick="flashModal.open();">
 		<p class="message_text">{{ Session::get('message') }}</p>
 	</div>
 @endif

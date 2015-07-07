@@ -226,10 +226,9 @@ Town = {
 
 Dependencies = {
 	commertial_change : function () {
-		// !!!!!!!!!!!!! FUCK !!!!!!!!!!!!!!!!!! REFACTOR NEEDED !!!!!!!!
+		//  REFACTOR NEEDED !!!
 		$('.js_filter_click').removeClass('active');
 		$(this).addClass('active');
-		// !!!!!!! NEED IT MORE THAN LIFE !!!!!!!!! FUCK YEAH !!!!!!!!!!
 
 		var commercial = $('.js_commercial.active').data('commercial');
 		if ('rent' == commercial) {
