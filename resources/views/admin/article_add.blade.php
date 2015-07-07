@@ -6,10 +6,10 @@
 @extends('admin/footer')
 
 @section('body')
-	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">
 		Добавить Новость
 	</h1>
+	@include('partials/flash_messages')
 	<div class="admin_main_content">
 		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
 			<div class="estate_blocks">

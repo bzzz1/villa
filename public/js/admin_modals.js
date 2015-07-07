@@ -75,18 +75,57 @@ PopupTownAdd = {
 	}
 }
 
+PopupFlashMessage = {
+	run : function() {
+		// $('#js_flash_message').hide();
+		// new jBox('Notice', {
+		// 	animation: { 
+		// 		open: 'tada', 
+		// 		close: 'slide:top' 
+		// 	},
+		// 	attributes: {
+  //      	 		x: 'right',
+  //       		y: 'bottom'
+	 //   	 	},
+	 //    	content: $('#js_flash_message'),
+	 //    	closeOnEsc: true,
+	 //    	color: 'green',
+	 //    	autoClose: 5000,
+		// });
+		var flashModal = new jBox('Notice', {
+			animation: { 
+				open: 'tada', 
+				close: 'slide:bottom' 
+			},
+			attributes: {
+       	 		x: 'right',
+        		y: 'bottom'
+	   	 	},
+	    	content: $('#js_flash_message'),
+	    	closeOnEsc: true,
+	    	color: 'green',
+	    	autoClose: 3000,
+		});
+		$('flashModal').css('display', 'none');
+		// $(window).load(function () {
+		// 	flashModal.close();
+		// });
+	}
+}
+
 //---------------------------------------------------------//
 //---------------------------------------------------------//
 //---------------------------------------------------------//
 
-
+Clear.run();
 PopupDistrictModal.run();
 PopupConfirmModal.run();
+PopupFlashMessage.run();
 PopupDeleteModal.run();
 PopupAdminModal.run();
 PopupTownModal.run();
 PopupTownAdd.run();
-Clear.run();
+
 
 
 $form = $('#change_district_town form');
