@@ -1051,6 +1051,9 @@ footer {
   color: #333;
   font-size: 15px; }
 
+.js_yard_area {
+  display: none; }
+
 /* ADD_ARTICLE & CHANGE_ARTICLE */
 /* Articles & Change_article */
 /* Add_article have style in add_estate.scss */

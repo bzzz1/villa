@@ -289,9 +289,9 @@ DependenciesAdmin = {
 				$('.js_period').removeAttr('form');
 			}
 			if ('rent'==commercial) {
-				$('.js_period').css('display', 'block');
+				$('.js_period').css('display' == 'block');
 			} else {
-				$('.js_period').css('display', 'none');
+				$('.js_period').css('display' == 'none');
 			}
 		});
 
