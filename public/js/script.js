@@ -104,7 +104,7 @@ Estate = {
 
 		function load_estates () {
 			console.log($q);
-			for (var i = $q; i < $q + 3 ; i++) {
+			for (var i = $q; i < $q + 3; i++) {
 				var estate = data[i];
 				var src = URL_IMG+'/'+estate.image;
 				var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
@@ -167,10 +167,10 @@ Estate = {
 					};
 				};
 			};
-			// console.log('initial='+$q);
-			// if ($q * 2 > data.length) {
-				// $('.js_load_more').hide();
-			// };
+			console.log('initial='+$q);
+			if ($q * 2 > data.length) {
+				$('.js_load_more').hide();
+			};
 		};
 
 		load_estates();
