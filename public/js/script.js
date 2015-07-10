@@ -104,7 +104,7 @@ Estate = {
 
 		function load_estates () {
 			console.log($q);
-			for (var i = $q; i < $q + 3; i++) {
+			for (var i = $q; i < $q + 1; i++) {
 				var estate = data[i];
 				var src = URL_IMG+'/'+estate.image;
 				var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
@@ -176,7 +176,7 @@ Estate = {
 		load_estates();
 
 		$('.js_load_more').on('click', function () {
-			$q = $q + 3;
+			$q ++;
 			load_estates();
 			console.log($q);
 		});
