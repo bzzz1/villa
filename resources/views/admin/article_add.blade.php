@@ -6,10 +6,10 @@
 @extends('admin/footer')
 
 @section('body')
-	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">
 		Добавить Новость
 	</h1>
+	@include('partials/flash_messages')
 	<div class="admin_main_content">
 		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
 			<div class="estate_blocks">
@@ -34,13 +34,14 @@
 			<h4 class="title_dropzone_form">
 				Добавление файлов 
 			</h4>
-			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'enctype'=> 'multipart/form-data', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone']) }}
+			{{-- <form action="/upload" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone"> --}}
 				<div class="dz-default dz-message" data-dz-message>
 					<p class="title_dropzone">						
 						Перетащите файлы или кликните для загрузки здесь.
 					</p>
 				</div>
-			</form>
+			{{ Form::close() }}
 		</div>
 	</div>
 @stop

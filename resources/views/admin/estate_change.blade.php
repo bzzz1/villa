@@ -46,7 +46,7 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req" value="{{ $estate->yard_area }}">
+						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}

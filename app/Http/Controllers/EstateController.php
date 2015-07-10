@@ -108,4 +108,16 @@ class EstateController extends Controller {
 		$estate->delete();
 		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
+
+	public function upload() {
+		$file = Input::file('file');
+		$filename = $file->getClientOriginalName();
+		$path = 'public/img/upload';
+		return $file->move($path, $filename);
+   	 // 	$extension = File::extension($file->getClientOriginalName());
+    	// $directory = 'img/profile_pics/'. Auth::user()->username;
+    	// $filename =  "profile.".$extension;
+
+    	// $upload_success = Input::file('file')->move($directory, $filename); 
+	}
 }
