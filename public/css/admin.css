@@ -1029,28 +1029,6 @@ footer {
 .district {
   margin-top: 0; }
 
-/* DROPZONE */
-.dropzone_form_block {
-  min-height: 200px; }
-
-.title_dropzone {
-  text-align: center;
-  margin: 1em 0;
-  font-weight: bold;
-  font-size: 25px;
-  color: #646C7F;
-  cursor: pointer; }
-
-.form_dropzone {
-  border: 2px dashed #0087F7;
-  border-radius: 5px; }
-
-.title_dropzone_form {
-  margin: 20px 0 20px 0;
-  font-weight: bold;
-  color: #333;
-  font-size: 15px; }
-
 /* ADD_ARTICLE & CHANGE_ARTICLE */
 /* Articles & Change_article */
 /* Add_article have style in add_estate.scss */
@@ -1235,3 +1213,26 @@ footer {
   margin-top: 0;
   font-size: 20px;
   color: #9dcb20; }
+
+/* DROPZONE */
+/* DROPZONE */
+.dropzone_form_block {
+  min-height: 200px; }
+
+.title_dropzone {
+  text-align: center;
+  margin: 2em 0;
+  font-weight: bold;
+  font-size: 25px;
+  color: #646C7F;
+  cursor: pointer; }
+
+.form_dropzone {
+  border: 2px dashed #0087F7;
+  border-radius: 5px; }
+
+.title_dropzone_form {
+  margin: 20px 0 20px 0;
+  font-weight: bold;
+  color: #333;
+  font-size: 15px; }
