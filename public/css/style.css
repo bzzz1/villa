@@ -981,8 +981,7 @@ body {
     min-width: 300px;
     min-height: 225px;
     padding-left: 10px;
-    padding-right: 10px;
-    margin-bottom: 50px; }
+    padding-right: 10px; }
     .one_article .articles_img:before, .one_article .articles_img:after {
       content: " ";
       display: table; }

@@ -11,15 +11,17 @@
 		@foreach($articles as $article)
 			<div class="one_article">
 				<div class="articles_img">
-					{{-- @if ($article->preview) --}}
-						{{-- <a href="{{l('article', [$article->title, $atrticle->article_id])}}"> --}}
-							{{-- {{HTML::image('img/photos/articles/$article->preview', '$article->title')}} --}}
-						{{-- </a> --}}
-					{{-- @else	 --}}
-						<a href="{{l('article', [$article->title, $article->article_id])}}">
-							{{HTML::image('img/photos/articles/alien.png', '$article->title')}}
-						</a>
-					{{-- @endif	  --}}
+					@if (true == $article->preview ) 
+						<div class="block_img">
+							<a href='{{l('article', [$article->title, $article->article_id])}}' >
+								<img src='{{ url_path('articles')."/$article->preview" }}' alt="{{$article->title}}" class="admin_article_minimg article_image article_image">	
+							</a>	
+						</div>
+					@else 
+						<div class="block_img">
+							<img src="{{ url_path('articles')."/alien.png" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">		
+						</div>
+					@endif	
 				</div>
 				<div class="article_text">
 					<div class="article_heading">
