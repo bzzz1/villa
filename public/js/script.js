@@ -21,12 +21,14 @@ Filter = {
 	sending : false,
 	run : function () {
 		$('.js_filter_change').on('change', function () {
-			Filter.send;
 			$('.js_load_more').show();
+			Filter.send;
+			$q = 0;
 		});
 		$('.js_filter_click').on('click', function () {
 			$q = 0;
 			$('.js_load_more').show();
+
 		});
 	},
 	collect : function () {
@@ -79,7 +81,7 @@ Filter = {
 	send : function () {
 		Filter.collect();
 		var filters = Filter.filters;
-		var url = URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc';
+		var url = URL_AJAX_ESTATES+'/'+filters+'?take=100000000000&page=1&sort=title&order=asc';
 
 		if (false == Filter.sending) {
 			Filter.sending = true;
@@ -100,85 +102,134 @@ Estate = {
 		var $catalog_blocks = $('.catalog_blocks');
 		$catalog_blocks.html('');
 		
-		var $q = 0;
+		$q = 0;
 
-		function load_estates () {
-			console.log($q);
+		function load_estates (data) {
+			console.log('start_emenent___'+$q);
+
 			for (var i = $q; i < $q + 3 ; i++) {
-				var estate = data[i];
-				var src = URL_IMG+'/'+estate.image;
-				var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
-				var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
-				var href_delete = URL_ESTATE_ADMIN_DELETE+'/%7Bestate_id%7D';
-				var csrf_token = $("input[name = '_token']").val();
-				estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
-				if (ROUTE == 'admin_estates') {
-					if (estate.image !== undefined) {
-						estate_html += 	'<a href="'+href_admin+'"> \
-										<img src = "'+'/'+src+'" alt="'+estate.title+'", class="item_img"> \
-									</a>';
-					}
-					else  {
-						estate_html += 	'<a href="'+href_admin+'"> \
-										<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
-									</a>';
+				console.log(i);
+				if (i < data.length) {
+					var estate = data[i];
+					var src = URL_IMG+'/'+estate.preview;
+					var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
+					var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
+					var href_delete = URL_ESTATE_ADMIN_DELETE+'/%7Bestate_id%7D';
+					var csrf_token = $("input[name = '_token']").val();
+					estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
+					if (ROUTE == 'admin_estates') {
+						if (estate.preview !== '') {
+							estate_html += 	'<a href="'+href_admin+'"> \
+											<img src = "'+'/'+src+'" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						}
+						else  {
+							estate_html += 	'<a href="'+href_admin+'"> \
+											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						};
+					} else {
+						console.log(estate.preview)
+						if (estate.preview !== '') {
+							estate_html += 	'<a href="'+href+'"> \
+											<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						}
+						else  {
+							estate_html += 	'<a href="'+href+'"> \
+											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						};
+						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
 					};
-				} else {
-					if (estate.image !== undefined) {
-						estate_html += 	'<a href="'+href+'"> \
-										<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
-									</a>';
-					}
-					else  {
-						estate_html += 	'<a href="'+href+'"> \
-										<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
-									</a>';
+					estate_html += '</div>';
+					if (ROUTE == 'admin_estates') {
+						estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href_admin+'">'+estate.title+'</a></h2></div>';
+					} else {
+						estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div>';
 					};
-					estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
-				};
-				estate_html += '</div>';
-				if (ROUTE == 'admin_estates') {
-					estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href_admin+'">'+estate.title+'</a></h2></div>';
-				} else {
-					estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div>';
-				};
-				estate_html +='<div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td class="dep_price">'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td>';
-				if (estate.period == 'daily') {
-					estate_html += '<td class="dep_period">посуточно</td></tr>';
-				} else if (estate.period == 'hourly') {
-					estate_html += '<td class="dep_period">почасово</td></tr>';
-				} else if (estate.period == 'montly') {
-					estate_html += '<td class="dep_period">помесячно</td></tr>';
-				};
-				estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table>'; 
-				if (ROUTE == 'admin_estates') {
-					estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>';
-				} else {
-					estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
-				};
-				$catalog_blocks.html(estate_html);
+					estate_html +='<div class="short_descr"><div class="item_descr"> <table> <tbody>';
+					if (estate.house_area != null) {
+						estate_html += '<tr> <td>Площадь</td><td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr>';
+					};
+					if (estate.yard_area != null){
+							estate_html += '<tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr>'
+					}; 
+					if (estate.rooms != null){ 
+						estate_html += '<tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr>';
+					};
+					if (estate.sea_dist != null) {
+						estate_html += '<tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>';
+					};
+					if (estate.price != '0') {
+						estate_html += '<tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей </td>';
+					};
+					estate_html += '</tbody></table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> ';
+					if (estate.house_area != null) {
+						estate_html += '<tr> \ <td>Площадь</td><td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr>';
+					};
+					if (estate.yard_area != null){
+							estate_html += '<tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr>'
+					}; 
+					if (estate.rooms != null){ 
+						estate_html += '<tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr>';
+					};
+					if (estate.sea_dist != null) {
+						estate_html += '<tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>';
+					};
+					if (estate.price != '0') {
+						estate_html += '<tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей </td> </tr>';
+					}; 
+					if (estate.period == 'daily') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">посуточно</td></tr>';
+					} else if (estate.period == 'hourly') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">почасово</td></tr>';
+					} else if (estate.period == 'montly') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">помесячно</td></tr>';
+					};
+					if (estate.address != null) {
+						estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr>';
+					};
+					estate_html += '</tbody> \ </table>'; 
+					if (ROUTE == 'admin_estates') {
+						estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>';
+					} else {
+						estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+					};
+					$catalog_blocks.html(estate_html);
 
-				// var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
+					// var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
+					// console.log(dep);
+					// for (var j =0; j < dep.length; j++) {
+					// 	console.log(dep.length);
+					// 	if ($('.dep_'+dep[j]).val() == null) {
+					// 		$('.dep_'+dep[j]).parent().hide();
+					// 		console.log($('.dep_'+dep[j]).parent());
+					// 	}else {
+					// 		console.log('sdfsdfsdf');
+					// 	}
+					// };
+					// for (field in estate) {
+					// 	if (estate[field] == null) {
+					// 		$('.dep_'+field).parent().hide();
+					// 		console.log($('.dep_'+field).parent());
+					// 	}else {
+					// 		console.log('sdfsdfsdf');
 
-				for (field in estate) {
-					if (estate[field] == null) {
-						$('.dep_'+field).parent().hide();
-						console.log($('.dep_'+field).parent());
-					};
-				};
+					// 	}
+					// };
+					console.log(i+'_element')
+				} else {
+					$('.js_load_more').hide();
+				}
 			};
-			// console.log('initial='+$q);
-			// if ($q * 2 > data.length) {
-				// $('.js_load_more').hide();
-			// };
 		};
 
-		load_estates();
+		load_estates (data);
 
 		$('.js_load_more').on('click', function () {
 			$q = $q + 3;
-			load_estates();
-			console.log($q);
+			load_estates (data);
 		});
 	}
 }

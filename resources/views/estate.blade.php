@@ -15,29 +15,13 @@
 				 data-trackpad="true"
 				 data-loop="true"
 				 >
-			{{-- 	@foreach (read_dir(dir_path('carousel')) as $name)
-					{{ HTML::image(dir_path('carousel').'/'.$name, "$estate->title", ['class'=>'item_img']) }}
-				@endforeach	 --}}
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
-				<img src="http://s.fotorama.io/1.jpg">
-				<img src="http://s.fotorama.io/2.jpg">
+					@if(empty($images))
+					 	@foreach($images as $image)
+							{{HTML::image('img/photos/estates/'.$image->image, $estate->title)}}
+						@endforeach
+					@else
+							{{HTML::image('img/photos/estates/alien.png')}}
+					@endif
 			</div>
 			<div class="map_container_small">
 				{{-- insert map here --}}

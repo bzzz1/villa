@@ -4,6 +4,7 @@ use Estate;
 use Request;
 use Session;
 use Town;
+use Image;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
@@ -25,7 +26,8 @@ class EstateController extends Controller {
 	}
 
 	public function estates() {
-		return v();
+		$estates_map = Estate::all()->flate();
+		return v()-> with(compact('estates_map'));
 	}
 
 	public function ajax_estates($filters='') {
@@ -38,16 +40,32 @@ class EstateController extends Controller {
 		// improve max and min for range filters
 		// if ('range' == get_filter_type($filter)) {}
 
+		// $previews = array();
+		// $previews_row = Image::where('preview', 1)-> get() -> flate();
+		// foreach ($estates as $estate) {
+		// 	foreach ($previews_row as $preview) {
+		// 		if ($preview->estate_id = $estate->estate_id) {
+		// 			$estates = array_add($preview);
+		// 		};
+		// 	};
+		// };
+
+
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
 		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
 		$query = $query->orderBy($sort, $order);
-		$estates = $query->skip($skip)->take($take)->get();
-
+		$estates = $query->get();
+		// $estates = $query->skip($skip)->take($take)->get();
+		// $estates = $query->join('images', 'estates.estate_id', '=', 'images.estate_id')->get();
 		return response()->json($estates);
 	}
 
 	public function estate($estate, $estate_id) {
-		return v()->with(compact('estate_id'));
+		$images = Image::where('estate_id', $estate_id)->get();
+		return v()->with(compact(array(
+									'estate_id',
+									'images'
+									)));
 	}
 
 	public function change_estate($estate_id) {
