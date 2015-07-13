@@ -5,6 +5,9 @@ use Request;
 use Session;
 use Town;
 use Image;
+use Validator;
+use Redirect;
+use Input;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
@@ -17,6 +20,11 @@ class EstateController extends Controller {
 	public function create_estate() {
 		$data = Request::all();
 		unset($data['_token']);
+	  	$file = array('preview' => Input::file('preview'));
+	    $destinationPath = 'img/photos/estates'; // upload path
+      	$extension = Input::file('preview')->getClientOriginalExtension();
+      	$fileName = rand(11111,99999).'.'.$extension; // renameing image
+      	Input::file('preview')->move($destinationPath, $fileName); 
 		$estate = Estate::create($data);
 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
 	}
@@ -110,75 +118,13 @@ class EstateController extends Controller {
 		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
 
-	public function upload() {
-		$file = Input::file('file');
-		$filename = $file->getClientOriginalName();
-		$path = 'img/upload';
-		return $file->move($path, $filename);
-   	 // 	$extension = File::extension($file->getClientOriginalName());
-    	// $directory = 'img/profile_pics/'. Auth::user()->username;
-    	// $filename =  "profile.".$extension;
-
-    	// $upload_success = Input::file('file')->move($directory, $filename); 
-	}
-
-	// public function update_item() {
-	// 	$item_id = Input::get('item_id');
-	// 	$fields = Input::all();
-	// 	$photo = Input::get('photo');
-	// 	$old = Input::get('old');
-
-	// 	// createnig and updting
-	// 	if ($photo != 'no_photo.png'  && $photo != $old) {
-	// 		if ($old != 'no_photo.png') {
-	// 			$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
-	// 			File::delete($filepath);
-	// 			$fields['photo'] = 'no_photo.png';
-	// 		}
-
-	// 		$old = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$photo;
-	// 		$extension = File::extension($old);
-	// 		$filename = 'photo_'.time().'.'.$extension;
-	// 		$new = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$filename;
-	// 		rename($old, $new);
-	// 		$fields['photo'] = $filename;
-	// 	}
-
-	// 	// deleting photo
-	// 	if ($photo == 'no_photo.png' && $old != 'no_photo.png') {
-	// 		$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$old;
-	// 		File::delete($filepath);
-	// 		$fields['photo'] = 'no_photo.png';
-	// 	}
-
-	// 	if ($validator->fails()) {
-	// 		return Redirect::back()->withInput()
-	// 			->withErrors('Товар с таким кодом уже существует. Код должен быть уникальным!');
-	// 	} else {
-	// 		$item = Item::updateOrCreate(['item_id' => $item_id], $fields);
-	// 	}
-
-	// 	if ($item_id) {
-	// 		$message = 'Товар '.$item->title.' изменен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
-	// 		return Redirect::back()->with('message', $message);
-	// 	} else {
-	// 		$message = 'Товар '.$item->title.' добавлен! <a href='.URL::to('/admin/change_item?item_id='.$item->item_id).' class="alert-link">Назад</a>';
-	// 		return Redirect::back()->with('message', $message)->withInput();
-	// 	}
-	// }
-
-	// public function delete_item() {
-	// 	$item = Item::find(Input::get('item_id'));
-	// 	if ($item->photo != 'no_photo.png') {
-	// 		$filepath = HELP::$ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$item->photo;
-	// 		File::delete($filepath);
-	// 	}
-
-	// 	$contains = Str::contains(URL::previous(), '/admin/change_item');
-	// 	if ($contains) {
-	// 		return HELP::__delete('Item', 'Товар %s удален!', 'title', '/admin/change_item');
-	// 	} else {
-	// 		return HELP::__delete('Item', 'Товар %s удален!', 'title', 'back');
-	// 	}
+	// public function upload() {
+	// 	$file = Input::file('file');
+	// 	$filename = $file->getClientOriginalName();
+	// 	$path = 'img/upload/estates/';
+	// 	return $file->move($path, $filename);
+ //   		$file = Input::file('file');
+ //   	 	$extension = File::extension($file->getClientOriginalName());
+ //    	$directory = 'img/photos/estates/'. Auth::user()->username;	
 	// }
 }

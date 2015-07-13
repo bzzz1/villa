@@ -11,7 +11,7 @@
 		Добавить объект
 	</h1>
 	<div class="admin_main_content">
-		{{ Form::open(['url'=>l('create_estate'), 'class' => 'js_forms', 'method' => 'post']) }}
+		{{ Form::open(['url'=>l('create_estate'), 'class' => 'js_forms', 'method' => 'post', 'files'=> true]) }}
 			<div class="main_block">
 				<div class="estate_blocks">
 					{{ Form::label('title', 'Название', ['class' => 'label_form fl label_estate_width']) }}
@@ -68,11 +68,11 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl">
 						{{ Form::label('longitude', 'Долгота', ['class' => 'label_form fl width_label_uni']) }}
-						<input type="number" id="longituide" required name="longitude" placeholder="50.058734" step="0.00001" class="input_form estate_select_width fr">
+						<input type="number" id="longituide" required name="longitude" placeholder="50.058734" step="0.000001" class="input_form estate_select_width fr">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('latitude', 'Широта', ['class' => 'label_form width_label_uni']) }}
-						<input type="number" id="latitude" required name="latitude" placeholder="36.758734" step="0.00001" class="input_form estate_select_width fr">
+						<input type="number" id="latitude" required name="latitude" placeholder="36.758734" step="0.000001" class="input_form estate_select_width fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
