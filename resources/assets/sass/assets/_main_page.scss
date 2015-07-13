@@ -23,8 +23,13 @@
 				color: #fff;
 				font-weight: 200;
 				text-shadow: none;
+				font-family: $main_font;
 				h3 {
 					margin-top: 10px;
+					font-family: $main_font;
+				}
+				h1 {
+					font-family: $main_font;
 				}
 			}
 		}
@@ -67,9 +72,9 @@
 	}
 	.map_container {
 		// visibility: hidden;
-		display: none;
+		// display: none;
 		margin-top: 20px;
-		background-color: red;
+		background-color: transparent;
 		height: 500px;
 	}
 }

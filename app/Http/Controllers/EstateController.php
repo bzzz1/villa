@@ -17,23 +17,25 @@ class EstateController extends Controller {
 		return v()->with(compact('towns'));
 	}
 	
+	
 	public function create_estate() {
 		$data = Request::all();
 		unset($data['_token']);
-	  	$file = array('preview' => Input::file('preview'));
-	    $destinationPath = 'img/photos/estates'; // upload path
-      	if (!empty($file)) {    
-      		$extension = Input::file('preview')->getClientOriginalExtension();
-      		$fileName = rand(111111,999999).'.'.$extension; // renameing image
-      		Input::file('preview')->move($destinationPath, $fileName); 
-      		$data['preview'] = $fileName;
-      		$estate = Estate::create($data);
-			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
-      	}
-      	else {
-			$estate = Estate::create($data);
-			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");	
-      	}
+	 	$file = array('preview' => Input::file('preview'));
+	    $destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'; // upload path
+	     	if (!empty($file)) {    
+		     	$extension = Input::file('preview')->getClientOriginalExtension();
+		     	$fileName = rand(111111,999999).'.'.$extension; // renameing image
+		     	Input::file('preview')->move($destinationPath, $fileName); 
+		     	$data['preview'] = $fileName;
+		     	$estate = Estate::create($data);
+				return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
+	     	}
+	     	else {
+				$estate = Estate::create($data);
+				return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");	
+	     	}
+
 	}
 
 	public function admin_estates() {
@@ -42,7 +44,7 @@ class EstateController extends Controller {
 
 	public function estates() {
 		$estates_map = Estate::all()->flate();
-		return v()-> with(compact('estates_map'));
+		return v()->with(compact('estates'));
 	}
 
 	public function ajax_estates($filters='') {
@@ -89,8 +91,15 @@ class EstateController extends Controller {
 
 	public function selected() {
 		$selected = Session::get('selected');
-		$estates = Estate::whereIn('estate_id', $selected)->orderBy('price', 'desc')->get();
-		return v()->with(compact('estates')); 
+		if ($selected == null) {
+			$estates = ['a'=>'a'];
+		} else {
+			$estates = Estate::whereIn('estate_id', $selected)->get();
+		}
+
+		return v()->with(compact(array(
+			'estates',
+			'selected'))); 
 	}
 
 	public function ajax_select_estate($estate_id) {
