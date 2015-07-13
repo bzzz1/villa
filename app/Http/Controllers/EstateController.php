@@ -18,14 +18,19 @@ class EstateController extends Controller {
 	}
 	
 	public function create_estate() {
+		$ITEM_PHOTO_DIR = public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'; 
 		$data = Request::all();
 		unset($data['_token']);
-	  	$file = array('preview' => Input::file('preview'));
-	    $destinationPath = 'img/photos/estates'; // upload path
-      	if (empty($file)) {    
-      		$extension = Input::file('preview')->getClientOriginalExtension();
-      		$fileName = rand(11111,99999).'.'.$extension; // renameing image
-      		Input::file('preview')->move($destinationPath, $fileName); 
+	  	// $file = array('preview' => Input::file('preview'));
+	  	$file = Input::get('preview');
+	    $destinationPath = $ITEM_PHOTO_DIR; // upload path
+
+      	if (!empty($file)) {    
+      		$extension = $file->getClientOriginalExtension();
+      		$fileName = 'photo_'.rand(1111111,999999).'.'.$extension; // renameing image
+      		$file->move($destinationPath, $fileName); 
+      		// $new = $ITEM_PHOTO_DIR.DIRECTORY_SEPARATOR.$fileName;
+      		$data['preview'] = $fileName;
       		$estate = Estate::create($data);
 			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
       	}

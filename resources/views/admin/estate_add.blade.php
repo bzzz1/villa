@@ -4,7 +4,6 @@
 @extends('admin/header')
 @extends('admin/sidebar')
 @extends('admin/footer')
-
 @section('body')
 	@include('partials/flash_messages')
 	<h1 class="admin_uni_heading">
