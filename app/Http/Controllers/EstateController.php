@@ -22,11 +22,17 @@ class EstateController extends Controller {
 		unset($data['_token']);
 	  	$file = array('preview' => Input::file('preview'));
 	    $destinationPath = 'img/photos/estates'; // upload path
-      	$extension = Input::file('preview')->getClientOriginalExtension();
-      	$fileName = rand(11111,99999).'.'.$extension; // renameing image
-      	Input::file('preview')->move($destinationPath, $fileName); 
-		$estate = Estate::create($data);
-		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
+      	if (empty($file)) {    
+      		$extension = Input::file('preview')->getClientOriginalExtension();
+      		$fileName = rand(11111,99999).'.'.$extension; // renameing image
+      		Input::file('preview')->move($destinationPath, $fileName); 
+      		$estate = Estate::create($data);
+			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
+      	}
+      	else {
+			$estate = Estate::create($data);
+			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");	
+      	}
 	}
 
 	public function admin_estates() {
@@ -107,8 +113,18 @@ class EstateController extends Controller {
 		$data = Request::all();
 		unset($data['_token']);
 		$estate = Estate::find($data['estate_id']);
-		$estate->update($data);
-		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
+	  	$file = array('preview' => Input::file('preview'));
+	  	if (empty($file)) {    
+      		$extension = Input::file('preview')->getClientOriginalExtension();
+      		$fileName = rand(11111,99999).'.'.$extension; // renameing image
+      		Input::file('preview')->move($destinationPath, $fileName); 
+      		$estate = Estate::create($data);
+			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
+      	}
+      	else {
+      		$estate->update($data);
+			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
+      	}
 	}
 
 	public function delete_estate() {
