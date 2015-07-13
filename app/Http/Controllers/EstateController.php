@@ -23,7 +23,7 @@ class EstateController extends Controller {
 	  	$file = array('preview' => Input::file('preview'));
 	    $destinationPath = 'img/photos/estates'; // upload path
       	if (!empty($file)) {    
-      		$extension = Input::file('preview')->getClientOriginalName();
+      		$extension = Input::file('preview')->getClientOriginalExtension();
       		$fileName = rand(111111,999999).'.'.$extension; // renameing image
       		Input::file('preview')->move($destinationPath, $fileName); 
       		$data['preview'] = $fileName;
