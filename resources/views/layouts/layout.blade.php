@@ -18,7 +18,7 @@
 		{{ HTML::script('js/vendor/jquery.min.js') }}
 		{{ HTML::script('js/vendor/bootstrap.min.js') }}
 		{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
-		{{ HTML::script('https://maps.googleapis.com/maps/api/js?v=3.exp') }}
+		{{ HTML::script('https://maps.googleapis.com/maps/api/js?key=AIzaSyAPItNtZn6wxRNqm0wp1Eg6ujAsJy33tN0') }}
 		{{ HTML::script('js/vendor/parsley.min.js') }}
 		{{ HTML::script('js/vendor/parsley_i18n_ru.js') }}
 		{{ HTML::script('js/vendor/jquery.scrollUp.min.js') }}

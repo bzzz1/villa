@@ -30,7 +30,7 @@
 				</a>
 				<i class="fa fa-heart fa-3x"></i>
 				<div class="counter">
-					<p>10 объектов</p>
+					<p class="text-center js_counter">0</p>
 					<span>в</span>
 					{{HTML::link('/selected/', 'избранных')}}
 				</div>

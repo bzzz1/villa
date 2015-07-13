@@ -23,8 +23,7 @@
 							{{HTML::image('img/photos/estates/alien.png')}}
 					@endif
 			</div>
-			<div class="map_container_small">
-				{{-- insert map here --}}
+			<div class="map_container_small" id="map_one_elem">
 			</div>
 		</div>
 		<div class="text_block">
@@ -82,4 +81,41 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		var lat = "{{$estate->latitude}}";
+		var lng = "{{$estate->longitude}}";
+		var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+		var image = '/img/layout/marker_b.png';
+		var title = "{{$estate->title}}"
+		console.log(image);
+
+
+		function initialize() {
+			var mapOptions = {
+			  center: latLng,
+			  zoom: 6
+			  
+			};
+			var map = new google.maps.Map(document.getElementById('map_one_elem'), mapOptions);
+
+			var marker = new google.maps.Marker({
+				draggable:true,
+   				animation: google.maps.Animation.DROP,
+			    position: latLng,
+			    map: map,
+			    title: title,
+			    icon: image
+			 });
+			function toggleBounce() {
+
+			  if (marker.getAnimation() != null) {
+			    marker.setAnimation(null);
+			  } else {
+			    marker.setAnimation(google.maps.Animation.BOUNCE);
+			  }
+			}
+			// marker.setMap(map)
+		};
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 @stop

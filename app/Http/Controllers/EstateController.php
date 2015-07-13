@@ -27,7 +27,7 @@ class EstateController extends Controller {
 
 	public function estates() {
 		$estates_map = Estate::all()->flate();
-		return v()-> with(compact('estates_map'));
+		return v()->with(compact('estates'));
 	}
 
 	public function ajax_estates($filters='') {
@@ -74,8 +74,15 @@ class EstateController extends Controller {
 
 	public function selected() {
 		$selected = Session::get('selected');
-		$estates = Estate::whereIn('estate_id', $selected)->orderBy('price', 'desc')->get();
-		return v()->with(compact('estates')); 
+		if ($selected == null) {
+			$estates = ['a'=>'a'];
+		} else {
+			$estates = Estate::whereIn('estate_id', $selected)->get();
+		}
+
+		return v()->with(compact(array(
+			'estates',
+			'selected'))); 
 	}
 
 	public function ajax_select_estate($estate_id) {
@@ -107,17 +114,5 @@ class EstateController extends Controller {
 		$estate = Estate::find($estate_id);
 		$estate->delete();
 		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
-	}
-
-	public function upload() {
-		$file = Input::file('file');
-		$filename = $file->getClientOriginalName();
-		$path = 'public/img/upload';
-		return $file->move($path, $filename);
-   	 // 	$extension = File::extension($file->getClientOriginalName());
-    	// $directory = 'img/profile_pics/'. Auth::user()->username;
-    	// $filename =  "profile.".$extension;
-
-    	// $upload_success = Input::file('file')->move($directory, $filename); 
 	}
 }

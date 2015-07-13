@@ -12,6 +12,9 @@ HTML = {
 
 		this.$price 		= $('.price');
 		this.$sea_dist 		= $('.sea_dist');
+
+		// google.maps.event.addDomListener(window, 'load', initialize);
+
 	}
 }
 
@@ -79,6 +82,7 @@ Filter = {
 		Filter.filters = filters;
 	},
 	send : function () {
+		// google.maps.event.addDomListener(window, 'load', initialize);
 		Filter.collect();
 		var filters = Filter.filters;
 		var url = URL_AJAX_ESTATES+'/'+filters+'?take=100000000000&page=1&sort=title&order=asc';
@@ -89,12 +93,28 @@ Filter = {
 		}
 	},
 	callback : function (data) {
+		google.maps.event.addDomListener(window, 'load', initialize);
 		Estate.process(data);
 		Favorites.run();
 		Filter.sending = false;
+
 	},
 }
-$( document ).ready(Filter.send);
+$(document).ready(Filter.send);
+$(document).ready(google.maps.event.addDomListener(window, 'load', initialize));
+
+var map;
+console.log(map+'__________1');
+function initialize() {
+	var mapOptions = {
+	  center: { lat: 44.652473, lng: 34.293766},
+	  zoom: 10
+	};
+
+	map = new google.maps.Map(document.getElementById('js_map'), mapOptions);
+	console.log(map+'__________2');
+
+};
 
 Estate = {
 	process : function (data) {
@@ -104,9 +124,13 @@ Estate = {
 		
 		$q = 0;
 
+		// var map;
 		function load_estates (data) {
 			console.log('start_emenent___'+$q);
 
+			var image = '/img/layout/marker_b.png';
+			var markerArrey = [];
+			
 			for (var i = $q; i < $q + 3 ; i++) {
 				console.log(i);
 				if (i < data.length) {
@@ -140,7 +164,7 @@ Estate = {
 											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
 										</a>';
 						};
-						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
+						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_delete_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
 					};
 					estate_html += '</div>';
 					if (ROUTE == 'admin_estates') {
@@ -197,32 +221,35 @@ Estate = {
 						estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
 					};
 					$catalog_blocks.html(estate_html);
+					var lat = estate.latitude;
+					var lng = estate.longitude;
+					var title = estate.title;
+					var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+					console.log(image);
+					var marker = new google.maps.Marker({
+						draggable:false,
+						animation: google.maps.Animation.DROP,
+					    position: latLng,
+					    // map: map,
+					    title: title,
+					    icon: image
+					});
+					markerArrey.push(marker);
+					console.log(markerArrey)
 
-					// var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
-					// console.log(dep);
-					// for (var j =0; j < dep.length; j++) {
-					// 	console.log(dep.length);
-					// 	if ($('.dep_'+dep[j]).val() == null) {
-					// 		$('.dep_'+dep[j]).parent().hide();
-					// 		console.log($('.dep_'+dep[j]).parent());
-					// 	}else {
-					// 		console.log('sdfsdfsdf');
-					// 	}
-					// };
-					// for (field in estate) {
-					// 	if (estate[field] == null) {
-					// 		$('.dep_'+field).parent().hide();
-					// 		console.log($('.dep_'+field).parent());
-					// 	}else {
-					// 		console.log('sdfsdfsdf');
-
-					// 	}
-					// };
 					console.log(i+'_element')
+
 				} else {
 					$('.js_load_more').hide();
 				}
 			};
+			setTimeout(function () {
+				for (var j = 0; j < markerArrey.length; j++) {
+					markerArrey[j].setMap(map);
+					console.log(markerArrey[j])
+				};
+			}, 500)
+			console.log('map_to-array____'+map);
 		};
 
 		load_estates (data);
@@ -238,11 +265,20 @@ Favorites = {
 	run : function () {
 		$('.js_select').on('click', function() {
 			var estate_id = $(this).closest('.one_item').data('id');
+
+			console.log('id____'+estate_id);
 			var url = URL_AJAX_SELECT+'/'+estate_id;
+
+			console.log('url____'+url);
 			Help.ajax('POST', url, {}, function(){
-				$(this).parent().find('.js_select').show();
+				$(this).parent().find('.js_delete_select').show();
+			
+				console.log('parent____'+$(this).parent());
+
 				$(this).hide();
 			});
+			$current = $('.js_counter').text();
+			console.log('counteer____'+$current);
 		});
 	}
 }
@@ -428,15 +464,23 @@ Ranges = {
 }
 
 Map = {
+
 	run : function () {
+		$(document).ready(function () {
+			setTimeout(function () {
+				$('.js_map_canvas').hide();
+			}, 800)
+		});
+
 		$('.js_open_map').on('click', function(){
-			if ($('.js_map_canvas').css('display') == 'none') {
+			if ($('.js_map_canvas').css('display') === 'none') {
 				$('.js_map_canvas').slideDown(700);
 			}
 			else {
 				$('.js_map_canvas').slideUp(700);
 			};
 		});
+		
 	}
 }
 
@@ -573,3 +617,7 @@ $(function () {
         zIndex: 2147483647           // Z-Index for the overlay
     });
 });
+
+
+
+
