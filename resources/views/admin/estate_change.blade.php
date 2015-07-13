@@ -11,7 +11,7 @@
 		Изменить объект
 	</h1>
 	<div class="admin_main_content">
-		{{ Form::model($estate, ['url'=>l('update_estate'), 'class' => 'js_forms',  'method' => 'post']) }}
+		{{ Form::model($estate, ['url'=>l('update_estate'), 'class' => 'js_forms',  'method' => 'post', 'files'=> true]) }}
 			{{ Form::hidden('estate_id', $estate->estate_id) }}
 			<div class="main_block">
 				<div class="estate_blocks">
