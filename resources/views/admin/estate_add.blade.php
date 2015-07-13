@@ -97,7 +97,11 @@
 				{{ Form::label('present', 'Активен', ['class' => 'label_form_present']) }}
 				{{ Form::checkbox('present', true, true, ['required']) }}
 			</div>
-			<div class="uni_display">
+			<div class="miniature">
+				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+			</div>
+			<div class="estate_blocks">
 				{{ Form::submit('Добавить', ['class' => 'btn admin_uni_button']) }}
 		{{ Form::close() }}
 			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}

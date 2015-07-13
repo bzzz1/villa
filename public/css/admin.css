@@ -1029,6 +1029,13 @@ footer {
 .district {
   margin-top: 0; }
 
+.miniature {
+  margin-bottom: 20px; }
+
+.change_article_img {
+  display: inline-block;
+  margin-left: 50px; }
+
 /* ADD_ARTICLE & CHANGE_ARTICLE */
 /* Articles & Change_article */
 /* Add_article have style in add_estate.scss */
