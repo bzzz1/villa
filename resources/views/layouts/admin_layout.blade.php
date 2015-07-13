@@ -15,16 +15,16 @@
 	
 	{{ HTML::style('css/admin.css') }}
 
+	{{ HTML::script('js/vendor/dropzone.js') }}
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
 
 	{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
 
-	{{ HTML::script('js/vendor/translit.js') }}
-	{{ HTML::script('js/vendor/dropzone.js') }}
 	{{ HTML::script('packages/ckeditor/ckeditor.js') }}
 	{{ HTML::script('packages/ckfinder/ckfinder.js') }}
+	{{ HTML::script('js/vendor/translit.js') }}
 	{{ HTML::script('js/vendor/jquery.scrollUp.min.js') }}
 
 

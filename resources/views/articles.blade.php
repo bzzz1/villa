@@ -19,7 +19,9 @@
 						</div>
 					@else 
 						<div class="block_img">
-							<img src="{{ url_path('articles')."/alien.png" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">		
+							<a href='{{l('article', [$article->title, $article->article_id])}}' >
+								<img src="{{ url_path('articles')."/alien.png" }}" alt="{{$article->title}}" class="admin_article_minimg article_image article_image">	
+							</a>	
 						</div>
 					@endif	
 				</div>

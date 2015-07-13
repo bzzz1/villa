@@ -5,6 +5,9 @@ use Request;
 use Session;
 use Town;
 use Image;
+use Validator;
+use Redirect;
+use Input;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
@@ -17,6 +20,11 @@ class EstateController extends Controller {
 	public function create_estate() {
 		$data = Request::all();
 		unset($data['_token']);
+	  	$file = array('preview' => Input::file('preview'));
+	    $destinationPath = 'img/photos/estates'; // upload path
+      	$extension = Input::file('preview')->getClientOriginalExtension();
+      	$fileName = rand(11111,99999).'.'.$extension; // renameing image
+      	Input::file('preview')->move($destinationPath, $fileName); 
 		$estate = Estate::create($data);
 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
 	}
@@ -105,7 +113,8 @@ class EstateController extends Controller {
 	public function update_estate() {
 		$data = Request::all();
 		unset($data['_token']);
-		$estate = Estate::find($data['estate_id'])->update($data);
+		$estate = Estate::find($data['estate_id']);
+		$estate->update($data);
 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
 	}
 
@@ -115,4 +124,14 @@ class EstateController extends Controller {
 		$estate->delete();
 		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
+
+	// public function upload() {
+	// 	$file = Input::file('file');
+	// 	$filename = $file->getClientOriginalName();
+	// 	$path = 'img/upload/estates/';
+	// 	return $file->move($path, $filename);
+ //   		$file = Input::file('file');
+ //   	 	$extension = File::extension($file->getClientOriginalName());
+ //    	$directory = 'img/photos/estates/'. Auth::user()->username;	
+	// }
 }

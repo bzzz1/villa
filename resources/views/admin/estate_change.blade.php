@@ -11,7 +11,8 @@
 		Изменить объект
 	</h1>
 	<div class="admin_main_content">
-		{{ Form::model($estate, ['url'=>l('change_estate'), 'class' => 'js_forms',  'method' => 'post']) }}
+		{{ Form::model($estate, ['url'=>l('update_estate'), 'class' => 'js_forms',  'method' => 'post']) }}
+			{{ Form::hidden('estate_id', $estate->estate_id) }}
 			<div class="main_block">
 				<div class="estate_blocks">
 					{{ Form::label('title', 'Название', ['class' => 'label_form fl label_estate_width']) }}
@@ -46,7 +47,7 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
+						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req" value="{{ $estate->yard_area }}">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
@@ -90,6 +91,10 @@
 			<div class="estate_present">
 				{{ Form::label('present', 'Активен', ['class' => 'label_form_present']) }}
 				{{ Form::checkbox('present', true, true, ['required']) }}
+			</div>
+			<div class="miniature">
+				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
 			</div>
 			<div class="uni_display">
 				{{ Form::submit('Изменить', ['class' => 'btn admin_uni_button']) }}
