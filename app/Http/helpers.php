@@ -35,6 +35,7 @@
 			'login'				=> 'admin/login',
 			'logging'			=> null,
 			'logout'			=> null,
+			'upload'			=> null,
 		];
 
 		return view($route_views[Route::currentRouteName()]);

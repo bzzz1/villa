@@ -92,6 +92,7 @@ $item_img_height: 225px;
 	.item_img {
 		max-width: $item_img_width;
 		max-height: $item_img_height;
+		min-height: 225px;
 		display: table;
 		margin: auto;
 	}
@@ -106,6 +107,7 @@ $item_img_height: 225px;
 		color: $main_blue;
 		font-size: 36px;
 		margin-left: 15px;
+		// max-width: 90%;
 		a {
 			color: inherit;
 			cursor: pointer;
