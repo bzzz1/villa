@@ -109,13 +109,15 @@
 			<h4 class="title_dropzone_form">
 				Добавление файлов 
 			</h4>
-			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone']) }}
+			{{-- <form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone"> --}}
 				<div class="dz-default dz-message" data-dz-message>
 					<p class="title_dropzone">						
 						Перетащите файлы или кликните для загрузки здесь.
 					</p>
 				</div>
-			</form>
+			{{-- </form> --}}
+			{{ Form::close() }}
 		</div>
 	</div>
 @stop
