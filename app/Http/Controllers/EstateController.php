@@ -116,7 +116,7 @@ class EstateController extends Controller {
 		}
 
  		Session::put('selected', $selected);
- 		return response()->json([]);
+ 		return response()->json(['selected']);
 	}
 
 	public function update_estate() {
@@ -132,7 +132,7 @@ class EstateController extends Controller {
 	     	$data['preview'] = $fileName;
 	     	$estate->update($data);
 			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");	
-	     	
+
       	}
       	else {
 	     	$data['preview'] = 'alien.png';
