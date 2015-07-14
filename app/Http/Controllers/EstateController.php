@@ -116,7 +116,7 @@ class EstateController extends Controller {
 		}
 
  		Session::put('selected', $selected);
- 		return response()->json([]);
+ 		return response()->json(['selected']);
 	}
 
 	public function update_estate() {
