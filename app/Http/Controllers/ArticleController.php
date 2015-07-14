@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Request;
 use Article;
+use Input;
 
 class ArticleController extends Controller {
 	public function add_article() {
@@ -57,12 +58,29 @@ class ArticleController extends Controller {
 	}
 
 	public function upload() {
+		$allowed = array('png', 'jpg', 'gif','zip');
+		$destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR; // upload path
+		if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0){
+
+			$extension = pathinfo($_FILES['upl']['name'], PATHINFO_EXTENSION);
+
+			if(!in_array(strtolower($extension), $allowed)){
+				echo '{"status":"error"}';
+				exit;
+			}
+
+			if(move_uploaded_file($_FILES['upl']['tmp_name'], $destinationPath.$_FILES['upl']['name'])){
+				echo '{"status":"success"}';
+				exit;
+			}
+		}
+
+		echo '{"status":"error"}';
+		exit;
 		$file = Input::file('file');
-		$destinationPath = 'upload';
-		// If the uploads fail due to file system, you can try doing public_path().'/uploads' 
-		$filename = str_random(12);
-		//$filename = $file->getClientOriginalName();
-		//$extension =$file->getClientOriginalExtension(); 
+		$destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'; // upload path
+		$extension = Input::file('file')->getClientOriginalExtension();
+		$fileName = rand(111111,999999).'.'.$extension; // renameing image
 		$upload_success = Input::file('file')->move($destinationPath, $filename);
 
 		if( $upload_success ) {

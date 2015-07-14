@@ -170,7 +170,7 @@ class EstateController extends Controller {
 		unset($data['_token']);
 		$file = Input::file('file');
 		$destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'; // upload path
-		$extension = Input::file('preview')->getClientOriginalExtension();
+		$extension = Input::file('file')->getClientOriginalExtension();
 		$fileName = rand(111111,999999).'.'.$extension; // renameing image
 		$upload_success = Input::file('file')->move($destinationPath, $filename);
 

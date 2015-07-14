@@ -13,7 +13,7 @@ Route::post('/ajax_select_estate/{estate_id}', 	['as'=>'ajax_select_estate','use
 Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 	'uses'=>'EstateController@change_estate', 'middleware'=>'auth'	]); // estate_change++
 Route::post('/admin/update_estate', 			['as'=>'update_estate', 	'uses'=>'EstateController@update_estate', 'middleware'=>'auth'	]); // redirect
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 	'uses'=>'EstateController@delete_estate', 'middleware'=>'auth'	]); // redirect->with
-Route::post('/admin/upload/', 					['as'=>'upload', 			'uses'=>'EstateController@upload'		                        ]); // upload
+
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::get('/admin/add_article',					['as'=>'add_article', 	 'uses'=>'ArticleController@add_article', 'middleware'=>'auth'		]); // redirect
