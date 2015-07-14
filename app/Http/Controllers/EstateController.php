@@ -163,7 +163,7 @@ class EstateController extends Controller {
 		// $file = Input::file('file');
 		// $extension = File::extension($file->getClientOriginalName());
 		// $directory = 'img/photos/estates/'. Auth::user()->username;	
-}
+	}
 
 
 			// $data = Request::all();
@@ -183,3 +183,4 @@ class EstateController extends Controller {
 			// 	$estate = Estate::create($data);
 			// 	return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");	
 	  //    	}
+}
