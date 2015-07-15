@@ -13,6 +13,7 @@ Route::post('/ajax_select_estate/{estate_id}', 	['as'=>'ajax_select_estate','use
 Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 	'uses'=>'EstateController@change_estate', 'middleware'=>'auth'	]); // estate_change++
 Route::post('/admin/update_estate', 			['as'=>'update_estate', 	'uses'=>'EstateController@update_estate', 'middleware'=>'auth'	]); // redirect
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 	'uses'=>'EstateController@delete_estate', 'middleware'=>'auth'	]); // redirect->with
+Route::post('/admin/upload/', 					['as'=>'upload', 			'uses'=>'EstateController@upload'								]); // upload (files)
 
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -24,7 +25,6 @@ Route::get('/articles/{article}/{article_id}', 		['as'=>'article', 		 'uses'=>'A
 Route::get('/admin/change_article/{article_id}', 	['as'=>'change_article', 'uses'=>'ArticleController@change_article', 'middleware'=>'auth'	]); // article_change (links)
 Route::post('/admin/update_article', 				['as'=>'update_article', 'uses'=>'ArticleController@update_article', 'middleware'=>'auth'	]); // redirect
 Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'uses'=>'ArticleController@delete_article', 'middleware'=>'auth'	]); // redirect->with
-Route::post('/admin/upload/', 						['as'=>'upload', 		 'uses'=>'ArticleController@upload'                          		]); // upload
 // TOWN
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/towns/create_town', 			['as'=>'create_town', 'uses'=>'TownController@create_town', 'middleware'=>'auth'	]); // popup
