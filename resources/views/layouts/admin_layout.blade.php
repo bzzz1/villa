@@ -15,14 +15,22 @@
 	
 	{{ HTML::style('css/admin.css') }}
 
-	{{ HTML::script('js/vendor/dropzone.js') }}
 	{{ HTML::script('js/vendor/jquery.min.js') }}
 	{{ HTML::script('js/vendor/bootstrap.min.js') }}
 	{{ HTML::script('js/vendor/jBox.min.js') }}
 	{{ HTML::script('https://maps.googleapis.com/maps/api/js?key=AIzaSyAPItNtZn6wxRNqm0wp1Eg6ujAsJy33tN0') }}
+	{{ HTML::script('js/vendor/dropzone.js') }}
+	
 
 
 	{{ HTML::script('js/vendor/jquery.nouislider.all.min.js') }}
+	
+	
+	{{ HTML::script('js/vendor/jquery.knob.js') }}
+
+	{{ HTML::script('js/vendor/jquery.ui.widget.js') }} 
+	{{ HTML::script('js/vendor/jquery.iframe-transport.js') }} 
+	{{ HTML::script('js/vendor/jquery.fileupload.js') }}
 
 	{{ HTML::script('packages/ckeditor/ckeditor.js') }}
 	{{ HTML::script('packages/ckfinder/ckfinder.js') }}

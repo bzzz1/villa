@@ -27,11 +27,11 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl">
 						{{ Form::label('commercial', 'Выбрать действие', ['class' => 'label_form fl width_label_uni']) }}
-						{{ Form::select('commercial', ['sale' => 'Купля', 'rent' => 'Аренда'], null, ['class' => 'input_form estate_select_width fr', 'required']) }}
+						{{ Form::select('commercial', ['sale' => 'Купля', 'rent' => 'Аренда'], null, ['class' => 'input_form estate_select_width fr']) }}
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('type', 'Тип недвижимости', ['class' => 'label_form label_class_form width_label_uni']) }}
-						{{ Form::select('type', ['flat' => 'Квартира', 'cottage' => 'Коттедж', 'parcel' => 'Земельный участок', 'commercial' => 'Коммерческая'], null, ['class' => 'input_form estate_select_width fr', 'required']) }}
+						{{ Form::select('type', ['flat' => 'Квартира', 'cottage' => 'Коттедж', 'parcel' => 'Земельный участок', 'commercial' => 'Коммерческая'], null, ['class' => 'input_form estate_select_width fr']) }}
 					</div>
 				</div>
 				<div class="js_period period_block">
@@ -43,21 +43,21 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_house_area">
 						<label for="house_area" name="house_area" class="label_form width_label_uni">Площадь помещения (м<sup>2</sup>)</label>
-						<input type="number" required id="house_area" name="house_area" class="input_form estate_select_width fr">
+						<input type="number" id="house_area" name="house_area" class="input_form estate_select_width fr">
 					</div>
 					<div class="estate_block_width fr js_rooms">
 						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form width_label_uni js_rooms']) }}
-						<input type="number" required id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr">
+						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
-					<div class="estate_block_width fl js_yard_area">
+					<div class="estate_block_width fl js_yard_area yard_block">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
+						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
-						<input type="number" required id="sea_dist" name="sea_dist" class=" input_form estate_select_width fr">
+						<input type="number" id="sea_dist" name="sea_dist" class=" input_form estate_select_width fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
@@ -104,18 +104,6 @@
 				{{ Form::submit('Добавить', ['class' => 'btn admin_uni_button']) }}
 		{{ Form::close() }}
 			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
-		</div>
-		<div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
-				<div class="dz-default dz-message" data-dz-message>
-					<p class="title_dropzone">						
-						Перетащите файлы или кликните для загрузки здесь.
-					</p>
-				</div>
-			</form>
 		</div>
 	</div>
 @stop
