@@ -109,11 +109,33 @@
 				<div id="drop">
 					Перетащите файлы сюда
 					<a>Выбрать</a>
-					<input type="file" name="upl" multiple />
+					<input type="file" name="image" multiple />
 				</div>
 				<ul>
 					<!-- The file uploads will be shown here -->
 				</ul>
+			{{ Form::close() }}
+		</div>
+		<div>
+			<h4 class="title_dropzone_form">
+				Добавление файлов 
+			</h4>
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone', 'files'=> true]) }}
+				<button type="submit" id="submit-all" class="btn btn-primary btn-xs">Upload the file</button>
+				<div class="dz-default dz-message" data-dz-message>
+ 					<p class="title_dropzone">
+ 						Перетащите файлы или кликните для загрузки здесь.
+ 					</p>
+ 				</div>
+				<input type="file" name="image" multiple="multiple" class="dz-hidden-input dz_input">
+			{{ Form::close() }}
+			<div>
+				<h4>
+					Добавление файлов для карусели
+				</h4>
+			</div>
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'files'=>true]) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
 			{{ Form::close() }}
 		</div>
 	</div>

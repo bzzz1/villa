@@ -1,25 +1,33 @@
 /* DROPZONE */
-// .dropzone_form_block {
-// 	min-height: 200px;
-// }
-// .title_dropzone {
-// 	text-align: center;
-//   	margin: 2em 0;
-//   	font-weight: bold;
-//   	font-size: 25px;
-//   	color: #646C7F;
-//   	cursor: pointer;
-// }
-// .form_dropzone {
-// 	border: 2px dashed #0087F7;
-//   	border-radius: 5px;
-// }
-// .title_dropzone_form {
-// 	margin: 20px 0 20px 0;
-// 	font-weight: bold;
-// 	color: #333;
-// 	font-size: 15px;
-// }
+.dropzone_form_block {
+	min-height: 200px;
+}
+.title_dropzone {
+	text-align: center;
+  	margin: 2em 0;
+  	font-weight: bold;
+  	font-size: 25px;
+  	color: #646C7F;
+  	cursor: pointer;
+}
+.form_dropzone {
+	border: 2px dashed #0087F7;
+  	border-radius: 5px;
+}
+.title_dropzone_form {
+	margin: 20px 0 20px 0;
+	font-weight: bold;
+	color: #333;
+	font-size: 15px;
+}
+.dz_input {
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 0px;
+	width: 0px;
+}
 #upload{
     font-family: 'PT Sans Narrow', sans-serif;
     background-color: #373a3d;

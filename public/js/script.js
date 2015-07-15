@@ -376,11 +376,7 @@ DependenciesAdmin = {
 				$('.js_period').slideDown();
 				$('.js_period').removeAttr('form');
 			}
-			if ('rent'==commercial) {
-				$('.js_period').css('display', 'block');
-			} else {
-				$('.js_period').css('display', 'none');
-			}
+
 		});
 
 		$('#type').on('change', function() {
@@ -401,7 +397,6 @@ DependenciesAdmin = {
 				$('.js_house_area').slideDown();
 				$('.js_rooms').slideDown();
 				$('.js_yard_area').removeAttr('form');
-				$('.js_yard_area input').removeAttr('required');
 				$('.js_rooms').removeAttr('form');
 				$('.js_house_area').removeAttr('form');
 			}

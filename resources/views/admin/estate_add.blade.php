@@ -37,7 +37,7 @@
 				<div class="js_period period_block">
 					<div class="period_form">
 						{{ Form::label('period', 'Период аренды', ['class' => 'label_form label_uni_marg width_label_uni']) }}
-						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width', 'required']) }}
+						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width js_period', 'required']) }}
 					</div>
 				</div>
 				<div class="estate_blocks">
@@ -53,7 +53,7 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area yard_block">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
+						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area js_yard_area_req">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
