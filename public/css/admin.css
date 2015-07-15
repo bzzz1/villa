@@ -1006,6 +1006,9 @@ footer {
 .period_block {
   display: none; }
 
+.yard_block {
+  display: none; }
+
 .period_form,
 .price_form {
   width: 34%;

@@ -392,6 +392,7 @@ DependenciesAdmin = {
 			else if ('parcel'==type) {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
+				$('.js_yard_area').show();
 				$('.js_house_area').attr('form', 'other');
 				$('.js_rooms').attr('form', 'other');
 			}
