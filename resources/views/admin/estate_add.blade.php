@@ -105,34 +105,5 @@
 		{{ Form::close() }}
 			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
 		</div>
-		<div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'id' => 'upload', 'files'=> true]) }}
-			{{-- <form id="upload" method="post" action="upload.php" enctype="multipart/form-data"> --}}
-				<div id="drop">
-					Перетащите файлы сюда
-					<a>Выбрать</a>
-					<input type="file" name="upl" multiple />
-				</div>
-
-				<ul>
-					<!-- The file uploads will be shown here -->
-				</ul>
-			{{ Form::close() }}
-			{{-- </form> --}}
-			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone', 'files'=> true]) }}
-				<button type="submit" id="submit-all" class="btn btn-primary btn-xs">Upload the file</button>
-				<div class="dz-default dz-message data-dz-message">
-					<p class="title_dropzone">						
-						Перетащите файлы или кликните для загрузки здесь.
-					</p>
-				</div>
-				<div class="fallback">
-					<input type="file" multiple="multiple" class="dz-hidden-input" style=" visibility: hidden; */ /* position: absolute; */ /* top: 0px; */ /* left: 0px; */ /* height: 0px; */ /* width: 0px; */">
-				</div>
-			{{ Form::close() }}
-		</div>
 	</div>
 @stop

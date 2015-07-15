@@ -11,7 +11,7 @@
 	</h1>
 	@include('partials/flash_messages')
 	<div class="admin_main_content">
-		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
+		{{ Form::open(['url'=>l('create_article'), 'method' => 'post', 'class' => 'js_forms', 'files'=> true]) }}
 			<div class="estate_blocks">
 				{{ Form::label('title', 'Название', ['class' => 'label_form fl']) }}
 				{{ Form::text('title', null, ['required', 'class' => 'input_form input_select_width fr']) }}
@@ -25,23 +25,14 @@
                 	CKFinder.setupCKEditor(editor, '/packages/ckfinder/');
            	 	</script>
 			</div>
+			<div class="miniature">
+				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+			</div>
 			<div class="button_display">
 				{{ Form::submit('Добавить', ['class'=>'btn admin_uni_button']) }}
 				{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
 			</div>
 		{{ Form::close() }}
-		<div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone', 'files'=> true]) }}
-			{{-- <form action="/upload" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone"> --}}
-				<div class="dz-default dz-message" data-dz-message>
-					<p class="title_dropzone">						
-						Перетащите файлы или кликните для загрузки здесь.
-					</p>
-				</div>
-			{{ Form::close() }}
-		</div>
 	</div>
 @stop

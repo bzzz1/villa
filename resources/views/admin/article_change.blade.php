@@ -11,7 +11,7 @@
 		Изменить новость
 	</h1>
 	<div class="admin_main_content">
-		{{ Form::model($article, ['url'=>l('update_article'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'js_forms']) }}
+		{{ Form::model($article, ['url'=>l('update_article'), 'method' => 'post', 'class' => 'js_forms', 'files'=> true]) }}
 			{{ Form::hidden('article_id', $article->article_id) }}
 			<div class="estate_blocks">
 				{{ Form::label('title', 'Название', ['class' => 'label_form fl label_estate_width']) }}
@@ -28,22 +28,14 @@
 						CKEDITOR.instances['description'].setData(data);
            	 	</script>
 			</div>
+			<div class="miniature">
+				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+			</div>
 			<div class="button_display">
 				{{ Form::submit('Изменить', ['class'=>'btn admin_uni_button']) }}
 				{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
 			</div>
 		{{ Form::close() }}
-		<div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
-				<div class="dz-default dz-message" data-dz-message>
-					<p class="title_dropzone">						
-						Перетащите файлы или кликните для загрузки здесь.
-					</p>
-				</div>
-			</form>
-		</div>
 	</div>
 @stop
