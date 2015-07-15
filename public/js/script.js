@@ -93,7 +93,9 @@ Filter = {
 		}
 	},
 	callback : function (data) {
-		google.maps.event.addDomListener(window, 'load', initialize);
+		if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+			google.maps.event.addDomListener(window, 'load', initialize);
+		};
 		Estate.process(data);
 		Favorites.run();
 		Filter.sending = false;
@@ -101,19 +103,21 @@ Filter = {
 	},
 }
 $(document).ready(Filter.send);
-$(document).ready(google.maps.event.addDomListener(window, 'load', initialize));
-
-var map;
-console.log(map+'__________1');
-function initialize() {
-	var mapOptions = {
-	  center: { lat: 44.652473, lng: 34.293766},
-	  zoom: 10
+if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+	$(document).ready(google.maps.event.addDomListener(window, 'load', initialize));
+};
+if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+	console.log('this is good route')
+	var map;
+	console.log(map+'__________1');
+	function initialize() {
+		var mapOptions = {
+		  center: { lat: 44.652473, lng: 34.293766},
+		  zoom: 10
+		};
+		map = new google.maps.Map(document.getElementById('js_map'), mapOptions);
+		console.log(map+'__________2');
 	};
-
-	map = new google.maps.Map(document.getElementById('js_map'), mapOptions);
-	console.log(map+'__________2');
-
 };
 
 Estate = {
@@ -208,8 +212,11 @@ Estate = {
 						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">посуточно</td></tr>';
 					} else if (estate.period == 'hourly') {
 						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">почасово</td></tr>';
-					} else if (estate.period == 'montly') {
+					} else if (estate.period == 'mounthly') {
 						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">помесячно</td></tr>';
+					} else if (estate.period == null) {
+						console.log('dfdsf');
+						estate_html += '<tr> \ <td>Тип сделки</td><td class="dep_period">купля</td></tr>';
 					};
 					if (estate.address != null) {
 						estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr>';
@@ -367,38 +374,43 @@ Dependencies = {
 
 DependenciesAdmin = {
 	run : function () {
+		if ( $('#commercial').val() =='sale') {
+			$('.js_period_form').attr('form', 'other');
+		};
+		if ( $('#type').val() == 'flat') {
+			$('.js_yard_area_form').attr('form', 'other');
+		};
 		$('#commercial').on('change', function() {
 			var commercial = $(this).val();
 			if ('sale'==commercial) {
 				$('.js_period').slideUp();
-				$('.js_period').attr('form', 'other');
+				$('.js_period_form').attr('form', 'other');
 			} else {
 				$('.js_period').slideDown();
-				$('.js_period').removeAttr('form');
+				$('.js_period_form').removeAttr('form');
 			}
-
 		});
 
 		$('#type').on('change', function() {
 			var type = $(this).val();
 			if ('flat'==type) {
 				$('.js_yard_area').hide();
-				$('.js_yard_area').attr('form', 'other');
+				$('.js_yard_area_form').attr('form', 'other');
 			}
 			else if ('parcel'==type) {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
 				$('.js_yard_area').show();
-				$('.js_house_area').attr('form', 'other');
+				$('.js_house_area_form').attr('form', 'other');
 				$('.js_rooms').attr('form', 'other');
 			}
 			else {
 				$('.js_yard_area').slideDown();
 				$('.js_house_area').slideDown();
 				$('.js_rooms').slideDown();
-				$('.js_yard_area').removeAttr('form');
+				$('.js_yard_area_form').removeAttr('form');
 				$('.js_rooms').removeAttr('form');
-				$('.js_house_area').removeAttr('form');
+				$('.js_house_area_form').removeAttr('form');
 			}
 		});
 	}

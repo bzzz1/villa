@@ -15,12 +15,16 @@
 				 data-trackpad="true"
 				 data-loop="true"
 				 >
-					@if(empty($images))
-					 	@foreach($images as $image)
+					@if(count($images) > 0)
+						@foreach($images as $image)
 							{{HTML::image('img/photos/estates/'.$image->image, $estate->title)}}
 						@endforeach
-					@else
-							{{HTML::image('img/photos/estates/alien.png')}}
+					@else 
+						@if(empty($estate->preview))
+							{{HTML::image('img/photos/estates/alien.png', '')}}
+						@else
+							{{HTML::image('img/photos/estates/'.$estate->preview, $estate->title)}}
+						@endif
 					@endif
 			</div>
 			<div class="map_container_small" id="map_one_elem">
