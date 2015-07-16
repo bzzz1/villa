@@ -1341,7 +1341,7 @@ body {
   display: none; }
   .favourite_btn_done:hover, .favourite_btn_done:focus, .favourite_btn_done.focus {
     color: #fff;
-    background: #535353;
+    background: #545454;
     border-color: #4e4e4e; }
 
 /*FOOTER*/
