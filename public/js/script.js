@@ -12,6 +12,9 @@ HTML = {
 
 		this.$price 		= $('.price');
 		this.$sea_dist 		= $('.sea_dist');
+
+		// google.maps.event.addDomListener(window, 'load', initialize);
+
 	}
 }
 
@@ -20,7 +23,16 @@ HTML.run();
 Filter = {
 	sending : false,
 	run : function () {
-		$('.js_filter_change').on('change', Filter.send); 
+		$('.js_filter_change').on('change', function () {
+			$('.js_load_more').show();
+			Filter.send;
+			$q = 0;
+		});
+		$('.js_filter_click').on('click', function () {
+			$q = 0;
+			$('.js_load_more').show();
+
+		});
 	},
 	collect : function () {
 		var $filters = $('.js_filters');
@@ -70,9 +82,10 @@ Filter = {
 		Filter.filters = filters;
 	},
 	send : function () {
+		// google.maps.event.addDomListener(window, 'load', initialize);
 		Filter.collect();
 		var filters = Filter.filters;
-		var url = URL_AJAX_ESTATES+'/'+filters+'?take=10&page=1&sort=title&order=asc';
+		var url = URL_AJAX_ESTATES+'/'+filters+'?take=100000000000&page=1&sort=title&order=asc';
 
 		if (false == Filter.sending) {
 			Filter.sending = true;
@@ -80,87 +93,178 @@ Filter = {
 		}
 	},
 	callback : function (data) {
+		if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+			google.maps.event.addDomListener(window, 'load', initialize);
+		};
 		Estate.process(data);
 		Favorites.run();
 		Filter.sending = false;
+
 	},
 }
+$(document).ready(Filter.send);
+if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+	$(document).ready(google.maps.event.addDomListener(window, 'load', initialize));
+};
+if (ROUTE == 'estates' || ROUTE == 'selected' ) {
+	console.log('this is good route')
+	var map;
+	console.log(map+'__________1');
+	function initialize() {
+		var mapOptions = {
+		  center: { lat: 44.652473, lng: 34.293766},
+		  zoom: 10
+		};
+		map = new google.maps.Map(document.getElementById('js_map'), mapOptions);
+		console.log(map+'__________2');
+	};
+};
 
 Estate = {
 	process : function (data) {
 		var estate_html = '';
 		var $catalog_blocks = $('.catalog_blocks');
 		$catalog_blocks.html('');
+		
+		$q = 0;
 
-		for (var i = 0; i < data.length; i++) {
-			var estate = data[i];
-			var src = URL_IMG+'/'+estate.image;
-			var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
-			var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
-			var href_delete = URL_ESTATE_ADMIN_DELETE+'/'+estate.estate_id;
-			estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
-			if (ROUTE == 'admin_estates') {
-				if (estate.image !== undefined) {
-					estate_html += 	'<a href="'+href_admin+'"> \
-									<img src = "'+'/'+src+'" alt="'+estate.title+'", class="item_img"> \
-								</a>';
+		// var map;
+		function load_estates (data) {
+			console.log('start_emenent___'+$q);
+
+			var image = '/img/layout/marker_b.png';
+			var markerArrey = [];
+			
+			for (var i = $q; i < $q + 3 ; i++) {
+				console.log(i);
+				if (i < data.length) {
+					var estate = data[i];
+					var src = URL_IMG+'/'+estate.preview;
+					var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
+					var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
+					var href_delete = URL_ESTATE_ADMIN_DELETE+'/%7Bestate_id%7D';
+					var csrf_token = $("input[name = '_token']").val();
+					estate_html += '<div class="one_item" data-id="'+estate.estate_id+'"> <div class="img">';
+					if (ROUTE == 'admin_estates') {
+						if (estate.preview !== '') {
+							estate_html += 	'<a href="'+href_admin+'"> \
+											<img src = "'+'/'+src+'" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						}
+						else  {
+							estate_html += 	'<a href="'+href_admin+'"> \
+											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						};
+					} else {
+						console.log(estate.preview)
+						if (estate.preview !== '') {
+							estate_html += 	'<a href="'+href+'"> \
+											<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						}
+						else  {
+							estate_html += 	'<a href="'+href+'"> \
+											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
+										</a>';
+						};
+						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_delete_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
+					};
+					estate_html += '</div>';
+					if (ROUTE == 'admin_estates') {
+						estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href_admin+'">'+estate.title+'</a></h2></div>';
+					} else {
+						estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div>';
+					};
+					estate_html +='<div class="short_descr"><div class="item_descr"> <table> <tbody>';
+					if (estate.house_area != null) {
+						estate_html += '<tr> <td>Площадь</td><td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr>';
+					};
+					if (estate.yard_area != null){
+							estate_html += '<tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr>'
+					}; 
+					if (estate.rooms != null){ 
+						estate_html += '<tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr>';
+					};
+					if (estate.sea_dist != null) {
+						estate_html += '<tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>';
+					};
+					if (estate.price != '0') {
+						estate_html += '<tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей </td>';
+					};
+					estate_html += '</tbody></table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> ';
+					if (estate.house_area != null) {
+						estate_html += '<tr> \ <td>Площадь</td><td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr>';
+					};
+					if (estate.yard_area != null){
+							estate_html += '<tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr>'
+					}; 
+					if (estate.rooms != null){ 
+						estate_html += '<tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr>';
+					};
+					if (estate.sea_dist != null) {
+						estate_html += '<tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>';
+					};
+					if (estate.price != '0') {
+						estate_html += '<tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей </td> </tr>';
+					}; 
+					if (estate.period == 'daily') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">посуточно</td></tr>';
+					} else if (estate.period == 'hourly') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">почасово</td></tr>';
+					} else if (estate.period == 'mounthly') {
+						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">помесячно</td></tr>';
+					} else if (estate.period == null) {
+						console.log('dfdsf');
+						estate_html += '<tr> \ <td>Тип сделки</td><td class="dep_period">купля</td></tr>';
+					};
+					if (estate.address != null) {
+						estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr>';
+					};
+					estate_html += '</tbody> \ </table>'; 
+					if (ROUTE == 'admin_estates') {
+						estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><form accept-charset="UTF-8" method="post" action="'+href_delete+'"data-id ="'+estate.estate_id+'"class="js_delete_form"><input type="hidden" name="_token" value="'+csrf_token+'"><input name="estate_id" type="hidden" value="'+estate.estate_id+'"><input type="submit" class="btn more_btn js_delete" data-confirm="Вы действительно хотите это сделать?" value="Удалить"></form> \ </div>';
+					} else {
+						estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
+					};
+					$catalog_blocks.html(estate_html);
+					var lat = estate.latitude;
+					var lng = estate.longitude;
+					var title = estate.title;
+					var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+					console.log(image);
+					var marker = new google.maps.Marker({
+						draggable:false,
+						animation: google.maps.Animation.DROP,
+					    position: latLng,
+					    // map: map,
+					    title: title,
+					    icon: image
+					});
+					markerArrey.push(marker);
+					console.log(markerArrey)
+
+					console.log(i+'_element')
+
+				} else {
+					$('.js_load_more').hide();
 				}
-				else  {
-					estate_html += 	'<a href="'+href_admin+'"> \
-									<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
-								</a>';
+			};
+			setTimeout(function () {
+				for (var j = 0; j < markerArrey.length; j++) {
+					markerArrey[j].setMap(map);
+					console.log(markerArrey[j])
 				};
-			} else {
-				if (estate.image !== undefined) {
-					estate_html += 	'<a href="'+href+'"> \
-									<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
-								</a>';
-				}
-				else  {
-					estate_html += 	'<a href="'+href+'"> \
-									<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
-								</a>';
-				};
-				estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
-			};
-			estate_html += '</div>';
-			if (ROUTE == 'admin_estates') {
-				estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href_admin+'">'+estate.title+'</a></h2></div>';
-			} else {
-				estate_html += '<div class="short_title"><h2 class="item_title"><a href="'+href+'">'+estate.title+'</a></h2></div>';
-			};
-			estate_html +='<div class="short_descr"><div class="item_descr"><table><tbody> <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr>\ <tr>\ <td>Стоимость</td>\ <td class="dep_price">'+estate.price+' рублей</td>\ </tr>\ </tbody>           \ </table> \ </div> \ <div class="item_descr full"> \ <table> \ <tbody> \ <tr> \ <td>Площадь</td> \ <td class="dep_house_area">'+estate.house_area+' м<sup>2</sup></td> \ </tr> \ <tr> \ <td>Площадь участка</td> \ <td class="dep_yard_area">'+estate.yard_area+' соток</td> \ </tr> \ <tr> \ <td>Количество комнат</td> \ <td class="dep_rooms">'+estate.rooms+'</td> \ </tr> \ <tr> \ <td>Удаленность от моря</td> \ <td class="dep_sea_dist">'+estate.sea_dist+' м.</td> \ </tr> \ <tr> \ <td>Стоимость</td> \ <td class="dep_price">'+estate.price+' рублей</td> \ </tr> \ <tr> \ <td>Тип аренды</td>';
-			if (estate.period == 'daily') {
-				estate_html += '<td class="dep_period">посуточно</td></tr>';
-			} else if (estate.period == 'hourly') {
-				estate_html += '<td class="dep_period">почасово</td></tr>';
-			} else if (estate.period == 'montly') {
-				estate_html += '<td class="dep_period">помесячно</td></tr>';
-			};
-			estate_html += '<tr> \ <td>Адрес</td> \ <td class="dep_address">'+estate.address+'</td> \ </tr> \ </tbody> \ </table>'; 
-			if (ROUTE == 'admin_estates') {
-				estate_html += '<a class="btn more_btn" href="'+href_admin+'">Изменить</a><a class="btn more_btn" href="'+href_delete+'">Удалить</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href_admin+'">Изменить</a><a class="btn more_btn" href="'+href_delete+'">Удалить</a> \ </div>';
-			} else {
-				estate_html += '<a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>	 \ </div> \ <a class="btn more_btn" href="'+href+'">Подробнее</a> \ </div>';
-			};
-			$catalog_blocks.html(estate_html);
-
-			// var dep = ['house_area', 'yard_area', 'rooms', 'price', 'adress', 'sea_dist', 'period' ];
-
-			for (field in estate) {
-				if (estate[field] == null) {
-					$('.dep_'+field).parent().hide();
-					console.log($('.dep_'+field).parent());
-				};
-			};
-			// for (var j = 0; j < dep.length; j++) {
-			// 	var elem = dep[j];
-			// 	if (estate[elem] == null) {
-			// 		$('.dep_'+elem).parent().hide();
-			// 	};
-			// }
-			// console.log(estate, elem);
+			}, 500)
+			console.log('map_to-array____'+map);
 		};
+
+		load_estates (data);
+
+		$('.js_load_more').on('click', function () {
+			$q = $q + 3;
+			load_estates (data);
+		});
 	}
 }
 
@@ -168,11 +272,20 @@ Favorites = {
 	run : function () {
 		$('.js_select').on('click', function() {
 			var estate_id = $(this).closest('.one_item').data('id');
+
+			console.log('id____'+estate_id);
 			var url = URL_AJAX_SELECT+'/'+estate_id;
+
+			console.log('url____'+url);
 			Help.ajax('POST', url, {}, function(){
-				$(this).parent().find('.js_select').show();
+				$(this).parent().find('.js_delete_select').show();
+			
+				console.log('parent____'+$(this).parent());
+
 				$(this).hide();
 			});
+			$current = $('.js_counter').text();
+			console.log('counteer____'+$current);
 		});
 	}
 }
@@ -261,19 +374,20 @@ Dependencies = {
 
 DependenciesAdmin = {
 	run : function () {
+		if ( $('#commercial').val() =='sale') {
+			$('.js_period_form').attr('form', 'other');
+		};
+		if ( $('#type').val() == 'flat') {
+			$('.js_yard_area_form').attr('form', 'other');
+		};
 		$('#commercial').on('change', function() {
 			var commercial = $(this).val();
 			if ('sale'==commercial) {
 				$('.js_period').slideUp();
-				$('.js_period').attr('form', 'other');
+				$('.js_period_form').attr('form', 'other');
 			} else {
 				$('.js_period').slideDown();
-				$('.js_period').removeAttr('form');
-			}
-			if ('rent'==commercial) {
-				$('.js_period').css('display', 'block');
-			} else {
-				$('.js_period').css('display', 'none');
+				$('.js_period_form').removeAttr('form');
 			}
 		});
 
@@ -281,22 +395,22 @@ DependenciesAdmin = {
 			var type = $(this).val();
 			if ('flat'==type) {
 				$('.js_yard_area').hide();
-				$('.js_yard_area').attr('form', 'other');
+				$('.js_yard_area_form').attr('form', 'other');
 			}
 			else if ('parcel'==type) {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
-				$('.js_house_area').attr('form', 'other');
+				$('.js_yard_area').show();
+				$('.js_house_area_form').attr('form', 'other');
 				$('.js_rooms').attr('form', 'other');
 			}
 			else {
 				$('.js_yard_area').slideDown();
 				$('.js_house_area').slideDown();
 				$('.js_rooms').slideDown();
-				$('.js_yard_area').removeAttr('form');
-				$('.js_yard_area input').removeAttr('required');
+				$('.js_yard_area_form').removeAttr('form');
 				$('.js_rooms').removeAttr('form');
-				$('.js_house_area').removeAttr('form');
+				$('.js_house_area_form').removeAttr('form');
 			}
 		});
 	}
@@ -358,15 +472,23 @@ Ranges = {
 }
 
 Map = {
+
 	run : function () {
+		$(document).ready(function () {
+			setTimeout(function () {
+				$('.js_map_canvas').hide();
+			}, 800)
+		});
+
 		$('.js_open_map').on('click', function(){
-			if ($('.js_map_canvas').css('display') == 'none') {
+			if ($('.js_map_canvas').css('display') === 'none') {
 				$('.js_map_canvas').slideDown(700);
 			}
 			else {
 				$('.js_map_canvas').slideUp(700);
 			};
 		});
+		
 	}
 }
 
@@ -442,34 +564,47 @@ if ('estates'==ROUTE || 'admin_estates'==ROUTE) {
 // ANIMATION
 
 // SHOW MORE FILTERS
-$('.js_show_filters').on('click', function () {
-	$('.js_second_line').animate({
+var $second_line = $('.js_second_line');
+var $show_btn = $('.js_show_filters');
+var $hide_btn = $('.js_hide_filters');
+function f_show () {
+	$second_line.animate({
 			'height':'138px',
 			'padding': 'auto 20px 20px 20px',
 			'easing': 'linear'
 		}, 1000);
-	$(this).animate({opacity:0}, 1003)
+	$show_btn.animate({opacity:0}, 1003)
 	    $('.js_hide_filters').animate({
 	    	'opacity':'1'
-	    }, 1003); 
-});
-$('.js_hide_filters').on('click', function () {
-	$('.js_second_line').animate({
+	    }, 1003);
+};
+function f_hide () {
+	$second_line.animate({
 			'height':'0px',
 			'padding': '0',
 			'easing': 'linear'
 		}, 1000);
-	$(this).animate({opacity:0}, 1003)
+	$hide_btn.animate({opacity:0}, 1003)
 	    $('.js_show_filters').animate({
 	    	'opacity':'1'
 	    }, 1003); 
+}
+$('.js_show_filters').on('click', function () {
+	f_show();
 });
-
-// LOAD MORE
-$('.js_load_more').on('click', function () {
-	$(this).hide();
-	$('.js_loader').show();
+$('.js_hide_filters').on('click', function () {
+	f_hide();
+});
+$('.js_select_type').on('change', function () {
+	if ($('.js_select_type').val() == 'parcel') {
+		f_hide();
+	};
 })
+// LOAD MORE
+// $('.js_load_more').on('click', function () {
+	// $(this).hide();
+	// $('.js_loader').show();
+// })
 
 // BUTTON UP
 $(function () {
@@ -489,4 +624,103 @@ $(function () {
         activeOverlay: false,        // Set CSS color to display scrollUp active point, e.g '#00FFFF'
         zIndex: 2147483647           // Z-Index for the overlay
     });
+});
+
+
+
+
+$(function(){
+
+    var ul = $('#upload ul');
+
+    $('#drop a').click(function(){
+        // Simulate a click on the file input button
+        // to show the file browser dialog
+        $(this).parent().find('input').click();
+    });
+
+    // Initialize the jQuery File Upload plugin
+    $('#upload').fileupload({
+
+        // This element will accept file drag/drop uploading
+        dropZone: $('#drop'),
+
+        // This function is called when a file is added to the queue;
+        // either via the browse button, or via drag/drop:
+        add: function (e, data) {
+
+            var tpl = $('<li class="working"><input type="text" value="0" data-width="48" data-height="48"'+
+                ' data-fgColor="#0788a5" data-readOnly="1" data-bgColor="#3e4043" /><p></p><span></span></li>');
+
+            // Append the file name and file size
+            tpl.find('p').text(data.files[0].name)
+                         .append('<i>' + formatFileSize(data.files[0].size) + '</i>');
+
+            // Add the HTML to the UL element
+            data.context = tpl.appendTo(ul);
+
+            // Initialize the knob plugin
+            tpl.find('input').knob();
+
+            // Listen for clicks on the cancel icon
+            tpl.find('span').click(function(){
+
+                if(tpl.hasClass('working')){
+                    jqXHR.abort();
+                }
+
+                tpl.fadeOut(function(){
+                    tpl.remove();
+                });
+
+            });
+
+            // Automatically upload the file once it is added to the queue
+            var jqXHR = data.submit();
+        },
+
+        progress: function(e, data){
+
+            // Calculate the completion percentage of the upload
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+
+            // Update the hidden input field and trigger a change
+            // so that the jQuery knob plugin knows to update the dial
+            data.context.find('input').val(progress).change();
+
+            if(progress == 100){
+                data.context.removeClass('working');
+            }
+        },
+
+        fail:function(e, data){
+            // Something has gone wrong!
+            data.context.addClass('error');
+        }
+
+    });
+
+
+    // Prevent the default action when a file is dropped on the window
+    $(document).on('drop dragover', function (e) {
+        e.preventDefault();
+    });
+
+    // Helper function that formats the file sizes
+    function formatFileSize(bytes) {
+        if (typeof bytes !== 'number') {
+            return '';
+        }
+
+        if (bytes >= 1000000000) {
+            return (bytes / 1000000000).toFixed(2) + ' GB';
+        }
+
+        if (bytes >= 1000000) {
+            return (bytes / 1000000).toFixed(2) + ' MB';
+        }
+
+        return (bytes / 1000).toFixed(2) + ' KB';
+    }
+
 });

@@ -1,4 +1,5 @@
 @section('body')
+	@include('partials/flash_messages')
 	@if (r() == 'estates')
 		<div class="main">
 			<div id="carousel_estate" class="carousel slide" data-ride="carousel">
@@ -57,8 +58,7 @@
 					<i class="fa fa-map-marker fa-2x"></i>
 					Посмотреть на карте
 				</a>
-				<div class="map_container js_map_canvas" id="js_map">
-					
+				<div class="map_container js_map_canvas" id="js_map"> 
 				</div>
 			</div>
 		</div>

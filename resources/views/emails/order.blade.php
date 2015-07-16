@@ -20,10 +20,10 @@
 	</tr>
 	<tr>
 		<td>Тема письма:</td>
-		<td>{{{$theme}}}</td>
+		<td>{{{$subject}}}</td>
 	</tr>
 	<tr>
 		<td>Текст:</td>
-		<td>{{{$body}}}</td>
+		<td>{{{$text_message}}}</td>
 	</tr>
 </table>

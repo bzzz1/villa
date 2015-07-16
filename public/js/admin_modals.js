@@ -75,19 +75,39 @@ PopupTownAdd = {
 	}
 }
 
+PopupFlashMessage = {
+	run : function() {
+		var flashModal = new jBox('Notice', {
+			constructOnInit: true,
+			animation: { 
+				open: 'tada', 
+				close: 'slide:bottom' 
+			},
+			attributes: {
+       	 		x: 'right',
+        		y: 'bottom'
+	   	 	},
+	   	 	stack: false,
+	    	content: $('#js_flash_message'),
+	    	closeOnEsc: true,
+	    	color: 'green',
+	    	autoClose: 2000
+		});
+	}
+}
+
 //---------------------------------------------------------//
 //---------------------------------------------------------//
 //---------------------------------------------------------//
 
-
+Clear.run();
 PopupDistrictModal.run();
 PopupConfirmModal.run();
 PopupDeleteModal.run();
 PopupAdminModal.run();
 PopupTownModal.run();
 PopupTownAdd.run();
-Clear.run();
-
+PopupFlashMessage.run();
 
 $form = $('#change_district_town form');
 link = $form.prop('action');

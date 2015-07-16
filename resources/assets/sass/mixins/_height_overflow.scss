@@ -22,7 +22,8 @@
 			z-index: 10;
 			background-color: $background;
 			height: auto;
-			width: auto;
+			// width: auto;
+			width: 100%;
 			max-height: initial;
 			&:before {
 				visibility: hidden;
@@ -37,7 +38,7 @@
 		z-index: 10;
 		background-color: $background;
 		height: auto;
-		width: auto;
+		width: 100%;
 		max-height: initial;
 		&:before {
 			visibility: hidden;

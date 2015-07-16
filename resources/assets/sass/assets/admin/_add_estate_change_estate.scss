@@ -1,5 +1,4 @@
 /* Add_Estate & Change_Estate */
-
 .display_block_width {
 	display: inline-block;
 	width: 61%;
@@ -36,7 +35,8 @@
 .estate_select_width {
 	width: 44%;
 }
-.period_block {
+.period_block,
+.yard_block {
 	display: none;
 }
 .period_form,
@@ -66,27 +66,10 @@
 .district {
 	margin-top: 0;
 }
-
-/* DROPZONE */
-
-.dropzone_form_block {
-	min-height: 200px;
+.miniature {
+	margin-bottom: 20px;
 }
-.title_dropzone {
-	text-align: center;
-  	margin: 1em 0;
-  	font-weight: bold;
-  	font-size: 25px;
-  	color: #646C7F;
-  	cursor: pointer;
-}
-.form_dropzone {
-	border: 2px dashed #0087F7;
-  	border-radius: 5px;
-}
-.title_dropzone_form {
-	margin: 20px 0 20px 0;
-	font-weight: bold;
-	color: #333;
-	font-size: 15px;
+.change_article_img {
+  display: inline-block;
+  margin-left: 50px;
 }

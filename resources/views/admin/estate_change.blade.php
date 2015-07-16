@@ -11,7 +11,8 @@
 		Изменить объект
 	</h1>
 	<div class="admin_main_content">
-		{{ Form::model($estate, ['url'=>l('change_estate'), 'class' => 'js_forms',  'method' => 'post']) }}
+		{{ Form::model($estate, ['url'=>l('update_estate'), 'class' => 'js_forms',  'method' => 'post', 'files'=> true]) }}
+			{{ Form::hidden('estate_id', $estate->estate_id) }}
 			<div class="main_block">
 				<div class="estate_blocks">
 					{{ Form::label('title', 'Название', ['class' => 'label_form fl label_estate_width']) }}
@@ -46,7 +47,7 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req" value="{{ $estate->yard_area }}">
+						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr" value="{{ $estate->yard_area }}">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
@@ -91,6 +92,10 @@
 				{{ Form::label('present', 'Активен', ['class' => 'label_form_present']) }}
 				{{ Form::checkbox('present', true, true, ['required']) }}
 			</div>
+			<div class="miniature">
+				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+			</div>
 			<div class="uni_display">
 				{{ Form::submit('Изменить', ['class' => 'btn admin_uni_button']) }}
 		{{ Form::close() }}
@@ -100,13 +105,38 @@
 			<h4 class="title_dropzone_form">
 				Добавление файлов 
 			</h4>
-			<form action="upload.php" class="dropzone dz-clickable form_dropzone dropzone_form_block" id="my-awesome-dropzone">
-				<div class="dz-default dz-message" data-dz-message>
-					<p class="title_dropzone">						
-						Перетащите файлы или кликните для загрузки здесь.
-					</p>
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'id' => 'upload', 'files'=> true]) }}
+				<div id="drop">
+					Перетащите файлы сюда
+					<a>Выбрать</a>
+					<input type="file" name="image" multiple />
 				</div>
-			</form>
+				<ul>
+					<!-- The file uploads will be shown here -->
+				</ul>
+			{{ Form::close() }}
+		</div>
+		<div>
+			<h4 class="title_dropzone_form">
+				Добавление файлов 
+			</h4>
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone', 'files'=> true]) }}
+				<button type="submit" id="submit-all" class="btn btn-primary btn-xs">Upload the file</button>
+				<div class="dz-default dz-message" data-dz-message>
+ 					<p class="title_dropzone">
+ 						Перетащите файлы или кликните для загрузки здесь.
+ 					</p>
+ 				</div>
+				<input type="file" name="image" multiple="multiple" class="dz-hidden-input dz_input">
+			{{ Form::close() }}
+			<div>
+				<h4>
+					Добавление файлов для карусели
+				</h4>
+			</div>
+			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'files'=>true]) }}
+				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+			{{ Form::close() }}
 		</div>
 	</div>
 @stop
