@@ -376,8 +376,12 @@ DependenciesAdmin = {
 	run : function () {
 		if ( $('#commercial').val() =='sale') {
 			$('.js_period_form').attr('form', 'other');
+		}; 
+		if ( $('#commercial').val() =='rent') {
+			$('.js_period').css('display', 'block');
+			$('.js_period_form').removeAttr('form', 'other');
 		};
-
+		
 		if ( $('#type').val() == 'flat') {
 			$('.js_yard_area_form').attr('form', 'other');
 		} 
@@ -396,6 +400,7 @@ DependenciesAdmin = {
 			$('.js_rooms_form').removeAttr('form');
 			$('.js_house_area_form').removeAttr('form');
 		};
+
 
 		$('#commercial').on('change', function() {
 			var commercial = $(this).val();
