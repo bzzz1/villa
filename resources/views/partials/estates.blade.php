@@ -18,8 +18,8 @@
 							{{ HTML::image('img/carousel/'.$name, "", ['class'=>'item_img']) }}
 							<div class="carousel-caption">
 								<div class="top_left">
-									<h1>Дома в аренду для Вас!</h1>
-									<h3>Огромный выбор недвижимости для Вашего комфорта.</h3>
+									<h1 class="title_carousel">Дома в аренду для Вас!</h1>
+									<h3 class="desc_carousel">Огромный выбор недвижимости для Вашего комфорта.</h3>
 								</div> 
 							</div>
 						</div>
