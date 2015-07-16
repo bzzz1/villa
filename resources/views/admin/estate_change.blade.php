@@ -37,21 +37,21 @@
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_house_area">
 						<label for="house_area" name="house_area" class="label_form width_label_uni">Площадь помещения (м<sup>2</sup>)</label>
-						<input type="number" required id="house_area" name="house_area" class="input_form estate_select_width fr" value="{{ $estate->house_area }}">
+						<input type="number" id="house_area" name="house_area" class="input_form estate_select_width fr" value="{{ $estate->house_area }}">
 					</div>
 					<div class="estate_block_width fr js_rooms">
 						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form width_label_uni js_rooms']) }}
-						<input type="number" required id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr" value="{{ $estate->rooms }}">
+						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr" value="{{ $estate->rooms }}">
 					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" required id="yard_area" name="yard_area" class="input_form estate_select_width fr" value="{{ $estate->yard_area }}">
+						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr" value="{{ $estate->yard_area }}">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
-						<input type="number" required id="sea_dist" name="sea_dist" class=" input_form estate_select_width fr" value="{{ $estate->sea_dist }}">
+						<input type="number" id="sea_dist" name="sea_dist" class=" input_form estate_select_width fr" value="{{ $estate->sea_dist }}">
 					</div>
 				</div>
 				<div class="estate_blocks">
