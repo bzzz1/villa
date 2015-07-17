@@ -8,12 +8,15 @@
 	display: table;
 	margin: auto;
 }
-.heading_date {
+.heading_title {
 	margin-top: 10px;
+}
+.article_date {
+	margin: 10px 0 10px 0;
+	overflow: hidden;
 }
 .date {
 	float: left;
-	margin-left: 40px;
 	font-size: 24px;
 	color: $main_black;
 	font-style: italic;
@@ -26,8 +29,13 @@
 	display: inline-block;
 	margin-bottom: 0;
 	text-transform: none;
-	float: left;
-	margin-left: 135px;
+	font-weight: bold;
+	// float: left;
+	// margin-left: 135px;
+	&:hover {
+		cursor: pointer;
+		text-decoration: underline;
+	}
 }
 .article {
 	width: $main_width;
@@ -37,7 +45,7 @@
 	font-size: 22px;
 	color: $main_black;
 	.to_all {
-		margin-top: 40px;
+		margin-top: 10px;
 		a {
 			color: $main_blue;
 			cursor: pointer;

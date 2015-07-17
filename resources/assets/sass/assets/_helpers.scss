@@ -63,4 +63,7 @@
 		float: left;
 	}
 }
-	
+.uni_display {
+	display: $display;
+	vertical-align: middle;
+}

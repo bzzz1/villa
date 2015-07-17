@@ -18,7 +18,7 @@ $item_img_height: 225px;
 		max-width: $item_img_width;
 		max-height: $item_img_height;
 		min-width: 320px;
-		min-height: $item_img_height;
+		// min-height: $item_img_height;
 		padding-left: 10px;
 		padding-right: 10px;
 		@include clearfix();
@@ -73,8 +73,8 @@ $item_img_height: 225px;
 	}
 }
 .block_img {
-	max-width: 300px;
-	max-height: 225px;
+	max-width: $item_img_width;
+	max-height: $item_img_height;
 	min-width: 300px;
-	min-height: 225px;
+	// min-height: 225px;
 }

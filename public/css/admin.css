@@ -71,6 +71,10 @@ body {
   .texts .left_text {
     float: left; }
 
+.uni_display {
+  display: inline-block;
+  vertical-align: middle; }
+
 .container_main {
   padding-top: 0;
   width: 75%;
