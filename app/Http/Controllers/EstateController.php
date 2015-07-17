@@ -140,24 +140,6 @@ class EstateController extends Controller {
      	}
 	}
 
-
-
-	// 	unset($data['_token']);
-	// 	$estate = Estate::find($data['estate_id']);
-	//   	$file = array('preview' => Input::file('preview'));
-	//   	if (!empty($file)) {    
- //      		$extension = Input::file('preview')->getClientOriginalExtension();
- //      		$fileName = rand(11111,99999).'.'.$extension; // renameing image
- //      		Input::file('preview')->move($destinationPath, $fileName); 
- //      		$estate = Estate::create($data);
-	// 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} добавлен успешно!");
- //      	}
- //      	else {
- //      		$estate->update($data);
-	// 		return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");
- //      	}
-	// }
-
 	public function delete_estate() {
 		$estate_id = Request::input('estate_id');
 		$estate = Estate::find($estate_id);
@@ -167,10 +149,11 @@ class EstateController extends Controller {
 
 
 	public function upload() {
-		$data = Request::all();
+		// $data = Request::all();
+		
 		unset($data['_token']);
 		$estate_id = Request::input('estate_id');
-		$estate = Estate::find($estate_id);
+		// $estate = Estate::find($estate_id);
 		$file = array('image' => Input::file('image'));
 	    $destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR; // upload path
      	if ($_FILES['image']['tmp_name']) {    
