@@ -377,7 +377,7 @@ DependenciesAdmin = {
 		if ( $('#commercial').val() =='sale') {
 			$('.js_period_form').attr('form', 'other');
 		};
-		if ( $('#type').val() == 'flat') {
+		if ( $('#type').val()) {
 			$('.js_yard_area_form').attr('form', 'other');
 		};
 		$('#commercial').on('change', function() {
@@ -401,7 +401,7 @@ DependenciesAdmin = {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
 				$('.js_yard_area').show();
-				$('.js_house_area_form').attr('form', 'other');
+				$('.js_yard_area_form').removeAttr('form');
 				$('.js_rooms').attr('form', 'other');
 			}
 			else {
