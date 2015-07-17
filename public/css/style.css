@@ -981,7 +981,7 @@ body {
     background-color: #fff;
     max-width: 300px;
     max-height: 225px;
-    min-width: 300px;
+    min-width: 320px;
     min-height: 225px;
     padding-left: 10px;
     padding-right: 10px; }
@@ -1047,7 +1047,7 @@ body {
     display: none; }
   .one_article .article_text .text_itself {
     min-height: 90px;
-    max-height: 90px;
+    max-height: 96px;
     overflow: hidden; }
   .one_article .article_text p {
     font-size: 21px;
@@ -1062,6 +1062,12 @@ body {
     top: 0px; }
     .one_article .article_text a:hover {
       color: #729521; }
+
+.block_img {
+  max-width: 300px;
+  max-height: 225px;
+  min-width: 300px;
+  min-height: 225px; }
 
 /*ARTICLE*/
 .article_page .full_green {
@@ -1363,6 +1369,14 @@ body {
     color: #fff;
     background: #535353;
     border-color: #4e4e4e; }
+
+.title_carousel {
+  font-size: 36px;
+  font-weight: bold; }
+
+.desc_carousel {
+  font-size: 24px;
+  font-weight: bold; }
 
 /*FOOTER*/
 .full_screen {

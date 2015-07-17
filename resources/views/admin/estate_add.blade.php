@@ -47,7 +47,7 @@
 					</div>
 					<div class="estate_block_width fr js_rooms">
 						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form width_label_uni js_rooms']) }}
-						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr">
+						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms_form fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
