@@ -64,10 +64,6 @@ body {
   .texts .left_text {
     float: left; }
 
-.uni_display {
-  display: inline-block;
-  vertical-align: middle; }
-
 .pagination_block {
   display: table;
   margin: auto; }
