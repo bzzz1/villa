@@ -108,8 +108,7 @@ body {
   visibility: hidden; }
 
 .uni_display {
-  display: inline-block;
-  vertical-align: middle; }
+  display: inline-block; }
 
 /* FLOATS */
 .fl {
@@ -1058,7 +1057,7 @@ footer {
     cursor: pointer; }
 
 .article_image {
-  max-width: 300px;
+  max-width: 100%;
   max-height: 225px; }
 
 .article_one_block {
@@ -1082,7 +1081,6 @@ footer {
   margin: auto; }
 
 .block_img {
-  background-color: #ececec;
   max-width: 300px;
   max-height: 225px;
   min-width: 300px;

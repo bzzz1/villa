@@ -15,8 +15,8 @@
   	}
 }
 .article_image {
-  	max-width: 300px;
-  	max-height: 225px;
+  	max-width: $item_img_width;
+  	max-height: $item_img_height;
 }
 .article_one_block {
 	width: 300px;
@@ -41,7 +41,6 @@
 	margin: auto;
 }
 .block_img {
-	background-color: $bg;
 	max-width: 300px;
 	max-height: 225px;
 	min-width: 300px;
