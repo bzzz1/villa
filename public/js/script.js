@@ -30,6 +30,7 @@ Filter = {
 		});
 		$('.js_filter_click').on('click', function () {
 			$q = 0;
+			Filter.send;
 			$('.js_load_more').show();
 
 		});
@@ -96,6 +97,21 @@ Filter = {
 		if (ROUTE == 'estates' || ROUTE == 'selected' ) {
 			google.maps.event.addDomListener(window, 'load', initialize);
 		};
+		// function supports_html5_storage() {
+		//   try {
+		//     //console.log('it WORKS');
+		//     return 'localStorage' in window && window['localStorage'] !== null;
+		// } catch (e) {
+		//     return false;
+		//   }
+		// };
+
+		// supports_html5_storage();
+		// data = JSON.stringify(data);
+		// localStorage.setItem('data', data)
+		// //console.log(localStorage);
+		// alert(data);
+		// return false;
 		Estate.process(data);
 		Favorites.run();
 		Filter.sending = false;
@@ -107,21 +123,22 @@ if (ROUTE == 'estates' || ROUTE == 'selected' ) {
 	$(document).ready(google.maps.event.addDomListener(window, 'load', initialize));
 };
 if (ROUTE == 'estates' || ROUTE == 'selected' ) {
-	console.log('this is good route')
+	//console.log('this is good route')
 	var map;
-	console.log(map+'__________1');
+	//console.log(map+'__________1');
 	function initialize() {
 		var mapOptions = {
 		  center: { lat: 44.652473, lng: 34.293766},
 		  zoom: 10
 		};
 		map = new google.maps.Map(document.getElementById('js_map'), mapOptions);
-		console.log(map+'__________2');
+		//console.log(map+'__________2');
 	};
 };
 
 Estate = {
 	process : function (data) {
+		console.log('blablabla');
 		var estate_html = '';
 		var $catalog_blocks = $('.catalog_blocks');
 		$catalog_blocks.html('');
@@ -130,13 +147,16 @@ Estate = {
 
 		// var map;
 		function load_estates (data) {
-			console.log('start_emenent___'+$q);
+			console.log(data);
+			// data = eval(localStorage.getItem('data'));
+			//console.log('start_emenent___'+$q);
+			//console.log(data);
 
 			var image = '/img/layout/marker_b.png';
 			var markerArrey = [];
 			
-			for (var i = $q; i < $q + 3 ; i++) {
-				console.log(i);
+			for (var i = $q; i < $q + 3; i++) {
+				//console.log(i);
 				if (i < data.length) {
 					var estate = data[i];
 					var src = URL_IMG+'/'+estate.preview;
@@ -157,7 +177,7 @@ Estate = {
 										</a>';
 						};
 					} else {
-						console.log(estate.preview)
+						//console.log(estate.preview)
 						if (estate.preview !== '') {
 							estate_html += 	'<a href="'+href+'"> \
 											<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
@@ -215,7 +235,7 @@ Estate = {
 					} else if (estate.period == 'mounthly') {
 						estate_html += '<tr> \ <td>Тип аренды</td><td class="dep_period">помесячно</td></tr>';
 					} else if (estate.period == null) {
-						console.log('dfdsf');
+						//console.log('dfdsf');
 						estate_html += '<tr> \ <td>Тип сделки</td><td class="dep_period">купля</td></tr>';
 					};
 					if (estate.address != null) {
@@ -232,7 +252,7 @@ Estate = {
 					var lng = estate.longitude;
 					var title = estate.title;
 					var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
-					console.log(image);
+					//console.log(image);
 					var marker = new google.maps.Marker({
 						draggable:false,
 						animation: google.maps.Animation.DROP,
@@ -242,9 +262,9 @@ Estate = {
 					    icon: image
 					});
 					markerArrey.push(marker);
-					console.log(markerArrey)
+					//console.log(markerArrey)
 
-					console.log(i+'_element')
+					//console.log(i+'_element')
 
 				} else {
 					$('.js_load_more').hide();
@@ -253,17 +273,19 @@ Estate = {
 			setTimeout(function () {
 				for (var j = 0; j < markerArrey.length; j++) {
 					markerArrey[j].setMap(map);
-					console.log(markerArrey[j])
+					//console.log(markerArrey[j])
 				};
 			}, 500)
-			console.log('map_to-array____'+map);
+			//console.log('map_to-array____'+map);
 		};
 
-		load_estates (data);
+		load_estates(data);
 
-		$('.js_load_more').on('click', function () {
+		$('.js_load_more').unbind('click').bind('click', function () {
 			$q = $q + 3;
-			load_estates (data);
+			// Filter.send;
+			console.log(data);
+			load_estates(data);
 		});
 	}
 }
@@ -273,19 +295,19 @@ Favorites = {
 		$('.js_select').on('click', function() {
 			var estate_id = $(this).closest('.one_item').data('id');
 
-			console.log('id____'+estate_id);
+			//console.log('id____'+estate_id);
 			var url = URL_AJAX_SELECT+'/'+estate_id;
 
-			console.log('url____'+url);
+			//console.log('url____'+url);
 			Help.ajax('POST', url, {}, function(){
 				$(this).parent().find('.js_delete_select').show();
 			
-				console.log('parent____'+$(this).parent());
+				//console.log('parent____'+$(this).parent());
 
 				$(this).hide();
 			});
 			$current = $('.js_counter').text();
-			console.log('counteer____'+$current);
+			//console.log('counteer____'+$current);
 		});
 	}
 }
@@ -556,9 +578,9 @@ Help = {
 			data: data,
 			success: callback,
 			error: function(data, error, error_details){
-				console.log("err:", error, error_details);
-				console.log(data);
-				console.log(data.responseText);
+				//console.log("err:", error, error_details);
+				//console.log(data);
+				//console.log(data.responseText);
 			}
 		});
 	}
