@@ -447,12 +447,12 @@ body {
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   text-transform: uppercase;
-  /* Для Firefox */
+  /* ╨Ф╨╗╤П Firefox */
   -ms-transform: rotate(270deg);
-  /* Для IE */
+  /* ╨Ф╨╗╤П IE */
   -webkit-transform: rotate(270deg);
-  /* Для Safari, Chrome, iOS */
-  /* Для Opera */
+  /* ╨Ф╨╗╤П Safari, Chrome, iOS */
+  /* ╨Ф╨╗╤П Opera */
   transform: rotate(270deg);
   position: fixed;
   left: -92px;
@@ -981,8 +981,7 @@ body {
     background-color: #fff;
     max-width: 300px;
     max-height: 225px;
-    min-width: 300px;
-    min-height: 225px;
+    min-width: 320px;
     padding-left: 10px;
     padding-right: 10px; }
     .one_article .articles_img:before, .one_article .articles_img:after {
@@ -1047,7 +1046,7 @@ body {
     display: none; }
   .one_article .article_text .text_itself {
     min-height: 90px;
-    max-height: 90px;
+    max-height: 96px;
     overflow: hidden; }
   .one_article .article_text p {
     font-size: 21px;
@@ -1063,6 +1062,11 @@ body {
     .one_article .article_text a:hover {
       color: #729521; }
 
+.block_img {
+  max-width: 300px;
+  max-height: 225px;
+  min-width: 300px; }
+
 /*ARTICLE*/
 .article_page .full_green {
   padding: 20px 0; }
@@ -1072,12 +1076,15 @@ body {
   display: table;
   margin: auto; }
 
-.heading_date {
+.heading_title {
   margin-top: 10px; }
+
+.article_date {
+  margin: 10px 0 10px 0;
+  overflow: hidden; }
 
 .date {
   float: left;
-  margin-left: 40px;
   font-size: 24px;
   color: #212121;
   font-style: italic;
@@ -1090,8 +1097,10 @@ body {
   display: inline-block;
   margin-bottom: 0;
   text-transform: none;
-  float: left;
-  margin-left: 135px; }
+  font-weight: bold; }
+  .article_main_title:hover {
+    cursor: pointer;
+    text-decoration: underline; }
 
 .article {
   width: 1203px;
@@ -1101,7 +1110,7 @@ body {
   font-size: 22px;
   color: #212121; }
   .article .to_all {
-    margin-top: 40px; }
+    margin-top: 10px; }
     .article .to_all a {
       color: #073559;
       cursor: pointer; }
@@ -1363,6 +1372,15 @@ body {
     color: #fff;
     background: #535353;
     border-color: #4e4e4e; }
+
+.title_carousel {
+  font-size: 36px;
+  font-weight: bold;
+  margin-top: 45px; }
+
+.desc_carousel {
+  font-size: 24px;
+  font-weight: bold; }
 
 /*FOOTER*/
 .full_screen {

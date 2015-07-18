@@ -17,8 +17,8 @@ $item_img_height: 225px;
 		background-color: #fff;
 		max-width: $item_img_width;
 		max-height: $item_img_height;
-		min-width: $item_img_width;
-		min-height: $item_img_height;
+		min-width: 320px;
+		// min-height: $item_img_height;
 		padding-left: 10px;
 		padding-right: 10px;
 		@include clearfix();
@@ -50,7 +50,7 @@ $item_img_height: 225px;
 		}
 		.text_itself {
 			min-height: 90px;
-			max-height: 90px;
+			max-height: 96px;
 			overflow: hidden;
 		}
 		p {
@@ -71,4 +71,10 @@ $item_img_height: 225px;
 
 		}
 	}
+}
+.block_img {
+	max-width: $item_img_width;
+	max-height: $item_img_height;
+	min-width: 300px;
+	// min-height: 225px;
 }

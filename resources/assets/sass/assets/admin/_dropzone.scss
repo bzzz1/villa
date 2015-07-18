@@ -1,26 +1,34 @@
 /* DROPZONE */
-// .dropzone_form_block {
-// 	min-height: 200px;
-// }
-// .title_dropzone {
-// 	text-align: center;
-//   	margin: 2em 0;
-//   	font-weight: bold;
-//   	font-size: 25px;
-//   	color: #646C7F;
-//   	cursor: pointer;
-// }
-// .form_dropzone {
-// 	border: 2px dashed #0087F7;
-//   	border-radius: 5px;
-// }
-// .title_dropzone_form {
-// 	margin: 20px 0 20px 0;
-// 	font-weight: bold;
-// 	color: #333;
-// 	font-size: 15px;
-// }
-#upload{
+.dropzone_form_block {
+	min-height: 200px;
+}
+.title_dropzone {
+	text-align: center;
+  	margin: 2em 0;
+  	font-weight: bold;
+  	font-size: 25px;
+  	color: #646C7F;
+  	cursor: pointer;
+}
+.form_dropzone {
+	border: 2px dashed #0087F7;
+  	border-radius: 5px;
+}
+.title_dropzone_form {
+	margin: 20px 0 20px 0;
+	font-weight: bold;
+	color: #333;
+	font-size: 15px;
+}
+.dz_input {
+	visibility: hidden;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 0px;
+	width: 0px;
+}
+#upload {
     font-family: 'PT Sans Narrow', sans-serif;
     background-color: #373a3d;
 
@@ -31,7 +39,7 @@
     border-radius: 3px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-#drop{
+#drop {
     background-color: #2E3134;
     padding: 40px 50px;
     margin-bottom: 30px;
@@ -61,7 +69,7 @@
 	}
 }
 #upload {
-	ul{
+	ul {
 	    list-style: none;
 	    margin: 0 -30px;
 	    border-top: 1px solid #2b2e31;
@@ -131,7 +139,7 @@
 	    cursor: pointer;
 	}
 } 
-#_download{
+#_download {
     opacity: 0.9;
     background-color: #257691;
     font-size: 11px;
@@ -156,7 +164,7 @@
     	opacity: 1;	
     }
 }
-#_actions{
+#_actions {
     position:absolute;
     top:0;
     width:500px;

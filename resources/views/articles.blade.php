@@ -34,7 +34,11 @@
 							{{$article->title}}
 						</a> 
 					</div>
-					<div class="text_itself"><p>{{$article->body}}</p></div>
+					<div class="text_itself">
+						<p>
+							{{$article->body}}
+						</p>
+					</div>
 					<a href="{{l('article', [$article->title, $article->article_id])}}" class="more">Подробнее <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>
 				</div>
 			</div>

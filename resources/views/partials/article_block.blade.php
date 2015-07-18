@@ -20,7 +20,7 @@
 			</a> 
 		</div> 	
 		<div class="admin_article_date">
-			{{$article->time}}&nbsp&nbsp&nbsp
+			{{str_limit($article->added_on, 10, '')}}&nbsp&nbsp&nbsp
 			<div class="uni_display">
 				<a href='{{URL::to("admin/change_article/$article->article_id")}}'>
 					<i class="fa fa-pencil change_article_icon description_icon"></i>

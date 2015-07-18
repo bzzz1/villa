@@ -2,8 +2,6 @@
 @extends('/partials/header')
 @extends('/partials/navbar')
 @extends('/partials/footer')
-@extends('partials/flash_messages')
-
 
 @section('body')
 	<div class="full_green">

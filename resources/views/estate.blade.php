@@ -4,7 +4,6 @@
 @extends('/partials/footer')
 
 @section('body')
-	@include('partials/flash_messages')
 	<div class="estate_block">
 		<div class="photos_map">
 			<div class="fotorama"

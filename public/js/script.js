@@ -375,22 +375,41 @@ Dependencies = {
 DependenciesAdmin = {
 	run : function () {
 		if ( $('#commercial').val() =='sale') {
-			console.log('AHAHAHA');
 			$('.js_period_form').attr('form', 'other');
+		}; 
+		if ( $('#commercial').val() =='rent') {
+			$('.js_period').css('display', 'block');
+			$('.js_period_form').removeAttr('form', 'other');
 		};
+		
+		if ( $('#type').val() == 'flat') {
+			$('.js_yard_area_form').attr('form', 'other');
+		} 
+		else if ( $('#type').val() == 'parcel') {
+			$('.js_house_area').hide();
+			$('.js_house_area_form').attr('form', 'other');
+			$('.js_rooms').hide();
+			$('.js_rooms_form').attr('form', 'other');
+			$('.js_yard_area').show();
+			$('.js_yard_area_form').removeAttr('form');
+		} else {
+			$('.js_yard_area').slideDown();
+			$('.js_house_area').slideDown();
+			$('.js_rooms').slideDown();
+			$('.js_yard_area_form').removeAttr('form');
+			$('.js_rooms_form').removeAttr('form');
+			$('.js_house_area_form').removeAttr('form');
+		};
+
+
 		$('#commercial').on('change', function() {
 			var commercial = $(this).val();
-			if ('sale'==commercial) {
+			if ('sale' == commercial) {
 				$('.js_period').slideUp();
 				$('.js_period_form').attr('form', 'other');
 			} else {
 				$('.js_period').slideDown();
 				$('.js_period_form').removeAttr('form');
-			}
-			if ('rent'==commercial) {
-				$('.js_period').css('display', 'block');
-			} else {
-				$('.js_period').css('display', 'none');
 			}
 		});
 
@@ -398,23 +417,24 @@ DependenciesAdmin = {
 			var type = $(this).val();
 			if ('flat'==type) {
 				$('.js_yard_area').hide();
-				$('.js_yard_area').attr('form', 'other');
+				$('.js_yard_area_form').attr('form', 'other');
 			}
 			else if ('parcel'==type) {
 				$('.js_house_area').hide();
 				$('.js_rooms').hide();
 				$('.js_yard_area').show();
-				$('.js_house_area').attr('form', 'other');
-				$('.js_rooms').attr('form', 'other');
+				$('.js_yard_area_form').removeAttr('form', 'other');
+				$('.js_house_area_form').removeAttr('form', 'other');
+				$('.js_rooms_form').attr('form', 'other');
+				$('.js_house_area_form').attr('form', 'other');
 			}
 			else {
 				$('.js_yard_area').slideDown();
 				$('.js_house_area').slideDown();
 				$('.js_rooms').slideDown();
-				$('.js_yard_area').removeAttr('form');
-				$('.js_yard_area input').removeAttr('required');
+				$('.js_yard_area_form').removeAttr('form');
+				$('.js_house_area_form').removeAttr('form');
 				$('.js_rooms').removeAttr('form');
-				$('.js_house_area').removeAttr('form');
 			}
 		});
 	}

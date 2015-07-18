@@ -37,23 +37,23 @@
 				<div class="js_period period_block">
 					<div class="period_form">
 						{{ Form::label('period', 'Период аренды', ['class' => 'label_form label_uni_marg width_label_uni']) }}
-						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width js_period_form', 'required']) }}
+						{{ Form::select('period', ['hourly' => 'Почасово', 'daily' => 'По дням', 'mounthly' => 'По месяцам'], null, ['class' => 'input_form estate_select_width js_period_form']) }}
 					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_house_area">
 						<label for="house_area" name="house_area" class="label_form width_label_uni">Площадь помещения (м<sup>2</sup>)</label>
-						<input type="number" id="house_area" name="house_area" class="input_form estate_select_width fr">
+						<input type="number" id="house_area" name="house_area" class="input_form estate_select_width fr js_house_area_form">
 					</div>
 					<div class="estate_block_width fr js_rooms">
 						{{ Form::label('rooms', 'Количество комнат', ['class' => 'label_form width_label_uni js_rooms']) }}
-						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms fr">
+						<input type="number" id="rooms" name="rooms" class="input_form estate_select_width js_rooms_form fr">
 					</div>
 				</div>
 				<div class="estate_blocks">
 					<div class="estate_block_width fl js_yard_area yard_block">
 						<label for="yard_area" name="yard_area" class="label_form width_label_uni">Площадь участка (соток)</label>
-						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_req">
+						<input type="number" id="yard_area" name="yard_area" class="input_form estate_select_width fr js_yard_area_form">
 					</div>
 					<div class="estate_block_width fr">
 						{{ Form::label('sea_dist', 'Удалённость от моря (м)', ['class' => 'label_form width_label_uni']) }}
