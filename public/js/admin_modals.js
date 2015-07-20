@@ -91,8 +91,16 @@ PopupFlashMessage = {
 	    	content: $('#js_flash_message'),
 	    	closeOnEsc: true,
 	    	color: 'green',
-	    	autoClose: 2000
+	    	autoClose: 5000,
+	    	addClass: 'shit'
 		});
+		if ( $('#js_flash_message').text() == '') {
+			var container = $('.shit').find('.jBox-container')
+			container.css({
+				'opacity' : 0
+			});
+
+		};
 	}
 }
 
