@@ -1,3 +1,33 @@
+// var getCookie = window.getCookie = function (name) {var matches = document.cookie.match(new RegExp("(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"));return matches ? decodeURIComponent(matches[1]) : undefined;};
+// var setCookie = window.setCookie = function (name, value, options) {options = options || {};var expires = options.expires;if (typeof expires == "number" && expires) {var d = new Date();d.setTime(d.getTime() + expires*1000);expires = options.expires = d;}if (expires && expires.toUTCString) { options.expires = expires.toUTCString();}value = encodeURIComponent(value);var updatedCookie = name + "=" + value;for(var propName in options) {updatedCookie += "; " + propName;var propValue = options[propName];    if (propValue !== true) { updatedCookie += "=" + propValue;}}document.cookie = updatedCookie;};
+function setCookie (name, value, expires, path, domain, secure) {
+    document.cookie = name + "=" + escape(value) +
+    ((expires) ? "; expires=" + expires : "") +
+    ((path) ? "; path=" + path : "") +
+    ((domain) ? "; domain=" + domain : "") +
+    ((secure) ? "; secure" : "");
+}
+
+function getCookie(name) {
+    var cookie = " " + document.cookie;
+    var search = " " + name + "=";
+    var setStr = null;
+    var offset = 0;
+    var end = 0;
+    if (cookie.length > 0) {
+        offset = cookie.indexOf(search);
+        if (offset != -1) {
+            offset += search.length;
+            end = cookie.indexOf(";", offset)
+            if (end == -1) {
+                end = cookie.length;
+            }
+            setStr = unescape(cookie.substring(offset, end));
+        }
+    }
+    return(setStr);
+}
+
 HTML = {
 	run : function() {
 		this.$yard_area_parent 	= $('.yard_area').parent();
@@ -88,8 +118,14 @@ Filter = {
 		var filters = Filter.filters;
 		var url = URL_AJAX_ESTATES+'/'+filters+'?take=100000000000&page=1&sort=title&order=asc';
 
+		if (ROUTE == 'selected') {
+			var url = '/ajax_selected';
+			console.log('THIS URL ' + url);
+//			Filter.callback( JSON.parse( getCookie('favorites') ) );
+		}
 		if (false == Filter.sending) {
 			Filter.sending = true;
+			console.log('url ' + url);
 			Help.ajax('GET', url, {}, Filter.callback);
 		}
 	},
@@ -97,6 +133,7 @@ Filter = {
 		if (ROUTE == 'estates' || ROUTE == 'selected' ) {
 			google.maps.event.addDomListener(window, 'load', initialize);
 		};
+		console.log(data);
 		// function supports_html5_storage() {
 		//   try {
 		//     //console.log('it WORKS');
@@ -142,21 +179,19 @@ Estate = {
 		var estate_html = '';
 		var $catalog_blocks = $('.catalog_blocks');
 		$catalog_blocks.html('');
+		var IdsArray =[];
 		
 		$q = 0;
 
 		// var map;
 		function load_estates (data) {
+			var checkCookieEx = getCookie('favorites');
 			console.log(data);
-			// data = eval(localStorage.getItem('data'));
-			//console.log('start_emenent___'+$q);
-			//console.log(data);
 
 			var image = '/img/layout/marker_b.png';
 			var markerArrey = [];
 			
 			for (var i = $q; i < $q + 3; i++) {
-				//console.log(i);
 				if (i < data.length) {
 					var estate = data[i];
 					var src = URL_IMG+'/'+estate.preview;
@@ -188,7 +223,8 @@ Estate = {
 											<img src="/img/photos/estates/alien.png" alt="'+estate.title+'", class="item_img"> \
 										</a>';
 						};
-						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_delete_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
+						estate_html += '<div class="add_to js_select"> <a> Добавить в избранные <i class="fa fa-heart-o fa-2x"></i></a></div><div class="added_to js_select"><a>Удалить из избранного<i class="fa fa-heart fa-2x"></i></a></div>';
+
 					};
 					estate_html += '</div>';
 					if (ROUTE == 'admin_estates') {
@@ -265,11 +301,42 @@ Estate = {
 					//console.log(markerArrey)
 
 					//console.log(i+'_element')
-
+					var ID = estate.estate_id;
+					IdsArray.push(ID);
 				} else {
 					$('.js_load_more').hide();
 				}
+				console.log(IdsArray);
 			};
+			function checkCookie () {
+				if (checkCookieEx) {
+	                console.log('checkCookieEx = '+ checkCookieEx);
+	                var jsonCheckCookieEx = JSON.parse(checkCookieEx);
+	                for (var i = 0; i < jsonCheckCookieEx.length; i++) {
+	                	var ID = jsonCheckCookieEx[i];
+	                	console.log(ID);
+	                	$('[data-id = '+ID+']').find('.add_to').hide();
+	                	$('[data-id = '+ID+']').find('.added_to').show();
+
+	                };
+	                // var jsonCheckCookie = JSON.parse(checkCookie);
+	                // console.log('jsonCheckCookie = '+jsonCheckCookie);
+	                // for (var f = 0; f < IdsArray.length; f++) {
+		               //  for (var x = 0; x < checkCookieEx.length; x++) {
+		               //  	if (checkCookieEx[x] === IdsArray[f]) {
+		               //  		// console.log(IdsArray[x]+'ID');
+		               //  		// console.log(IdsArray[x]+'In Cookie');
+
+		               //  		$('.add_to').hide();
+		               //  		$('.added_to').show();
+		               //  	} else {
+		               //  		console.log('shit');
+		               //  	}
+		               //  };
+	                // };
+				};
+			}
+			checkCookie();
 			setTimeout(function () {
 				for (var j = 0; j < markerArrey.length; j++) {
 					markerArrey[j].setMap(map);
@@ -283,31 +350,61 @@ Estate = {
 
 		$('.js_load_more').unbind('click').bind('click', function () {
 			$q = $q + 3;
-			// Filter.send;
 			console.log(data);
 			load_estates(data);
+			Favorites.run();
 		});
 	}
 }
-
+$(document).ready(function () {
+    var amountStart = getCookie('favorites').split(',').length;
+    console.log(amountStart);
+    $('.js_counter').text(amountStart);
+	
+})
 Favorites = {
 	run : function () {
 		$('.js_select').on('click', function() {
-			var estate_id = $(this).closest('.one_item').data('id');
-
-			//console.log('id____'+estate_id);
-			var url = URL_AJAX_SELECT+'/'+estate_id;
-
-			//console.log('url____'+url);
-			Help.ajax('POST', url, {}, function(){
-				$(this).parent().find('.js_delete_select').show();
-			
-				//console.log('parent____'+$(this).parent());
-
-				$(this).hide();
-			});
-			$current = $('.js_counter').text();
-			//console.log('counteer____'+$current);
+			console.log('started');
+            var newCookie = '',
+                removed = false,
+                estate_id = $(this).closest('.one_item').data('id'),
+                oldCookie = getCookie('favorites');
+            if (oldCookie) {
+                console.log('oldCookie = '+oldCookie);
+                var jsonCookie = JSON.parse(oldCookie);
+                if (jsonCookie.length > 0) {
+                	// for (var i = 0; i < jsonCookie.length; i++) {
+                		
+                	// };
+                    for (var i = 0; i < jsonCookie.length; i++) {
+                        console.log('if '+jsonCookie[i] +'!=='+ estate_id);
+                        if (jsonCookie[i] !== estate_id) {
+                            newCookie += (newCookie) ? ', ' : '' ;
+                            newCookie += jsonCookie[i];
+                            console.log(jsonCookie[i]+' ADDED');
+                            $(this).parent().find('.added_to').show();
+							$(this).hide();
+                        } else {
+                            console.log(jsonCookie[i]+' REMOVED');
+                            removed = true;
+                            $(this).parent().find('.add_to').show();
+							$(this).hide();
+                        }
+                    }
+                }
+            }
+            if (removed === false) {
+                newCookie += (newCookie) ? ', ' : '' ;
+                newCookie += estate_id;
+            }
+            setCookie('favorites', '['+newCookie+']', 'Mon, 01-Jan-5000 00:00:00 GMT', '/');
+            console.log('newCookie = '+newCookie);
+            // var counter = $('.js_counter').text();
+            var amount = newCookie.split(',').length;
+            // var amount = JSON.serialize(newCookie);
+            console.log(amount);
+            $('.js_counter').text(amount);
 		});
 	}
 }

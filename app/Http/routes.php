@@ -15,6 +15,8 @@ Route::post('/admin/update_estate', 			['as'=>'update_estate', 	'uses'=>'EstateC
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 	'uses'=>'EstateController@delete_estate', 'middleware'=>'auth'	]); // redirect->with
 Route::post('/admin/upload/', 					['as'=>'upload', 			'uses'=>'EstateController@upload'								]); // upload (files)
 
+Route::get('/ajax_selected', 				    ['as'=>'selected', 			'uses'=>'EstateController@ajax_selected'						]);
+
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::get('/admin/add_article',					['as'=>'add_article', 	 'uses'=>'ArticleController@add_article', 'middleware'=>'auth'		]); // redirect
@@ -29,7 +31,7 @@ Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'use
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/towns/create_town', 			['as'=>'create_town', 'uses'=>'TownController@create_town', 'middleware'=>'auth'	]); // popup
 Route::get('/admin/towns', 							['as'=>'admin_towns', 'uses'=>'TownController@admin_towns', 'middleware'=>'auth'	]); // towns
-Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'update_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
+Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'updafte_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
 Route::post('/admin/towns/delete_town/{town_id}', 	['as'=>'delete_town', 'uses'=>'TownController@delete_town', 'middleware'=>'auth'	]); // redirect->with
 
 // DISTRICT

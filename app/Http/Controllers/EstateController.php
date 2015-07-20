@@ -8,6 +8,7 @@ use Image;
 use Validator;
 use Redirect;
 use Input;
+use DB;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
@@ -52,7 +53,7 @@ class EstateController extends Controller {
 		$page = Request::input('page');
 		$sort = Request::input('sort');
 		$order = Request::input('order');
-		$skip = $take*($page-1);
+		$skip = $take * ($page-1);
 
 		// improve max and min for range filters
 		// if ('range' == get_filter_type($filter)) {}
@@ -67,13 +68,14 @@ class EstateController extends Controller {
 		// 	};
 		// };
 
+//		$users = DB::table('estates')->get();
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
-		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
+		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters)
 		$query = $query->orderBy($sort, $order);
 		$estates = $query->get();
-		// $estates = $query->skip($skip)->take($take)->get();
-		// $estates = $query->join('images', 'estates.estate_id', '=', 'images.estate_id')->get();
+		$estates = $query->skip($skip)->take($take)->get();
+		$estates = $query->join('images', 'estates.estate_id', '=', 'images.estate_id')->get();
 		return response()->json($estates);
 	}
 
@@ -90,16 +92,39 @@ class EstateController extends Controller {
 	}
 
 	public function selected() {
-		$selected = Session::get('selected');
-		if ($selected == null) {
-			$estates = ['a'=>'a'];
-		} else {
-			$estates = Estate::whereIn('estate_id', $selected)->get();
+		$selected = array();
+
+		$jsonFavoritesIds = $_COOKIE['favorites'];
+		$decodedFavoritesIds = json_decode($jsonFavoritesIds);
+		$ids = implode(', ', $decodedFavoritesIds);
+
+		$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+		foreach ($estates as $estate) {
+			$selected[] = $estate;
 		}
 
-		return v()->with(compact(array(
-			'estates',
-			'selected'))); 
+//		print_r($selected);
+//		$result = json_encode($result);
+		//print_r(compact(array('z')));
+		//return response()->json($result);
+//		return v()->with(compact('selected'));
+
+		return view('estates')->with(compact('selected'));
+	}
+
+	public function ajax_selected() {
+		$result = array();
+
+		$jsonFavoritesIds = $_COOKIE['favorites'];
+		$decodedFavoritesIds = json_decode($jsonFavoritesIds);
+		$ids = implode(', ', $decodedFavoritesIds);
+
+		$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+		foreach ($estates as $estate) {
+			$result[] = $estate;
+		}
+
+		return response()->json($result);
 	}
 
 	public function ajax_select_estate($estate_id) {
