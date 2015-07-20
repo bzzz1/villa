@@ -49,7 +49,9 @@ HTML = {
 }
 
 HTML.run();
-
+$(document).ready(function () {
+	$('.js_load_more').show();
+})
 Filter = {
 	sending : false,
 	run : function () {
@@ -121,7 +123,6 @@ Filter = {
 		if (ROUTE == 'selected') {
 			var url = '/ajax_selected';
 			console.log('THIS URL ' + url);
-//			Filter.callback( JSON.parse( getCookie('favorites') ) );
 		}
 		if (false == Filter.sending) {
 			Filter.sending = true;
@@ -191,10 +192,10 @@ Estate = {
 			var image = '/img/layout/marker_b.png';
 			var markerArrey = [];
 			
-			if (data.length < 5) {
+			if (data.length < 15) {
 				$('.js_load_more').hide();
 			}
-			for (var i = $q; i < $q + 5; i++) {
+			for (var i = $q; i < $q + 15; i++) {
 				if (i < data.length) {
 					var estate = data[i];
 					var src = URL_IMG+'/'+ estate.preview;
@@ -353,7 +354,7 @@ Estate = {
 		load_estates(data);
 
 		$('.js_load_more').unbind('click').bind('click', function () {
-			$q = $q + 5;
+			$q = $q + 15;
 			console.log(data);
 			load_estates(data);
 			Favorites.run();
