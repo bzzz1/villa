@@ -91,7 +91,7 @@ PopupFlashMessage = {
 	    	content: $('#js_flash_message'),
 	    	closeOnEsc: true,
 	    	color: 'green',
-	    	autoClose: 2000
+	    	autoClose: 10000
 		});
 	}
 }
