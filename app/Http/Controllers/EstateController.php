@@ -114,15 +114,20 @@ class EstateController extends Controller {
 
 	public function ajax_selected() {
 		$result = array();
-
+		
 		$jsonFavoritesIds = $_COOKIE['favorites'];
-		$decodedFavoritesIds = json_decode($jsonFavoritesIds);
-		$ids = implode(', ', $decodedFavoritesIds);
-
-		$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
-		foreach ($estates as $estate) {
-			$result[] = $estate;
+		if ($jsonFavoritesIds) {
+			$decodedFavoritesIds = json_decode($jsonFavoritesIds);
+			$ids = implode(', ', $decodedFavoritesIds);
+			$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+			foreach ($estates as $estate) {
+				$result[] = $estate;
+			}
+		} 
+		else {
+			$result = array();
 		}
+
 
 		return response()->json($result);
 	}

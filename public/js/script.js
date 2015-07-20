@@ -364,17 +364,26 @@ Estate = {
 
 
 $(document).ready(function () {
-		// if (ROUTE = 'estate') {
-		// 	OneEstate.run();
-		// };
-    var amountStart = getCookie('favorites').split(',').length;
-    console.log(amountStart);
-    $('.js_counter').text(amountStart);
+	if ( getCookie('favorites') ) {
+	    var amountStart = getCookie('favorites').split(',').length;
+	    console.log(amountStart);
+	    $('.js_counter').text(amountStart);
+    	$('.js_favorites').attr('onclick', 'return true');
+	} else {
+	    $('.js_counter').text('0');
+	    $('.js_favorites').attr('onclick', 'return false');
+
+	}
+    // console.log('for if '+ amountStart);
+    // if (amountStart == 0) {
+    	// $('.js_favorites').attr('onclick', 'return false');
+    // };
 	
 })
 Favorites = {
 	run : function () {
 		$('.js_select').on('click', function() {
+	    	$('.js_favorites').attr('onclick', 'return true');
 			console.log('started');
             var newCookie = '';
             var removed = false;
@@ -384,6 +393,7 @@ Favorites = {
 	            var estate_id = JSON.parse(oneEstateId);
             }
             var oldCookie = getCookie('favorites');
+            console.log('old_coockie ' + oldCookie)
             if (oldCookie) {
                 console.log('oldCookie = '+oldCookie);
                 var jsonCookie = JSON.parse(oldCookie);
@@ -411,14 +421,26 @@ Favorites = {
             if (removed === false) {
                 newCookie += (newCookie) ? ', ' : '' ;
                 newCookie += estate_id;
+                $(this).parent().find('.added_to').show();
+				$(this).hide();
             }
             setCookie('favorites', '['+newCookie+']', 'Mon, 01-Jan-5000 00:00:00 GMT', '/');
             console.log('newCookie = '+newCookie);
             // var counter = $('.js_counter').text();
-            var amount = newCookie.split(',').length;
+            // var amount = newCookie.split(',').length;
             // var amount = JSON.serialize(newCookie);
-            console.log(amount);
-            $('.js_counter').text(amount);
+            // console.log(amount);
+            // $('.js_counter').text(amount);
+        	if ( newCookie ) {
+        	    var amount = newCookie.split(',').length;;
+        	    console.log('amount ' + amount);
+        	    $('.js_counter').text(amount);
+            	$('.js_favorites').attr('onclick', 'return true');
+        	} else {
+        	    $('.js_counter').text('0');
+        	    $('.js_favorites').attr('onclick', 'return false');
+
+        	}
 		});
 	}
 }
