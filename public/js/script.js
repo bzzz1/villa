@@ -191,10 +191,13 @@ Estate = {
 			var image = '/img/layout/marker_b.png';
 			var markerArrey = [];
 			
-			for (var i = $q; i < $q + 3; i++) {
+			if (data.length < 5) {
+				$('.js_load_more').hide();
+			}
+			for (var i = $q; i < $q + 5; i++) {
 				if (i < data.length) {
 					var estate = data[i];
-					var src = URL_IMG+'/'+estate.preview;
+					var src = URL_IMG+'/'+ estate.preview;
 					var	href = URL_ESTATE+'/'+translit(estate.title)+'/'+estate.estate_id;
 					var href_admin = URL_ESTATE_ADMIN+'/'+estate.estate_id;
 					var href_delete = URL_ESTATE_ADMIN_DELETE+'/%7Bestate_id%7D';
@@ -203,7 +206,7 @@ Estate = {
 					if (ROUTE == 'admin_estates') {
 						if (estate.preview !== '') {
 							estate_html += 	'<a href="'+href_admin+'"> \
-											<img src = "'+'/'+src+'" alt="'+estate.title+'", class="item_img"> \
+											<img src = "'+src+'" alt="'+estate.title+'", class="item_img"> \
 										</a>';
 						}
 						else  {
@@ -343,20 +346,26 @@ Estate = {
 					//console.log(markerArrey[j])
 				};
 			}, 500)
+
 			//console.log('map_to-array____'+map);
 		};
 
 		load_estates(data);
 
 		$('.js_load_more').unbind('click').bind('click', function () {
-			$q = $q + 3;
+			$q = $q + 5;
 			console.log(data);
 			load_estates(data);
 			Favorites.run();
 		});
 	}
 }
+
+
 $(document).ready(function () {
+		// if (ROUTE = 'estate') {
+		// 	OneEstate.run();
+		// };
     var amountStart = getCookie('favorites').split(',').length;
     console.log(amountStart);
     $('.js_counter').text(amountStart);
@@ -366,10 +375,14 @@ Favorites = {
 	run : function () {
 		$('.js_select').on('click', function() {
 			console.log('started');
-            var newCookie = '',
-                removed = false,
-                estate_id = $(this).closest('.one_item').data('id'),
-                oldCookie = getCookie('favorites');
+            var newCookie = '';
+            var removed = false;
+            if (ROUTE !== 'estate') {
+	            var estate_id = $(this).closest('.one_item').data('id');
+            } else {
+	            var estate_id = JSON.parse(oneEstateId);
+            }
+            var oldCookie = getCookie('favorites');
             if (oldCookie) {
                 console.log('oldCookie = '+oldCookie);
                 var jsonCookie = JSON.parse(oldCookie);

@@ -73,3 +73,12 @@
   display: inline-block;
   margin-left: 50px;
 }
+.image_upload {
+	// margin-top: 50px;
+	float: right;
+	position: relative;
+	bottom: 118px;
+	.images_input {
+		margin-bottom: 19px;
+	}
+}

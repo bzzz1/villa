@@ -19,7 +19,9 @@ URL_ESTATE_ADMIN_DELETE = "{{ URL::to('/admin/delete_estate') }}"; // delete
 URL_AJAX_SELECT = "{{ URL::to('/ajax_select_estate') }}";
 
 URL_AJAX_ESTATES = "{{ l('ajax_estates') }}"; // full
-
+@if(r() == 'estate')
+	oneEstateId = <?php echo json_encode($estate->estate_id); ?>;
+@endif
 
 
 				
