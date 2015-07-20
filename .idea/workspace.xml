@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8cde494-a053-415a-9de9-9477f29d759c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_add_article_change_article.scssc" afterPath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_add_article_change_article.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_add_estate_change_estate.scssc" afterPath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_add_estate_change_estate.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_admin_helpers.scssc" afterPath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_admin_helpers.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_article.scssc" afterPath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_article.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_articles.scssc" afterPath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_articles.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_dropzone.scssc" afterPath="$PROJECT_DIR$/.sass-cache/5452aa9275b51811a473eeff70f1e0e8aff90824/_dropzone.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_estate.scssc" afterPath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_estate.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_helpers.scssc" afterPath="$PROJECT_DIR$/.sass-cache/038eb84784969a6ee51d5facbc74e5e70871b3a4/_helpers.scssc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.sass-cache/f8e1b659f9ed213ac1b6403e10b1cd36a7fecd02/_vendor-prefixes.scssc" afterPath="$PROJECT_DIR$/.sass-cache/f8e1b659f9ed213ac1b6403e10b1cd36a7fecd02/_vendor-prefixes.scssc" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/EstateController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/EstateController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/assets/admin/_admin_helpers.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/assets/admin/_admin_helpers.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/sass/mixins/_vendor-prefixes.scss" afterPath="$PROJECT_DIR$/resources/assets/sass/mixins/_vendor-prefixes.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/admin.css" afterPath="$PROJECT_DIR$/public/css/admin.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/estate.blade.php" afterPath="$PROJECT_DIR$/resources/views/estate.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/admin/estate_change.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/estate_change.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/estates.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/estates.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/js_globals.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/js_globals.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/layout.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" afterPath="$PROJECT_DIR$/resources/views/partials/navbar.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/script.js" afterPath="$PROJECT_DIR$/public/js/script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="villa.iws" />
@@ -49,13 +31,12 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EstateController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-19.375">
-              <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+              <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
               <folding>
                 <element signature="e#39#50#0#PHP" expanded="true" />
-                <marker date="1437396287000" expanded="true" signature="3112:3158" placeholder="SELECT * fro..." />
-                <marker date="1437396287000" expanded="true" signature="3112:3165" placeholder="SELECT * FRO..." />
-                <marker date="1437396287000" expanded="true" signature="3118:3158" placeholder="select * fro..." />
-                <marker date="1437396287000" expanded="true" signature="3699:3752" placeholder="SELECT * FRO..." />
+                <marker date="1437403636000" expanded="true" signature="3112:3158" placeholder="SELECT * fro..." />
+                <marker date="1437403636000" expanded="true" signature="3112:3165" placeholder="SELECT * FRO..." />
+                <marker date="1437403636000" expanded="true" signature="3118:3158" placeholder="select * fro..." />
               </folding>
             </state>
           </provider>
@@ -84,8 +65,8 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.46115288">
-              <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.53634083">
+              <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -518,21 +499,20 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EstateController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.375">
-          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <caret line="160" column="0" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
           <folding>
             <element signature="e#39#50#0#PHP" expanded="true" />
-            <marker date="1437396287000" expanded="true" signature="3112:3158" placeholder="SELECT * fro..." />
-            <marker date="1437396287000" expanded="true" signature="3112:3165" placeholder="SELECT * FRO..." />
-            <marker date="1437396287000" expanded="true" signature="3118:3158" placeholder="select * fro..." />
-            <marker date="1437396287000" expanded="true" signature="3699:3752" placeholder="SELECT * FRO..." />
+            <marker date="1437403636000" expanded="true" signature="3112:3158" placeholder="SELECT * fro..." />
+            <marker date="1437403636000" expanded="true" signature="3112:3165" placeholder="SELECT * FRO..." />
+            <marker date="1437403636000" expanded="true" signature="3118:3158" placeholder="select * fro..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46115288">
-          <caret line="133" column="4" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.53634083">
+          <caret line="140" column="4" selection-start-line="140" selection-start-column="4" selection-end-line="140" selection-end-column="4" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

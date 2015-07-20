@@ -32,7 +32,7 @@
 				<div class="counter">
 					<p class="text-center js_counter">0</p>
 					<span>в</span>
-					{{HTML::link('/selected/', 'избранных')}}
+					{{HTML::link('/selected/', 'избранных', ['class' => 'js_favorites'])}}
 				</div>
 			</div>
 		</div>
