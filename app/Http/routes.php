@@ -31,7 +31,7 @@ Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'use
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/towns/create_town', 			['as'=>'create_town', 'uses'=>'TownController@create_town', 'middleware'=>'auth'	]); // popup
 Route::get('/admin/towns', 							['as'=>'admin_towns', 'uses'=>'TownController@admin_towns', 'middleware'=>'auth'	]); // towns
-Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'updafte_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
+Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'update_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
 Route::post('/admin/towns/delete_town/{town_id}', 	['as'=>'delete_town', 'uses'=>'TownController@delete_town', 'middleware'=>'auth'	]); // redirect->with
 
 // DISTRICT
