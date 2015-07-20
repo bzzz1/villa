@@ -171,31 +171,7 @@ class EstateController extends Controller {
 		$estate->delete();
 		return redirect()->route('admin_estates')->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!");
 	}
-
-
-	public function upload() {
-		// $data = Request::all();
-		
-		unset($data['_token']);
-		$estate_id = Request::input('estate_id');
-		// $estate = Estate::find($estate_id);
-		$file = array('image' => Input::file('image'));
-	    $destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'upload'.DIRECTORY_SEPARATOR; // upload path
-     	if ($_FILES['image']['tmp_name']) {    
-	     	$extension = Input::file('image')->getClientOriginalExtension();
-	     	$fileName = rand(11111111111,9999999999).'.'.$extension; // renameing image
-	     	Input::file('image')->move($destinationPath, $fileName); 
-	     	$data['image'] = $fileName;
-	     	$image = Image::create($data);
-			return redirect()->back()->with('message', "Картинка загружина успешно!");	
-      	}
-      	else {
-	     	$data['image'] = 'alien.png';
-			$image = Image::create($data,$estate);
-			return redirect()->back()->with('message', "Картинка загружина успешно!");	
-     	}
-    }
-
+	
     public function mult_upload() {
 		$data = Request::all();
 		unset($data['_token']);
