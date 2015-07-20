@@ -8,6 +8,7 @@ use Image;
 use Validator;
 use Redirect;
 use Input;
+use DB;
 
 // refactor "Объект \"{$estate->title}\" #{$estate->estate_id} удален успешно!"
 
@@ -52,7 +53,7 @@ class EstateController extends Controller {
 		$page = Request::input('page');
 		$sort = Request::input('sort');
 		$order = Request::input('order');
-		$skip = $take*($page-1);
+		$skip = $take * ($page-1);
 
 		// improve max and min for range filters
 		// if ('range' == get_filter_type($filter)) {}
@@ -67,9 +68,10 @@ class EstateController extends Controller {
 		// 	};
 		// };
 
+//		$users = DB::table('estates')->get();
 
 		$query = Estate::joined(); // get Illuminate\Database\Eloquent\Builder
-		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters);
+		$query = apply_filters($query, $filters); // $query = Filter::apply($query, $filters)
 		$query = $query->orderBy($sort, $order);
 		$estates = $query->get();
 		// $estates = $query->skip($skip)->take($take)->get();
@@ -90,16 +92,39 @@ class EstateController extends Controller {
 	}
 
 	public function selected() {
-		$selected = Session::get('selected');
-		if ($selected == null) {
-			$estates = ['a'=>'a'];
-		} else {
-			$estates = Estate::whereIn('estate_id', $selected)->get();
+		$selected = array();
+
+		$jsonFavoritesIds = $_COOKIE['favorites'];
+		$decodedFavoritesIds = json_decode($jsonFavoritesIds);
+		$ids = implode(', ', $decodedFavoritesIds);
+
+		$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+		foreach ($estates as $estate) {
+			$selected[] = $estate;
 		}
 
-		return v()->with(compact(array(
-			'estates',
-			'selected'))); 
+//		print_r($selected);
+//		$result = json_encode($result);
+		//print_r(compact(array('z')));
+		//return response()->json($result);
+//		return v()->with(compact('selected'));
+
+		return view('estates')->with(compact('selected'));
+	}
+
+	public function ajax_selected() {
+		$result = array();
+
+		$jsonFavoritesIds = $_COOKIE['favorites'];
+		$decodedFavoritesIds = json_decode($jsonFavoritesIds);
+		$ids = implode(', ', $decodedFavoritesIds);
+
+		$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+		foreach ($estates as $estate) {
+			$result[] = $estate;
+		}
+
+		return response()->json($result);
 	}
 
 	public function ajax_select_estate($estate_id) {
@@ -169,6 +194,35 @@ class EstateController extends Controller {
 			$image = Image::create($data,$estate);
 			return redirect()->back()->with('message', "Картинка загружина успешно!");	
      	}
+    }
+
+    public function mult_upload() {
+		$data = Request::all();
+		unset($data['_token']);
+		$estate_id = Request::input('estate_id');
+	    $destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'.DIRECTORY_SEPARATOR; // upload path
+	    for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
+			
+			// $files = [];
+			$file = array('image' => ($_FILES['images']['name'][$i]));
+			// array_push($files, $file);
+		    if ($_FILES['images']['tmp_name']) {    
+		     	$extension = Input::file('images')[$i]->getClientOriginalExtension();
+		     	$fileName = rand(11111111111,9999999999).'.'.$extension; // renameing image
+		     	Input::file('images')[$i]->move($destinationPath, $fileName); 
+		     	$data['images'][$i] = $fileName;
+		     	$image = Image::create( ['image' => $data['images'][$i], 'estate_id' => $estate_id, 'preview' => 0]);
+		     	// print_r($image);
+		    }
+	      	else {
+		     	$data['image'][$i] = 'alien.png';
+		     	$image = Image::create( ['image' => $data['images'][$i], 'estate_id' => $estate_id, 'preview' => 0]);
+				// $image = Image::create($data, $estate);
+	     	}
+	    };
+		return redirect()->back()->with('message', "Картинка загружина успешно!");	
+		
+
     }
 
 	// 	$allowed = array('png', 'jpg', 'gif','zip');

@@ -15,6 +15,7 @@
 				 data-loop="true"
 				 >
 					@if(count($images) > 0)
+						{{HTML::image('img/photos/estates/'.$estate->preview, $estate->title)}}
 						@foreach($images as $image)
 							{{HTML::image('img/photos/estates/'.$image->image, $estate->title)}}
 						@endforeach
@@ -75,8 +76,8 @@
 			</div>
 		</div>
 		<div class="bottom">
-			<a class="btn favourite_btn">Добавить в избранные</a>
-			<a class="btn favourite_btn_done">Удалить из избранных</a>
+			<a class="btn favourite_btn js_select add_to">Добавить в избранные</a>
+			<a class="btn favourite_btn_done js_select added_to">Удалить из избранных</a>
 			<div class="call">
 				<p>Позвоните нам прямо сейчас</p>
 				<p class="phone_title">по телефону</p> 
@@ -90,7 +91,7 @@
 		var latLng = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
 		var image = '/img/layout/marker_b.png';
 		var title = "{{$estate->title}}"
-		console.log(image);
+		// console.log('just test' + lat);
 
 
 		function initialize() {
@@ -120,5 +121,6 @@
 			// marker.setMap(map)
 		};
 		google.maps.event.addDomListener(window, 'load', initialize);
+
 	</script>
 @stop

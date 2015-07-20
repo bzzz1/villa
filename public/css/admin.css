@@ -85,7 +85,8 @@ body {
   margin-bottom: 30px;
   background-color: #fff;
   box-shadow: 2px 3px 7px #757171;
-  padding: 25px 30px 30px 25px; }
+  padding: 25px 30px 30px 25px;
+  overflow: hidden; }
 
 .admin_uni_heading {
   font-size: 24px;
@@ -1040,6 +1041,13 @@ footer {
 .change_article_img {
   display: inline-block;
   margin-left: 50px; }
+
+.image_upload {
+  float: right;
+  position: relative;
+  bottom: 118px; }
+  .image_upload .images_input {
+    margin-bottom: 19px; }
 
 /* ADD_ARTICLE & CHANGE_ARTICLE */
 /* Articles & Change_article */

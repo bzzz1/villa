@@ -45,6 +45,9 @@
 			@yield('js')
 		</script> 
 		{{ HTML::script('js/script.js') }}
+		@if(r() == 'estate') 
+			{{ HTML::script('js/one_estate.js') }}
+		@endif
 		
 	</body>
 </html>

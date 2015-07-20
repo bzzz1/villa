@@ -13,7 +13,10 @@ Route::post('/ajax_select_estate/{estate_id}', 	['as'=>'ajax_select_estate','use
 Route::get('/admin/change_estate/{estate_id}', 	['as'=>'change_estate', 	'uses'=>'EstateController@change_estate', 'middleware'=>'auth'	]); // estate_change++
 Route::post('/admin/update_estate', 			['as'=>'update_estate', 	'uses'=>'EstateController@update_estate', 'middleware'=>'auth'	]); // redirect
 Route::post('/admin/delete_estate/{estate_id}', ['as'=>'delete_estate', 	'uses'=>'EstateController@delete_estate', 'middleware'=>'auth'	]); // redirect->with
-Route::post('/admin/upload/', 					['as'=>'upload', 			'uses'=>'EstateController@upload'								]); // upload (files)
+Route::post('/admin/upload/', 					['as'=>'upload', 			'uses'=>'EstateController@upload', 'middleware'=>'auth'			]); // upload (files)
+Route::post('/admin/mult_upload/', 				['as'=>'mult_upload', 		'uses'=>'EstateController@mult_upload', 'middleware'=>'auth'	]); // upload (files multiple)
+
+Route::get('/ajax_selected', 				    ['as'=>'selected', 			'uses'=>'EstateController@ajax_selected'						]);
 
 // ARTICLE
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -29,7 +32,7 @@ Route::post('/admin/delete_article/{article_id}', 	['as'=>'delete_article', 'use
 /*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 Route::post('/admin/towns/create_town', 			['as'=>'create_town', 'uses'=>'TownController@create_town', 'middleware'=>'auth'	]); // popup
 Route::get('/admin/towns', 							['as'=>'admin_towns', 'uses'=>'TownController@admin_towns', 'middleware'=>'auth'	]); // towns
-Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'update_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
+Route::post('/admin/towns/update_town/{town_id}', 	['as'=>'updafte_town', 'uses'=>'TownController@update_town', 'middleware'=>'auth'	]); // popup
 Route::post('/admin/towns/delete_town/{town_id}', 	['as'=>'delete_town', 'uses'=>'TownController@delete_town', 'middleware'=>'auth'	]); // redirect->with
 
 // DISTRICT

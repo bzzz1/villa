@@ -101,7 +101,7 @@
 		{{ Form::close() }}
 			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
 		</div>
-		<div>
+		{{-- <div>
 			<h4 class="title_dropzone_form">
 				Добавление файлов 
 			</h4>
@@ -115,8 +115,8 @@
 					<!-- The file uploads will be shown here -->
 				</ul>
 			{{ Form::close() }}
-		</div>
-		<div>
+		</div> --}}
+		{{-- <div>
 			<h4 class="title_dropzone_form">
 				Добавление файлов 
 			</h4>
@@ -142,6 +142,15 @@
 					</div>
 				{{ Form::close() }}
 			</div>
+		</div> --}}
+		<div class="image_upload">
+			{{ Form::model($estate, ['url'=>l('mult_upload'), 'class' => 'js_forms',  'method' => 'post', 'files'=> true]) }}
+				{{ Form::hidden('estate_id', $estate->estate_id) }}
+				{{ Form::label('images[]', 'Добавить фото для объекта (одно или несколько)', ['class'=>'label_form uni_display']) }}
+				{{ Form::file('images[]', ['class' => 'images_input', 'multiple', 'accept'=>'image']) }}
+				{{ Form::submit('Загрузить', ['class' => 'btn admin_uni_button']) }}
+			{{ Form::close() }}
+			
 		</div>
 	</div>
 @stop
