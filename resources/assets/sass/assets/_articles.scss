@@ -19,8 +19,8 @@ $item_img_height: 225px;
 		max-height: $item_img_height;
 		min-width: 320px;
 		// min-height: $item_img_height;
-		padding-left: 10px;
-		padding-right: 10px;
+		// padding-left: 10px;
+		// padding-right: 10px;
 		@include clearfix();
 		img {
 			display: table;

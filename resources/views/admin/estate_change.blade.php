@@ -95,54 +95,14 @@
 			<div class="miniature">
 				{{ Form::label('preview', 'Добавить миниатюру для объекта', ['class'=>'label_form uni_display']) }}
 				{{ Form::file('preview', null, 'multiple', ['class'=>'uni_display']) }}
+				{{ Form::hidden('old_img', $estate->preview) }}
+
 			</div>
 			<div class="uni_display">
 				{{ Form::submit('Изменить', ['class' => 'btn admin_uni_button']) }}
 		{{ Form::close() }}
 			{{ Form::button('Очистить', ['class' => 'btn admin_uni_button js_button_clear']) }}
 		</div>
-		{{-- <div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'id' => 'upload', 'files'=> true]) }}
-				<div id="drop">
-					Перетащите файлы сюда
-					<a>Выбрать</a>
-					<input type="file" name="image" multiple />
-				</div>
-				<ul>
-					<!-- The file uploads will be shown here -->
-				</ul>
-			{{ Form::close() }}
-		</div> --}}
-		{{-- <div>
-			<h4 class="title_dropzone_form">
-				Добавление файлов 
-			</h4>
-			{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'class' => 'dropzone dz-clickable form_dropzone dropzone_form_block', 'id' => 'my-awesome-dropzone', 'files'=> true]) }}
-				<button type="submit" id="submit-all" class="btn btn-primary btn-xs">Upload the file</button>
-				<div class="dz-default dz-message" data-dz-message>
- 					<p class="title_dropzone">
- 						Перетащите файлы или кликните для загрузки здесь.
- 					</p>
- 				</div>
-				<input type="file" name="image" multiple="multiple" class="dz-hidden-input dz_input">
-			{{ Form::close() }}
-			<div>
-				<h4 class="title_dropzone_form">
-					Добавление файлов для карусели
-				</h4>
-				{{ Form::open(['url'=>l('upload'), 'method'=>'post', 'files'=>true]) }}
-					<div class="uni_display">
-						{{ Form::file('image', null, 'multiple') }}
-					</div>
-					<div class="uni_display">
-						{{ Form::submit('Загрузить', ['class' => 'btn admin_uni_button']) }}
-					</div>
-				{{ Form::close() }}
-			</div>
-		</div> --}}
 		<div class="image_upload">
 			{{ Form::model($estate, ['url'=>l('mult_upload'), 'class' => 'js_forms',  'method' => 'post', 'files'=> true]) }}
 				{{ Form::hidden('estate_id', $estate->estate_id) }}

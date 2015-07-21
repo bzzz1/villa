@@ -152,8 +152,10 @@ class EstateController extends Controller {
 	public function update_estate() {
 		$data = Request::all();
 		unset($data['_token']);
+		unset($data['old_img']);
 		$estate = Estate::find($data['estate_id']);
 	 	$file = array('preview' => Input::file('preview'));
+	 	$old_img = Input::get('old_img');
 	    $destinationPath =  public_path().DIRECTORY_SEPARATOR.'img'.DIRECTORY_SEPARATOR.'photos'.DIRECTORY_SEPARATOR.'estates'; // upload path
      	if ($_FILES['preview']['tmp_name']) {    
 	     	$extension = Input::file('preview')->getClientOriginalExtension();
@@ -164,7 +166,12 @@ class EstateController extends Controller {
 			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");	
       	}
       	else {
-	     	$data['preview'] = 'alien.png';
+      		if ($old_img !== 'alien.png') {
+	     		$data['preview'] = $old_img;
+	     	}
+	     	else {
+		     	$data['preview'] = 'alien.png';
+	     	}
 			$estate->update($data);
 			return redirect()->back()->with('message', "Объект \"{$estate->title}\" #{$estate->estate_id} изменен успешно!");	
      	}

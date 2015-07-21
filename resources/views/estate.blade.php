@@ -3,6 +3,12 @@
 @extends('/partials/navbar')
 @extends('/partials/footer')
 
+@section('meta')
+	<title>Крым-Вилла - {{ $estate->title }}</title>
+	<meta name='keywords' content='{{ $estate->title }} в Крыму, аренда недвижимости в Крыму.'>
+	<meta name='description' content='{{ $estate->title }}. {{ $estate->description }}'>
+@stop
+
 @section('body')
 	<div class="estate_block">
 		<div class="photos_map">
@@ -13,6 +19,8 @@
 				 data-swipe="true"
 				 data-trackpad="true"
 				 data-loop="true"
+				 data-width="100%"
+			     data-ratio="800/600"
 				 >
 					@if(count($images) > 0)
 						{{HTML::image('img/photos/estates/'.$estate->preview, $estate->title)}}

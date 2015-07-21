@@ -2,6 +2,8 @@
 @extends('/partials/header')
 @extends('/partials/navbar')
 @extends('/partials/footer')
+@include('/partials/initial_meta')
+
 
 @section('body')
 	<div class="how_to">

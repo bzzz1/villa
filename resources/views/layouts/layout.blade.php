@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=1200'>
-		
+
+		@yield('meta')
+
 		<link rel="shortcut icon" href="{{ asset('img/layout/favicon.ico') }}">
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,700,100,300&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
 

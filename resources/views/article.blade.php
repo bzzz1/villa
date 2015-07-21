@@ -3,6 +3,12 @@
 @extends('/partials/navbar')
 @extends('/partials/footer')
 
+@section('meta')
+	<title>Крым-Вилла - {{ $article->title }}</title>
+	<meta name='keywords' content='{{ $article->title }} - Крым-Вилла'>
+	<meta name='description' content='{{ $article->title }}  - Крым-Вилла'>
+@stop
+
 @section('body')
 	<div class="article_page">
 		<div class="full_green">

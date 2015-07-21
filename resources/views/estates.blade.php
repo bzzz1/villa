@@ -3,3 +3,4 @@
 @extends('/partials/navbar')
 @extends('/partials/footer')
 @extends('/partials/estates')
+@include('/partials/initial_meta')

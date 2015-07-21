@@ -3,6 +3,8 @@
 @extends('/partials/navbar')
 @extends('/partials/footer')
 @extends('partials/flash_messages')
+@include('/partials/initial_meta')
+
 
 
 @section('body')

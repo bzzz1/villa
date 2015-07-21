@@ -981,9 +981,7 @@ body {
     background-color: #fff;
     max-width: 300px;
     max-height: 225px;
-    min-width: 320px;
-    padding-left: 10px;
-    padding-right: 10px; }
+    min-width: 320px; }
     .one_article .articles_img:before, .one_article .articles_img:after {
       content: " ";
       display: table; }
