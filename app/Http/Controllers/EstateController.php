@@ -119,7 +119,7 @@ class EstateController extends Controller {
 		if ($jsonFavoritesIds) {
 			$decodedFavoritesIds = json_decode($jsonFavoritesIds);
 			$ids = implode(', ', $decodedFavoritesIds);
-			$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ({$ids});");
+			$estates = DB::select("SELECT * FROM `estates` WHERE `estate_id` IN ( {$ids} );");
 			foreach ($estates as $estate) {
 				$result[] = $estate;
 			}
