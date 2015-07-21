@@ -538,6 +538,7 @@ DependenciesAdmin = {
 		};
 		
 		if ( $('#type').val() == 'flat') {
+			$('.js_yard_area').hide();
 			$('.js_yard_area_form').attr('form', 'other');
 		} 
 		else if ( $('#type').val() == 'parcel') {
